@@ -1,0 +1,134 @@
+# ls
+alias la="ls -a"
+alias lf="ls -F"
+alias ll="ls -l"
+alias lg="ls | grep "
+
+# process
+# alias j="jobs -l"
+alias 'ps?'='pgrep -l -f'
+alias pk='pkill -f'
+
+# du/df
+alias du="du -h"
+alias df="df -h"
+alias duh="du -h ./ --max-depth=1"
+
+# su
+alias su="su -l"
+
+# vim
+alias 'src'='exec zsh'
+alias -g V="| vim -"
+alias macvim='open -a "MacVim"'
+
+# grep
+alias 'gr'='grep --color=auto -ERUIn'
+
+#make
+alias 'm'='make'
+alias 'mn'='make native-code'
+alias 'mc'='make clean'
+
+# tmux
+alias tm='tmux'
+alias tma='tmux attach'
+alias tml='tmux list-window'
+alias lst='tmux ls'
+alias tls='tmux ls'
+
+#tmuxhere () {
+#    CURRENTDIR=$(basename `pwd`)
+#    tmux new -s $CURRENTDIR
+#}
+
+
+alias pon='predict-on'
+alias poff='predict-off'
+alias p='ping -c 4'
+
+#alias ls='ls -al'
+alias cp='nocorrect cp -irp'
+alias refe='nocorrect refe'
+
+# git
+alias g='git'
+alias gi='git'
+alias gs='git status'
+alias gc='git commit'
+alias gci='git commit -a'
+
+##alias java='nocorrect java'
+##alias cp='nocorrect cp -irp'
+##alias erl='nocorrect erl'
+##alias sbcl='nocorrect sbcl'
+##alias gosh='nocorrect gosh'
+##alias node='nocorrect node'
+##alias hg='nocorrect hg --encoding=utf-8'
+
+### scala
+##alias scala='scala -deprecation -unchecked -explaintypes'
+##alias scc='scalac -deprecation -unchecked -explaintypes'
+##alias sci='scala -deprecation -unchecked -explaintypes -cp $SCALA_CLASSPATH -i ~/import.scala'
+##alias sce='scala'
+
+# extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
+extract () {
+  if [ -f $1 ] ; then
+      case $1 in
+          *.tar.bz2)   tar xvjf $1    ;;
+          *.tar.gz)    tar xvzf $1    ;;
+          *.tar.xz)    tar xvJf $1    ;;
+          *.bz2)       bunzip2 $1     ;;
+          *.rar)       unrar x $1     ;;
+          *.gz)        gunzip $1      ;;
+          *.tar)       tar xvf $1     ;;
+          *.tbz2)      tar xvjf $1    ;;
+          *.tgz)       tar xvzf $1    ;;
+          *.zip)       unzip $1       ;;
+          *.Z)         uncompress $1  ;;
+          *.7z)        7z x $1        ;;
+          *.lzma)      lzma -dv $1    ;;
+          *.xz)        xz -dv $1      ;;
+          *)           echo "don't know how to extract '$1'..." ;;
+      esac
+  else
+      echo "'$1' is not a valid file!"
+  fi
+}
+alias ex='extract'
+
+alias ev='vi ~/dotfiles/.vimrc*'
+
+
+
+##auto jump setting
+#alias j="autojump"
+#if [ -f `brew --prefix`/etc/autojump ]; then
+#      . `brew --prefix`/etc/autojump
+#fi
+
+[[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
+
+
+#auto directory jumper
+jj () {
+  if [ $1 ]; then
+      JUMPDIR=$(ls | grep $1 | tail -1)
+      if [ $JUMPDIR ]; then
+          cd $JUMPDIR
+      fi
+  fi
+}
+
+jjv () {
+  if [ $1 ]; then
+      JUMPDIR=$(ls | grep $1 | tail -1)
+      if [ $JUMPDIR ]; then
+          echo $JUMPDIR
+      fi
+  fi
+}
+
+#ssh config
+alias sshconfig='vim ~/.ssh/config'

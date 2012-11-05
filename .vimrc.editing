@@ -1,0 +1,59 @@
+"-------------------------------------------------------------------------------
+" 編集関連 Edit
+"-------------------------------------------------------------------------------
+
+" insertモードを抜けるとIMEオフ
+set noimdisable
+set iminsert=0 imsearch=0
+set noimcmdline
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
+" yeでそのカーソル位置にある単語をレジスタに追加
+nmap ye ;let @"=expand("<cword>")<CR>
+" Visualモードでのpで選択範囲をレジスタの内容に置き換える
+vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+
+" Tabキーを空白に変換
+set expandtab
+
+" コンマの後に自動的にスペースを挿入
+inoremap , ,<Space>
+" XMLの閉タグを自動挿入
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+augroup END
+
+" :Ptでインデントモード切替
+command! Pt :set paste!
+
+" 保存時に行末の空白を除去する
+autocmd BufWritePre * :%s/\s\+$//ge
+" 保存時にtabをスペースに変換する
+autocmd BufWritePre * :%s/\t/  /ge
+
+" 日時の自動入力
+inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
+inoremap <expr> ,dd strftime('%Y/%m/%d')
+inoremap <expr> ,dt strftime('%H:%M:%S')
+
+" <leader>j でJSONをformat
+" http://wozozo.hatenablog.com/entry/2012/02/08/121504
+map <Leader>j !python -m json.tool<CR>
+
+" quickfixウィンドウではq/ESCで閉じる
+autocmd FileType qf nnoremap <buffer> q :ccl<CR>
+autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
+
+" cwでquickfixウィンドウの表示をtoggleするようにした
+function! s:toggle_qf_window()
+  for bufnr in range(1,  winnr('$'))
+    if getwinvar(bufnr,  '&buftype') ==# 'quickfix'
+      execute 'ccl'
+      return
+    endif
+  endfor
+  execute 'botright cw'
+endfunction
+nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
+

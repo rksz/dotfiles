@@ -1,0 +1,74 @@
+"-------------------------------------------------------------------------------
+" 移動設定 Move
+"-------------------------------------------------------------------------------
+
+" カーソルを表示行で移動する。論理行移動は<C-n>,<C-p>
+nnoremap h <Left>
+nnoremap j gj
+nnoremap k gk
+nnoremap l <Right>
+nnoremap <Down> gj
+nnoremap <Up>   gk
+
+"<space>系の移動
+nnoremap <Space>h ^
+nnoremap <Space>l $
+nnoremap <Space>j <C-f>
+nnoremap <Space>k <C-b>
+
+" F2で前のバッファ
+map <F2> <ESC>;bp<CR>
+" F3で次のバッファ
+map <F3> <ESC>;bn<CR>
+" F4でバッファを削除する
+map <F4> <ESC>:bnext \| bdelete #<CR>
+command! Bw :bnext \| bdelete #
+
+" 前回終了したカーソル行に移動
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+" 最後に編集された位置に移動
+nnoremap gb '[
+nnoremap gp ']
+
+" 対応する括弧に移動
+nnoremap ( %
+nnoremap ) %
+
+" 最後に変更されたテキストを選択する
+nnoremap gc  `[v`]
+vnoremap gc <C-u>normal gc<Enter>
+onoremap gc <C-u>normal gc<Enter>
+
+" カーソル位置の単語をyankする
+nnoremap vy vawy
+
+" 矩形選択で自由に移動する
+set virtualedit+=block
+
+"ビジュアルモード時vで行末まで選択
+vnoremap v $h
+
+" CTRL-hjklでウィンドウ移動
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+function! s:do_git_diff_aware_gf(command)
+  let target_path = expand('<cfile>')
+  if target_path =~# '^[ab]/'  " with a peculiar prefix of git-diff(1)?
+    if filereadable(target_path) || isdirectory(target_path)
+      return a:command
+    else
+      " BUGS: Side effect - Cursor position is changed.
+      let [_, c] = searchpos('\f\+', 'cenW')
+      return c . '|' . 'v' . (len(target_path) - 2 - 1) . 'h' . a:command
+    endif
+  else
+    return a:command
+  endif
+endfunction
+
+" insert mode でjjでesc
+inoremap jj <Esc>

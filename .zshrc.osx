@@ -1,0 +1,26 @@
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:~/bin:$PATH
+
+# osx alias
+#alias pbc='pbcopy'
+
+# Terminal Colorの設定
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+## vim
+#export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+#alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+#alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+
+# Mysql
+# export MYSQL_HOME=/usr/local/mysql
+# export PATH=$MYSQL_HOME/bin:$PATH
+# alias h2db='java -cp ~/.m2/repository/com/h2database/h2/1.1.112/h2-1.1.112.jar org.h2.tools.Server'
+#
+
+# Ruby
+eval "$(rbenv init - zsh)"
+# GNU cp
+# required: brew install coreutils
+alias cp="nocorrect gcp -i"
