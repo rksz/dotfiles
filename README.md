@@ -10,7 +10,7 @@ Requirements for the lib to work are:
 
 ```bash
 $ cd $HOME
-$ git clone [https://github.com/rksz/dotfiles.git](https://github.com/rksz/dotfiles.git)
+$ git clone https://github.com/rksz/dotfiles.git
 $ dotfiles/setup.sh
 ```
 
