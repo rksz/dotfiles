@@ -1,12 +1,13 @@
 ## Requirements
-Requirements for the lib to work are:
 
+Requirements for the lib to work are:
 * zsh
 * Recent tmux version
+* vim >= 7.2
 * `bash --version` >= 4.0
 * A patched font. Follow instructions at [Lokaltog/vim-powerline/fontpatcher](https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher).
 
-## Install
+## Installation
 
 ```bash
 $ cd $HOME
