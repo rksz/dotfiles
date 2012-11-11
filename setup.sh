@@ -7,9 +7,7 @@ do
     ln -s $HOME/dotfiles/$file $HOME/$file
 done
 
-
 git submodule update --init
 
-
 # final step:
-# vim login -> :BundleInstall
+echo "Run vim & :BundleInstall"
