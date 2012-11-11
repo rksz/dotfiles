@@ -9,12 +9,12 @@ Requirements for the lib to work are:
 
 ## Installation
 
+Run following commands.
 ```bash
 $ cd $HOME
 $ git clone https://github.com/rksz/dotfiles.git
 $ dotfiles/setup.sh
 ```
-
 
 ## Credit
 This dotfiles was based on [yuroyoro/dotfiles](https://github.com/yuroyoro/dotfiles). Thank you!
