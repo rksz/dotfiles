@@ -37,12 +37,7 @@ alias tml='tmux list-window'
 alias lst='tmux ls'
 alias tls='tmux ls'
 
-#tmuxhere () {
-#    CURRENTDIR=$(basename `pwd`)
-#    tmux new -s $CURRENTDIR
-#}
-
-# dir-jump
+# dirjump
 alias up='cd ..'
 alias upp='cd ../..'
 alias uppp='cd ../../..'
@@ -61,20 +56,6 @@ alias gi='git'
 alias gs='git status'
 alias gc='git commit'
 alias gci='git commit -a'
-
-##alias java='nocorrect java'
-##alias cp='nocorrect cp -irp'
-##alias erl='nocorrect erl'
-##alias sbcl='nocorrect sbcl'
-##alias gosh='nocorrect gosh'
-##alias node='nocorrect node'
-##alias hg='nocorrect hg --encoding=utf-8'
-
-### scala
-##alias scala='scala -deprecation -unchecked -explaintypes'
-##alias scc='scalac -deprecation -unchecked -explaintypes'
-##alias sci='scala -deprecation -unchecked -explaintypes -cp $SCALA_CLASSPATH -i ~/import.scala'
-##alias sce='scala'
 
 # extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
 extract () {
@@ -105,13 +86,7 @@ alias ex='extract'
 alias ev='vi ~/dotfiles/.vimrc*'
 
 
-
 ##auto jump setting
-#alias j="autojump"
-#if [ -f `brew --prefix`/etc/autojump ]; then
-#      . `brew --prefix`/etc/autojump
-#fi
-
 [[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
 
 
