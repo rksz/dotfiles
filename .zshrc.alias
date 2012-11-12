@@ -42,6 +42,10 @@ alias tls='tmux ls'
 #    tmux new -s $CURRENTDIR
 #}
 
+# dir-jump
+alias up='cd ..'
+alias upp='cd ../..'
+alias uppp='cd ../../..'
 
 alias pon='predict-on'
 alias poff='predict-off'
