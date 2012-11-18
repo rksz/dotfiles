@@ -38,9 +38,9 @@ alias lst='tmux ls'
 alias tls='tmux ls'
 
 # dirjump
-alias up='cd ..'
-alias upp='cd ../..'
-alias uppp='cd ../../..'
+alias up='cd ..; ll'
+alias upp='cd ../..; ll'
+alias uppp='cd ../../..; ll'
 
 alias pon='predict-on'
 alias poff='predict-off'
