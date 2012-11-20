@@ -251,4 +251,4 @@ esac
 
 
 #path settings
-PATH=${HOME}/commands:$PATH
+PATH=${HOME}/commands/firetools:$PATH
