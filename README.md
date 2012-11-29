@@ -17,4 +17,5 @@ $ dotfiles/setup.sh
 ```
 
 ## Credit
+
 This dotfiles was based on [yuroyoro/dotfiles](https://github.com/yuroyoro/dotfiles). Thank you!
