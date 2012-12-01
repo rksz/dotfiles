@@ -36,3 +36,6 @@ set helpfile=$VIMRUNTIME/doc/help.txt
 
 " ファイルタイプ判定をon
 filetype plugin on
+
+" ;でコマンド入力( ;と:を入れ替)
+noremap ; :
