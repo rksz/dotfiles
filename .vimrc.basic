@@ -39,3 +39,6 @@ filetype plugin on
 
 " ;でコマンド入力( ;と:を入れ替)
 noremap ; :
+
+" OSTypeの判定
+let OSTYPE=system('uname')
