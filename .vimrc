@@ -4,7 +4,7 @@ source ~/dotfiles/.vimrc.bundle
 source ~/dotfiles/.vimrc.basic
 "インデント設定
 source ~/dotfiles/.vimrc.indent
-"表示関連
+"表示関連(色設定, statuslineほか)
 source ~/dotfiles/.vimrc.view
 "補完関連
 source ~/dotfiles/.vimrc.completion
