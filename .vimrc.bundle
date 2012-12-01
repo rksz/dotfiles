@@ -171,7 +171,6 @@ call vundle#rc()
   Bundle 'vtreeexplorer'
 " }}}
 
-
 " Encording {{{
   Bundle 'banyan/recognize_charcode.vim'
 " }}}
@@ -210,7 +209,7 @@ call vundle#rc()
 
 " }}}
 
-" ColorSchema{{{{
+" ColorSchema{{{
   " color schema 256
   Bundle 'desert256.vim'
   Bundle 'mrkn256.vim'
@@ -218,7 +217,7 @@ call vundle#rc()
   Bundle 'altercation/vim-colors-solarized'
 " }}}
 
-" Unite {{{{
+" Unite {{{
   Bundle 'Shougo/unite.vim'
   Bundle 'tsukkee/unite-help'
   Bundle 'h1mesuke/unite-outline'
@@ -227,13 +226,14 @@ call vundle#rc()
   Bundle 'tsukkee/unite-tag'
   Bundle 'choplin/unite-vim_hacks'
 " }}}
-"
+
+" Vundle {{{
 Bundle 'gmarik/vundle'
+"}}}
 
 filetype plugin indent on
 
-
-
+" Plugin Settings {{{
 "------------------------------------
 " MiniBufExplorer
 "------------------------------------
@@ -531,3 +531,5 @@ let g:solarized_italic=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 "colorschem solarized
+
+" }}}
