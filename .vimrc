@@ -7,7 +7,7 @@ source ~/dotfiles/.vimrc.statusline
 " "インデント設定
 source ~/dotfiles/.vimrc.indent
 "表示関連
-source ~/dotfiles/.vimrc.apperance
+source ~/dotfiles/.vimrc.view
 "補完関連
 source ~/dotfiles/.vimrc.completion
 "Tags関連
@@ -16,12 +16,9 @@ source ~/dotfiles/.vimrc.tags
 source ~/dotfiles/.vimrc.search
 "移動関連
 source ~/dotfiles/.vimrc.moving
-"Color関連
-source ~/dotfiles/.vimrc.colors
 "編集関連
 source ~/dotfiles/.vimrc.editing
 "エンコーディング関連
 source ~/dotfiles/.vimrc.encoding
 "プラグインに依存するアレ
 source ~/dotfiles/.vimrc.bundle.settings
-
