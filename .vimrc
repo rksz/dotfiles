@@ -2,9 +2,7 @@
 source ~/dotfiles/.vimrc.bundle
 "基本設定
 source ~/dotfiles/.vimrc.basic
-" "StatusLine設定
-source ~/dotfiles/.vimrc.statusline
-" "インデント設定
+"インデント設定
 source ~/dotfiles/.vimrc.indent
 "表示関連
 source ~/dotfiles/.vimrc.view
@@ -20,5 +18,5 @@ source ~/dotfiles/.vimrc.moving
 source ~/dotfiles/.vimrc.editing
 "エンコーディング関連
 source ~/dotfiles/.vimrc.encoding
-"プラグインに依存するアレ
+"vundleのプラグイン個別設定
 source ~/dotfiles/.vimrc.bundle.settings
