@@ -42,3 +42,6 @@ noremap ; :
 
 " OSTypeの判定
 let OSTYPE=system('uname')
+
+" カレントディレクトリに移動コマンド
+command! Base cd %:h
