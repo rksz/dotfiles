@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# Easy fetch @rksz
+#
+#########################################
+
+
+## get options ##
+readonly CMDNAME=`basename $0`
+while getopts :n opt
+do
+  case $opt in
+    "n" ) readonly FLG_N="TRUE" ;;
+      * ) echo "usage: $CMDNAME [-n] host path" 1>&2
+          exit 1 ;;
+  esac
+done
+
+shift `expr $OPTIND - 1`
+
+
+
+# default settions
+rsync_opt="av"
+
+# useroption rsync with dry-run
+if [ "$FLG_N" = "TRUE" ]; then
+  rsync_opt=$rsync_opt"n"
+fi
+
+
+## RUN
+if [ $2 ]; then
+  rsync -${rsync_opt} --progress ${1}:${2} ./
+fi
+

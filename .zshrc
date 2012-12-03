@@ -251,5 +251,6 @@ esac
 
 
 #path settings
-PATH=${HOME}/commands/firetools/core:$PATH
-PATH=${HOME}/commands/firetools/local:$PATH
+#PATH=${HOME}/commands/firetools/core:$PATH
+PATH=${HOME}/bin:$PATH
+PATH=${HOME}/dotfiles/bin:$PATH
