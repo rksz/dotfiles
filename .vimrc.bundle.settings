@@ -187,7 +187,7 @@ xmap <silent> ie <Plug>CamelCaseMotion_ie
 "------------------------------------
 " The prefix key.
 nnoremap    [unite]   <Nop>
-nmap    U [unite]
+nmap    F [unite]
 
 nnoremap [unite]U  :<C-u>Unite -no-split<Space>
 
@@ -264,7 +264,8 @@ let g:syntastic_enable_highlighting = 1
 "------------------------------------
 " NERD-Tree.vim
 "------------------------------------
-nnoremap <Leader>n :NERDTree<CR>
+nnoremap <silent> <Leader>N :NERDTree<CR>
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 
@@ -289,3 +290,17 @@ let g:solarized_italic=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 "colorschem solarized
+
+
+" Command-T {{{
+let g:CommandTMaxHeight=40
+let g:CommandTMatchWindowAtTop=1
+nmap <silent> <Leader>t :CommandT<CR>
+nmap <silent> <Leader>b :CommandTBuffer<CR>
+nmap <silent> <Leader>f :CommandTFlush<CR>
+nmap <silent> <Leader>m :TagbarToggle<CR>
+" }}}
+
+
+
+
