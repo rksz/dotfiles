@@ -1,3 +1,3 @@
-colorscheme torte
+colorscheme mrkn256
 set guifont=Ricty:h20
-set transparency=15
+set transparency=12
