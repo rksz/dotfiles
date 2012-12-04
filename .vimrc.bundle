@@ -27,7 +27,7 @@ call vundle#rc()
   Bundle 'h1mesuke/vim-alignta'
 
   " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
-  Bundle 'YankRing.vim'
+  " Bundle 'YankRing.vim'
 
   " undo履歴を追える (need python support)
   Bundle 'Gundo'
