@@ -20,7 +20,6 @@ alias su="su -l"
 # vim
 alias 'src'='exec zsh'
 alias -g V="| vim -"
-alias macvim='open -a "MacVim"'
 
 # grep
 alias 'gr'='grep --color=auto -ERUIn'
