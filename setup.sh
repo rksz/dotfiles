@@ -26,6 +26,6 @@ git submodule update --init
 #========================================
 # Install vim plugins
 #========================================
-vim +BundleInstall +qall
+vim +NeoBundleInstall +qall
 
 
