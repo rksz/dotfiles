@@ -1,13 +1,11 @@
-"vunlde.vimで管理してるpluginを読み込む
+set nocompatible
+filetype off
 
-set nocompatible               " Be iMproved
- filetype off                   " Required!
+if has('vim_starting')
+ set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
- if has('vim_starting')
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
-
- call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Edit {{{
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
@@ -141,7 +139,7 @@ set nocompatible               " Be iMproved
   NeoBundle 'taglist.vim'
 
 " }}}
-"
+
 " Syntax {{{
   " haml
   NeoBundle 'haml.zip'
@@ -231,20 +229,20 @@ set nocompatible               " Be iMproved
 " }}}
 
 " Vundle {{{
-NeoBundle 'gmarik/vundle'
+  NeoBundle 'gmarik/vundle'
 "}}}
 
- filetype plugin indent on     " Required!
- "
- " Brief help
- " :NeoBundleList          - list configured bundles
- " :NeoBundleInstall(!)    - install(update) bundles
- " :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+filetype plugin indent on     " Required!
+"
+" Brief help
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
- " Installation check.
- if neobundle#exists_not_installed_bundles()
-   echomsg 'Not installed bundles : ' .
-         \ string(neobundle#get_not_installed_bundle_names())
-   echomsg 'Please execute ":NeoBundleInstall" command.'
-   "finish
- endif
+" Installation check.
+if neobundle#exists_not_installed_bundles()
+ echomsg 'Not installed bundles : ' .
+       \ string(neobundle#get_not_installed_bundle_names())
+ echomsg 'Please execute ":NeoBundleInstall" command.'
+ "finish
+endif
