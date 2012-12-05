@@ -204,9 +204,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   " Toggle
   NeoBundle 'taku-o/vim-toggle'
 
-  " Showmarks
-  "NeoBundle 'ShowMarks7'
-
 " }}}
 
 " ColorSchema{{{
@@ -219,6 +216,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Unite {{{
   NeoBundle 'wincent/Command-T'
+  NeoBundle 'Shougo/vimproc'
   NeoBundle 'Shougo/unite.vim'
   NeoBundle 'tsukkee/unite-help'
   NeoBundle 'h1mesuke/unite-outline'
@@ -227,10 +225,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'tsukkee/unite-tag'
   NeoBundle 'choplin/unite-vim_hacks'
 " }}}
-
-" Vundle {{{
-  NeoBundle 'gmarik/vundle'
-"}}}
 
 filetype plugin indent on     " Required!
 "
