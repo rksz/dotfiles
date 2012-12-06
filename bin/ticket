@@ -35,15 +35,42 @@ Purpose
 ----------------------------------------
 deadline: $(date "+%Y/%m/%d")
 
+message_raw {{{
+
+}}}
+
 
 FilePath
 ----------------------------------------
+localpath {{{
+
 $PROJECT_DIR
+
+}}}
+
+upfiles {{{
+
+
+
+}}}
+
+remotes {{{
+
+
+
+}}}
+
 EOS
 
 cat <<EOS >>free.md
 Text
 ----------------------------------------
+
+# $(date "+%Y/%m%d") {{{
+
+
+
+}}}
 EOS
 
 
