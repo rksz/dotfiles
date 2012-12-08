@@ -30,7 +30,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'h1mesuke/vim-alignta'
 
   " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
-  " NeoBundle 'YankRing.vim'
+  NeoBundle 'YankRing.vim'
 
   " undo履歴を追える (need python support)
   NeoBundle 'Gundo'
@@ -138,6 +138,9 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   " ソースコード上のメソッド宣言、変数宣言の一覧を表示
   NeoBundle 'taglist.vim'
 
+  " Html fast coding
+  NeoBundle 'ZenCoding.vim'
+
 " }}}
 
 " Syntax {{{
@@ -158,6 +161,22 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
   " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
   NeoBundle 'scrooloose/syntastic'
+
+  " html5
+  NeoBundle 'html5.vim'
+
+  " css3
+  NeoBundle 'hail2u/vim-css3-syntax'
+
+  " css_color
+  NeoBundle 'css_color.vim'
+
+  " PHP
+  NeoBundle 'php.vim'
+
+  " Python
+  NeoBundle 'python.vim'
+
 " }}}
 
 " Buffer {{{
@@ -169,6 +188,10 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
   " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
   NeoBundle 'vtreeexplorer'
+
+  " Command-T
+  " NeoBundle 'wincent/Command-T'
+
 " }}}
 
 " Encording {{{
@@ -215,7 +238,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " }}}
 
 " Unite {{{
-  NeoBundle 'wincent/Command-T'
   NeoBundle 'Shougo/vimproc'
   NeoBundle 'Shougo/unite.vim'
   NeoBundle 'tsukkee/unite-help'
