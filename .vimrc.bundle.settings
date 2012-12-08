@@ -187,7 +187,8 @@ xmap <silent> ie <Plug>CamelCaseMotion_ie
 "------------------------------------
 " The prefix key.
 nnoremap    [unite]   <Nop>
-nmap    F [unite]
+nmap    f [unite]
+"nmap    F [unite]
 
 nnoremap [unite]U  :<C-u>Unite -no-split<Space>
 
