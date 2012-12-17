@@ -35,25 +35,15 @@ Purpose
 ----------------------------------------
 deadline: $(date "+%Y/%m/%d")
 
-message_raw {{{
 
-}}}
+Summary
+----------------------------------------
 
 
 FilePath
 ----------------------------------------
 $PROJECT_DIR
 
-upfiles {{{
-
-
-
-}}}
-remotes {{{
-
-
-
-}}}
 EOS
 
 cat <<EOS >>free.md
