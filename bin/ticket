@@ -30,7 +30,7 @@ echo $PROJECT_DIR | pbopy
 
 
 ## Create resource files ##
-mkdir resource sandbox
+mkdir resources sandbox mail
 cat <<EOS >>master.md
 Purpose
 ----------------------------------------

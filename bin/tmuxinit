@@ -1,0 +1,2 @@
+tmux_name=$(basename `pwd`)
+tmux new -s $tmux_name
