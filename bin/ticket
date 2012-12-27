@@ -24,8 +24,9 @@ fi
 
 
 ## Create dir and move ##
-mkdir ${PROJECT_DIR}
-cd ${PROJECT_DIR}
+mkdir $PROJECT_DIR
+cd $PROJECT_DIR
+echo $PROJECT_DIR | pbopy
 
 
 ## Create resource files ##
@@ -59,5 +60,5 @@ EOS
 
 
 ## Crete new session ##
-tmux new -s ${PROJECT_NAME}
+tmux new -s $PROJECT_NAME
 
