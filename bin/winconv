@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [[ -n $1 && -f $1 ]]; then
+  echo "Converting to ShiftJIS CRLF. Are you sure? [enter]"
+  read
+  nkf -s --overwrite -Lw $1
+fi
