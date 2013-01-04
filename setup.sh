@@ -24,6 +24,9 @@ vim +NeoBundleInstall
 
 ## Install git diff with vimdiff
 cat <<EOC >>$HOME/dotfiles/.gitconfig
+[user]
+  name = Ricky
+  email = mail@example.com
 [diff]
   external = git_diff_wrapper
 [pager]
