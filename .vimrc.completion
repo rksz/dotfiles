@@ -134,3 +134,13 @@ let g:neocomplcache_include_suffixes = {
   \ 'ruby' : '.rb',
   \ 'haskell' : '.hs'
   \ }
+
+
+
+"-------------------------------------------------------------------------------
+" Skeleton
+"-------------------------------------------------------------------------------
+autocmd BufNewFile *.sh  0r ~/.vim/skeleton/skeleton.sh
+autocmd BufNewFile *.pl  0r ~/.vim/skeleton/skeleton.perl
+autocmd BufNewFile *.php 0r ~/.vim/skeleton/skeleton.php
+

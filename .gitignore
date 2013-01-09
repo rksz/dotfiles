@@ -15,7 +15,7 @@ Session.vim
 *.dvi
 *.aux
 *.elc
-.zshrc.local
 samples
 .gitconfig
-.vim
+.vim/bundle
+.vim/.netrwhist
