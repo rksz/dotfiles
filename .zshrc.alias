@@ -110,3 +110,14 @@ jjv () {
 
 #ssh config
 alias sshconfig='vim ~/.ssh/config'
+
+
+#init master.md
+#TODO: woking resize-panes
+tset() {
+    tmux split-window -h
+    tmux resize-pane -L 30
+    tmux send-keys -t :.0 "vim master.md" C-m
+    tmux split-window -v
+    tmux send-keys -t :.2 "cd resources" C-m
+}

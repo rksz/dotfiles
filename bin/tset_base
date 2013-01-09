@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# perspective shell for tmux @rksz
+# copy & custom your own command...
+#
+########################################
+
+pane 11
+
+if [ $? != 0 ]; then
+    exit 1
+fi
+
+tmux set-window-option synchronize-panes off 1>/dev/null
+tmux send-keys -t :.0  "ssh localhost" C-m
+tmux send-keys -t :.1  "ssh localhost" C-m
+tmux send-keys -t :.2  "ssh localhost" C-m
+tmux send-keys -t :.3  "ssh localhost" C-m
+tmux send-keys -t :.4  "ssh localhost" C-m
+tmux send-keys -t :.5  "ssh localhost" C-m
+tmux send-keys -t :.6  "ssh localhost" C-m
+tmux send-keys -t :.7  "ssh localhost" C-m
+tmux send-keys -t :.8  "ssh localhost" C-m
+tmux send-keys -t :.9  "ssh localhost" C-m
+tmux send-keys -t :.10 "ssh localhost" C-m
+tmux set-window-option synchronize-panes on 1>/dev/null
