@@ -237,7 +237,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'desert256.vim'
   NeoBundle 'mrkn256.vim'
   NeoBundle 'tomasr/molokai'
-  NeoBundle 'altercation/vim-colors-solarized'
+"  NeoBundle 'altercation/vim-colors-solarized'
 " }}}
 
 " Unite {{{

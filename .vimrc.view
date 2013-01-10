@@ -36,7 +36,7 @@ set ttyfast
 " カラー関連 Colors
 "-------------------------------------------------------------------------------
 
-colorscheme mrkn256
+colorscheme molokai
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"

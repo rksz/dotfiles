@@ -13,8 +13,6 @@ nnoremap <Up>   gk
 "<space>系の移動
 nnoremap <Space>h ^
 nnoremap <Space>l $
-nnoremap <Space>j <C-f>
-nnoremap <Space>k <C-b>
 
 " F2で前のバッファ
 map <F2> <ESC>;bp<CR>

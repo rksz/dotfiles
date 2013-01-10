@@ -277,31 +277,18 @@ let g:toggle_pairs = { 'todo':'prcss', 'prcss':'done', 'done':'todo' }
 
 
 
-"------------------------------------
-" solarized
-"------------------------------------
-call togglebg#map("<f5>")
-"set t_Co=16
-let g:solarized_termcolors=3
-let g:solarized_termtrans=0
-let g:solarized_degrade=0
-let g:solarized_bold=1
-let g:solarized_underline=1
-let g:solarized_italic=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-"colorschem solarized
-
-
-" Command-T {{{
-let g:CommandTMaxHeight=40
-let g:CommandTMatchWindowAtTop=1
-nmap <silent> <Leader>t :CommandT<CR>
-nmap <silent> <Leader>b :CommandTBuffer<CR>
-nmap <silent> <Leader>f :CommandTFlush<CR>
-nmap <silent> <Leader>m :TagbarToggle<CR>
-" }}}
-
-
-
-
+" "------------------------------------
+" " solarized
+" "------------------------------------
+" call togglebg#map("<f5>")
+" "set t_Co=16
+" let g:solarized_termcolors=3
+" let g:solarized_termtrans=0
+" let g:solarized_degrade=0
+" let g:solarized_bold=1
+" let g:solarized_underline=1
+" let g:solarized_italic=1
+" let g:solarized_contrast="normal"
+" let g:solarized_visibility="normal"
+" "colorschem solarized
+"
