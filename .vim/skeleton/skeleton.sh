@@ -4,13 +4,20 @@
 #
 #########################################
 
+readonly BASEPATH=$(cd `dirname $0`; pwd)
+readonly CMDNAME=$(basename $0)
+
 usage() {
-    CMDNAME=`basename $0`
     echo "usage: $CMDNAME" 1>&2
 }
 
 main() {
-    :
+    if [ $# -lt 1 ]; then
+        usage
+        exit 1
+    fi
+
+
 }
 
 main "$@"
