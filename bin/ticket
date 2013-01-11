@@ -26,7 +26,7 @@ fi
 ## Create dir and move ##
 mkdir $PROJECT_DIR
 cd $PROJECT_DIR
-echo $PROJECT_DIR | pbopy
+echo $PROJECT_DIR
 
 
 ## Create resource files ##
@@ -51,11 +51,6 @@ cat <<EOS >>free.md
 Text
 ----------------------------------------
 
-# $(date "+%Y/%m/%d") {{{
-
-
-
-}}}
 EOS
 
 
