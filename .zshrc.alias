@@ -20,6 +20,9 @@ alias su="su -l"
 # vim
 alias 'src'='exec zsh'
 alias -g V="| vim -"
+alias 'vimwhite'="vim -c 'colorscheme shine'"
+alias 'vimblue'="vim -c 'colorscheme blue'"
+alias 'vimpablo'="vim -c 'colorscheme pablo'"
 
 # grep
 alias 'gr'='grep --color=auto -ERUIn'
