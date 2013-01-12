@@ -119,8 +119,9 @@ alias sshconfig='vim ~/.ssh/config'
 #TODO: woking resize-panes
 tset() {
     tmux split-window -h
-    tmux resize-pane -L 30
+    tmux resize-pane -t :.0 -L 60
     tmux send-keys -t :.0 "vim master.md" C-m
     tmux split-window -v
     tmux send-keys -t :.2 "cd resources" C-m
+    tmux rename-window "base"
 }
