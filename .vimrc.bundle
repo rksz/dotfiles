@@ -169,7 +169,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'hail2u/vim-css3-syntax'
 
   " css_color
-  NeoBundle 'css_color.vim'
+  " NeoBundle 'css_color.vim'
 
   " sassy css
   NeoBundle 'cakebaker/scss-syntax.vim'
