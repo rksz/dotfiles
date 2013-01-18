@@ -22,6 +22,7 @@ alias 'src'='exec zsh'
 alias -g V="| vim -"
 alias 'vimwhite'="vim -c 'colorscheme shine'"
 alias 'vimblue'="vim -c 'colorscheme blue'"
+alias 'vimdarkblue'="vim -c 'colorscheme darkblue'"
 alias 'vimpablo'="vim -c 'colorscheme pablo'"
 
 # grep
@@ -58,6 +59,8 @@ alias gi='git'
 alias gs='git status'
 alias gc='git commit'
 alias gci='git commit -a'
+alias gp='git push origin master'
+alias gl='git pull'
 
 # extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
 extract () {
@@ -116,7 +119,6 @@ alias sshconfig='vim ~/.ssh/config'
 
 
 #init master.md
-#TODO: woking resize-panes
 tset() {
     tmux split-window -h
     tmux resize-pane -t :.0 -L 60

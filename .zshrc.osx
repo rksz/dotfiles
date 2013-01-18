@@ -34,4 +34,4 @@ alias tma='TERM=screen-256color-bce tmux attach'
 alias lst='tmux ls'
 alias tls='tmux ls'
 alias ssh='TERM=xterm ssh'
-
+alias rename='tmux rename-window'

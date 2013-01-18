@@ -3,9 +3,14 @@
 Requirements for the lib to work are:
 * zsh
 * Recent tmux version
-* vim >= 7.2
+* vim >= 7.2 (7.3.762 is better)
 * `bash --version` >= 4.0
 * A patched font. Follow instructions at [Lokaltog/vim-powerline/fontpatcher](https://github.com/Lokaltog/vim-powerline/tree/develop/fontpatcher).
+
+Quickstart for OSX:
+```
+brew install zsh bash lynx vim tmux ack tree
+```
 
 ## Installation
 
@@ -18,4 +23,4 @@ $ dotfiles/setup.sh
 
 ## Credit
 
-This dotfiles was based on [yuroyoro/dotfiles](https://github.com/yuroyoro/dotfiles). Thank you!
+[yuroyoro/dotfiles](https://github.com/yuroyoro/dotfiles).
