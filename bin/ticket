@@ -32,12 +32,11 @@ echo $PROJECT_DIR
 ## Create resource files ##
 mkdir resources sandbox mail
 cat <<EOS >>master.md
-Purpose
-----------------------------------------
-deadline: $(date "+%Y/%m/%d")
-
-
 Summary
+----------------------------------------
+
+
+Todo
 ----------------------------------------
 
 <対応済み>
@@ -47,8 +46,10 @@ Summary
 <翌日以降>
 
 
-FilePath
+Information
 ----------------------------------------
+
+#FilePath
 $PROJECT_DIR
 
 EOS
