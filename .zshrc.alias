@@ -24,6 +24,7 @@ alias 'vimwhite'="vim -c 'colorscheme shine'"
 alias 'vimblue'="vim -c 'colorscheme blue'"
 alias 'vimdarkblue'="vim -c 'colorscheme darkblue'"
 alias 'vimpablo'="vim -c 'colorscheme pablo'"
+alias 'v'="vim"
 
 # grep
 alias 'gr'='grep --color=auto -ERUIn'
