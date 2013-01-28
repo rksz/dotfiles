@@ -79,7 +79,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'textobj-jabraces'
 
 " }}}
-
 " Completion {{{
   " 補完 neocomplcache.vim : 究極のVim的補完環境
   NeoBundle 'Shougo/neocomplcache'
@@ -88,7 +87,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'Shougo/neosnippet'
 
 " }}}
-
 " Searching/Moving{{{
   " smooth_scroll.vim : スクロールを賢く
   NeoBundle 'Smooth-Scroll'
@@ -118,7 +116,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'tyru/open-browser.vim'
 
 " }}}
-
 " Programming {{{
   " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
   NeoBundle 'thinca/vim-quickrun'
@@ -142,7 +139,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'ZenCoding.vim'
 
 " }}}
-
 " Syntax {{{
   " haml
   NeoBundle 'haml.zip'
@@ -181,7 +177,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'python.vim'
 
 " }}}
-
 " Buffer {{{
   " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
   NeoBundle 'DumbBuf'
@@ -196,11 +191,9 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   " NeoBundle 'wincent/Command-T'
 
 " }}}
-
 " Encording {{{
   NeoBundle 'banyan/recognize_charcode.vim'
 " }}}
-
 " Utility {{{
 
   " vim-altercmd : Ex command拡張
@@ -231,7 +224,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'taku-o/vim-toggle'
 
 " }}}
-
 " ColorSchema{{{
   " color schema 256
   NeoBundle 'desert256.vim'
@@ -239,7 +231,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'tomasr/molokai'
 "  NeoBundle 'altercation/vim-colors-solarized'
 " }}}
-
 " Unite {{{
   NeoBundle 'Shougo/vimproc'
   NeoBundle 'Shougo/unite.vim'
