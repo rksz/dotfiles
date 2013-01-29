@@ -33,5 +33,6 @@ alias tmux="TERM=screen-256color-bce tmux" #keep vim colorscheme in tmux mode
 alias tma='TERM=screen-256color-bce tmux attach'
 alias lst='tmux ls'
 alias tls='tmux ls'
+alias ssh256='TERM=xterm-256color /usr/bin/ssh'
 alias ssh='TERM=xterm ssh'
 alias rename='tmux rename-window'
