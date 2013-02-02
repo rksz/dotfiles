@@ -117,6 +117,7 @@ jjv () {
 
 #ssh config
 alias sshconfig='vim ~/.ssh/config'
+alias editalias='vim ~/.zshrc.alias.local'
 
 
 #init master.md

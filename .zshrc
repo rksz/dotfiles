@@ -190,6 +190,7 @@ bindkey "^B" backward-word
 ## alias設定
 #
 [ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
+[ -f ~/.zshrc.alias.local ] && source ~/.zshrc.alias.local
 
 case "${OSTYPE}" in
 # Mac(Unix)
