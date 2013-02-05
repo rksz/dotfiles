@@ -62,20 +62,20 @@ noremap <Leader>t<Space> :VSTreeExplore<CR>
 "分割したウィンドウのサイズ
 let g:treeExplWinSize=30
 
-"------------------------------------
-" DumbBuf.vim
-"------------------------------------
-"<Leader>b<Space>でBufferList
-let dumbbuf_hotkey = '<Leader>b<Space>'
-let dumbbuf_mappings = {
-    \ 'n': {
-        \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
-    \}
-\}
-let dumbbuf_single_key  = 1
-let dumbbuf_updatetime  = 1    " &updatetimeの最小値
-let dumbbuf_wrap_cursor = 0
-let dumbbuf_remove_marked_when_close = 1
+" "------------------------------------
+" " DumbBuf.vim
+" "------------------------------------
+" "<Leader>b<Space>でBufferList
+" let dumbbuf_hotkey = '<Leader>b<Space>'
+" let dumbbuf_mappings = {
+"     \ 'n': {
+"         \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
+"     \}
+" \}
+" let dumbbuf_single_key  = 1
+" let dumbbuf_updatetime  = 1    " &updatetimeの最小値
+" let dumbbuf_wrap_cursor = 0
+" let dumbbuf_remove_marked_when_close = 1
 
 "------------------------------------
 " vim-indent-guides
@@ -293,7 +293,18 @@ let NERDTreeShowHidden=1
 let g:toggle_pairs = { 'todo':'prcss', 'prcss':'done', 'done':'todo' }
 
 
-
+"------------------------------------
+" minibufexpl
+"------------------------------------
+let g:miniBufExplMapWindowNavVim=1   "hjklで移動
+let g:miniBufExplSplitBelow=0        " Put new window above
+let g:miniBufExplMapWindowNavArrows=1
+let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplModSelTarget=1
+let g:miniBufExplSplitToEdge=1
+nnoremap <C-d> <ESC>:bnext \| bdelete #<CR>
+nmap <C-n> :MBEbn<CR>
+nmap <C-p> :MBEbp<CR>
 
 
 " "------------------------------------

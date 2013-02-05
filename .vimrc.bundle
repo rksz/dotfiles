@@ -30,7 +30,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'h1mesuke/vim-alignta'
 
   " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
-  NeoBundle 'YankRing.vim'
+  " NeoBundle 'YankRing.vim'
 
   " undo履歴を追える (need python support)
   NeoBundle 'Gundo'
@@ -89,7 +89,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " }}}
 " Searching/Moving{{{
   " smooth_scroll.vim : スクロールを賢く
-  NeoBundle 'Smooth-Scroll'
+  "NeoBundle 'Smooth-Scroll'
 
   " vim-smartword : 単語移動がスマートな感じで
   NeoBundle 'smartword'
@@ -176,13 +176,18 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " }}}
 " Buffer {{{
   " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
-  NeoBundle 'DumbBuf'
+  "NeoBundle 'DumbBuf'
 
   " NERDTree : ツリー型エクスプローラ
   NeoBundle 'The-NERD-tree'
 
   " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
   NeoBundle 'vtreeexplorer'
+
+
+  " minibuf explorer
+  NeoBundle 'minibufexpl.vim'
+
 
   " Command-T
   " NeoBundle 'wincent/Command-T'
