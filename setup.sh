@@ -1,28 +1,34 @@
 #!/bin/bash
 #
-# auto setup tools @rskz
+# Auto setup tools @rskz
 #
 #########################################
 
 
-## create symbolic links
+## 1. Create symbolic links
 DOT_FILES=( .zsh .zshrc .zshrc.alias .ctags .gitconfig .gitignore .vimrc .vrapperrc .tmux.conf .dir_colors .vim )
-
 for file in ${DOT_FILES[@]}
 do
     ln -s $HOME/dotfiles/$file $HOME/$file
 done
 
+## 2. Create local configure files
+LOCAL_FILES=( .zshrc.alias.local .tmux.conf.local )
+for file in ${LOCAL_FILES[@]}
+do
+    touch $HOME/$file
+done
 
-## Import submodule
+
+## 3. Load submodules
 git submodule update --init
 
 
-## Install vim plugins
+## 4. Install vim plugins
 vim +NeoBundleInstall
 
 
-## Install git diff with vimdiff
+## 5. Install git diff with vimdiff
 cat <<EOC >>$HOME/dotfiles/.gitconfig
 [user]
   name = Ricky
@@ -33,6 +39,6 @@ cat <<EOC >>$HOME/dotfiles/.gitconfig
   diff =
 EOC
 
-
-## finished!
-echo "finished!"
+## 6. Finished messages
+echo "Setup finished! Please check following packages."
+echo "--> zsh tmux ncurses-term git tree ack lynx"
