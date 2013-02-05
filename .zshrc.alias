@@ -55,7 +55,7 @@ alias cp='nocorrect cp -irp'
 alias refe='nocorrect refe'
 
 # git
-alias g='git'
+#alias g='git'
 alias gi='git'
 alias gs='git status'
 alias gc='git commit'

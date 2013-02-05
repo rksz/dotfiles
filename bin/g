@@ -1,0 +1,23 @@
+#! /bin/zsh
+
+autoload colors
+colors
+
+local str opt
+if [ $# != 0 ]; then
+    for i in $*; do
+        str="$str${str:++}$i"
+    done
+    opt='search?num=100'
+    opt="${opt}&q=${str}"
+    open "http://www.google.co.jp/$opt"
+    echo ""
+    echo "$fg[blue]G$fg[red]o$fg[yellow]o$fg[blue]g$fg[green]l$fg[red]e$reset_color $fg[black]: \"$fg_bold[white]$*$reset_color$fg[black]\" ...$reset_color"
+    echo ""
+else
+    echo ""
+    echo "$fg_bold[yellow]Usage $reset_color$fg[black]: $fg[blue]G$fg[red]o$fg[yellow]o$fg[blue]g$fg[green]l$fg[red]e$reset_color $fg[black]コマンドを実行するには \"$fg_bold[white]g 検索キーワード$reset_color$fg[black]\" と入力してください$reset_color"
+    echo ""
+fi
+
+exit;
