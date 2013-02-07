@@ -62,6 +62,7 @@ alias gc='git commit'
 alias gci='git commit -a'
 alias gp='git push origin master'
 alias gl='git pull'
+alias gd='git diff'
 
 # extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
 extract () {
