@@ -79,6 +79,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'textobj-jabraces'
 
 " }}}
+
 " Completion {{{
   " 補完 neocomplcache.vim : 究極のVim的補完環境
   NeoBundle 'Shougo/neocomplcache'
@@ -87,7 +88,9 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'Shougo/neosnippet'
 
 " }}}
+
 " Searching/Moving{{{
+"
   " smooth_scroll.vim : スクロールを賢く
   "NeoBundle 'Smooth-Scroll'
 
@@ -116,7 +119,9 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'tyru/open-browser.vim'
 
 " }}}
+
 " Programming {{{
+
   " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
   NeoBundle 'thinca/vim-quickrun'
 
@@ -139,7 +144,9 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'ZenCoding.vim'
 
 " }}}
+
 " Syntax {{{
+
   " haml
   NeoBundle 'haml.zip'
 
@@ -174,28 +181,23 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'python.vim'
 
 " }}}
+
 " Buffer {{{
-  " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
-  "NeoBundle 'DumbBuf'
 
   " NERDTree : ツリー型エクスプローラ
   NeoBundle 'The-NERD-tree'
 
-  " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
-  NeoBundle 'vtreeexplorer'
-
-
   " minibuf explorer
   NeoBundle 'minibufexpl.vim'
 
-
-  " Command-T
-  " NeoBundle 'wincent/Command-T'
-
 " }}}
+
 " Encording {{{
+
   NeoBundle 'banyan/recognize_charcode.vim'
+
 " }}}
+
 " Utility {{{
 
   " vim-altercmd : Ex command拡張
@@ -226,12 +228,17 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'taku-o/vim-toggle'
 
 " }}}
+
 " ColorSchema{{{
+
   NeoBundle 'desert256.vim'
   NeoBundle 'mrkn256.vim'
   NeoBundle 'tomasr/molokai'
+
 " }}}
+
 " Unite {{{
+
   NeoBundle 'Shougo/unite.vim'
   NeoBundle 'tsukkee/unite-help'
   NeoBundle 'h1mesuke/unite-outline'
@@ -239,8 +246,11 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'thinca/vim-unite-history'
   NeoBundle 'tsukkee/unite-tag'
   NeoBundle 'choplin/unite-vim_hacks'
+
 " }}}
+
 " Vimproc {{{
+
   NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
@@ -249,7 +259,9 @@ call neobundle#rc(expand('~/.vim/bundle/'))
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
+
 " }}}
+
 filetype plugin indent on     " Required!
 "
 " Brief help

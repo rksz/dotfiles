@@ -9,18 +9,12 @@
 let g:Align_xstrlen = 3
 
 "------------------------------------
-" VTreeExplorer
-"------------------------------------
-" 縦に表示する
-let g:treeExplVertical=1
-
-"------------------------------------
 " NERD_commenter.vim
 "------------------------------------
 " コメントの間にスペースを空ける
 let NERDSpaceDelims = 1
 "<Leader>xでコメントをトグル(NERD_commenter.vim)
-map <Leader>x, c<space>
+map <Leader>x ,c<space>
 ""未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
 
@@ -51,31 +45,6 @@ nnoremap <Space>ga :<C-u>Gwrite<Enter>
 nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
-
-
-"------------------------------------
-" VTreeExplorer
-"------------------------------------
-let g:treeExplVertical=1
-"<Leader>t<Space>でディレクトリツリー表示
-noremap <Leader>t<Space> :VSTreeExplore<CR>
-"分割したウィンドウのサイズ
-let g:treeExplWinSize=30
-
-" "------------------------------------
-" " DumbBuf.vim
-" "------------------------------------
-" "<Leader>b<Space>でBufferList
-" let dumbbuf_hotkey = '<Leader>b<Space>'
-" let dumbbuf_mappings = {
-"     \ 'n': {
-"         \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
-"     \}
-" \}
-" let dumbbuf_single_key  = 1
-" let dumbbuf_updatetime  = 1    " &updatetimeの最小値
-" let dumbbuf_wrap_cursor = 0
-" let dumbbuf_remove_marked_when_close = 1
 
 "------------------------------------
 " vim-indent-guides
@@ -260,8 +229,6 @@ nnoremap <silent> [unite]p  :<C-u>Unite -no-split ref/phpmanual<CR>
 nnoremap <silent> [unite]R  :<C-u>Unite -no-split ref/refe<CR>
 
 
-
-
 "------------------------------------
 " quickrun.vim
 "------------------------------------
@@ -279,18 +246,13 @@ let g:syntastic_enable_signs = 1
 " 可能ならhighligt表示する
 let g:syntastic_enable_highlighting = 1
 
+
 "------------------------------------
 " NERD-Tree.vim
 "------------------------------------
 nnoremap <silent> <Leader>N :NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
-
-
-"------------------------------------
-" taku-o/toggle.vim
-"------------------------------------
-let g:toggle_pairs = { 'todo':'prcss', 'prcss':'done', 'done':'todo' }
 
 
 "------------------------------------
@@ -306,19 +268,3 @@ nnoremap <C-d> <ESC>:bnext \| bdelete #<CR>
 nmap <C-n> :MBEbn<CR>
 nmap <C-p> :MBEbp<CR>
 
-
-" "------------------------------------
-" " solarized
-" "------------------------------------
-" call togglebg#map("<f5>")
-" "set t_Co=16
-" let g:solarized_termcolors=3
-" let g:solarized_termtrans=0
-" let g:solarized_degrade=0
-" let g:solarized_bold=1
-" let g:solarized_underline=1
-" let g:solarized_italic=1
-" let g:solarized_contrast="normal"
-" let g:solarized_visibility="normal"
-" "colorschem solarized
-"
