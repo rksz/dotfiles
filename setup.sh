@@ -41,4 +41,4 @@ EOC
 
 ## 6. Finished messages
 echo "Setup finished! Please check following packages."
-echo "--> zsh tmux ncurses-term git tree ack lynx"
+echo "--> zsh tmux ncurses-term git tree ack lynx watch dstat"

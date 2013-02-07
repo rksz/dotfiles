@@ -64,6 +64,13 @@ alias gp='git push origin master'
 alias gl='git pull'
 alias gd='git diff'
 
+# dstat
+alias dstat-full='dstat -Tclmdrn'
+alias dstat-mem='dstat -Tclm'
+alias dstat-cpu='dstat -Tclr'
+alias dstat-net='dstat -Tclnd'
+alias dstat-disk='dstat -Tcldr'
+
 # extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
 extract () {
   if [ -f $1 ] ; then
