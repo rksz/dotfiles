@@ -265,6 +265,6 @@ let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplModSelTarget=1
 let g:miniBufExplSplitToEdge=1
 nnoremap <C-d> <ESC>:bnext \| bdelete #<CR>
-nmap <C-n> :MBEbn<CR>
-nmap <C-p> :MBEbp<CR>
-
+nnoremap <C-n> :MBEbn<CR>
+nnoremap <C-p> :MBEbp<CR>
+nnoremap <C-m> :enew<CR>

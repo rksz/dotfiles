@@ -130,8 +130,7 @@ alias editalias='vim ~/.zshrc.alias.local'
 
 #init master.md
 tset() {
-    tmux split-window -h
-    tmux resize-pane -t :.0 -L 60
+    tmux split-window -h -p 70
     tmux send-keys -t :.0 "vim master.md free.md" C-m
     tmux split-window -v
     tmux send-keys -t :.1 "cd resources" C-m
