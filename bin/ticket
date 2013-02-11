@@ -31,7 +31,7 @@ echo $PROJECT_DIR
 
 ## Create resource files ##
 mkdir resources sandbox mail
-cat <<EOS >>master.md
+cat <<EOS >>abstract.md
 Summary
 ----------------------------------------
 
