@@ -267,4 +267,4 @@ let g:miniBufExplSplitToEdge=1
 nnoremap <C-d> <ESC>:bnext \| bdelete #<CR>
 nnoremap <C-n> :MBEbn<CR>
 nnoremap <C-p> :MBEbp<CR>
-nnoremap <C-m> :enew<CR>
+nnoremap <Leader>N :enew<CR>
