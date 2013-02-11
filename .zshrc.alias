@@ -5,7 +5,6 @@ alias ll="ls -l"
 alias lg="ls | grep "
 
 # process
-# alias j="jobs -l"
 alias 'ps?'='pgrep -l -f'
 alias pk='pkill -f'
 
@@ -25,8 +24,13 @@ alias 'vimblue'="vim -c 'colorscheme blue'"
 alias 'vimdarkblue'="vim -c 'colorscheme darkblue'"
 alias 'vimpablo'="vim -c 'colorscheme pablo'"
 alias 'v'="vim"
-alias 'ev'='vi ~/dotfiles/.vimrc*'
 alias 'md'='vim ./*.md'
+
+# vimalias
+alias 'evv'='vi ~/dotfiles/.vimrc*'
+alias 'evs'='vim ~/.ssh/config'
+alias 'eva'='vim ~/.zshrc.alias.local'
+alias 'evz'='vi ~/.zshrc*'
 
 # grep
 alias 'gr'='grep --color=auto -ERUIn'
@@ -124,15 +128,11 @@ jjv () {
   fi
 }
 
-#ssh config
-alias sshconfig='vim ~/.ssh/config'
-alias editalias='vim ~/.zshrc.alias.local'
-
 
 #init master.md
 tset() {
     tmux split-window -h -p 70
-    tmux send-keys -t :.0 "vim master.md free.md" C-m
+    tmux send-keys -t :.0 "vim *.md" C-m
     tmux split-window -v
     tmux send-keys -t :.1 "cd resources" C-m
     tmux rename-window "BASE"
