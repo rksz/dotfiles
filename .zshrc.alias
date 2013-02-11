@@ -25,6 +25,8 @@ alias 'vimblue'="vim -c 'colorscheme blue'"
 alias 'vimdarkblue'="vim -c 'colorscheme darkblue'"
 alias 'vimpablo'="vim -c 'colorscheme pablo'"
 alias 'v'="vim"
+alias 'ev'='vi ~/dotfiles/.vimrc*'
+alias 'md'='vim ./*.md'
 
 # grep
 alias 'gr'='grep --color=auto -ERUIn'
@@ -97,7 +99,6 @@ extract () {
 }
 alias ex='extract'
 
-alias ev='vi ~/dotfiles/.vimrc*'
 
 
 ##auto jump setting
