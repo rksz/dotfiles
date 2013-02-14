@@ -1,8 +1,8 @@
 [user]
-	name = Ricky
-	email = shimma.dev@gmail.com
+  name = Ricky
+  email = shimma.dev@gmail.com
 [diff]
-	external=git_diff_wrapper
+  external=git_diff_wrapper
 [pager]
   diff =
 [color]
