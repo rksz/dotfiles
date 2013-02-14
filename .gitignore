@@ -16,7 +16,6 @@ Session.vim
 *.aux
 *.elc
 samples
-.gitconfig
 .vim/bundle
 .vim/.netrwhist
 ref

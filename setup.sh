@@ -28,16 +28,16 @@ git submodule update --init
 vim +NeoBundleInstall
 
 
-## 5. Install git diff with vimdiff
-cat <<EOC >>$HOME/dotfiles/.gitconfig
-[user]
-  name = Ricky
-  email = mail@example.com
-[diff]
-  external = git_diff_wrapper
-[pager]
-  diff =
-EOC
+### 5. Install git diff with vimdiff
+#cat <<EOC >>$HOME/dotfiles/.gitconfig
+#[user]
+#  name = Ricky
+#  email = mail@example.com
+#[diff]
+#  external = git_diff_wrapper
+#[pager]
+#  diff =
+#EOC
 
 ## 6. Finished messages
 echo "Setup finished! Please check following packages."
