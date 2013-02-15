@@ -58,4 +58,4 @@ endfunction
 nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
 
 " 何もせず終了
-nnoremap <Space>q :qa!<CR>
+nnoremap <Space>q :qa<CR>
