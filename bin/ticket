@@ -2,65 +2,59 @@
 #
 # Event ticket maker @rksz
 #
-################################################################################
+#########################################
 
 
-## Validation ##
-if [ -z $1 ]; then
-    echo "usage: ticket project_name" 1>&2
-    exit 1
-else
-    readonly PROJECT_NAME=$(date "+%Y%m%d%H%M%S")_$1
-fi
-readonly PROJECT_DIR=${HOME}/projects/${PROJECT_NAME}
+main() {
+
+    #Definition
+    readonly BASEPATH=$(cd `dirname $0`; pwd)
+    readonly CMDNAME=$(basename $0)
+    trap "echo 'Terminated!'; exit 1" EXIT
+
+    #Validation
+    if [[ $# -lt 2 ]]; then
+        echo "usage: $CMDNAME <parent> <project_name>" 1>&2
+        exit 1
+    fi
+
+    readonly PROJECT_BASE=${HOME}/projects
+    readonly PROJECT_DIR=$1
+    readonly PROJECT_NAME=$(date "+%Y%m%d")_$2
+
+    # Main
+    ## Confirm projects ##
+    echo "Are you sure? [press enter]: ${PROJECT_DIR}/${PROJECT_NAME}"
+    read wait_press_enter
+    if [ -n "$wait_press_enter" ]; then
+        exit 0
+    fi
+
+    ## Create new project directory
+    cd $PROJECT_BASE || exit 1
+    if [[ ! -d $PROJECT_DIR ]]; then
+        echo "Direcory is not found '${PROJECT_DIR}' . Are you sure to proceed making new project? [enter]"
+        read wait_press_enter
+        if [ -n "$wait_press_enter" ]; then
+            exit 0
+        fi
+
+        mkdir $PROJECT_DIR
+    fi
+    cd $PROJECT_DIR || exit 1
+    mkdir $PROJECT_NAME || exit 1
+    cd $PROJECT_NAME || exit 1
 
 
-## Confirm projects ##
-echo "create? [enter]: ${PROJECT_DIR}"
-read answer
-if [ -n "$answer" ]; then
-    exit 0
-fi
+    ## Create resource files
+    mkdir resources sandbox
+    touch abstract.md free.md
 
+    ## Crete new session
+    tmux new -s ${PROJECT_DIR}/${PROJECT_NAME}
 
-## Create dir and move ##
-mkdir $PROJECT_DIR
-cd $PROJECT_DIR
-echo $PROJECT_DIR
+    ## Remove trap
+    trap EXIT
+}
 
-
-## Create resource files ##
-mkdir resources sandbox mail
-cat <<EOS >>abstract.md
-Summary
-----------------------------------------
-
-
-Todo
-----------------------------------------
-
-<対応済み>
-
-<本日作業予定>
-
-<翌日以降>
-
-
-Information
-----------------------------------------
-
-#FilePath
-$PROJECT_DIR
-
-EOS
-
-cat <<EOS >>free.md
-Text
-----------------------------------------
-
-EOS
-
-
-## Crete new session ##
-tmux new -s $PROJECT_NAME
-
+main "$@"

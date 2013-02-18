@@ -1,0 +1,66 @@
+#!/bin/bash
+#
+# Event ticket maker @rksz
+#
+################################################################################
+
+
+## Validation ##
+if [ -z $1 ]; then
+    echo "usage: ticket project_name" 1>&2
+    exit 1
+else
+    readonly PROJECT_NAME=$(date "+%Y%m%d%H%M%S")_$1
+fi
+readonly PROJECT_DIR=${HOME}/projects/${PROJECT_NAME}
+
+
+## Confirm projects ##
+echo "create? [enter]: ${PROJECT_DIR}"
+read answer
+if [ -n "$answer" ]; then
+    exit 0
+fi
+
+
+## Create dir and move ##
+mkdir $PROJECT_DIR
+cd $PROJECT_DIR
+echo $PROJECT_DIR
+
+
+## Create resource files ##
+mkdir resources sandbox mail
+cat <<EOS >>abstract.md
+Summary
+----------------------------------------
+
+
+Todo
+----------------------------------------
+
+<対応済み>
+
+<本日作業予定>
+
+<翌日以降>
+
+
+Information
+----------------------------------------
+
+#FilePath
+$PROJECT_DIR
+
+EOS
+
+cat <<EOS >>free.md
+Text
+----------------------------------------
+
+EOS
+
+
+## Crete new session ##
+tmux new -s $PROJECT_NAME
+
