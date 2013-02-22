@@ -25,6 +25,7 @@ alias 'vimdarkblue'="vim -c 'colorscheme darkblue'"
 alias 'vimpablo'="vim -c 'colorscheme pablo'"
 alias 'v'="vim"
 alias 'md'='vim ./*.md'
+alias 'mmd'='mvim ./*.md'
 
 # vimalias
 alias 'evv'='vi ~/dotfiles/.vimrc*'
