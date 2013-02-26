@@ -59,3 +59,8 @@ nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
 
 " 何もせず終了
 nnoremap <Space>q :qa<CR>
+
+
+" 区切り文字
+nnoremap <Leader>- 20i-<ESC>
+nnoremap <Leader>= 20i=<ESC>
