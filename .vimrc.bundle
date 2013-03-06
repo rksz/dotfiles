@@ -118,6 +118,10 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
   NeoBundle 'tyru/open-browser.vim'
 
+  " clever-f.vim : fジャンプを効率化
+  NeoBundle 'rhysd/clever-f.vim'
+
+
 " }}}
 
 " Programming {{{

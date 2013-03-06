@@ -156,7 +156,7 @@ xmap <silent> ie <Plug>CamelCaseMotion_ie
 "------------------------------------
 " The prefix key.
 nnoremap    [unite]   <Nop>
-nmap    ff [unite]
+nmap     <Space>f [unite]
 "nmap    F [unite]
 let g:unite_enable_start_insert = 1
 
