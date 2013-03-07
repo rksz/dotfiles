@@ -62,5 +62,6 @@ nnoremap <Space>q :qa<CR>
 
 
 " 区切り文字
-nnoremap <Leader>- 20i-<ESC>
-nnoremap <Leader>= 20i=<ESC>
+inoreabbrev dl ********************************************************************************
+inoreabbrev d= ========================================
+inoreabbrev d- --------------------
