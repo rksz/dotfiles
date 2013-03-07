@@ -35,7 +35,8 @@ alias lst='tmux ls'
 alias tls='tmux ls'
 alias ssh256='TERM=xterm-256color /usr/bin/ssh'
 alias ssh='TERM=xterm ssh'
-alias rename='tmux rename-window'
+alias rename='tmux rename-session'
+alias renamew='tmux rename-window'
 
 
 # open current directory in Finder
