@@ -52,6 +52,7 @@ alias tls='tmux ls'
 alias up='cd ..; ll'
 alias upp='cd ../..; ll'
 alias uppp='cd ../../..; ll'
+alias sandbox='cd ~/sandbox'
 
 alias pon='predict-on'
 alias poff='predict-off'
