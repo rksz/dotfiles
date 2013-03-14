@@ -232,6 +232,9 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   " Toggle
   NeoBundle 'taku-o/vim-toggle'
 
+  " Window Control
+  NeoBundle 'kana/vim-submode'
+
 " }}}
 
 " ColorSchema{{{
