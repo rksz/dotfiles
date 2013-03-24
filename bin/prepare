@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+#
+#
+#########################################
+
+
+main() {
+
+    #Base Definition
+    readonly CMDNAME=$(basename $0)
+    readonly CURRENT_PATH=$(pwd)
+
+    #Validation
+    if [[ $# -lt 1 ]]; then
+        echo "usage: $CMDNAME target_file" 1>&2
+        exit 1
+    fi
+
+    #Name settings
+    file_path=$1
+    file_name=$(basename $1);
+    prepare_dir=${file_name}_$(date "+%Y%m%d%H%M%S")
+
+
+
+    #Main########################################
+    mkdir $prepare_dir
+    cd $prepare_dir
+    mkdir org
+
+    for file in $@
+    do
+        cp -a $CURRENT_PATH/$file org/
+    done
+
+    cp -va org deploy
+
+}
+
+main "$@"
+
