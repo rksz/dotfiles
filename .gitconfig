@@ -18,6 +18,7 @@
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
 #  autocrlf = input                 # CRLFを自動変換
   quotepath = false
+  editor = /usr/local/bin/vim
 [alias]
   st = status
   sh = show
