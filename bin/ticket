@@ -47,8 +47,8 @@ main() {
 
 
     ## Create resource files
-    mkdir resources sandbox
-    touch abstract.md free.md
+    mkdir resources
+    touch master.md
 
     ## Crete new session
     tmux new -s ${PROJECT_DIR}/${PROJECT_NAME}
