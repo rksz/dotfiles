@@ -227,7 +227,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'tpope/vim-fugitive'
 
   " ステータスラインをカッコよくする
-  NeoBundle 'Lokaltog/powerline'
+  NeoBundle 'Lokaltog/vim-powerline'
 
   " Toggle
   NeoBundle 'taku-o/vim-toggle'
