@@ -193,7 +193,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'The-NERD-tree'
 
   " minibuf explorer
-  NeoBundle 'minibufexpl.vim'
+  NeoBundle 'fholgado/minibufexpl.vim'
 
 " }}}
 
