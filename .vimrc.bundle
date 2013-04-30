@@ -190,7 +190,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Buffer {{{
 
   " NERDTree : ツリー型エクスプローラ
-  NeoBundle 'The-NERD-tree'
+  "NeoBundle 'The-NERD-tree'
+  NeoBundle 'scrooloose/nerdtree'
 
   " minibuf explorer
   NeoBundle 'fholgado/minibufexpl.vim'
