@@ -1,0 +1,23 @@
+#!/bin/bash
+
+main() {
+    list_file=$1
+    ipnum=$(cat $list_file | grep -v "^$" | wc -l)
+    pane $ipnum
+    tmux set-window-option synchronize-panes off 1>/dev/null
+
+    cnt_pane=0
+    cat $list_file | while read target_host
+    do
+        if [ "$target_host" ]; then
+            tmux send-keys -t :.$cnt_pane "ssh $target_host" C-m
+            cnt_pane=$(( $cnt_pane + 1 ))
+        fi
+    done
+
+    tmux set-window-option synchronize-panes on 1>/dev/null
+}
+
+main "$@"
+
+
