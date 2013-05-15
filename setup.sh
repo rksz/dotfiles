@@ -11,7 +11,7 @@ main() {
     readonly CMDNAME=$(basename $0)
 
     ## 1. Create symbolic links
-    DOT_FILES=( .zsh .zshrc .zshrc.alias .ctags .gitconfig .gitignore .vimrc .vrapperrc .tmux.conf .dir_colors .vim .gvimrc )
+    DOT_FILES=( .zsh .zshrc .zshrc.alias .ctags .gitignore .vimrc .vrapperrc .tmux.conf .dir_colors .vim .gvimrc )
     for file in ${DOT_FILES[@]}
     do
         ln -s $HOME/dotfiles/$file $HOME/$file
