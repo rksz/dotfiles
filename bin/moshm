@@ -1,0 +1,11 @@
+#!/bin/sh
+HOST=${1:?}
+
+if [ $2 ]; then
+    pane_cnt=$2
+else
+    pane_cnt=3
+fi
+
+pane -s $pane_cnt
+tmux send-keys "mosh $HOST" C-m
