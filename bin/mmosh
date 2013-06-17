@@ -8,4 +8,5 @@ else
 fi
 
 pane -s $pane_cnt
-tmux send-keys "ssh $HOST" C-m
+tmux rename-window $HOST
+tmux send-keys "mosh $HOST" C-m
