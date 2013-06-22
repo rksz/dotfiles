@@ -30,7 +30,10 @@ main() {
     ## 4. Install vim plugins
     vim +NeoBundleInstall
 
-    ## 5. Finished messages
+    ## 5. Copy gitdiff wrapper
+    sudo cp -a $HOME/dotfiles/bin/git_diff_wrapper /usr/local/bin/
+
+    ## 6. Finished messages
     echo "Finished! Install following packages (brew or epel)"
     echo "zsh tmux ncurses-term git tree ack lynx watch dstat tig"
 }
