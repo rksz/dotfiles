@@ -139,3 +139,10 @@ tset() {
     tmux send-keys -t :.1 "cd resources" C-m
     tmux rename-window "BASE"
 }
+
+
+# mkdir with timestamp
+mkdirt() {
+    filename=$(date "+%Y%m%d-%H%M")_${1:?}
+    mkdir $filename && echo $filename
+}
