@@ -16,6 +16,10 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 #alias view=/Applications/MacVim.app/Contents/MacOS/view
 export PATH=/Applications/Vagrant/bin/:$PATH
 export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
+export PATH=~/perl5/perlbrew/etc/bashrc:$PATH
+
+
+source ~/perl5/perlbrew/etc/bashrc
 
 # Mysql
 # export MYSQL_HOME=/usr/local/mysql
