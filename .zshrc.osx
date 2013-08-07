@@ -57,3 +57,11 @@ function cdf() {
     echo 'No Finder window found' >&2
   fi
 }
+
+
+function jf() {
+  jumpdir=${1:?}
+  j $1 && open .
+}
+
+
