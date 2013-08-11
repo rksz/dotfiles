@@ -164,8 +164,10 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'nginx.vim'
 
   " markdown
-  NeoBundle 'tpope/vim-markdown'
-  NeoBundle 'jtratner/vim-flavored-markdown'
+  " NeoBundle 'tpope/vim-markdown'
+  " NeoBundle 'jtratner/vim-flavored-markdown'
+  " NeoBundle 'joker1007/vim-markdown-quote-syntax'
+  NeoBundle 'plasticboy/vim-markdown'
 
   " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
   NeoBundle 'scrooloose/syntastic'
