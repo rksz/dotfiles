@@ -144,5 +144,6 @@ tset() {
 # mkdir with timestamp
 mkdirt() {
     filename=$(date "+%Y%m%d-%H%M")_${1:?}
-    mkdir $filename && echo $filename
+    # mkdir $filename && echo $filename
+    mkdir $filename && echo $filename && cd $filename
 }
