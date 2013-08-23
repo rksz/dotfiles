@@ -70,3 +70,10 @@ endfunction
 
 " insert mode でjjでesc
 inoremap jj <Esc>
+
+
+" enabled cursor key
+nnoremap OA gi<Up>
+nnoremap OB gi<Down>
+nnoremap OC gi<Right>
+nnoremap OD gi<Left>

@@ -460,3 +460,10 @@ let g:Powerline#Colorschemes#my#colorscheme = Pl#Colorscheme#Init([
     \ }),
   \ ])
 let g:Powerline_colorscheme='my'
+
+
+
+"------------------------------------
+" neocomplecache
+"------------------------------------
+let g:neocomplcache_enable_insert_char_pre = 1
