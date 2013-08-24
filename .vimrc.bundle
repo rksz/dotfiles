@@ -248,6 +248,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundle 'inkpot'
   NeoBundle 'maroloccio2'
   NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'flazz/vim-colorschemes'
 
 " }}}
 
