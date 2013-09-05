@@ -198,6 +198,9 @@ call neobundle#rc(expand('~/.vim/bundle/'))
   " minibuf explorer
   NeoBundle 'fholgado/minibufexpl.vim'
 
+  " buffer util
+  NeoBundle 'BufOnly.vim'
+
 " }}}
 
 " Encording {{{
