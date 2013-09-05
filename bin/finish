@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# Event finish command
+#
+#########################################
+
+
+main() {
+
+    #Definition
+    # readonly BASEPATH=$(cd `dirname $0`; pwd)
+    readonly BASEPATH=$(pwd)
+
+    #Main
+    readonly PROJECT_BASE=${HOME}/projects
+    readonly PROJECT_FINISHED_DIR=${HOME}/projects/finish
+
+    if [[ ! -d ${PROJECT_FINISHED_DIR:?} ]]; then
+        mkdir $PROJECT_FINISHED_DIR
+    fi
+
+    echo "OK? [press enter]: mv $BASEPATH $PROJECT_FINISHED_DIR"
+    read wait_press_enter
+    if [[ -n "${wait_press_enter}" ]]; then
+        exit 0
+    fi
+
+    mv -v $BASEPATH $PROJECT_FINISHED_DIR/
+
+
+}
+
+main "$@"
+
