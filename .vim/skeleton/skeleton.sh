@@ -1,15 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 #
 #
 #
 #########################################
 
+BASEPATH=$(cd `dirname $0`; pwd)
+CMDNAME=$(basename $0)
+
 
 main() {
-
-    #Definition
-    readonly BASEPATH=$(cd `dirname $0`; pwd)
-    readonly CMDNAME=$(basename $0)
 
     #Validation
     if [[ $# -lt 1 ]]; then
@@ -19,6 +18,13 @@ main() {
 
     #Main
 
+}
+
+logging() {
+    now=$(date "+%Y-%m-%d %H:%M:%S")
+    mode=$1
+    msg=$2
+    echo -e "${now} [${mode}]: ${msg}"
 }
 
 main "$@"
