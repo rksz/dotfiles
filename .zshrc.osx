@@ -19,6 +19,10 @@ export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
 export PATH=~/perl5/perlbrew/etc/bashrc:$PATH
 
 
+# script alias
+alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
+
+
 source ~/perl5/perlbrew/etc/bashrc
 
 # Mysql
