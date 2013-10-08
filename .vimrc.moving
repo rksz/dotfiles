@@ -77,3 +77,7 @@ nnoremap OA gi<Up>
 nnoremap OB gi<Down>
 nnoremap OC gi<Right>
 nnoremap OD gi<Left>
+
+
+" open active directory path
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'

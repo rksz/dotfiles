@@ -9,7 +9,13 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Edit {{{
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
-  NeoBundle 'scrooloose/nerdcommenter.git'
+  " NeoBundle 'scrooloose/nerdcommenter.git'
+
+  " Comment
+  NeoBundle 'tpope/vim-commentary.git'
+
+
+  NeoBundle 'kana/vim-textobj-entire'
 
   " -- でメソッドチェーン整形
   NeoBundle 'c9s/cascading.vim'
@@ -86,6 +92,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
   " neocomplcacheのsinpet補完
   NeoBundle 'Shougo/neosnippet'
+
+  NeoBundle 'c9s/perlomni.vim'
 
 " }}}
 
