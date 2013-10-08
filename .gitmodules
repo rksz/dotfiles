@@ -1,9 +1,3 @@
-[submodule ".tmux.d/tmux-colors-solarized"]
-  path = .tmux.d/tmux-colors-solarized
-  url = https://github.com/seebi/tmux-colors-solarized
-[submodule ".tmux.d/tmux-powerline"]
-  path = .tmux.d/tmux-powerline
-  url = https://github.com/rksz/tmux-powerline
 [submodule ".vim/bundle/neobundle.vim"]
   path = .vim/bundle/neobundle.vim
   url = git://github.com/Shougo/neobundle.vim
