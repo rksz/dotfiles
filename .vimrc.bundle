@@ -22,8 +22,6 @@ NeoBundle 'Gundo'                           " undo履歴を追える (need pytho
 NeoBundle 'tpope/vim-surround'              " surround.vim : テキストを括弧で囲む／削除する
 NeoBundle 'smartchr'                        " smartchr.vim : ==などの前後を整形
 NeoBundle 'operator-user'                   " vim-operator-user : 簡単にoperatorを定義できるようにする
-NeoBundle 'operator-camelize'               " operator-camelize : camel-caseへの変換
-NeoBundle 'operator-replace'                " operator-replace : yankしたものでreplaceする
 NeoBundle 'textobj-user'                    " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
 NeoBundle 'kana/vim-textobj-syntax.git'     " vim-textobj-syntax : syntax hilightされたものをtext-objectに
 NeoBundle 'thinca/vim-textobj-plugins.git'  " vim-textobj-plugins : いろんなものをtext-objectにする
@@ -50,7 +48,6 @@ NeoBundle 'matchit.zip'           " matchit.vim : 「%」による対応括弧�
 NeoBundle 'ruby-matchit'          " ruby用のmatchit拡張
 NeoBundle 'grep.vim'              " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
 NeoBundle 'eregex.vim'            " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
-NeoBundle 'tyru/open-browser.vim' " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
 NeoBundle 'rhysd/clever-f.vim'    " clever-f.vim : fジャンプを効率化
 
 "============================================================

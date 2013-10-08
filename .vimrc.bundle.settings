@@ -7,7 +7,6 @@
 "------------------------------------
 let g:vim_markdown_folding_disabled=1
 
-
 "------------------------------------
 " Align
 "------------------------------------
@@ -30,7 +29,7 @@ let NERDShutUp=1
 " 検索外のディレクトリ、ファイルパターン
 let Grep_Skip_Dirs = '.svn .git .hg'
 let Grep_Skip_Files = '*.bak *~'
--
+
 "------------------------------------
 " surround.vim
 "------------------------------------
@@ -101,31 +100,6 @@ let g:SrcExpl_RefreshTime   = 0         " 自動表示するまでの時間(0:of
 let g:SrcExpl_WinHeight     = 9         " プレビューウインドウの高さ
 let g:SrcExpl_RefreshMapKey = "<Space>" " 手動表示のMAP
 let g:SrcExpl_GoBackMapKey  = "<C-b>"   " 戻る機能のMAP
-" Source Explorerの機能ON/OFF
-" nmap <F8> :CMiniBufExplorer<CR>:SrcExplToggle<CR>:TMiniBufExplorer<CR>
-
-"------------------------------------
-" open-blowser.vim
-"------------------------------------
-
-" カーソル下のURLをブラウザで開く
-nmap <Leader>fu <Plug>(openbrowser-open)
-vmap <Leader>fu <Plug>(openbrowser-open)
-" カーソル下のキーワードをググる
-nnoremap <Leader>fs :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
-
-"------------------------------------
-" operator-camelize.vim
-"------------------------------------
-" camel-caseへの変換
-map <Leader>u <Plug>(operator-camelize)
-map <Leader>U <Plug>(operator-decamelize)
-
-"------------------------------------
-" operator-replace.vim
-"------------------------------------
-" RwなどでYankしてるもので置き換える
-map R <Plug>(operator-replace)
 
 "------------------------------------
 " sumartword.vim
@@ -144,7 +118,6 @@ map ge  <Plug>(smartword-ge)
 "------------------------------------
 " camelcasemotion.vim
 "------------------------------------
-
 " <Shift-wbe>でCameCaseやsnake_case単位での単語移動
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -182,13 +155,7 @@ nnoremap <silent> [unite]h :<C-u>Unite file_mru<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
 
-
-
-
-" nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
-
 let g:yankring_zap_keys = ""
-" from basyura/unite-rails
 nnoremap <silent> [unite]rm  :<C-u>Unite -no-split rails/model<CR>
 nnoremap <silent> [unite]rc  :<C-u>Unite -no-split rails/controller<CR>
 nnoremap <silent> [unite]rv  :<C-u>Unite -no-split rails/view<CR>
@@ -229,7 +196,6 @@ cnoremap UO Unite outline<Enter>
 "------------------------------------
 " vim-ref
 "------------------------------------
-"let g:ref_open = 'vsplit'
 let g:ref_phpmanual_path = $HOME . '/dotfiles/ref/php-chunked-xhtml'
 let g:ref_refe_path = $HOME . '/dotfiles/ref/ruby-refm-1.9.3-dynamic-20120829'
 
@@ -241,6 +207,7 @@ nnoremap <silent> [unite]R  :<C-u>Unite -no-split ref/refe<CR>
 " quickrun.vim
 "------------------------------------
 let g:quickrun_config = {}
+
 "------------------------------------
 " Pydiction
 "------------------------------------
@@ -263,10 +230,8 @@ let g:quickrun_config.mkd = {
 "------------------------------------
 " Syntastic
 "------------------------------------
-" エラー行をsignで表示する
-let g:syntastic_enable_signs = 1
-" 可能ならhighligt表示する
-let g:syntastic_enable_highlighting = 1
+let g:syntastic_enable_signs = 1        " エラー行をsignで表示する
+let g:syntastic_enable_highlighting = 1 " 可能ならhighligt表示する
 
 
 "------------------------------------
@@ -292,13 +257,13 @@ nnoremap <C-d> <ESC>:bnext \| bdelete #<CR>
 nnoremap <C-n> :MBEbn<CR>
 nnoremap <C-p> :MBEbp<CR>
 nnoremap <Leader>e :enew<CR>
-" MiniBufExpl Colors
-hi MBEVisibleActive guifg=#A6DB29 guibg=fg
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
+" " MiniBufExpl Colors
+hi MBENormal               guifg=#808080 guibg=fg
+hi MBEChanged              guifg=#CD5907 guibg=fg
+hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
+hi MBEVisibleChanged       guifg=#F1266F guibg=fg
+hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
+hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 
 
 "------------------------------------

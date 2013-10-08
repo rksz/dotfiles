@@ -1,28 +1,11 @@
 "-------------------------------------------------------------------------------
 " 編集関連 Edit
 "-------------------------------------------------------------------------------
-
-" insertモードを抜けるとIMEオフ
-set noimdisable
+set expandtab              " Tabキーを空白に変換
+set noimdisable            " insertモードを抜けるとIMEオフ
 set iminsert=0 imsearch=0
 set noimcmdline
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
-
-" yeでそのカーソル位置にある単語をレジスタに追加
-nmap ye ;let @"=expand("<cword>")<CR>
-" Visualモードでのpで選択範囲をレジスタの内容に置き換える
-vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
-
-" Tabキーを空白に変換
-set expandtab
-
-" コンマの後に自動的にスペースを挿入
-" inoremap , ,<Space>
-" XMLの閉タグを自動挿入
-augroup MyXML
-  autocmd!
-  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-augroup END
 
 " :Ptでインデントモード切替
 command! Pt :set paste!
@@ -30,14 +13,12 @@ command! Pt :set paste!
 " 保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
 
-
 " 日時の自動入力
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
 inoremap <expr> ,dd strftime('%Y/%m/%d')
 inoremap <expr> ,dt strftime('%H:%M:%S')
 
 " <leader>j でJSONをformat
-" http://wozozo.hatenablog.com/entry/2012/02/08/121504
 map <Leader>j !python -m json.tool<CR>
 
 " quickfixウィンドウではq/ESCで閉じる
@@ -53,26 +34,17 @@ inoreabbrev dk ============================================================
 inoreabbrev dj ------------------------------------------------------------
 
 
-
 "-------------------------------------------------------------------------------
 " インデント Indent
 "-------------------------------------------------------------------------------
 set autoindent   " 自動でインデント
-"set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
 set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
 set cindent      " Cプログラムファイルの自動インデントを始める
-
-" softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
 set tabstop=2 shiftwidth=2 softtabstop=0
 
 if has("autocmd")
-  "ファイルタイプの検索を有効にする
-  filetype plugin on
-  "そのファイルタイプにあわせたインデントを利用する
-  filetype indent on
-  " これらのftではインデントを無効に
-  "autocmd FileType php filetype indent off
-
+  filetype plugin on "ファイルタイプの検索を有効にする
+  filetype indent on "そのファイルタイプにあわせたインデントを利用する
   autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
   autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
   autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
@@ -106,6 +78,7 @@ endif
 "-------------------------------------------------------------------------------
 " 移動設定 Move
 "-------------------------------------------------------------------------------
+set virtualedit+=block " 矩形選択で自由に移動する
 
 " カーソルを表示行で移動する。論理行移動は<C-n>,<C-p>
 nnoremap h <Left>
@@ -118,14 +91,6 @@ nnoremap <Up>   gk
 "<space>系の移動
 nnoremap <Space>h ^
 nnoremap <Space>l $
-
-" F2で前のバッファ
-map <F2> <ESC>;bp<CR>
-" F3で次のバッファ
-map <F3> <ESC>;bn<CR>
-" F4でバッファを削除する
-map <F4> <ESC>:bnext \| bdelete #<CR>
-command! Bw :bnext \| bdelete #
 
 " 前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
@@ -142,12 +107,6 @@ nnoremap ) %
 nnoremap gc  `[v`]
 vnoremap gc <C-u>normal gc<Enter>
 onoremap gc <C-u>normal gc<Enter>
-
-" カーソル位置の単語をyankする
-nnoremap vy vawy
-
-" 矩形選択で自由に移動する
-set virtualedit+=block
 
 "ビジュアルモード時vで行末まで選択
 vnoremap v $h
@@ -176,17 +135,14 @@ endfunction
 " insert mode でjjでesc
 inoremap jj <Esc>
 
-
 " enabled cursor key
 nnoremap OA gi<Up>
 nnoremap OB gi<Down>
 nnoremap OC gi<Right>
 nnoremap OD gi<Left>
 
-
 " open active directory path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
 
 
 "-------------------------------------------------------------------------------
@@ -197,15 +153,12 @@ set encoding=utf-8    " デフォルトエンコーディング
 
 " 文字コード認識はbanyan/recognize_charcode.vimへ
 
-" cvsの時は文字コードをeuc-jpに設定
-autocmd FileType cvs :set fileencoding=euc-jp
-" 以下のファイルの時は文字コードをutf-8に設定
-autocmd FileType svn :set fileencoding=utf-8
-autocmd FileType js :set fileencoding=utf-8
-autocmd FileType css :set fileencoding=utf-8
-autocmd FileType html :set fileencoding=utf-8
-autocmd FileType xml :set fileencoding=utf-8
-autocmd FileType java :set fileencoding=utf-8
+" エンコーディングをUTF8に指定
+autocmd FileType js    :set fileencoding=utf-8
+autocmd FileType css   :set fileencoding=utf-8
+autocmd FileType html  :set fileencoding=utf-8
+autocmd FileType xml   :set fileencoding=utf-8
+autocmd FileType java  :set fileencoding=utf-8
 autocmd FileType scala :set fileencoding=utf-8
 
 " ワイルドカードで表示するときに優先度を低くする拡張子
