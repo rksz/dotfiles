@@ -29,8 +29,7 @@ command! Pt :set paste!
 
 " 保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
-" 保存時にtabをスペースに変換する
-"autocmd BufWritePre * :%s/\t/  /ge
+
 
 " 日時の自動入力
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
@@ -45,23 +44,177 @@ map <Leader>j !python -m json.tool<CR>
 autocmd FileType qf nnoremap <buffer> q :ccl<CR>
 autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
 
-" " cwでquickfixウィンドウの表示をtoggleするようにした
-" function! s:toggle_qf_window()
-"   for bufnr in range(1,  winnr('$'))
-"     if getwinvar(bufnr,  '&buftype') ==# 'quickfix'
-"       execute 'ccl'
-"       return
-"     endif
-"   endfor
-"   execute 'botright cw'
-" endfunction
-" nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
-"
 " 何もせず終了
 nnoremap <Space>q :qa<CR>
-
 
 " 区切り文字
 inoreabbrev dl ************************************************************
 inoreabbrev dk ============================================================
 inoreabbrev dj ------------------------------------------------------------
+
+
+
+"-------------------------------------------------------------------------------
+" インデント Indent
+"-------------------------------------------------------------------------------
+set autoindent   " 自動でインデント
+"set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
+set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
+set cindent      " Cプログラムファイルの自動インデントを始める
+
+" softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
+set tabstop=2 shiftwidth=2 softtabstop=0
+
+if has("autocmd")
+  "ファイルタイプの検索を有効にする
+  filetype plugin on
+  "そのファイルタイプにあわせたインデントを利用する
+  filetype indent on
+  " これらのftではインデントを無効に
+  "autocmd FileType php filetype indent off
+
+  autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+endif
+
+
+
+"-------------------------------------------------------------------------------
+" 移動設定 Move
+"-------------------------------------------------------------------------------
+
+" カーソルを表示行で移動する。論理行移動は<C-n>,<C-p>
+nnoremap h <Left>
+nnoremap j gj
+nnoremap k gk
+nnoremap l <Right>
+nnoremap <Down> gj
+nnoremap <Up>   gk
+
+"<space>系の移動
+nnoremap <Space>h ^
+nnoremap <Space>l $
+
+" F2で前のバッファ
+map <F2> <ESC>;bp<CR>
+" F3で次のバッファ
+map <F3> <ESC>;bn<CR>
+" F4でバッファを削除する
+map <F4> <ESC>:bnext \| bdelete #<CR>
+command! Bw :bnext \| bdelete #
+
+" 前回終了したカーソル行に移動
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+" 最後に編集された位置に移動
+nnoremap gb '[
+nnoremap gp ']
+
+" 対応する括弧に移動
+nnoremap ( %
+nnoremap ) %
+
+" 最後に変更されたテキストを選択する
+nnoremap gc  `[v`]
+vnoremap gc <C-u>normal gc<Enter>
+onoremap gc <C-u>normal gc<Enter>
+
+" カーソル位置の単語をyankする
+nnoremap vy vawy
+
+" 矩形選択で自由に移動する
+set virtualedit+=block
+
+"ビジュアルモード時vで行末まで選択
+vnoremap v $h
+
+" CTRL-hjklでウィンドウ移動
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+function! s:do_git_diff_aware_gf(command)
+  let target_path = expand('<cfile>')
+  if target_path =~# '^[ab]/'  " with a peculiar prefix of git-diff(1)?
+    if filereadable(target_path) || isdirectory(target_path)
+      return a:command
+    else
+      " BUGS: Side effect - Cursor position is changed.
+      let [_, c] = searchpos('\f\+', 'cenW')
+      return c . '|' . 'v' . (len(target_path) - 2 - 1) . 'h' . a:command
+    endif
+  else
+    return a:command
+  endif
+endfunction
+
+" insert mode でjjでesc
+inoremap jj <Esc>
+
+
+" enabled cursor key
+nnoremap OA gi<Up>
+nnoremap OB gi<Down>
+nnoremap OC gi<Right>
+nnoremap OD gi<Left>
+
+
+" open active directory path
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+
+
+"-------------------------------------------------------------------------------
+" エンコーディング関連 Encoding
+"-------------------------------------------------------------------------------
+set ffs=unix,dos,mac  " 改行文字
+set encoding=utf-8    " デフォルトエンコーディング
+
+" 文字コード認識はbanyan/recognize_charcode.vimへ
+
+" cvsの時は文字コードをeuc-jpに設定
+autocmd FileType cvs :set fileencoding=euc-jp
+" 以下のファイルの時は文字コードをutf-8に設定
+autocmd FileType svn :set fileencoding=utf-8
+autocmd FileType js :set fileencoding=utf-8
+autocmd FileType css :set fileencoding=utf-8
+autocmd FileType html :set fileencoding=utf-8
+autocmd FileType xml :set fileencoding=utf-8
+autocmd FileType java :set fileencoding=utf-8
+autocmd FileType scala :set fileencoding=utf-8
+
+" ワイルドカードで表示するときに優先度を低くする拡張子
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+" 指定文字コードで強制的にファイルを開く
+command! Cp932 edit ++enc=cp932
+command! Eucjp edit ++enc=euc-jp
+command! Iso2022jp edit ++enc=iso-2022-jp
+command! Utf8 edit ++enc=utf-8
+command! Jis Iso2022jp
+command! Sjis Cp932
