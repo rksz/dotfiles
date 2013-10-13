@@ -12,6 +12,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Edit
 "============================================================
 NeoBundle 'tpope/vim-commentary.git'        " Comment
+NeoBundle 'scrooloose/nerdcommenter'        " Comment2
 NeoBundle 'c9s/cascading.vim'               " -- でメソッドチェーン整形
 NeoBundle 'nathanaelkane/vim-indent-guides' " visually indent guide
 NeoBundle 'xmledit'                         " XMLとかHTMLとかの編集機能を強化する
@@ -42,13 +43,15 @@ NeoBundle 'c9s/perlomni.vim'
 "============================================================
 " Searching/Moving
 "============================================================
-NeoBundle 'smartword'             " vim-smartword : 単語移動がスマートな感じで
-NeoBundle 'camelcasemotion'       " camelcasemotion : CamelCaseやsnake_case単位でのワード移動
-NeoBundle 'matchit.zip'           " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
-NeoBundle 'ruby-matchit'          " ruby用のmatchit拡張
-NeoBundle 'grep.vim'              " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
-NeoBundle 'eregex.vim'            " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
-NeoBundle 'rhysd/clever-f.vim'    " clever-f.vim : fジャンプを効率化
+NeoBundle 'smartword'                        " vim-smartword : 単語移動がスマートな感じで
+NeoBundle 'camelcasemotion'                  " camelcasemotion : CamelCaseやsnake_case単位でのワード移動
+NeoBundle 'matchit.zip'                      " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
+NeoBundle 'ruby-matchit'                     " ruby用のmatchit拡張
+NeoBundle 'grep.vim'                         " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
+NeoBundle 'eregex.vim'                       " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
+NeoBundle 'rhysd/clever-f.vim'               " clever-f.vim : fジャンプを効率化
+NeoBundle 'yonchu/accelerated-smooth-scroll' " Smooth Scroll
+
 
 "============================================================
 " Programming
