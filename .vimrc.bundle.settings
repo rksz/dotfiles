@@ -11,7 +11,7 @@ let g:vim_markdown_folding_disabled=1
 " Align
 "------------------------------------
 " Alignを日本語環境で使用するための設定
-let g:Align_xstrlen = 3
+" let g:Align_xstrlen = 3
 
 "------------------------------------
 " NERD_commenter.vim
