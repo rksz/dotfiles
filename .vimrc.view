@@ -32,7 +32,8 @@ highlight CursorLine ctermbg=black guibg=black
 " カラー関連 Colors
 "-------------------------------------------------------------------------------
 
-colorscheme molokai
+" colorscheme molokai
+colorscheme inkpot
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
@@ -95,3 +96,6 @@ func! String2Hex(str)
   endwhile
   return out
 endfunc
+
+
+
