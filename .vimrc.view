@@ -65,10 +65,6 @@ set ruler        " カーソルが何行目の何列目に置かれているか�
 
 let g:Powerline_symbols = 'fancy' " vim-powerlineでフォントにパッチを当てないなら以下をコメントアウト
 
-"自動的に QuickFix リストを表示する
-autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
-autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
-
 function! GetB()
   let c = matchstr(getline('.'), '.', col('.') - 1)
   let c = iconv(c, &enc, &fenc)

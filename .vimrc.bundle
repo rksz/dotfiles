@@ -21,6 +21,7 @@ NeoBundle 'godlygeek/tabular'               " フィルタリングと整形
 NeoBundle 'h1mesuke/vim-alignta'            " マルチバイト対応の整形
 NeoBundle 'Gundo'                           " undo履歴を追える (need python support)
 NeoBundle 'tpope/vim-surround'              " surround.vim : テキストを括弧で囲む／削除する
+NeoBundle 'tpope/vim-repeat'                " surround.vim : テキストを括弧で囲む／削除する
 NeoBundle 'smartchr'                        " smartchr.vim : ==などの前後を整形
 NeoBundle 'operator-user'                   " vim-operator-user : 簡単にoperatorを定義できるようにする
 NeoBundle 'textobj-user'                    " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
@@ -44,7 +45,6 @@ NeoBundle 'c9s/perlomni.vim'
 " Searching/Moving
 "============================================================
 NeoBundle 'smartword'                        " vim-smartword : 単語移動がスマートな感じで
-NeoBundle 'camelcasemotion'                  " camelcasemotion : CamelCaseやsnake_case単位でのワード移動
 NeoBundle 'matchit.zip'                      " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
 NeoBundle 'ruby-matchit'                     " ruby用のmatchit拡張
 NeoBundle 'grep.vim'                         " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
@@ -69,6 +69,7 @@ NeoBundle 'ZenCoding.vim'       " Html fast coding
 "============================================================
 NeoBundle 'haml.zip'                  " haml
 NeoBundle 'JavaScript-syntax'         " JavaScript
+NeoBundle 'jceb/vim-hier'
 NeoBundle 'jQuery'                    " jQuery
 NeoBundle 'nginx.vim'                 " nginx conf
 NeoBundle 'plasticboy/vim-markdown'   " markdown
