@@ -35,7 +35,7 @@ main() {
 
     ## 6. Finished messages
     echo "Finished! Install following packages (brew or epel)"
-    echo "zsh tmux ncurses-term git tree ack lynx watch dstat tig"
+    echo "brew install vim tmux tig reattach-to-user-namespace"
 }
 
 main "$@"
