@@ -26,4 +26,3 @@ set helpfile=$VIMRUNTIME/doc/help.txt " Japanese help files
 filetype plugin on               " ファイルタイプ判定をon
 let OSTYPE=system('uname')       " OSTypeの判定
 command! Base cd %:h             " カレントディレクトリに移動コマンド
-noremap ; :
