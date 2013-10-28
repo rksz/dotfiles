@@ -47,7 +47,7 @@ main() {
 
 
     ## Create resource files
-    mkdir resources
+    mkdir resources trashbox actions
     touch master.md
     cat <<EOC >>master.md
 MEMO
