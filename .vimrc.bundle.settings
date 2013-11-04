@@ -242,29 +242,29 @@ nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 
-"------------------------------------
-" minibufexpl
-"------------------------------------
-let g:miniBufExplMapWindowNavVim=1   "hjklで移動
-let g:miniBufExplSplitBelow=0        " Put new window above
-let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplModSelTarget=1
-let g:miniBufExplSplitToEdge=1
-let g:miniBufExplMaxSize = 10
-command! Mt :TMiniBufExplorer
-nnoremap <C-d> <ESC>:bnext \| bdelete #<CR>
-nnoremap <C-n> :MBEbn<CR>
-nnoremap <C-p> :MBEbp<CR>
-nnoremap <Leader>e :enew<CR>
-" " MiniBufExpl Colors
-hi MBENormal               guifg=#808080 guibg=fg
-hi MBEChanged              guifg=#CD5907 guibg=fg
-hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
-hi MBEVisibleChanged       guifg=#F1266F guibg=fg
-hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
-hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
-
+" "------------------------------------
+" " minibufexpl
+" "------------------------------------
+" let g:miniBufExplMapWindowNavVim=1   "hjklで移動
+" let g:miniBufExplSplitBelow=0        " Put new window above
+" let g:miniBufExplMapWindowNavArrows=1
+" let g:miniBufExplMapCTabSwitchBufs=1
+" let g:miniBufExplModSelTarget=1
+" let g:miniBufExplSplitToEdge=1
+" let g:miniBufExplMaxSize = 10
+" command! Mt :TMiniBufExplorer
+" nnoremap <C-d> <ESC>:bnext \| bdelete #<CR>
+" nnoremap <C-n> :MBEbn<CR>
+" nnoremap <C-p> :MBEbp<CR>
+" nnoremap <Leader>e :enew<CR>
+" " " MiniBufExpl Colors
+" hi MBENormal               guifg=#808080 guibg=fg
+" hi MBEChanged              guifg=#CD5907 guibg=fg
+" hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
+" hi MBEVisibleChanged       guifg=#F1266F guibg=fg
+" hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
+" hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
+"
 
 "------------------------------------
 " submode.vim

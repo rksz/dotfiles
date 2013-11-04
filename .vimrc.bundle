@@ -84,7 +84,7 @@ NeoBundle 'python.vim'                " Python
 " Buffer
 "============================================================
 NeoBundle 'scrooloose/nerdtree'      " NERDTree : ツリー型エクスプローラ
-NeoBundle 'fholgado/minibufexpl.vim' " minibuf explorer
+" NeoBundle 'fholgado/minibufexpl.vim' " minibuf explorer
 NeoBundle 'BufOnly.vim'              " buffer util
 
 
