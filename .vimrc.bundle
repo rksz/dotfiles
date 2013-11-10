@@ -51,7 +51,7 @@ NeoBundle 'grep.vim'                         " grep.vim : 外部のgrep利用。
 NeoBundle 'eregex.vim'                       " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
 NeoBundle 'rhysd/clever-f.vim'               " clever-f.vim : fジャンプを効率化
 NeoBundle 'yonchu/accelerated-smooth-scroll' " Smooth Scroll
-
+NeoBundle 'tyru/open-browser.vim'
 
 "============================================================
 " Programming
