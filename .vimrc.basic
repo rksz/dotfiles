@@ -20,6 +20,7 @@ set modelines=0                  " モードラインは無効
 set nrformats=alpha              " 数値を全て10進数としてインクリメントする
 set clipboard+=unnamed           " OSのクリップボードを使用する
 set clipboard=unnamed            "ヤンクした文字は、システムのクリップボードに入れる"
+set shortmess+=I
 command! Ev edit $MYVIMRC        " Ev/Rvでvimrcの編集と反映
 command! Rv source $MYVIMRC      " Ev/Rvでvimrcの編集と反映
 set helpfile=$VIMRUNTIME/doc/help.txt " Japanese help files
