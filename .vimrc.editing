@@ -137,8 +137,15 @@ function! s:do_git_diff_aware_gf(command)
   endif
 endfunction
 
-" insert mode でjjでesc
+" esc by "jj" or "C-j" in insert mode
 inoremap jj <Esc>
+inoremap <C-j> <Esc>
+
+" same as visual-mode
+vnoremap <C-j> <Esc>
+
+" format
+nnoremap <C-l> zz
 
 " enabled cursor key
 nnoremap OA gi<Up>
