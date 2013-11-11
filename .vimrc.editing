@@ -145,7 +145,7 @@ inoremap <C-j> <Esc>
 vnoremap <C-j> <Esc>
 
 " format
-nnoremap <C-l> zz
+inoremap <C-l> <ESC>zza
 
 " enabled cursor key
 nnoremap OA gi<Up>
