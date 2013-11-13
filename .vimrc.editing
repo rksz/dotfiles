@@ -28,6 +28,9 @@ autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
 " 何もせず終了
 nnoremap <Space>q :qa<CR>
 
+" Save
+nnoremap <Space>w :w<CR>
+
 " 区切り文字
 inoreabbrev dl ************************************************************
 inoreabbrev dk ============================================================
