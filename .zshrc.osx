@@ -48,6 +48,9 @@ alias rename='tmux rename-session'
 alias renamew='tmux rename-window'
 alias tailf='tail -f'
 
+function here() {
+    tmux rename-window $(basename `pwd`)
+}
 
 # open current directory in Finder
 alias f='open .'
