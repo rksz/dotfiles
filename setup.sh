@@ -24,6 +24,7 @@ LOCAL_FILES=(
 )
 
 BREW_PLUGINS=(
+zsh
 vim
 tmux
 tig
