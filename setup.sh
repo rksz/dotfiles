@@ -53,6 +53,7 @@ sl
 
 YUM_PLUGINS=(
 tmux
+zsh
 tig
 tree
 fuse-sshfs
