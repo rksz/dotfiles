@@ -71,18 +71,12 @@ main() {
     readonly CMDNAME=$(basename $0)
 
     ## 1. Create symbolic links
-    for file in ${DOT_FILES[@]}
-    do
-        ln -s $HOME/dotfiles/$file $HOME/$file
-    done
+    < ${DOT_FILES[@]} xargs -I % ln -s $HOME/dotfiles/% $HOME/%
     echo "[setup notice] If you don't use zshell as login shell, run following command."
     echo "- sudo cp -a $HOME/dotfiles/bin/git_diff_wrapper /usr/local/bin/"
 
     ## 2. Create local configure files
-    for file in ${LOCAL_FILES[@]}
-    do
-        touch $HOME/$file
-    done
+    < ${LOCAL_FILES[@]} xargs -I % touch $HOME/%
 
     ## 3. Load submodules
     git submodule update --init
