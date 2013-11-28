@@ -61,6 +61,7 @@ htop
 ack
 dstat
 mosh
+gitflow
 )
 
 
