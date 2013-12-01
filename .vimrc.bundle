@@ -14,14 +14,14 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundle 'tpope/vim-commentary.git'        " Comment
 NeoBundle 'scrooloose/nerdcommenter'        " Comment2
 NeoBundle 'c9s/cascading.vim'               " -- でメソッドチェーン整形
-NeoBundle 'nathanaelkane/vim-indent-guides' " visually indent guide
+" NeoBundle 'nathanaelkane/vim-indent-guides' " visually indent guide
 NeoBundle 'xmledit'                         " XMLとかHTMLとかの編集機能を強化する
 NeoBundle 'Align'                           " Align : 高機能整形・桁揃えプラグイン
 NeoBundle 'godlygeek/tabular'               " フィルタリングと整形
 NeoBundle 'h1mesuke/vim-alignta'            " マルチバイト対応の整形
-NeoBundle 'Gundo'                           " undo履歴を追える (need python support)
+" NeoBundle 'Gundo'                           " undo履歴を追える (need python support)
 NeoBundle 'tpope/vim-surround'              " surround.vim : テキストを括弧で囲む／削除する
-NeoBundle 'tpope/vim-repeat'                " surround.vim : テキストを括弧で囲む／削除する
+" NeoBundle 'tpope/vim-repeat'                " surround.vim : テキストを括弧で囲む／削除する
 NeoBundle 'smartchr'                        " smartchr.vim : ==などの前後を整形
 NeoBundle 'operator-user'                   " vim-operator-user : 簡単にoperatorを定義できるようにする
 NeoBundle 'textobj-user'                    " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
@@ -46,11 +46,11 @@ NeoBundle 'c9s/perlomni.vim'
 "============================================================
 NeoBundle 'smartword'                        " vim-smartword : 単語移動がスマートな感じで
 NeoBundle 'matchit.zip'                      " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
-NeoBundle 'ruby-matchit'                     " ruby用のmatchit拡張
-NeoBundle 'grep.vim'                         " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
+" NeoBundle 'ruby-matchit'                     " ruby用のmatchit拡張
+" NeoBundle 'grep.vim'                         " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
 NeoBundle 'eregex.vim'                       " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
 NeoBundle 'rhysd/clever-f.vim'               " clever-f.vim : fジャンプを効率化
-NeoBundle 'yonchu/accelerated-smooth-scroll' " Smooth Scroll
+" NeoBundle 'yonchu/accelerated-smooth-scroll' " Smooth Scroll
 NeoBundle 'tyru/open-browser.vim'
 
 "============================================================
@@ -58,11 +58,11 @@ NeoBundle 'tyru/open-browser.vim'
 "============================================================
 NeoBundle 'thinca/vim-quickrun' " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
 NeoBundle 'thinca/vim-ref'      " perldocやphpmanual等のリファレンスをvim上で見る
-NeoBundle 'SQLUtilities'        " SQLUtilities : SQL整形、生成ユーティリティ
-NeoBundle 'ruby.vim'            " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
+" NeoBundle 'SQLUtilities'        " SQLUtilities : SQL整形、生成ユーティリティ
+" NeoBundle 'ruby.vim'            " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
 NeoBundle 'Pydiction'           " Pydiction : Python用の入力補完
 NeoBundle 'taglist.vim'         " ソースコード上のメソッド宣言、変数宣言の一覧を表示
-NeoBundle 'ZenCoding.vim'       " Html fast coding
+" NeoBundle 'ZenCoding.vim'       " Html fast coding
 
 "============================================================
 " Syntax
@@ -76,7 +76,7 @@ NeoBundle 'plasticboy/vim-markdown'   " markdown
 NeoBundle 'scrooloose/syntastic'      " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
 NeoBundle 'html5.vim'                 " html5
 NeoBundle 'hail2u/vim-css3-syntax'    " css3
-NeoBundle 'cakebaker/scss-syntax.vim' " sassy css
+" NeoBundle 'cakebaker/scss-syntax.vim' " sassy css
 NeoBundle 'php.vim'                   " PHP
 NeoBundle 'python.vim'                " Python
 
@@ -84,8 +84,7 @@ NeoBundle 'python.vim'                " Python
 " Buffer
 "============================================================
 NeoBundle 'scrooloose/nerdtree'      " NERDTree : ツリー型エクスプローラ
-" NeoBundle 'fholgado/minibufexpl.vim' " minibuf explorer
-NeoBundle 'BufOnly.vim'              " buffer util
+" NeoBundle 'BufOnly.vim'              " buffer util
 
 
 "============================================================
@@ -100,34 +99,34 @@ NeoBundle 'tyru/vim-altercmd'      " vim-altercmd : Ex command拡張
 NeoBundle 'mattn/webapi-vim'       " vim Interface to Web API
 NeoBundle 'cecutil'                " cecutil.vim : 他のpluginのためのutillity1
 NeoBundle 'L9'                     " utillity
-NeoBundle 'thinca/vim-openbuf'     " Buffer管理のLibrary
-NeoBundle 'tsukkee/lingr-vim'      " Lingrのclient
+" NeoBundle 'thinca/vim-openbuf'     " Buffer管理のLibrary
+" NeoBundle 'tsukkee/lingr-vim'      " Lingrのclient
 NeoBundle 'tpope/vim-fugitive'     " vimからGit操作する
 NeoBundle 'Lokaltog/vim-powerline' " ステータスラインをカッコよくする
-NeoBundle 'taku-o/vim-toggle'      " Toggle
+" NeoBundle 'taku-o/vim-toggle'      " Toggle
 NeoBundle 'kana/vim-submode'       " Window Control
 
 "============================================================
 " ColorSchema
 "============================================================
-NeoBundle 'desert256.vim'
-NeoBundle 'mrkn256.vim'
+" NeoBundle 'desert256.vim'
+" NeoBundle 'mrkn256.vim'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'inkpot'
-NeoBundle 'maroloccio2'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'flazz/vim-colorschemes'
+" NeoBundle 'maroloccio2'
+" NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'flazz/vim-colorschemes'
 
 "============================================================
 " Unite
 "============================================================
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tsukkee/unite-help'
+" NeoBundle 'tsukkee/unite-help'
 NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'thinca/vim-unite-history'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'choplin/unite-vim_hacks'
+" NeoBundle 'basyura/unite-rails'
+" NeoBundle 'thinca/vim-unite-history'
+" NeoBundle 'tsukkee/unite-tag'
+" NeoBundle 'choplin/unite-vim_hacks'
 
 "============================================================
 " Vimproc
