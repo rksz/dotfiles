@@ -108,11 +108,6 @@ extract () {
 alias ex='extract'
 
 
-
-##auto jump setting
-[[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
-
-
 #auto directory jumper
 jj () {
   if [ $1 ]; then

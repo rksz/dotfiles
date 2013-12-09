@@ -65,10 +65,3 @@ function cdf() {
   fi
 }
 
-
-function jf() {
-  jumpdir=${1:?}
-  j $1 && open .
-}
-
-
