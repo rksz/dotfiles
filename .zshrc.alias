@@ -81,6 +81,9 @@ alias dstat-cpu='dstat -Tclr'
 alias dstat-net='dstat -Tclnd'
 alias dstat-disk='dstat -Tcldr'
 
+# autojump
+alias j='z'
+
 # extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
 extract () {
   if [ -f $1 ] ; then
