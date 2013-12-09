@@ -255,3 +255,6 @@ esac
 #PATH=${HOME}/commands/firetools/core:$PATH
 #PATH=${HOME}/bin:$PATH
 export PATH=${HOME}/dotfiles/bin:$PATH
+
+# import z
+. ${HOME}/dotfiles/bin/z.sh
