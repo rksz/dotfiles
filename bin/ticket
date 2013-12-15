@@ -47,20 +47,16 @@ main() {
 
 
     ## Create resource files
-    mkdir resources trashbox actions
+    mkdir docs trashbox
     touch master.md
-    cat <<EOC >>master.md
-MEMO
-============================================================
 
-
-TODO
-============================================================
-
-
-PATH
-============================================================
+    <<EOC >>trashbox/remote_mount.sh
+#!/bin/sh
+REMOTE_PATH=""
+sshfs $REMOTE_PATH mount
 EOC
+    chmod 755 trashbox/remote_mount.sh
+
 
     ## Crete new session
     tmux new -s ${PROJECT_DIR}/${PROJECT_NAME}
