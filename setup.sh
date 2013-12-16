@@ -48,7 +48,7 @@ xz
 binutils
 coreutils
 findutils
-sl
+cocot
 )
 
 YUM_PLUGINS=(

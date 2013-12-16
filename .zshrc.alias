@@ -84,6 +84,13 @@ alias dstat-disk='dstat -Tcldr'
 # autojump
 alias j='z'
 
+# ssh
+alias ssh='TERM=xterm ssh'
+alias ssheuc='TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
+
+
+
+
 # extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
 extract () {
   if [ -f $1 ] ; then
