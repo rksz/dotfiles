@@ -63,6 +63,9 @@ NeoBundle 'thinca/vim-ref'      " perldocやphpmanual等のリファレンスを
 NeoBundle 'Pydiction'           " Pydiction : Python用の入力補完
 NeoBundle 'taglist.vim'         " ソースコード上のメソッド宣言、変数宣言の一覧を表示
 " NeoBundle 'ZenCoding.vim'       " Html fast coding
+NeoBundle 'wesleyche/SrcExpl'
+
+
 
 "============================================================
 " Syntax

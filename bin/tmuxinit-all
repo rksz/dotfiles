@@ -5,6 +5,8 @@ cd $target_dir; cd ../
 for dir in $(find ${target_dir} -type d -maxdepth 1 -mindepth 1)
 do
   cd $dir
-  tmux new-session -d -s "$dir"
+  # tmux new-session -d -s "${dir%*/}"
+  # tmux new-session -d -s "${${dir%*/}%//}"
+  tmux new-session -d -s "$(echo ${dir%*/} | sed 's/\/\//\//g')"
   cd $current_dir
 done
