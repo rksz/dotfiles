@@ -11,7 +11,16 @@ inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 command! Pt :set paste!
 
 " 保存時に行末の空白を除去する
-autocmd BufWritePre * :%s/\s\+$//ge
+function! s:remove_dust()
+    let cursor = getpos(".")
+    %s/\s\+$//ge
+    call setpos(".", cursor)
+    unlet cursor
+endfunction
+command! Rd :call s:remove_dust()
+" autocmd BufWritePre * call <SID>remove_dust()
+
+
 
 " 日時の自動入力
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
