@@ -46,11 +46,9 @@ NeoBundle 'c9s/perlomni.vim'
 "============================================================
 NeoBundle 'smartword'                        " vim-smartword : 単語移動がスマートな感じで
 NeoBundle 'matchit.zip'                      " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
-" NeoBundle 'ruby-matchit'                     " ruby用のmatchit拡張
 " NeoBundle 'grep.vim'                         " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
 NeoBundle 'eregex.vim'                       " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
 NeoBundle 'rhysd/clever-f.vim'               " clever-f.vim : fジャンプを効率化
-" NeoBundle 'yonchu/accelerated-smooth-scroll' " Smooth Scroll
 NeoBundle 'tyru/open-browser.vim'
 
 "============================================================
@@ -119,6 +117,7 @@ NeoBundle 'inkpot'
 " NeoBundle 'maroloccio2'
 " NeoBundle 'altercation/vim-colors-solarized'
 " NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'nanotech/jellybeans.vim'
 
 "============================================================
 " Unite

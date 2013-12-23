@@ -33,7 +33,7 @@ highlight CursorLine ctermbg=black guibg=black
 "-------------------------------------------------------------------------------
 
 " colorscheme molokai
-colorscheme inkpot
+colorscheme jellybeans
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
