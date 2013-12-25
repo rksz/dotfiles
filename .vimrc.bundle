@@ -16,7 +16,8 @@ NeoBundle 'scrooloose/nerdcommenter'        " Comment2
 NeoBundle 'c9s/cascading.vim'               " -- でメソッドチェーン整形
 " NeoBundle 'nathanaelkane/vim-indent-guides' " visually indent guide
 NeoBundle 'xmledit'                         " XMLとかHTMLとかの編集機能を強化する
-NeoBundle 'Align'                           " Align : 高機能整形・桁揃えプラグイン
+" NeoBundle 'Align'                           " Align : 高機能整形・桁揃えプラグイン
+NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'godlygeek/tabular'               " フィルタリングと整形
 NeoBundle 'h1mesuke/vim-alignta'            " マルチバイト対応の整形
 " NeoBundle 'Gundo'                           " undo履歴を追える (need python support)
@@ -45,9 +46,9 @@ NeoBundle 'c9s/perlomni.vim'
 " Searching/Moving
 "============================================================
 NeoBundle 'smartword'                        " vim-smartword : 単語移動がスマートな感じで
-NeoBundle 'matchit.zip'                      " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
+" NeoBundle 'matchit.zip'                      " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
 " NeoBundle 'grep.vim'                         " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
-NeoBundle 'eregex.vim'                       " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
+" NeoBundle 'eregex.vim'                       " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
 NeoBundle 'rhysd/clever-f.vim'               " clever-f.vim : fジャンプを効率化
 NeoBundle 'tyru/open-browser.vim'
 
@@ -60,7 +61,6 @@ NeoBundle 'thinca/vim-ref'      " perldocやphpmanual等のリファレンスを
 " NeoBundle 'ruby.vim'            " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
 NeoBundle 'Pydiction'           " Pydiction : Python用の入力補完
 NeoBundle 'taglist.vim'         " ソースコード上のメソッド宣言、変数宣言の一覧を表示
-" NeoBundle 'ZenCoding.vim'       " Html fast coding
 NeoBundle 'wesleyche/SrcExpl'
 
 
@@ -68,24 +68,23 @@ NeoBundle 'wesleyche/SrcExpl'
 "============================================================
 " Syntax
 "============================================================
-NeoBundle 'haml.zip'                  " haml
 NeoBundle 'JavaScript-syntax'         " JavaScript
-NeoBundle 'jceb/vim-hier'
-NeoBundle 'jQuery'                    " jQuery
-NeoBundle 'nginx.vim'                 " nginx conf
-NeoBundle 'plasticboy/vim-markdown'   " markdown
-NeoBundle 'scrooloose/syntastic'      " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
-NeoBundle 'html5.vim'                 " html5
 NeoBundle 'hail2u/vim-css3-syntax'    " css3
-" NeoBundle 'cakebaker/scss-syntax.vim' " sassy css
+NeoBundle 'html5.vim'                 " html5
+NeoBundle 'jQuery'                    " jQuery
+NeoBundle 'jceb/vim-hier'
+NeoBundle 'nginx.vim'                 " nginx conf
 NeoBundle 'php.vim'                   " PHP
+NeoBundle 'plasticboy/vim-markdown'   " markdown
 NeoBundle 'python.vim'                " Python
+NeoBundle 'scrooloose/syntastic'      " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
+NeoBundle 'tpope/vim-haml'            " haml
+
 
 "============================================================
 " Buffer
 "============================================================
 NeoBundle 'scrooloose/nerdtree'      " NERDTree : ツリー型エクスプローラ
-" NeoBundle 'BufOnly.vim'              " buffer util
 
 
 "============================================================
@@ -101,17 +100,13 @@ NeoBundle 'mattn/webapi-vim'       " vim Interface to Web API
 NeoBundle 'cecutil'                " cecutil.vim : 他のpluginのためのutillity1
 NeoBundle 'L9'                     " utillity
 " NeoBundle 'thinca/vim-openbuf'     " Buffer管理のLibrary
-" NeoBundle 'tsukkee/lingr-vim'      " Lingrのclient
 NeoBundle 'tpope/vim-fugitive'     " vimからGit操作する
 NeoBundle 'Lokaltog/vim-powerline' " ステータスラインをカッコよくする
-" NeoBundle 'taku-o/vim-toggle'      " Toggle
-NeoBundle 'kana/vim-submode'       " Window Control
+
 
 "============================================================
 " ColorSchema
 "============================================================
-" NeoBundle 'desert256.vim'
-" NeoBundle 'mrkn256.vim'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'inkpot'
 " NeoBundle 'maroloccio2'
