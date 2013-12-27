@@ -89,9 +89,12 @@ main() {
 
     ## 3. Load submodules
     git submodule update --init
+    git submodule foreach git checkout master
 
     ## 4. Install vim plugins
-    vim +NeoBundleInstall! 2>/dev/null
+    vim -N -u $HOME/.vimrc -c "try | NeoBundleUpdate $* | finally | qall! | endtry" \
+        -U NONE -i NONE -V1 -e -s
+    echo ''
 
     ## 5. Specific settings
     case "${OSTYPE}" in
