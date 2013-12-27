@@ -13,12 +13,13 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 "============================================================
 NeoBundle 'tpope/vim-commentary.git'        " Comment
 NeoBundle 'scrooloose/nerdcommenter'        " Comment2
-NeoBundle 'c9s/cascading.vim'               " -- でメソッドチェーン整形
+" NeoBundle 'c9s/cascading.vim'               " -- でメソッドチェーン整形
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'godlygeek/tabular'               " フィルタリングと整形
 NeoBundle 'tpope/vim-surround'              " surround.vim : テキストを括弧で囲む／削除する
 NeoBundle 'smartchr'                        " smartchr.vim : ==などの前後を整形
 NeoBundle 'operator-user'                   " vim-operator-user : 簡単にoperatorを定義できるようにする
+NeoBundle 'kana/vim-niceblock'
 " NeoBundle 'Align'                           " Align : 高機能整形・桁揃えプラグイン
 " NeoBundle 'h1mesuke/vim-alignta'            " マルチバイト対応の整形
 " NeoBundle 'Gundo'                           " undo履歴を追える (need python support)
@@ -34,7 +35,6 @@ NeoBundle 'operator-user'                   " vim-operator-user : 簡単にopera
 " NeoBundle 'textobj-entire'                  " vim-textobj-entire : buffer全体をtext-objectに
 " NeoBundle 'textobj-jabraces'                " 「foo」 or 【bar】などをtext-objectに
 " NeoBundle 'xmledit'                         " XMLとかHTMLとかの編集機能を強化する
-
 
 
 
@@ -87,8 +87,8 @@ NeoBundle 'tpope/vim-haml'            " haml
 "============================================================
 " Buffer
 "============================================================
-NeoBundle 'scrooloose/nerdtree'      " NERDTree : ツリー型エクスプローラ
-
+NeoBundle 'scrooloose/nerdtree'      "  tree explorer
+NeoBundle 'tpope/vim-vinegar'
 
 "============================================================
 " Encording
