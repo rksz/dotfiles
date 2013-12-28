@@ -13,29 +13,13 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 "============================================================
 NeoBundle 'tpope/vim-commentary.git'        " Comment
 NeoBundle 'scrooloose/nerdcommenter'        " Comment2
-" NeoBundle 'c9s/cascading.vim'               " -- でメソッドチェーン整形
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'godlygeek/tabular'               " フィルタリングと整形
 NeoBundle 'tpope/vim-surround'              " surround.vim : テキストを括弧で囲む／削除する
 NeoBundle 'smartchr'                        " smartchr.vim : ==などの前後を整形
 NeoBundle 'operator-user'                   " vim-operator-user : 簡単にoperatorを定義できるようにする
 NeoBundle 'kana/vim-niceblock'
-" NeoBundle 'Align'                           " Align : 高機能整形・桁揃えプラグイン
-" NeoBundle 'h1mesuke/vim-alignta'            " マルチバイト対応の整形
-" NeoBundle 'Gundo'                           " undo履歴を追える (need python support)
-" NeoBundle 'tpope/vim-repeat'                " surround.vim : テキストを括弧で囲む／削除する
-" NeoBundle 'nathanaelkane/vim-indent-guides' " visually indent guide
-" NeoBundle 'textobj-user'                    " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
-" NeoBundle 'kana/vim-textobj-syntax.git'     " vim-textobj-syntax : syntax hilightされたものをtext-objectに
-" NeoBundle 'thinca/vim-textobj-plugins.git'  " vim-textobj-plugins : いろんなものをtext-objectにする
-" NeoBundle 'kana/vim-textobj-lastpat.git'    " vim-textobj-lastpat : 最後に検索されたパターンをtext-objectに
-" NeoBundle 'kana/vim-textobj-indent.git'     " vim-textobj-indent : インデントされたものをtext-objectに
-" NeoBundle 'kana/vim-textobj-function.git'   " vim-textobj-function : 関数の中身をtext-objectに
-" NeoBundle 'textobj-rubyblock'
-" NeoBundle 'textobj-entire'                  " vim-textobj-entire : buffer全体をtext-objectに
-" NeoBundle 'textobj-jabraces'                " 「foo」 or 【bar】などをtext-objectに
-" NeoBundle 'xmledit'                         " XMLとかHTMLとかの編集機能を強化する
-
+NeoBundle 'Align'                           " Align : 高機能整形・桁揃えプラグイン
 
 
 "============================================================
@@ -51,9 +35,7 @@ NeoBundle 'c9s/perlomni.vim'
 NeoBundle 'smartword'                        " vim-smartword : 単語移動がスマートな感じで
 NeoBundle 'rhysd/clever-f.vim'               " clever-f.vim : fジャンプを効率化
 NeoBundle 'tyru/open-browser.vim'
-" NeoBundle 'matchit.zip'                      " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
-" NeoBundle 'grep.vim'                         " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
-" NeoBundle 'eregex.vim'                       " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
+
 
 "============================================================
 " Programming
@@ -63,9 +45,6 @@ NeoBundle 'thinca/vim-ref'      " perldocやphpmanual等のリファレンスを
 NeoBundle 'Pydiction'           " Pydiction : Python用の入力補完
 NeoBundle 'taglist.vim'         " ソースコード上のメソッド宣言、変数宣言の一覧を表示
 NeoBundle 'wesleyche/SrcExpl'
-" NeoBundle 'SQLUtilities'        " SQLUtilities : SQL整形、生成ユーティリティ
-" NeoBundle 'ruby.vim'            " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
-
 
 
 "============================================================
@@ -101,10 +80,7 @@ NeoBundle 'banyan/recognize_charcode.vim'
 NeoBundle 'Lokaltog/vim-powerline' " ステータスラインをカッコよくする
 NeoBundle 'cecutil'                " cecutil.vim : 他のpluginのためのutillity1
 NeoBundle 'tpope/vim-fugitive'     " vimからGit操作する
-"NeoBundle 'L9'                     " utillity
-"NeoBundle 'mattn/webapi-vim'       " vim Interface to Web API
-"NeoBundle 'thinca/vim-openbuf'     " Buffer管理のLibrary
-"NeoBundle 'tyru/vim-altercmd'      " vim-altercmd : Ex command拡張
+
 
 "============================================================
 " ColorSchema
@@ -112,20 +88,14 @@ NeoBundle 'tpope/vim-fugitive'     " vimからGit操作する
 NeoBundle 'inkpot'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'
-" NeoBundle 'altercation/vim-colors-solarized'
-" NeoBundle 'flazz/vim-colorschemes'
-" NeoBundle 'maroloccio2'
+
 
 "============================================================
 " Unite
 "============================================================
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'h1mesuke/unite-outline'
-" NeoBundle 'basyura/unite-rails'
-" NeoBundle 'choplin/unite-vim_hacks'
-" NeoBundle 'thinca/vim-unite-history'
-" NeoBundle 'tsukkee/unite-help'
-" NeoBundle 'tsukkee/unite-tag'
+
 
 "============================================================
 " Vimproc
@@ -141,11 +111,6 @@ NeoBundle 'Shougo/vimproc', {
 
 
 filetype plugin indent on     " Required!
-"
-" Brief help
-" :NeoBundleList          - list configured bundles
-" :NeoBundleInstall(!)    - install(update) bundles
-" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()

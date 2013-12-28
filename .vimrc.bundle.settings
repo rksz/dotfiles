@@ -23,15 +23,6 @@ map <Leader>x ,c<space>
 ""未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
 
-"------------------------------------
-" surround.vim
-"------------------------------------
-" s, ssで選択範囲を指定文字でくくる
-"nmap s <Plug>Ysurround
-"nmap ss <Plug>Yssurround
-"let g:surround_{char2nr('e')} = "begin \r end"
-"let g:surround_{char2nr('d')} = "do \r end"
-"let g:surround_{char2nr("-")} = ":\r"
 
 "------------------------------------
 " Fugitive.vim
@@ -139,20 +130,6 @@ let g:SrcExpl_prevDefKey = "<F3>"
 " // Set "<F4>" key for displaying the next definition in the jump list
 let g:SrcExpl_nextDefKey = "<F4>"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 "------------------------------------
 " sumartword.vim
 "------------------------------------
@@ -167,21 +144,6 @@ map E  <Plug>(smartword-e)
 map ge  <Plug>(smartword-ge)
 
 
-" "------------------------------------
-" " camelcasemotion.vim
-" "------------------------------------
-" " <Shift-wbe>でCameCaseやsnake_case単位での単語移動
-" map <silent> w <Plug>CamelCaseMotion_w
-" map <silent> b <Plug>CamelCaseMotion_b
-" map <silent> e <Plug>CamelCaseMotion_e
-" " text-objectで使用できるように
-" omap <silent> iw <Plug>CamelCaseMotion_iw
-" xmap <silent> iw <Plug>CamelCaseMotion_iw
-" omap <silent> ib <Plug>CamelCaseMotion_ib
-" xmap <silent> ib <Plug>CamelCaseMotion_ib
-" omap <silent> ie <Plug>CamelCaseMotion_ie
-" xmap <silent> ie <Plug>CamelCaseMotion_ie
-"
 "------------------------------------
 " unite.vim
 "------------------------------------
@@ -292,46 +254,6 @@ let g:syntastic_enable_highlighting = 1 " 可能ならhighligt表示する
 nnoremap <silent> <Leader>N :NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
-
-
-" "------------------------------------
-" " minibufexpl
-" "------------------------------------
-" let g:miniBufExplMapWindowNavVim=1   "hjklで移動
-" let g:miniBufExplSplitBelow=0        " Put new window above
-" let g:miniBufExplMapWindowNavArrows=1
-" let g:miniBufExplMapCTabSwitchBufs=1
-" let g:miniBufExplModSelTarget=1
-" let g:miniBufExplSplitToEdge=1
-" let g:miniBufExplMaxSize = 10
-" command! Mt :TMiniBufExplorer
-" nnoremap <C-d> <ESC>:bnext \| bdelete #<CR>
-" nnoremap <C-n> :MBEbn<CR>
-" nnoremap <C-p> :MBEbp<CR>
-" nnoremap <Leader>e :enew<CR>
-" " " MiniBufExpl Colors
-" hi MBENormal               guifg=#808080 guibg=fg
-" hi MBEChanged              guifg=#CD5907 guibg=fg
-" hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
-" hi MBEVisibleChanged       guifg=#F1266F guibg=fg
-" hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
-" hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
-"
-
-" "------------------------------------
-" " submode.vim
-" "------------------------------------
-" " http://d.hatena.ne.jp/thinca/20130131/1359567419
-" " ウィンドウサイズの変更キーを簡易化する
-" " [C-w],[+]または、[C-w],[-]
-" call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
-" call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
-" call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>-')
-" call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>+')
-" call submode#map('winsize', 'n', '', '>', '<C-w>>')
-" call submode#map('winsize', 'n', '', '<', '<C-w><')
-" call submode#map('winsize', 'n', '', '+', '<C-w>-')
-" call submode#map('winsize', 'n', '', '-', '<C-w>+')
 
 
 
@@ -474,7 +396,6 @@ nmap <Leader>fu <Plug>(openbrowser-open)
 vmap <Leader>fu <Plug>(openbrowser-open)
 " カーソル下のキーワードをググる
 nnoremap <Leader>fs :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
-
 
 
 " Start interactive EasyAlign in visual mode
