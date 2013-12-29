@@ -1,9 +1,6 @@
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin:~/bin:$PATH
 
-# osx alias
-#alias pbc='pbcopy'
-
 # Terminal Colorの設定
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -18,19 +15,12 @@ export PATH=/Applications/Vagrant/bin/:$PATH
 export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
 export PATH=~/perl5/perlbrew/etc/bashrc:$PATH
 
-
 # script alias
 alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 alias sourcetree='open -a SourceTree'
 alias st='sourcetree'
 
 source ~/perl5/perlbrew/etc/bashrc
-
-# Mysql
-# export MYSQL_HOME=/usr/local/mysql
-# export PATH=$MYSQL_HOME/bin:$PATH
-# alias h2db='java -cp ~/.m2/repository/com/h2database/h2/1.1.112/h2-1.1.112.jar org.h2.tools.Server'
-#
 
 # Ruby
 eval "$(rbenv init - zsh)"

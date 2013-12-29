@@ -36,23 +36,6 @@ nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
 
 "------------------------------------
-" vim-indent-guides
-"------------------------------------
-nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<Enter>
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 4
-let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-if 'dark' == &background
-    hi IndentGuidesOdd  ctermbg=black
-    hi IndentGuidesEven ctermbg=darkgrey
-else
-    hi IndentGuidesOdd  ctermbg=white
-    hi IndentGuidesEven ctermbg=lightgrey
-endif
-
-"------------------------------------
 " taglist.Vim
 "------------------------------------
 " 関数一覧
@@ -70,7 +53,6 @@ let Tlist_Show_One_File      = 1   " 現在編集中のソースのタグしか�
 let Tlist_Exit_OnlyWindow    = 1   " taglistのウィンドーが最後のウィンドーならばVimを閉じる
 let Tlist_Use_Right_Window   = 1   " 右側でtaglistのウィンドーを表示
 let Tlist_Enable_Fold_Column = 1   " 折りたたみ
-"let Tlist_Auto_Open          = 1   " 自動表示
 let Tlist_Auto_Update        = 1
 let Tlist_WinWidth           = 30
 nmap <F7> :Tlist<CR>
