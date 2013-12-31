@@ -17,7 +17,8 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'godlygeek/tabular'               " フィルタリングと整形
 NeoBundle 'tpope/vim-surround'              " surround.vim : テキストを括弧で囲む／削除する
 NeoBundle 'smartchr'                        " smartchr.vim : ==などの前後を整形
-NeoBundle 'operator-user'                   " vim-operator-user : 簡単にoperatorを定義できるようにする
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-niceblock'
 NeoBundle 'Align'                           " Align : 高機能整形・桁揃えプラグイン
 
