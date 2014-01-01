@@ -11,91 +11,86 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 "============================================================
 " Edit
 "============================================================
-NeoBundle 'tpope/vim-commentary.git'        " Comment
-NeoBundle 'scrooloose/nerdcommenter'        " Comment2
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'godlygeek/tabular'               " フィルタリングと整形
-NeoBundle 'tpope/vim-surround'              " surround.vim : テキストを括弧で囲む／削除する
-NeoBundle 'smartchr'                        " smartchr.vim : ==などの前後を整形
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-operator-replace'
-NeoBundle 'kana/vim-niceblock'
-NeoBundle 'Align'                           " Align : 高機能整形・桁揃えプラグイン
+NeoBundle      'tpope/vim-commentary.git' " comment1
+NeoBundle      'scrooloose/nerdcommenter' " comment2
+NeoBundle       'junegunn/vim-easy-align' " align1
+NeoBundle                         'Align' " align2
+NeoBundle            'tpope/vim-surround' " text surround
+NeoBundle        'kana/vim-operator-user'
+NeoBundle     'kana/vim-operator-replace'
+NeoBundle            'kana/vim-niceblock'
 
 
 "============================================================
 " Completion
 "============================================================
-NeoBundle 'Shougo/neocomplcache' " 補完 neocomplcache.vim : 究極のVim的補完環境
-NeoBundle 'c9s/perlomni.vim'
-"NeoBundle 'Shougo/neosnippet'    " neocomplcacheのsinpet補完
+NeoBundle          'Shougo/neocomplcache' " auto complete
+"NeoBundle            'Shougo/neosnippet'
+NeoBundle              'c9s/perlomni.vim'
+
 
 "============================================================
 " Searching/Moving
 "============================================================
-NeoBundle 'smartword'                        " vim-smartword : 単語移動がスマートな感じで
-NeoBundle 'rhysd/clever-f.vim'               " clever-f.vim : fジャンプを効率化
-NeoBundle 'tyru/open-browser.vim'
+NeoBundle                     'smartword' " enables cursor-movement more intelligent
+NeoBundle            'rhysd/clever-f.vim' " improve f jump
+NeoBundle         'tyru/open-browser.vim'
 
 
 "============================================================
 " Programming
 "============================================================
-NeoBundle 'thinca/vim-quickrun' " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
-NeoBundle 'thinca/vim-ref'      " perldocやphpmanual等のリファレンスをvim上で見る
-NeoBundle 'Pydiction'           " Pydiction : Python用の入力補完
-NeoBundle 'taglist.vim'         " ソースコード上のメソッド宣言、変数宣言の一覧を表示
-NeoBundle 'wesleyche/SrcExpl'
+NeoBundle           'thinca/vim-quickrun'
+NeoBundle                'thinca/vim-ref'
+NeoBundle                     'Pydiction' " auto complete for python
+NeoBundle                   'taglist.vim' " shows tag & method list
+NeoBundle             'wesleyche/SrcExpl'
 
 
 "============================================================
 " Syntax
 "============================================================
-NeoBundle 'JavaScript-syntax'         " JavaScript
-NeoBundle 'hail2u/vim-css3-syntax'    " css3
-NeoBundle 'html5.vim'                 " html5
-NeoBundle 'jQuery'                    " jQuery
-NeoBundle 'jceb/vim-hier'
-NeoBundle 'nginx.vim'                 " nginx conf
-NeoBundle 'php.vim'                   " PHP
-NeoBundle 'plasticboy/vim-markdown'   " markdown
-NeoBundle 'python.vim'                " Python
-NeoBundle 'scrooloose/syntastic'      " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
-NeoBundle 'tpope/vim-haml'            " haml
+NeoBundle             'JavaScript-syntax' " JavaScript
+NeoBundle        'hail2u/vim-css3-syntax' " css3
+NeoBundle                     'html5.vim' " html5
+NeoBundle                        'jQuery' " jQuery
+NeoBundle                 'jceb/vim-hier'
+NeoBundle                     'nginx.vim' " nginx conf
+NeoBundle                       'php.vim' " PHP
+NeoBundle       'plasticboy/vim-markdown' " markdown
+NeoBundle                    'python.vim' " Python
+NeoBundle          'scrooloose/syntastic' " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
 
 
 "============================================================
-" Buffer
+" Explorer
 "============================================================
-NeoBundle 'scrooloose/nerdtree'      "  tree explorer
-NeoBundle 'tpope/vim-vinegar'
+NeoBundle           'scrooloose/nerdtree' " tree explorer
+NeoBundle             'tpope/vim-vinegar' " drives tree explorer
 
-"============================================================
-" Encording
-"============================================================
-NeoBundle 'banyan/recognize_charcode.vim'
 
 "============================================================
 " Utility
 "============================================================
-NeoBundle 'Lokaltog/vim-powerline' " ステータスラインをカッコよくする
-NeoBundle 'cecutil'                " cecutil.vim : 他のpluginのためのutillity1
-NeoBundle 'tpope/vim-fugitive'     " vimからGit操作する
+NeoBundle        'Lokaltog/vim-powerline' " updates status line
+NeoBundle                       'cecutil' " util
+NeoBundle            'tpope/vim-fugitive' " controls git from vim
+NeoBundle 'banyan/recognize_charcode.vim'
 
 
 "============================================================
-" ColorSchema
+" ColorScheme
 "============================================================
-NeoBundle 'inkpot'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'tomasr/molokai'
+NeoBundle                        'inkpot'
+NeoBundle       'nanotech/jellybeans.vim'
+NeoBundle                'tomasr/molokai'
 
 
 "============================================================
 " Unite
 "============================================================
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'h1mesuke/unite-outline'
+NeoBundle              'Shougo/unite.vim'
+NeoBundle        'h1mesuke/unite-outline'
 
 
 "============================================================
@@ -112,11 +107,8 @@ NeoBundle 'Shougo/vimproc', {
 
 
 filetype plugin indent on     " Required!
-
-" Installation check.
 if neobundle#exists_not_installed_bundles()
  echomsg 'Not installed bundles : ' .
        \ string(neobundle#get_not_installed_bundle_names())
  echomsg 'Please execute ":NeoBundleInstall" command.'
- "finish
 endif
