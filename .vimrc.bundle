@@ -45,7 +45,7 @@ NeoBundle                'thinca/vim-ref'
 NeoBundle                     'Pydiction' " auto complete for python
 NeoBundle                   'taglist.vim' " shows tag & method list
 NeoBundle             'wesleyche/SrcExpl'
-
+NeoBundle              't9md/vim-quickhl'
 
 "============================================================
 " Syntax
