@@ -7,11 +7,6 @@
 "------------------------------------
 let g:vim_markdown_folding_disabled=1
 
-"------------------------------------
-" Align
-"------------------------------------
-" Alignを日本語環境で使用するための設定
-" let g:Align_xstrlen = 3
 
 "------------------------------------
 " NERD_commenter.vim
@@ -238,7 +233,6 @@ nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 
-
 let g:Powerline_symbols='fancy'
 let g:Powerline_mode_n = 'NORMAL'
 call Pl#Hi#Allocate({
@@ -372,18 +366,13 @@ let g:Powerline_colorscheme='my'
 "------------------------------------
 " open-blowser.vim
 "------------------------------------
-
-" カーソル下のURLをブラウザで開く
 nmap <Leader>fu <Plug>(openbrowser-open)
 vmap <Leader>fu <Plug>(openbrowser-open)
-" カーソル下のキーワードをググる
-nnoremap <Leader>fs :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 
-
-" Start interactive EasyAlign in visual mode
+"------------------------------------
+" easy align
+"------------------------------------
 vmap <Enter> <Plug>(EasyAlign)
-
-" " Start interactive EasyAlign with a Vim movement
 nmap <Leader>a <Plug>(EasyAlign)
 
 

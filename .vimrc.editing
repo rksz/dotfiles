@@ -5,10 +5,14 @@ set expandtab              " Tabキーを空白に変換
 set noimdisable            " insertモードを抜けるとIMEオフ
 set iminsert=0 imsearch=0
 set noimcmdline
+
+" escape mapping
+inoremap jj <Esc>
+inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
+
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
-
 nnoremap <Backspace> :%s/
-
 
 " :Ptでインデントモード切替
 command! Pt :set paste!
@@ -92,19 +96,10 @@ if has("autocmd")
 endif
 
 
-
 "-------------------------------------------------------------------------------
 " 移動設定 Move
 "-------------------------------------------------------------------------------
 set virtualedit+=block " 矩形選択で自由に移動する
-
-" カーソルを表示行で移動する。論理行移動は<C-n>,<C-p>
-nnoremap h <Left>
-nnoremap j gj
-nnoremap k gk
-nnoremap l <Right>
-nnoremap <Down> gj
-nnoremap <Up>   gk
 
 "<space>系の移動
 nnoremap <Space>h ^
@@ -113,18 +108,9 @@ nnoremap <Space>l $
 " 前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-" 最後に編集された位置に移動
-nnoremap gb '[
-nnoremap gp ']
-
 " 対応する括弧に移動
 nnoremap ( %
 nnoremap ) %
-
-" 最後に変更されたテキストを選択する
-nnoremap gc  `[v`]
-vnoremap gc <C-u>normal gc<Enter>
-onoremap gc <C-u>normal gc<Enter>
 
 "ビジュアルモード時vで行末まで選択
 vnoremap v $h
@@ -134,28 +120,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
-
-function! s:do_git_diff_aware_gf(command)
-  let target_path = expand('<cfile>')
-  if target_path =~# '^[ab]/'  " with a peculiar prefix of git-diff(1)?
-    if filereadable(target_path) || isdirectory(target_path)
-      return a:command
-    else
-      " BUGS: Side effect - Cursor position is changed.
-      let [_, c] = searchpos('\f\+', 'cenW')
-      return c . '|' . 'v' . (len(target_path) - 2 - 1) . 'h' . a:command
-    endif
-  else
-    return a:command
-  endif
-endfunction
-
-" esc by "jj" or "C-j" in insert mode
-inoremap jj <Esc>
-inoremap <C-j> <Esc>
-
-" same as visual-mode
-vnoremap <C-j> <Esc>
 
 " format
 inoremap <C-l> <ESC>zza
@@ -175,8 +139,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 "-------------------------------------------------------------------------------
 set ffs=unix,dos,mac  " 改行文字
 set encoding=utf-8    " デフォルトエンコーディング
-
-" 文字コード認識はbanyan/recognize_charcode.vimへ
 
 " エンコーディングをUTF8に指定
 autocmd FileType js    :set fileencoding=utf-8
