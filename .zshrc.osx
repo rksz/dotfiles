@@ -37,6 +37,7 @@ alias ssh256='TERM=xterm-256color /usr/bin/ssh'
 alias rename='tmux rename-session'
 alias renamew='tmux rename-window'
 alias tailf='tail -f'
+alias p='pbcopy'
 
 function here() {
     tmux rename-window $(basename `pwd`)
