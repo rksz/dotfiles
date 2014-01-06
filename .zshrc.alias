@@ -125,3 +125,13 @@ mkdirt() {
     # mkdir $filename && echo $filename
     mkdir $filename && echo $filename && cd $filename
 }
+
+
+t(){
+    if [ "$PWD" != "$LPWD" ];then
+        LPWD="$PWD"
+        tmux rename-window ${PWD//*\//}
+    fi
+};
+export PROMPT_COMMAND=t;
+
