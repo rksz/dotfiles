@@ -12,7 +12,7 @@ inoremap <C-j> <Esc>
 vnoremap <C-j> <Esc>
 
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
-nnoremap <Backspace> :%s/
+nnoremap <Space>s :%s/
 
 " :Ptでインデントモード切替
 command! Pt :set paste!
