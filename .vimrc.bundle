@@ -57,7 +57,8 @@ NeoBundle                        'jQuery' " jQuery
 NeoBundle                 'jceb/vim-hier'
 NeoBundle                     'nginx.vim' " nginx conf
 NeoBundle                       'php.vim' " PHP
-NeoBundle       'plasticboy/vim-markdown' " markdown
+" NeoBundle       'plasticboy/vim-markdown' " markdown
+" NeoBundle       'tpope/vim-markdown' " markdown
 NeoBundle                    'python.vim' " Python
 NeoBundle          'scrooloose/syntastic' " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
 

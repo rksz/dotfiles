@@ -158,3 +158,10 @@ command! Iso2022jp edit ++enc=iso-2022-jp
 command! Utf8 edit ++enc=utf-8
 command! Jis Iso2022jp
 command! Sjis Cp932
+
+
+"-------------------------------------------------------------------------------
+" 拡張子関連
+"-------------------------------------------------------------------------------
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+" autocmd FileType markdown hi! def link markdownItalic LineNr
