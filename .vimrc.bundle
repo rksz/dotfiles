@@ -85,7 +85,7 @@ NeoBundle 'banyan/recognize_charcode.vim'
 NeoBundle                        'inkpot'
 NeoBundle       'nanotech/jellybeans.vim'
 NeoBundle                'tomasr/molokai'
-
+NeoBundle               'w0ng/vim-hybrid'
 
 "============================================================
 " Unite

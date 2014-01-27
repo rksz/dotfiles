@@ -21,7 +21,8 @@ match ZenkakuSpace /　/
 "-------------------------------------------------------------------------------
 " カラー関連 Colors
 "-------------------------------------------------------------------------------
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme hybrid
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"

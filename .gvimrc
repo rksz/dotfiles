@@ -1,4 +1,4 @@
-colorscheme jellybeans
+colorscheme hybrid
 "set guifont=Ricty:h20
 set guifont=Anonymous\ Pro:h16
 "set transparency=4
