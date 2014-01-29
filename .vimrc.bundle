@@ -17,9 +17,10 @@ NeoBundle       'junegunn/vim-easy-align' " align1
 NeoBundle                         'Align' " align2
 NeoBundle            'tpope/vim-surround' " text surround
 NeoBundle        'kana/vim-operator-user'
+NeoBundle         'kana/vim-textobj-user'
 NeoBundle     'kana/vim-operator-replace'
 NeoBundle            'kana/vim-niceblock'
-
+NeoBundle       'kana/vim-textobj-indent'
 
 "============================================================
 " Completion
