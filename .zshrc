@@ -113,8 +113,8 @@ setopt hist_ignore_all_dups # 登録済コマンド行は古い方を削除
 setopt share_history        # historyの共有
 setopt hist_reduce_blanks   # 余分な空白は詰める
 autoload -U compinit        # 自動保管
-bindkey "^W" forward-word   # ctrl-w, ctrl-bキーで単語移動
-bindkey "^B" backward-word  # ctrl-w, ctrl-bキーで単語移動
+# bindkey "^W" forward-word   # ctrl-w, ctrl-bキーで単語移動
+# bindkey "^B" backward-word  # ctrl-w, ctrl-bキーで単語移動
 bindkey "^?" backward-delete-char
 compinit
 
