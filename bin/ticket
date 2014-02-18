@@ -45,18 +45,9 @@ main() {
     mkdir $PROJECT_NAME || exit 1
     cd $PROJECT_NAME || exit 1
 
-
     ## Create resource files
-    mkdir docs trashbox
-    touch master.md
-
-    <<EOC >>trashbox/remote_mount.sh
-#!/bin/sh
-REMOTE_PATH=""
-sshfs $REMOTE_PATH mount
-EOC
-    chmod 755 trashbox/remote_mount.sh
-
+    mkdir docs
+    touch docs-$(date "+%Y%m%d").md
 
     ## Crete new session
     tmux new -s ${PROJECT_DIR}/${PROJECT_NAME}
