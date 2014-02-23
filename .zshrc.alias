@@ -7,6 +7,7 @@ alias lg="ls | grep "
 # process
 alias 'ps?'='pgrep -l -f'
 alias pk='pkill -f'
+alias allnice="ionice -c2 -n7 nice -n19"
 
 # du/df
 alias du="du -h"
