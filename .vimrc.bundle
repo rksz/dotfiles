@@ -21,6 +21,7 @@ NeoBundle         'kana/vim-textobj-user'
 NeoBundle     'kana/vim-operator-replace'
 NeoBundle            'kana/vim-niceblock'
 NeoBundle       'kana/vim-textobj-indent'
+NeoBundle             'gcmt/wildfire.vim'
 
 "============================================================
 " Completion
