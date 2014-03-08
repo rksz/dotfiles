@@ -372,8 +372,7 @@ vmap <Leader>fu <Plug>(openbrowser-open)
 "------------------------------------
 " easy align
 "------------------------------------
-vmap <Enter> <Plug>(EasyAlign)
-nmap <Leader>a <Plug>(EasyAlign)
+vmap E <Plug>(EasyAlign)
 
 
 "------------------------------------
