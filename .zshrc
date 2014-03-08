@@ -99,7 +99,7 @@ setopt auto_pushd           # cd でTabを押すとdir list を表示
 setopt pushd_ignore_dups    # ディレクトリスタックに同じディレクトリを追加しないようになる
 setopt correct              # コマンドのスペルチェックをする
 setopt correct_all          # コマンドライン全てのスペルチェックをする
-setopt no_clobber           # 上書きリダイレクトの禁止
+#setopt no_clobber           # 上書きリダイレクトの禁止
 setopt list_packed          # 補完候補リストを詰めて表示
 setopt list_types           # auto_list の補完候補一覧で、ls -F のようにファイルの種別をマーク表示
 setopt auto_list            # 補完候補が複数ある時に、一覧表示する
