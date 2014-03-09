@@ -390,3 +390,16 @@ xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
 
+
+"------------------------------------
+" wildfire
+"------------------------------------
+let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
+
+
+"------------------------------------
+" php-doc
+"------------------------------------
+inoremap <C-d> <Esc>:call PhpDocSingle()<CR>i
+nnoremap <C-d> :call PhpDocSingle()<CR>
+vnoremap <C-d> :call PhpDocRange()<CR>

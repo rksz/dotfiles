@@ -22,6 +22,7 @@ NeoBundle     'kana/vim-operator-replace'
 NeoBundle            'kana/vim-niceblock'
 NeoBundle       'kana/vim-textobj-indent'
 NeoBundle             'gcmt/wildfire.vim'
+NeoBundle    'PDV--phpDocumentor-for-Vim'
 
 "============================================================
 " Completion
