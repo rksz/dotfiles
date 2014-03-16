@@ -11,10 +11,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 "============================================================
 " Edit
 "============================================================
-NeoBundle      'tpope/vim-commentary.git' " comment1
 NeoBundle      'scrooloose/nerdcommenter' " comment2
 NeoBundle       'junegunn/vim-easy-align' " align1
-NeoBundle                         'Align' " align2
 NeoBundle            'tpope/vim-surround' " text surround
 NeoBundle        'kana/vim-operator-user'
 NeoBundle         'kana/vim-textobj-user'
@@ -28,8 +26,6 @@ NeoBundle    'PDV--phpDocumentor-for-Vim'
 " Completion
 "============================================================
 NeoBundle          'Shougo/neocomplcache' " auto complete
-"NeoBundle            'Shougo/neosnippet'
-NeoBundle              'c9s/perlomni.vim'
 
 
 "============================================================
@@ -53,16 +49,16 @@ NeoBundle              't9md/vim-quickhl'
 "============================================================
 " Syntax
 "============================================================
-NeoBundle             'JavaScript-syntax' " JavaScript
-NeoBundle        'hail2u/vim-css3-syntax' " css3
-NeoBundle                     'html5.vim' " html5
-NeoBundle                        'jQuery' " jQuery
+" NeoBundle             'JavaScript-syntax' " JavaScript
+" NeoBundle        'hail2u/vim-css3-syntax' " css3
+" NeoBundle                     'html5.vim' " html5
+" NeoBundle                        'jQuery' " jQuery
 NeoBundle                 'jceb/vim-hier'
-NeoBundle                     'nginx.vim' " nginx conf
-NeoBundle                       'php.vim' " PHP
+" NeoBundle                     'nginx.vim' " nginx conf
+" NeoBundle                       'php.vim' " PHP
 " NeoBundle       'plasticboy/vim-markdown' " markdown
 " NeoBundle       'tpope/vim-markdown' " markdown
-NeoBundle                    'python.vim' " Python
+" NeoBundle                    'python.vim' " Python
 NeoBundle          'scrooloose/syntastic' " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
 
 

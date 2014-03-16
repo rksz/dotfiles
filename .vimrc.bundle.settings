@@ -403,3 +403,11 @@ let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
 inoremap <C-d> <Esc>:call PhpDocSingle()<CR>i
 nnoremap <C-d> :call PhpDocSingle()<CR>
 vnoremap <C-d> :call PhpDocRange()<CR>
+
+
+"------------------------------------
+" unite-outline
+"------------------------------------
+nnoremap <silent> <Leader>o :<C-u>Unite -vertical -no-quit outline<CR>
+let g:unite_split_rule = "rightbelow"
+let g:unite_winwidth = 40
