@@ -97,6 +97,7 @@ SAVEHIST=10000
 setopt auto_cd              # 指定したコマンド名がなく、ディレクトリ名と一致した場合 cd する
 setopt auto_pushd           # cd でTabを押すとdir list を表示
 setopt pushd_ignore_dups    # ディレクトリスタックに同じディレクトリを追加しないようになる
+setopt hist_ignore_dups
 setopt correct              # コマンドのスペルチェックをする
 setopt correct_all          # コマンドライン全てのスペルチェックをする
 #setopt no_clobber           # 上書きリダイレクトの禁止
