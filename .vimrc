@@ -71,7 +71,7 @@ NeoBundle          'scrooloose/syntastic' " syntax checking plugins exist for er
 "------------------------------------------------------------
 NeoBundle           'scrooloose/nerdtree' " tree explorer
 NeoBundle             'tpope/vim-vinegar' " drives tree explorer
-
+NeoBundle                          'VOoM'
 
 "------------------------------------------------------------
 " Utility
@@ -601,8 +601,7 @@ nnoremap    [unite]   <Nop>
 nmap     <Space>f [unite]
 let g:unite_enable_start_insert = 1
 let g:unite_source_file_mru_limit = 200
-let g:unite_split_rule = "rightbelow"
-let g:unite_winwidth = 40
+let g:unite_split_rule = "belowright"
 
 nnoremap [unite]U  :<C-u>Unite -no-split<Space>
 nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
@@ -611,7 +610,7 @@ nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> [unite]h :<C-u>Unite file_mru<CR>
 nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
-nnoremap <silent> [unite]o :<C-u>Unite -vertical -no-quit outline<CR>
+nnoremap <silent> [unite]o :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
@@ -710,3 +709,8 @@ inoremap <C-d> <Esc>:call PhpDocSingle()<CR>i
 nnoremap <C-d> :call PhpDocSingle()<CR>
 vnoremap <C-d> :call PhpDocRange()<CR>
 
+"------------------------------------------------------------
+" voom
+"------------------------------------------------------------
+let g:voom_tree_width = 40
+nnoremap <silent> <Leader>o :Voom markdown<CR>
