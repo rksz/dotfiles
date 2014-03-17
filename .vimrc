@@ -46,7 +46,7 @@ NeoBundle           'thinca/vim-quickrun'
 NeoBundle                'thinca/vim-ref'
 NeoBundle                     'Pydiction' " auto complete for python
 NeoBundle                   'taglist.vim' " shows tag & method list
-NeoBundle             'wesleyche/SrcExpl'
+" NeoBundle             'wesleyche/SrcExpl'
 NeoBundle              't9md/vim-quickhl'
 
 "------------------------------------------------------------
@@ -163,10 +163,11 @@ set cursorline        " カーソル行をハイライト
 set listchars=tab:>.,trail:_,extends:>,precedes:< " 不可視文字の表示形式
 set laststatus=2      " 常にステータスラインを表示
 set ruler             " カーソルが何行目の何列目に置かれているかを表示する
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+" %{fugitive#statusline()}
 
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
-
 
 "============================================================
 " COLOR
@@ -256,26 +257,6 @@ if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-
-"------------------------------------------------------------
-" Snippets
-"------------------------------------------------------------
-let g:neosnippet#snippets_directory= $HOME.'/.vim/snippets'
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
 
 " TABで補完できるようにする
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -440,7 +421,6 @@ inoreabbrev dl ************************************************************
 inoreabbrev dk ============================================================
 inoreabbrev dj ------------------------------------------------------------
 
-
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
 nnoremap <C-d> :bd<CR>
@@ -599,59 +579,6 @@ let Tlist_Enable_Fold_Column = 1   " 折りたたみ
 let Tlist_Auto_Update        = 1
 let Tlist_WinWidth           = 30
 nmap <F7> :Tlist<CR>
-
-"------------------------------------------------------------
-" Srcexp
-"------------------------------------------------------------
-let g:SrcExpl_UpdateTags    = 1         " tagsをsrcexpl起動時に自動で作成（更新）
-let g:SrcExpl_RefreshTime   = 0         " 自動表示するまでの時間(0:off)
-let g:SrcExpl_WinHeight     = 15         " プレビューウインドウの高さ
-let g:SrcExpl_RefreshMapKey = "<Space>" " 手動表示のMAP
-let g:SrcExpl_GoBackMapKey  = "<C-b>"   " 戻る機能のMAP
-
-" // The switch of the Source Explorer
-nmap <F8> :SrcExplToggle<CR>
-
-" // Set the height of Source Explorer window
-let g:SrcExpl_winHeight = 8
-
-" // Set 100 ms for refreshing the Source Explorer
-let g:SrcExpl_refreshTime = 100
-
-" // Set "Enter" key to jump into the exact definition context
-let g:SrcExpl_jumpKey = "<ENTER>"
-
-" // Set "Space" key for back from the definition context
-let g:SrcExpl_gobackKey = "<SPACE>"
-
-" // In order to avoid conflicts, the Source Explorer should know what plugins
-" // except itself are using buffers. And you need add their buffer names into
-" // below listaccording to the command ":buffers!"
-let g:SrcExpl_pluginList = [
-        \ "__Tag_List__",
-        \ "_NERD_tree_"
-    \ ]
-
-" // Enable/Disable the local definition searching, and note that this is not
-" // guaranteed to work, the Source Explorer doesn't check the syntax for now.
-" // It only searches for a match with the keyword according to command 'gd'
-let g:SrcExpl_searchLocalDef = 1
-
-" // Do not let the Source Explorer update the tags file when opening
-let g:SrcExpl_isUpdateTags = 0
-
-" // Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to
-" // create/update the tags file
-let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ."
-
-" // Set "<F12>" key for updating the tags file artificially
-let g:SrcExpl_updateTagsKey = "<F12>"
-
-" // Set "<F3>" key for displaying the previous definition in the jump list
-let g:SrcExpl_prevDefKey = "<F3>"
-
-" // Set "<F4>" key for displaying the next definition in the jump list
-let g:SrcExpl_nextDefKey = "<F4>"
 
 "------------------------------------------------------------
 " sumartword.vim
