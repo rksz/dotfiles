@@ -50,6 +50,10 @@ function here() {
     tmux rename-window $(basename `pwd`)
 }
 
+function dic() {
+    w3m "http://ejje.weblio.jp/content/$1"
+}
+
 # open current directory in Finder
 alias f='open .'
 

@@ -100,6 +100,7 @@ NeoBundle        'h1mesuke/unite-outline'
 "------------------------------------------------------------
 " Vimproc
 "------------------------------------------------------------
+NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
     \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
@@ -714,3 +715,9 @@ vnoremap <C-d> :call PhpDocRange()<CR>
 "------------------------------------------------------------
 let g:voom_tree_width = 40
 nnoremap <silent> <Leader>o :Voom markdown<CR>
+
+
+"------------------------------------------------------------
+" vimshell
+"------------------------------------------------------------
+nnoremap <silent> <Leader>v :VimShell<CR>

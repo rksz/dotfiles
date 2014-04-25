@@ -129,6 +129,11 @@ mkdirt() {
 }
 
 
+cl() {
+    cd ${1}
+    ls -al
+}
+
 t(){
     if [ "$PWD" != "$LPWD" ];then
         LPWD="$PWD"

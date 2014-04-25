@@ -35,7 +35,8 @@ setopt prompt_subst
 
 
 # PROMPT="${RESET}${BLUE}[%D{%T}][%n@%m %~]${RESET}${WHITE}$ ${RESET}"
-PROMPT="${RESET}${BLUE}[%D{%T}][%n@%m %(5~,../%2~,%~)% ]${RESET}${WHITE}$ ${RESET}"
+#PROMPT="${RESET}${BLUE}[%D{%T}][%n@%m %(5~,../%2~,%~)% ]${RESET}${WHITE}$ ${RESET}"
+PROMPT="${RESET}${BLUE}[%D{%T}][%C]${RESET}${WHITE}$ ${RESET}"
 
 
 # RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
