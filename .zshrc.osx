@@ -19,7 +19,7 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 # script alias
 alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 alias sourcetree='open -a SourceTree'
-alias st='sourcetree'
+alias st='sourcetree .'
 
 source ~/perl5/perlbrew/etc/bashrc
 
