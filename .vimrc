@@ -164,7 +164,8 @@ set cursorline        " カーソル行をハイライト
 set listchars=tab:>.,trail:_,extends:>,precedes:< " 不可視文字の表示形式
 set laststatus=2      " 常にステータスラインを表示
 set ruler             " カーソルが何行目の何列目に置かれているかを表示する
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=%F%m%r%h%w
 " %{fugitive#statusline()}
 
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
