@@ -148,6 +148,21 @@ set helpfile=$VIMRUNTIME/doc/help.txt " Japanese help files
 filetype plugin on                  " ファイルタイプ判定をon
 let OSTYPE=system('uname')          " OSTypeの判定
 command! -nargs=0 CdCurrent %:p:h    " カレントディレクトリに移動コマンド
+command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>') 
+function! s:ChangeCurrentDir(directory, bang)
+    if a:directory == ''
+        lcd %:p:h
+    else
+        execute 'lcd' . a:directory
+    endif
+
+    if a:bang == ''
+        pwd
+    endif
+endfunction
+
+" Change current directory.
+nnoremap <silent> <Space>cd :<C-u>CD<CR>
 
 
 "============================================================
@@ -670,8 +685,9 @@ let g:syntastic_enable_highlighting = 1 " 可能ならhighligt表示する
 "------------------------------------------------------------
 " NERD-Tree.vim
 "------------------------------------------------------------
-nnoremap <silent> <Leader>N :NERDTree<CR>
+nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+" let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 
 "------------------------------------------------------------
