@@ -68,3 +68,8 @@ function cdf() {
 }
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+
+
+alias todo='vim todo-$(date "+%Y%m%d").md'
+alias mtodo='mvim todo-$(date "+%Y%m%d").md'
