@@ -164,6 +164,8 @@ endfunction
 " Change current directory.
 nnoremap <silent> <Space>cd :<C-u>CD<CR>
 
+let $TODAY=strftime('%Y%m%d')
+
 
 "============================================================
 " VIEW
@@ -176,6 +178,7 @@ set foldmethod=marker " folding
 set lazyredraw        " コマンド実行中は再描画しない
 set ttyfast           " 高速ターミナル接続を行う
 set cursorline        " カーソル行をハイライト
+" set cursorcolumn
 set listchars=tab:>.,trail:_,extends:>,precedes:< " 不可視文字の表示形式
 set laststatus=2      " 常にステータスラインを表示
 set ruler             " カーソルが何行目の何列目に置かれているかを表示する
@@ -189,8 +192,9 @@ match ZenkakuSpace /　/
 "============================================================
 " COLOR
 "============================================================
-colorscheme jellybeans
+" colorscheme jellybeans
 "colorscheme hybrid
+colorscheme molokai
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
@@ -701,6 +705,7 @@ vmap <Leader>fu <Plug>(openbrowser-open)
 " easyalign
 "------------------------------------------------------------
 vmap E <Plug>(EasyAlign)
+vmap <Space> <Plug>(EasyAlign)
 
 "------------------------------------------------------------
 " operator replace
