@@ -13,15 +13,12 @@ alias vimdiff=/Applications/MacVim.app/Contents/MacOS/vimdiff
 alias view=/Applications/MacVim.app/Contents/MacOS/view
 export PATH=/Applications/Vagrant/bin/:$PATH
 export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
-export PATH=~/perl5/perlbrew/etc/bashrc:$PATH
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 # script alias
 alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 alias sourcetree='open -a SourceTree'
 alias st='sourcetree .'
-
-source ~/perl5/perlbrew/etc/bashrc
 
 # Ruby
 eval "$(rbenv init - zsh)"
