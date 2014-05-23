@@ -67,6 +67,11 @@ function cdf() {
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 
+function todo() {
+    today=$(date "+%Y%m%d")
+    todofile=todo-${today}.md
+    tmux rename-window "TODO-$today"; vim ~/projects/0.TODAY/$todofile $todofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
+}
 
-alias todo='vim todo-$(date "+%Y%m%d").md'
+#alias todo='vim todo-$(date "+%Y%m%d").md'
 alias mtodo='mvim todo-$(date "+%Y%m%d").md'
