@@ -164,6 +164,9 @@ endfunction
 " Change current directory.
 nnoremap <silent> <Space>cd :<C-u>CD<CR>
 
+" reload file buffer
+nnoremap <silent> <Space>e :e!<CR>
+
 let $TODAY=strftime('%Y%m%d')
 
 
