@@ -67,11 +67,23 @@ function cdf() {
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 
+## TODO: Combine 2 todo functions with args.
 function todo() {
     today=$(date "+%Y%m%d")
     todofile=todo-${today}.md
+    todofile_yesterday=todo-${yesterday}.md
     tmux rename-window "TODO-$today"; vim ~/projects/0.TODAY/$todofile $todofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
 }
+
+function todo_past() {
+    today=$(date "+%Y%m%d")
+    todofile=todo-${today}.md
+
+    yesterday=$(date "+%Y%m%d" --date "1 days ago")
+    todofile_yesterday=todo-${yesterday}.md
+    tmux rename-window "TODO-$today"; vim $todofile_yesterday $todofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
+}
+
 
 #alias todo='vim todo-$(date "+%Y%m%d").md'
 alias mtodo='mvim todo-$(date "+%Y%m%d").md'
