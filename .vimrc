@@ -62,6 +62,8 @@ NeoBundle                 'jceb/vim-hier'
 " NeoBundle                       'php.vim' " PHP
 " NeoBundle       'plasticboy/vim-markdown' " markdown
 " NeoBundle       'tpope/vim-markdown' " markdown
+NeoBundle           'rcmdnk/vim-markdown'
+"
 " NeoBundle                    'python.vim' " Python
 NeoBundle          'scrooloose/syntastic' " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
 
@@ -195,9 +197,9 @@ match ZenkakuSpace /　/
 "============================================================
 " COLOR
 "============================================================
-" colorscheme jellybeans
+colorscheme jellybeans
 "colorscheme hybrid
-colorscheme molokai
+"colorscheme molokai
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
