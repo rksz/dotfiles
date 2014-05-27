@@ -8,7 +8,8 @@
 ## Installation
 
   Just run following commands:
-  ```bash
+
+  ```sh
   cd $HOME && git clone https://github.com/rksz/dotfiles.git && cd dotfiles && ./setup.sh
   ```
 
