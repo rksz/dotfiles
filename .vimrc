@@ -451,6 +451,7 @@ nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
 nnoremap <C-d> :bd<CR>
 
+nnoremap <C-w><C-w> :wincmd =<CR>  " automatic window resize
 
 "============================================================
 " INDENT
