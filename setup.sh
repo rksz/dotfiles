@@ -49,6 +49,7 @@ binutils
 coreutils
 findutils
 cocot
+go
 )
 
 YUM_PLUGINS=(

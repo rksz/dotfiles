@@ -26,6 +26,10 @@ eval "$(rbenv init - zsh)"
 # required: brew install coreutils
 alias cp="nocorrect gcp -i"
 
+# Go
+export GOPATH="$HOME/.go/"
+export PATH=$GOPATH/bin:$PATH
+
 # commands
 alias tmux="TERM=screen-256color-bce tmux" #keep vim colorscheme in tmux mode
 alias tma='TERM=screen-256color-bce tmux attach'
