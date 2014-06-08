@@ -453,6 +453,11 @@ nnoremap <C-d> :bd<CR>
 
 nnoremap <C-w><C-w> :wincmd =<CR>  " automatic window resize
 
+" file path yank
+nnoremap yr :let @*=expand("%")<CR>
+nnoremap yp :let @*=expand("%:p")<CR>
+
+
 "============================================================
 " INDENT
 "============================================================
