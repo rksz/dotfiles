@@ -76,7 +76,9 @@ function todo() {
     today=$(date "+%Y%m%d")
     todofile=todo-${today}.md
     todofile_yesterday=todo-${yesterday}.md
-    tmux rename-window "TODO-$today"; vim ~/projects/0.TODAY/$todofile $todofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
+
+    tmux rename-window $(basename `pwd`)
+    vim ~/projects/0.TODAY/$todofile $todofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
 }
 
 function todo_past() {
