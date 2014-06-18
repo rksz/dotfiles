@@ -1,0 +1,2 @@
+#!/bin/sh
+find . -type d -maxdepth 1 -empty -exec rmdir -v {} \;

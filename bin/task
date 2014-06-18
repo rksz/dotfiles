@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# task create script
+#
+#########################################
+
+
+main() {
+
+    taskname=${1:?}
+
+    headnum=$(ls -F | grep / | grep -o "[0-9][0-9]_" | sed -e 's/_//' | sort -ur | head -1)
+    nextnum=$(( $headnum + 1 ))
+
+    if [ $nextnum -lt 10 ]; then
+        nextnum="0"$nextnum
+    fi
+
+    taskdir=${nextnum}_${taskname}
+    mkdir $taskdir && cd $taskdir
+}
+
+main "$@"
+
