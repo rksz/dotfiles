@@ -31,7 +31,7 @@ main() {
 
     for file in $@
     do
-        cp -a $CURRENT_PATH/$file org/
+        mv $CURRENT_PATH/$file org/
     done
 
     cp -va org deploy
