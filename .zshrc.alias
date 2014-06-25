@@ -94,8 +94,8 @@ alias ssheuc='TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
 #auto directory jumper
 jj () {
   if [ $1 ]; then
-      JUMPDIR=$(ls | grep $1 | tail -1)
-      if [ $JUMPDIR ]; then
+      JUMPDIR=$(find . -type d -maxdepth 1 | grep $1 | tail -1)
+      if [ -d $JUMPDIR ]; then
           cd $JUMPDIR
       fi
   fi
