@@ -197,7 +197,8 @@ match ZenkakuSpace /　/
 "============================================================
 " COLOR
 "============================================================
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme inkpot
 "colorscheme hybrid
 "colorscheme molokai
 
