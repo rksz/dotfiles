@@ -183,6 +183,7 @@ set foldmethod=marker " folding
 set lazyredraw        " コマンド実行中は再描画しない
 set ttyfast           " 高速ターミナル接続を行う
 set cursorline        " カーソル行をハイライト
+set colorcolumn=80
 " set cursorcolumn
 set listchars=tab:>.,trail:_,extends:>,precedes:< " 不可視文字の表示形式
 set laststatus=2      " 常にステータスラインを表示
