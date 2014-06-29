@@ -66,14 +66,13 @@ alias refe='nocorrect refe'
 
 # git
 #alias g='git'
-alias gi='git'
-alias gs='git status'
+alias gs='git status -sb'
 alias gc='git commit'
-alias gci='git commit -a'
+alias ga='git add .'
 alias gp='git push origin master'
 alias gl='git pull'
 alias gd='git diff'
-alias gf='git flow'
+alias gf='git fetch'
 alias gb='git branch -a'
 
 # dstat
