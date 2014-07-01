@@ -69,11 +69,11 @@ alias refe='nocorrect refe'
 alias gs='git status -sb'
 alias gc='git commit'
 alias ga='git add .'
-alias gp='git push origin master'
+alias gp='git push'
 alias gl='git pull'
 alias gd='git diff'
 alias gf='git fetch'
-alias gb='git branch -a'
+alias gb='git branch -avv'
 
 # dstat
 alias dstat-full='dstat -Tclmdrn'
