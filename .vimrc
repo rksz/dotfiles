@@ -150,7 +150,7 @@ set helpfile=$VIMRUNTIME/doc/help.txt " Japanese help files
 filetype plugin on                  " ファイルタイプ判定をon
 let OSTYPE=system('uname')          " OSTypeの判定
 command! -nargs=0 CdCurrent %:p:h    " カレントディレクトリに移動コマンド
-command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>') 
+command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
 function! s:ChangeCurrentDir(directory, bang)
     if a:directory == ''
         lcd %:p:h
@@ -166,8 +166,11 @@ endfunction
 " Change current directory.
 nnoremap <silent> <Space>cd :<C-u>CD<CR>
 
-" reload file buffer
+" Reload file buffer
 nnoremap <silent> <Space>e :e!<CR>
+
+" Remove dust
+nnoremap <silent> <Space>r :Rd<CR>
 
 let $TODAY=strftime('%Y%m%d')
 
