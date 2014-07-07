@@ -122,30 +122,12 @@ tset() {
 
 # mkdir with timestamp
 mkdirt() {
-    filename=$(date "+%Y%m%d-%H%M")_${1:?}
-    # mkdir $filename && echo $filename
+    filename=$(date "+%Y%m%d")_${1:?}
     mkdir $filename && echo $filename && cd $filename
 }
 
-
-cl() {
-    cd ${1}
-    ls -al
-}
-
-t(){
-    if [ "$PWD" != "$LPWD" ];then
-        LPWD="$PWD"
-        tmux rename-window ${PWD//*\//}
-    fi
-};
-export PROMPT_COMMAND=t;
-
-
-task() {
-
+mkdirtt() {
     taskname=${1:?}
-
     headnum=$(ls -F | grep / | grep -o "[0-9][0-9]_" | sed -e 's/_//' | sort -ur | head -1)
     nextnum=$(( $headnum + 1 ))
 
@@ -156,4 +138,18 @@ task() {
     taskdir=${nextnum}_${taskname}
     mkdir $taskdir && cd $taskdir && pwd
 }
+
+cl() {
+    cd ${1}
+    ls -al
+}
+
+#t(){
+#    if [ "$PWD" != "$LPWD" ];then
+#        LPWD="$PWD"
+#        tmux rename-window ${PWD//*\//}
+#    fi
+#};
+#export PROMPT_COMMAND=t;
+
 
