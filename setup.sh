@@ -16,6 +16,7 @@ DOT_FILES=(
 .dir_colors
 .vim
 .gvimrc
+.taskrc
 )
 
 LOCAL_FILES=(
