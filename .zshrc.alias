@@ -89,6 +89,9 @@ alias j='z'
 alias ssh='TERM=xterm ssh'
 alias ssheuc='TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
 
+# taskwarrior
+alias t="\task"
+
 
 #auto directory jumper
 jj () {
