@@ -54,7 +54,12 @@ function pro() {
     if [ $1 ]; then
         project=$1
         shift
-        task project:$project $@
+        if [[ $1 == "add" ]]; then
+            shift
+            task add $@ project:$project
+        else
+            task project:$project $@
+        fi
     else
         task project
     fi
