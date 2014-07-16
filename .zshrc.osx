@@ -50,6 +50,16 @@ function todo() {
     fi
 }
 
+function pro() {
+    if [ $1 ]; then
+        project=$1
+        shift
+        task project:$project $@
+    else
+        task project
+    fi
+}
+
 
 function pwdcopy() {
     echo -n $(pwd) | pbcopy
