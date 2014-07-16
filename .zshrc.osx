@@ -40,7 +40,7 @@ alias rename='tmux rename-session'
 alias renamew='tmux rename-window'
 alias tailf='tail -f'
 alias p='pbcopy'
-
+alias todo='\task +todo'
 
 function pwdcopy() {
     echo -n $(pwd) | pbcopy
@@ -70,26 +70,20 @@ function cdf() {
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-
-## TODO: Combine 2 todo functions with args.
-function todo() {
+function memo() {
     today=$(date "+%Y%m%d")
-    todofile=todo-${today}.md
-    todofile_yesterday=todo-${yesterday}.md
+    memofile=memo-${today}.md
+    memofile_past=$(ls memo-*.md | sort | tail -1)
+    tmux rename-window "memo"
 
-    tmux rename-window $(basename `pwd`)
-    vim ~/projects/0.TODAY/$todofile $todofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
+    if [ $memofile = $memofile_past ]; then
+        vim $memofile
+    else
+        vim $memofile $memofile_past -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
+    fi
+
+    #tmux rename-window $(basename `pwd`)
+    #vim ~/projects/0.TODAY/$todofile $todofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
 }
 
-function todo_past() {
-    today=$(date "+%Y%m%d")
-    todofile=todo-${today}.md
-
-    yesterday=$(date "+%Y%m%d" --date "1 days ago")
-    todofile_yesterday=todo-${yesterday}.md
-    tmux rename-window "TODO-$today"; vim $todofile_yesterday $todofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
-}
-
-
-#alias todo='vim todo-$(date "+%Y%m%d").md'
 alias mtodo='mvim todo-$(date "+%Y%m%d").md'
