@@ -40,7 +40,16 @@ alias rename='tmux rename-session'
 alias renamew='tmux rename-window'
 alias tailf='tail -f'
 alias p='pbcopy'
-alias todo='\task +todo'
+
+function todo() {
+    if [[ $1 == "add" && -n $2 ]] then
+        task $@ +todo
+        exit 0
+    else
+        task list +todo
+    fi
+}
+
 
 function pwdcopy() {
     echo -n $(pwd) | pbcopy
