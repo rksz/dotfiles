@@ -95,15 +95,16 @@ function cdf() {
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 function memo() {
+set -x
     today=$(date "+%Y%m%d")
     memofile=memo-${today}.md
-    memofile_past=$(ls memo-*.md | sort | tail -1)
+    memofile_past=$(find * -type f | grep "memo-" | grep ".md" | sort | tail -1)
     tmux rename-window "memo"
 
-    if [ $memofile = $memofile_past ]; then
-        vim $memofile
-    else
+    if [[ -f $memofile_past && $memofile != $memofile_past ]]; then
         vim $memofile $memofile_past -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
+    else
+        vim $memofile
     fi
 
     #tmux rename-window $(basename `pwd`)
