@@ -91,6 +91,7 @@ alias ssheuc='TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
 
 # taskwarrior
 alias t="\task"
+alias tt="\timetrap"
 
 
 #auto directory jumper
@@ -156,3 +157,9 @@ cl() {
 #export PROMPT_COMMAND=t;
 
 
+alias -g O="| xargs open"
+alias -g L="| less"
+alias -g H="| head"
+alias -g T="| tail"
+alias -g G="| grep"
+alias -g S="| sed"
