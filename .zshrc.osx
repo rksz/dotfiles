@@ -76,7 +76,7 @@ function here() {
 }
 
 function dic() {
-    w3m "http://ejje.weblio.jp/content/$1"
+    w3m "http://ejje.weblio.jp/content/$1" | grep "用例"
 }
 
 # open current directory in Finder
@@ -98,7 +98,7 @@ function memo() {
     today=$(date "+%Y%m%d")
     memofile=memo-${today}.md
     memofile_past=$(find * -type f | grep "memo-" | grep ".md" | sort | tail -1)
-    tmux rename-window "memo"
+    # tmux rename-window "memo"
 
     if [[ -f $memofile_past && $memofile != $memofile_past ]]; then
         vim $memofile $memofile_past -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
