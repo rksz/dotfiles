@@ -76,7 +76,7 @@ function here() {
 }
 
 function dic() {
-    w3m "http://ejje.weblio.jp/content/$1"
+    w3m "http://ejje.weblio.jp/content/$1" | grep "用例"
 }
 
 # open current directory in Finder
