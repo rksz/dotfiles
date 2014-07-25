@@ -98,7 +98,7 @@ function memo() {
     today=$(date "+%Y%m%d")
     memofile=memo-${today}.md
     memofile_past=$(find * -type f | grep "memo-" | grep ".md" | sort | tail -1)
-    tmux rename-window "memo"
+    # tmux rename-window "memo"
 
     if [[ -f $memofile_past && $memofile != $memofile_past ]]; then
         vim $memofile $memofile_past -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
@@ -111,3 +111,5 @@ function memo() {
 }
 
 alias mtodo='mvim todo-$(date "+%Y%m%d").md'
+
+alias -g C="| pbcopy"

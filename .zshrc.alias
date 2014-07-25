@@ -91,6 +91,7 @@ alias ssheuc='TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
 
 # taskwarrior
 alias t="\task"
+alias tt="\timetrap"
 
 
 #auto directory jumper
@@ -162,3 +163,10 @@ cleanup () {
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
 }
+
+alias -g O="| xargs open"
+alias -g L="| less"
+alias -g H="| head"
+alias -g T="| tail"
+alias -g G="| grep"
+alias -g S="| sed"
