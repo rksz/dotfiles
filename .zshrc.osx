@@ -58,7 +58,7 @@ function pro() {
             shift
             task add $@ project:$project
         else
-            task project:$project $@
+            task wait project:$project $@
         fi
     else
         task project
