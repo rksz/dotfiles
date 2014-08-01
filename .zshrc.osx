@@ -101,7 +101,8 @@ function memo() {
     # tmux rename-window "memo"
 
     if [[ -f $memofile_past && $memofile != $memofile_past ]]; then
-        vim $memofile $memofile_past -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
+        # vim $memofile_past $memofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
+        vim $memofile_past $memofile -c "vs" -c "bn" -c "wincmd ="
     else
         vim $memofile
     fi
