@@ -1,3 +1,0 @@
-#!/bin/sh
-find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
-find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
