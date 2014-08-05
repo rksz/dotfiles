@@ -46,8 +46,8 @@ main() {
     cd $PROJECT_NAME || exit 1
 
     ## Create resource files
-    mkdir docs
-    touch docs-$(date "+%Y%m%d").md
+    # mkdir docs
+    touch memo-$(date "+%Y%m%d").md
 
     ## Crete new session
     tmux new -s ${PROJECT_DIR}/${PROJECT_NAME}
