@@ -23,7 +23,9 @@ NeoBundle     'kana/vim-operator-replace'
 NeoBundle            'kana/vim-niceblock'
 NeoBundle       'kana/vim-textobj-indent'
 NeoBundle             'gcmt/wildfire.vim'
-NeoBundle    'PDV--phpDocumentor-for-Vim'
+" NeoBundle    'PDV--phpDocumentor-for-Vim'
+" NeoBundle            'roman/golden-ratio'
+
 
 "------------------------------------------------------------
 " Completion
@@ -34,18 +36,18 @@ NeoBundle          'Shougo/neocomplcache' " auto complete
 "------------------------------------------------------------
 " Searching/Moving
 "------------------------------------------------------------
-NeoBundle                     'smartword' " enables cursor-movement more intelligent
+" NeoBundle                     'smartword' " enables cursor-movement more intelligent
 NeoBundle            'rhysd/clever-f.vim' " improve f jump
-NeoBundle         'tyru/open-browser.vim'
+" NeoBundle         'tyru/open-browser.vim'
 
 
 "------------------------------------------------------------
 " Programming
 "------------------------------------------------------------
-NeoBundle           'thinca/vim-quickrun'
+" NeoBundle           'thinca/vim-quickrun'
 NeoBundle                'thinca/vim-ref'
-NeoBundle                     'Pydiction' " auto complete for python
-NeoBundle                   'taglist.vim' " shows tag & method list
+" NeoBundle                     'Pydiction' " auto complete for python
+" NeoBundle                   'taglist.vim' " shows tag & method list
 " NeoBundle             'wesleyche/SrcExpl'
 NeoBundle              't9md/vim-quickhl'
 
@@ -72,37 +74,36 @@ NeoBundle          'scrooloose/syntastic' " syntax checking plugins exist for er
 " Explorer
 "------------------------------------------------------------
 NeoBundle           'scrooloose/nerdtree' " tree explorer
-NeoBundle             'tpope/vim-vinegar' " drives tree explorer
-NeoBundle                          'VOoM'
+" NeoBundle             'tpope/vim-vinegar' " drives tree explorer
+" NeoBundle                          'VOoM'
 
 "------------------------------------------------------------
 " Utility
 "------------------------------------------------------------
 NeoBundle                       'cecutil' " util
 NeoBundle            'tpope/vim-fugitive' " controls git from vim
-NeoBundle 'banyan/recognize_charcode.vim'
+" NeoBundle 'banyan/recognize_charcode.vim'
 
 
 "------------------------------------------------------------
 " ColorScheme
 "------------------------------------------------------------
 NeoBundle                        'inkpot'
-NeoBundle       'nanotech/jellybeans.vim'
-NeoBundle                'tomasr/molokai'
-NeoBundle               'w0ng/vim-hybrid'
+" NeoBundle       'nanotech/jellybeans.vim'
+" NeoBundle                'tomasr/molokai'
+" NeoBundle               'w0ng/vim-hybrid'
 
 "------------------------------------------------------------
 " Unite
 "------------------------------------------------------------
 NeoBundle              'Shougo/unite.vim'
 NeoBundle             'Shougo/neomru.vim'
-NeoBundle        'h1mesuke/unite-outline'
 
 
 "------------------------------------------------------------
 " Vimproc
 "------------------------------------------------------------
-NeoBundle 'Shougo/vimshell'
+" NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
     \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
@@ -173,6 +174,7 @@ nnoremap <silent> <Space>e :e!<CR>
 nnoremap <silent> <Space>r :Rd<CR>
 
 let $TODAY=strftime('%Y%m%d')
+
 
 
 "============================================================
@@ -528,8 +530,13 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
+" delete window
+nnoremap <C-d> <C-w>q
+
 " format
 inoremap <C-l> <ESC>zza
+
+
 
 " enabled cursor key
 nnoremap OA gi<Up>
@@ -574,10 +581,10 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " NEOBUNDLE PLUGINS
 "============================================================
 
-"------------------------------------------------------------
-" vim-markdown
-"------------------------------------------------------------
-let g:vim_markdown_folding_disabled=1
+" "------------------------------------------------------------
+" " vim-markdown
+" "------------------------------------------------------------
+" let g:vim_markdown_folding_disabled=1
 
 "------------------------------------------------------------
 " NERD_commenter.vim
@@ -597,28 +604,28 @@ nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
 
-"------------------------------------------------------------
-" taglist.Vim
-"------------------------------------------------------------
-set tags=tags
-set tags+=~/.tags
+" "------------------------------------------------------------
+" " taglist.Vim
+" "------------------------------------------------------------
+" set tags=tags
+" set tags+=~/.tags
+" 
+" if OSTYPE == "Darwin\n"
+"   let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' " ctagsのパス
+" elseif OSTYPE == "Linux\n"
+"   let Tlist_Ctags_Cmd = '/usr/bin/ctags' " ctagsのパス
+" endif
+" 
+" let Tlist_Show_One_File      = 1   " 現在編集中のソースのタグしか表示しない
+" let Tlist_Exit_OnlyWindow    = 1   " taglistのウィンドーが最後のウィンドーならばVimを閉じる
+" let Tlist_Use_Right_Window   = 1   " 右側でtaglistのウィンドーを表示
+" let Tlist_Enable_Fold_Column = 1   " 折りたたみ
+" let Tlist_Auto_Update        = 1
+" let Tlist_WinWidth           = 30
+" nmap <F7> :Tlist<CR>
 
-if OSTYPE == "Darwin\n"
-  let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' " ctagsのパス
-elseif OSTYPE == "Linux\n"
-  let Tlist_Ctags_Cmd = '/usr/bin/ctags' " ctagsのパス
-endif
-
-let Tlist_Show_One_File      = 1   " 現在編集中のソースのタグしか表示しない
-let Tlist_Exit_OnlyWindow    = 1   " taglistのウィンドーが最後のウィンドーならばVimを閉じる
-let Tlist_Use_Right_Window   = 1   " 右側でtaglistのウィンドーを表示
-let Tlist_Enable_Fold_Column = 1   " 折りたたみ
-let Tlist_Auto_Update        = 1
-let Tlist_WinWidth           = 30
-nmap <F7> :Tlist<CR>
-
 "------------------------------------------------------------
-" sumartword.vim
+" smartword.vim
 "------------------------------------------------------------
 noremap ,w  w
 noremap ,b  b
@@ -711,11 +718,11 @@ nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 " let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 
-"------------------------------------------------------------
-" open-blowser.vim
-"------------------------------------------------------------
-nmap <Leader>fu <Plug>(openbrowser-open)
-vmap <Leader>fu <Plug>(openbrowser-open)
+" "------------------------------------------------------------
+" " open-blowser.vim
+" "------------------------------------------------------------
+" nmap <Leader>fu <Plug>(openbrowser-open)
+" vmap <Leader>fu <Plug>(openbrowser-open)
 
 "------------------------------------------------------------
 " easyalign
@@ -741,21 +748,24 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 "------------------------------------------------------------
 let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
 
-"------------------------------------------------------------
-" php-doc
-"------------------------------------------------------------
-inoremap <C-d> <Esc>:call PhpDocSingle()<CR>i
-nnoremap <C-d> :call PhpDocSingle()<CR>
-vnoremap <C-d> :call PhpDocRange()<CR>
+" "------------------------------------------------------------
+" " php-doc
+" "------------------------------------------------------------
+" inoremap <C-d> <Esc>:call PhpDocSingle()<CR>i
+" nnoremap <C-d> :call PhpDocSingle()<CR>
+" vnoremap <C-d> :call PhpDocRange()<CR>
 
-"------------------------------------------------------------
-" voom
-"------------------------------------------------------------
-let g:voom_tree_width = 40
-nnoremap <silent> <Leader>o :Voom markdown<CR>
+" "------------------------------------------------------------
+" " voom
+" "------------------------------------------------------------
+" let g:voom_tree_width = 40
+" nnoremap <silent> <Leader>o :Voom markdown<CR>
 
 
-"------------------------------------------------------------
-" vimshell
-"------------------------------------------------------------
-nnoremap <silent> <Leader>v :VimShell<CR>
+" "------------------------------------------------------------
+" " vimshell
+" "------------------------------------------------------------
+" nnoremap <silent> <Leader>v :VimShell<CR>
+
+
+  " let g:golden_ratio_exclude_nonmodifiable = 1
