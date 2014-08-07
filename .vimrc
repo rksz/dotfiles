@@ -21,7 +21,7 @@ NeoBundle        'kana/vim-operator-user'
 NeoBundle         'kana/vim-textobj-user'
 NeoBundle     'kana/vim-operator-replace'
 NeoBundle            'kana/vim-niceblock'
-NeoBundle       'kana/vim-textobj-indent'
+" NeoBundle       'kana/vim-textobj-indent'
 NeoBundle             'gcmt/wildfire.vim'
 " NeoBundle    'PDV--phpDocumentor-for-Vim'
 " NeoBundle            'roman/golden-ratio'
@@ -63,25 +63,41 @@ NeoBundle                 'jceb/vim-hier'
 " NeoBundle                     'nginx.vim' " nginx conf
 " NeoBundle                       'php.vim' " PHP
 " NeoBundle       'plasticboy/vim-markdown' " markdown
-" NeoBundle       'tpope/vim-markdown' " markdown
+" NeoBundle            'tpope/vim-markdown' " markdown
 " NeoBundle           'rcmdnk/vim-markdown'
-"
 " NeoBundle                    'python.vim' " Python
-NeoBundle          'scrooloose/syntastic' " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
+NeoBundleLazy          'scrooloose/syntastic' , {
+\   'autoload' : {
+\       'filename_patterns' : [ '.*\.php' ]
+\   }
+\}
+                        " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
 
 
 "------------------------------------------------------------
 " Explorer
 "------------------------------------------------------------
-NeoBundle           'scrooloose/nerdtree' " tree explorer
-" NeoBundle             'tpope/vim-vinegar' " drives tree explorer
+NeoBundleLazy           'scrooloose/nerdtree' , {
+\   'autoload' : {
+\       'commands' : [ "NERDTree", "NERDTreeToggle" ]
+\   }
+\}
+
+" tree explorer
 " NeoBundle                          'VOoM'
 
 "------------------------------------------------------------
 " Utility
 "------------------------------------------------------------
 NeoBundle                       'cecutil' " util
-NeoBundle            'tpope/vim-fugitive' " controls git from vim
+NeoBundleLazy            'tpope/vim-fugitive' , {
+\   'autoload' : {
+\       'commands' : [ "Gdiff" ]
+\   }
+\}
+
+" \       'commands' : [ "Gdiff", "Gstatus", "Glog", "Gwrite", "Gcommit", "Gblame" ]
+" controls git from vim
 " NeoBundle 'banyan/recognize_charcode.vim'
 
 
@@ -96,7 +112,11 @@ NeoBundle                        'inkpot'
 "------------------------------------------------------------
 " Unite
 "------------------------------------------------------------
-NeoBundle              'Shougo/unite.vim'
+NeoBundle              'Shougo/unite.vim' , {
+\   'autoload' : { 'commands' : [ 'Unite' ] }
+\ }
+let s:bundle = neobundle#get('unite.vim')
+
 NeoBundle             'Shougo/neomru.vim'
 
 
@@ -641,22 +661,24 @@ map ge  <Plug>(smartword-ge)
 "------------------------------------------------------------
 " unite.vim
 "------------------------------------------------------------
-nnoremap    [unite]   <Nop>
-nmap     <Space>f [unite]
-let g:unite_enable_start_insert = 1
-let g:unite_source_file_mru_limit = 200
-let g:unite_split_rule = "belowright"
+function! s:bundle.hooks.on_source(bundle)
+  nnoremap    [unite]   <Nop>
+  nmap     <Space>f [unite]
+  let g:unite_enable_start_insert = 1
+  let g:unite_source_file_mru_limit = 200
+  let g:unite_split_rule = "belowright"
 
-nnoremap [unite]U  :<C-u>Unite -no-split<Space>
-nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file<CR>
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru<CR>
-nnoremap <silent> [unite]h :<C-u>Unite file_mru<CR>
-nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
-nnoremap <silent> [unite]o :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
+  nnoremap [unite]U  :<C-u>Unite -no-split<Space>
+  nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+  nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file<CR>
+  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+  nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru<CR>
+  nnoremap <silent> [unite]h :<C-u>Unite file_mru<CR>
+  nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
+  nnoremap <silent> [unite]o :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
+  autocmd FileType unite call s:unite_my_settings()
+endfunction
 
-autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
   nmap <buffer> <ESC>      <Plug>(unite_exit)
   nmap <buffer> <ESC><ESC> <Plug>(unite_exit)
