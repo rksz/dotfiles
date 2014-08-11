@@ -44,7 +44,7 @@ NeoBundle            'rhysd/clever-f.vim' " improve f jump
 "------------------------------------------------------------
 " Programming
 "------------------------------------------------------------
-" NeoBundle           'thinca/vim-quickrun'
+NeoBundle           'thinca/vim-quickrun'
 NeoBundle                'thinca/vim-ref'
 " NeoBundle                     'Pydiction' " auto complete for python
 " NeoBundle                   'taglist.vim' " shows tag & method list
