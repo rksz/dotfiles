@@ -241,14 +241,10 @@ function! s:remove_dust()
     unlet cursor
 endfunction
 command! Rd :call s:remove_dust()
-" autocmd BufWritePre * call <SID>remove_dust()
-" 日時の自動入力
+
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
 inoremap <expr> ,dd strftime('%Y/%m/%d (%a)')
 inoremap <expr> ,dt strftime('%H:%M:%S')
-
-" <leader>j でJSONをformat
-map <Leader>j !python -m json.tool<CR>
 
 " quickfixウィンドウではq/ESCで閉じる
 autocmd FileType qf nnoremap <buffer> q :ccl<CR>
