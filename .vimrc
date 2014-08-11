@@ -1,6 +1,5 @@
-
 "============================================================
-" NEOBUNDLE
+" NeoBundle
 "============================================================
 set nocompatible
 filetype off
@@ -14,90 +13,33 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 "------------------------------------------------------------
 " Edit
 "------------------------------------------------------------
-NeoBundle      'scrooloose/nerdcommenter' " comment2
-NeoBundle       'junegunn/vim-easy-align' " align1
-NeoBundle            'tpope/vim-surround' " text surround
-NeoBundle        'kana/vim-operator-user'
-NeoBundle         'kana/vim-textobj-user'
-NeoBundle     'kana/vim-operator-replace'
-NeoBundle            'kana/vim-niceblock'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-operator-replace'
+NeoBundle 'kana/vim-niceblock'
+NeoBundle 'gcmt/wildfire.vim'
 " NeoBundle       'kana/vim-textobj-indent'
-NeoBundle             'gcmt/wildfire.vim'
-" NeoBundle    'PDV--phpDocumentor-for-Vim'
-" NeoBundle            'roman/golden-ratio'
-
 
 "------------------------------------------------------------
-" Completion
+" Support
 "------------------------------------------------------------
-NeoBundle          'Shougo/neocomplcache' " auto complete
-
-
-"------------------------------------------------------------
-" Searching/Moving
-"------------------------------------------------------------
-" NeoBundle                     'smartword' " enables cursor-movement more intelligent
-NeoBundle            'rhysd/clever-f.vim' " improve f jump
-" NeoBundle         'tyru/open-browser.vim'
-
-
-"------------------------------------------------------------
-" Programming
-"------------------------------------------------------------
-NeoBundle           'thinca/vim-quickrun'
-NeoBundle                'thinca/vim-ref'
-" NeoBundle                     'Pydiction' " auto complete for python
+NeoBundle     'cecutil'
+NeoBundle     't9md/vim-quickhl'
+NeoBundle     'Shougo/neocomplcache'
+NeoBundle     'jceb/vim-hier'
+NeoBundle     'rhysd/clever-f.vim'
+NeoBundle     'thinca/vim-quickrun'
+NeoBundle     'thinca/vim-ref'
+NeoBundle     'Shougo/unite.vim' , { 'autoload' : { 'commands' : [ 'Unite' ] } }
+NeoBundle     'Shougo/neomru.vim'
+NeoBundle     'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak', 'unix' : 'make -f make_unix.mak', }, }
+NeoBundleLazy 'tpope/vim-fugitive' , { 'autoload' : { 'commands' : [ "Gdiff" ] } }
+NeoBundleLazy 'scrooloose/syntastic' , { 'autoload' : { 'filename_patterns' : [ '.*\.php' ] } }
+NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree", "NERDTreeToggle" ] } }
 " NeoBundle                   'taglist.vim' " shows tag & method list
-" NeoBundle             'wesleyche/SrcExpl'
-NeoBundle              't9md/vim-quickhl'
-
-"------------------------------------------------------------
-" Syntax
-"------------------------------------------------------------
-
-" NeoBundle             'JavaScript-syntax' " JavaScript
-" NeoBundle        'hail2u/vim-css3-syntax' " css3
-" NeoBundle                     'html5.vim' " html5
-" NeoBundle                        'jQuery' " jQuery
-NeoBundle                 'jceb/vim-hier'
-" NeoBundle                     'nginx.vim' " nginx conf
-" NeoBundle                       'php.vim' " PHP
-" NeoBundle       'plasticboy/vim-markdown' " markdown
-" NeoBundle            'tpope/vim-markdown' " markdown
-" NeoBundle           'rcmdnk/vim-markdown'
-" NeoBundle                    'python.vim' " Python
-NeoBundleLazy          'scrooloose/syntastic' , {
-\   'autoload' : {
-\       'filename_patterns' : [ '.*\.php' ]
-\   }
-\}
-                        " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
-
-
-"------------------------------------------------------------
-" Explorer
-"------------------------------------------------------------
-NeoBundleLazy           'scrooloose/nerdtree' , {
-\   'autoload' : {
-\       'commands' : [ "NERDTree", "NERDTreeToggle" ]
-\   }
-\}
-
-" tree explorer
-" NeoBundle                          'VOoM'
-
-"------------------------------------------------------------
-" Utility
-"------------------------------------------------------------
-NeoBundle                       'cecutil' " util
-NeoBundleLazy            'tpope/vim-fugitive' , {
-\   'autoload' : {
-\       'commands' : [ "Gdiff" ]
-\   }
-\}
-
-" \       'commands' : [ "Gdiff", "Gstatus", "Glog", "Gwrite", "Gcommit", "Gblame" ]
-" controls git from vim
 " NeoBundle 'banyan/recognize_charcode.vim'
 
 
@@ -108,31 +50,6 @@ NeoBundle                        'inkpot'
 " NeoBundle       'nanotech/jellybeans.vim'
 " NeoBundle                'tomasr/molokai'
 " NeoBundle               'w0ng/vim-hybrid'
-
-"------------------------------------------------------------
-" Unite
-"------------------------------------------------------------
-NeoBundle              'Shougo/unite.vim' , {
-\   'autoload' : { 'commands' : [ 'Unite' ] }
-\ }
-let s:bundle = neobundle#get('unite.vim')
-
-NeoBundle             'Shougo/neomru.vim'
-
-
-"------------------------------------------------------------
-" Vimproc
-"------------------------------------------------------------
-" NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc', {
-    \ 'build' : {
-    \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
-    \     'cygwin' : 'make -f make_cygwin.mak',
-    \     'mac' : 'make -f make_mac.mak',
-    \     'unix' : 'make -f make_unix.mak',
-    \    },
-    \ }
-
 
 filetype plugin indent on     " Required!
 if neobundle#exists_not_installed_bundles()
@@ -261,6 +178,211 @@ cnoremap <C-p> <Up>
 cnoremap <Up>  <C-p>
 cnoremap <C-n> <Down>
 cnoremap <Down> <C-n>
+"------------------------------------------------------------
+" Skeleton
+"------------------------------------------------------------
+autocmd BufNewFile *.sh  0r ~/.vim/skeleton/skeleton.sh
+autocmd BufNewFile *.pl  0r ~/.vim/skeleton/skeleton.perl
+autocmd BufNewFile *.php 0r ~/.vim/skeleton/skeleton.php
+
+
+"============================================================
+" SEARCH
+"============================================================
+set wrapscan   " 最後まで検索したら先頭へ戻る
+set ignorecase " 大文字小文字無視
+set smartcase  " 検索文字列に大文字が含まれている場合は区別して検索する
+set incsearch  " インクリメンタルサーチ
+set hlsearch   " 検索文字をハイライト
+nmap <ESC><ESC> :nohlsearch<CR><ESC>
+
+"============================================================
+" TAGS
+"============================================================
+if has("autochdir")
+  " 編集しているファイルのディレクトリに自動で移動
+  set autochdir
+  set tags=tags;
+else
+  set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
+endif
+
+set notagbsearch
+nnoremap t  <Nop>
+nnoremap tt  <C-]>
+nnoremap tj  ;<C-u>tag<CR>
+nnoremap tk  ;<C-u>pop<CR>
+nnoremap tl  ;<C-u>tags<CR>
+
+
+"============================================================
+" EDIT
+"============================================================
+set expandtab              " Tabキーを空白に変換
+set noimdisable            " insertモードを抜けるとIMEオフ
+set iminsert=0 imsearch=0
+set noimcmdline
+
+" escape mapping
+inoremap jj <Esc>
+inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+nnoremap <Space>s :%s!
+
+" :Ptでインデントモード切替
+command! Pt :set paste!
+
+" 保存時に行末の空白を除去する
+function! s:remove_dust()
+    let cursor = getpos(".")
+    %s/\s\+$//ge
+    call setpos(".", cursor)
+    unlet cursor
+endfunction
+command! Rd :call s:remove_dust()
+" autocmd BufWritePre * call <SID>remove_dust()
+" 日時の自動入力
+inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
+inoremap <expr> ,dd strftime('%Y/%m/%d (%a)')
+inoremap <expr> ,dt strftime('%H:%M:%S')
+
+" <leader>j でJSONをformat
+map <Leader>j !python -m json.tool<CR>
+
+" quickfixウィンドウではq/ESCで閉じる
+autocmd FileType qf nnoremap <buffer> q :ccl<CR>
+autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
+
+" 何もせず終了
+nnoremap <Space>q :qa<CR>
+
+" Save
+nnoremap <Space>w :w<CR>
+
+" 区切り文字
+inoreabbrev dl ************************************************************
+inoreabbrev dk ============================================================
+inoreabbrev dj ------------------------------------------------------------
+
+" buffer control
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
+nnoremap <C-d> :bd<CR>
+
+" window
+nnoremap <C-w><C-w> :wincmd =<CR>  " automatic window resize
+
+" file path yank
+nnoremap yr :let @*=expand("%")<CR>
+nnoremap yp :let @*=expand("%:p")<CR>
+
+
+"============================================================
+" INDENT
+"============================================================
+set autoindent   " 自動でインデント
+set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
+set cindent      " Cプログラムファイルの自動インデントを始める
+set tabstop=2 shiftwidth=2 softtabstop=0
+
+if has("autocmd")
+  filetype plugin on "ファイルタイプの検索を有効にする
+  filetype indent on "そのファイルタイプにあわせたインデントを利用する
+  autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+endif
+
+
+"============================================================
+" Move
+"============================================================
+set virtualedit+=block " 矩形選択で自由に移動する
+
+"<space>系の移動
+nnoremap <Space>h ^
+nnoremap <Space>l $
+
+" 前回終了したカーソル行に移動
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+" 対応する括弧に移動
+nnoremap ( %
+nnoremap ) %
+
+"ビジュアルモード時vで行末まで選択
+vnoremap v $h
+
+" CTRL-hjklでウィンドウ移動
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+" delete window
+nnoremap <C-d> <C-w>q
+
+" format
+inoremap <C-l> <ESC>zza
+
+" enabled cursor key
+nnoremap OA gi<Up>
+nnoremap OB gi<Down>
+nnoremap OC gi<Right>
+nnoremap OD gi<Left>
+
+" open active directory path
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+
+"============================================================
+" Encodings
+"============================================================
+set ffs=unix,dos,mac
+set encoding=utf-8
+autocmd FileType js    :set fileencoding=utf-8
+autocmd FileType css   :set fileencoding=utf-8
+autocmd FileType html  :set fileencoding=utf-8
+autocmd FileType xml   :set fileencoding=utf-8
+autocmd FileType java  :set fileencoding=utf-8
+autocmd FileType scala :set fileencoding=utf-8
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+command! Cp932 edit ++enc=cp932
+command! Eucjp edit ++enc=euc-jp
+command! Iso2022jp edit ++enc=iso-2022-jp
+command! Utf8 edit ++enc=utf-8
+command! Jis Iso2022jp
+command! Sjis Cp932
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+
+
+"============================================================
+" NeoBundle Plugins
+"============================================================
 
 "------------------------------------------------------------
 " neocomplecache.vim
@@ -291,18 +413,18 @@ let g:neocomplcache_max_list = 20
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scala' : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
-    \ 'java' : $HOME.'/.vim/dict/java.dict',
-    \ 'c' : $HOME.'/.vim/dict/c.dict',
-    \ 'cpp' : $HOME.'/.vim/dict/cpp.dict',
-    \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
-    \ 'ocaml' : $HOME.'/.vim/dict/ocaml.dict',
-    \ 'perl' : $HOME.'/.vim/dict/perl.dict',
-    \ 'php' : $HOME.'/.vim/dict/php.dict',
-    \ 'scheme' : $HOME.'/.vim/dict/scheme.dict',
-    \ 'vm' : $HOME.'/.vim/dict/vim.dict'
+    \ 'default':    '',
+    \ 'vimshell':   $HOME.'/.vimshell_hist',
+    \ 'scala':      $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
+    \ 'java':       $HOME.'/.vim/dict/java.dict',
+    \ 'c':          $HOME.'/.vim/dict/c.dict',
+    \ 'cpp':        $HOME.'/.vim/dict/cpp.dict',
+    \ 'javascript': $HOME.'/.vim/dict/javascript.dict',
+    \ 'ocaml':      $HOME.'/.vim/dict/ocaml.dict',
+    \ 'perl':       $HOME.'/.vim/dict/perl.dict',
+    \ 'php':        $HOME.'/.vim/dict/php.dict',
+    \ 'scheme':     $HOME.'/.vim/dict/scheme.dict',
+    \ 'vm':         $HOME.'/.vim/dict/vim.dict'
     \ }
 
 " Define keyword.
@@ -363,7 +485,7 @@ let g:neocomplcache_include_paths = {
   \ }
 "インクルード文のパターンを指定
 let g:neocomplcache_include_patterns = {
-  \ 'cpp' : '^\s*#\s*include',
+  \ 'cpp'  : '^\s*#\s*include',
   \ 'ruby' : '^\s*require',
   \ 'perl' : '^\s*use',
   \ }
@@ -373,238 +495,9 @@ let g:neocomplcache_include_exprs = {
   \ }
 " ファイルを探す際に、この値を末尾に追加したファイルも探す。
 let g:neocomplcache_include_suffixes = {
-  \ 'ruby' : '.rb',
+  \ 'ruby'    : '.rb',
   \ 'haskell' : '.hs'
   \ }
-
-"------------------------------------------------------------
-" Skeleton
-"------------------------------------------------------------
-autocmd BufNewFile *.sh  0r ~/.vim/skeleton/skeleton.sh
-autocmd BufNewFile *.pl  0r ~/.vim/skeleton/skeleton.perl
-autocmd BufNewFile *.php 0r ~/.vim/skeleton/skeleton.php
-
-
-"============================================================
-" SEARCH
-"============================================================
-set wrapscan   " 最後まで検索したら先頭へ戻る
-set ignorecase " 大文字小文字無視
-set smartcase  " 検索文字列に大文字が含まれている場合は区別して検索する
-set incsearch  " インクリメンタルサーチ
-set hlsearch   " 検索文字をハイライト
-
-" Escの2回押しでハイライト消去
-nmap <ESC><ESC> :nohlsearch<CR><ESC>
-
-
-"============================================================
-" TAGS
-"============================================================
-if has("autochdir")
-  " 編集しているファイルのディレクトリに自動で移動
-  set autochdir
-  set tags=tags;
-else
-  set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
-endif
-
-set notagbsearch
-
-"tags-and-searchesを使い易くする
-nnoremap t  <Nop>
-"「飛ぶ」
-nnoremap tt  <C-]>
-"「進む」
-nnoremap tj  ;<C-u>tag<CR>
-"「戻る」
-nnoremap tk  ;<C-u>pop<CR>
-"履歴一覧
-nnoremap tl  ;<C-u>tags<CR>
-
-
-"============================================================
-" EDIT
-"============================================================
-set expandtab              " Tabキーを空白に変換
-set noimdisable            " insertモードを抜けるとIMEオフ
-set iminsert=0 imsearch=0
-set noimcmdline
-
-" escape mapping
-inoremap jj <Esc>
-inoremap <C-j> <Esc>
-vnoremap <C-j> <Esc>
-
-inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
-nnoremap <Space>s :%s!
-
-" :Ptでインデントモード切替
-command! Pt :set paste!
-
-" 保存時に行末の空白を除去する
-function! s:remove_dust()
-    let cursor = getpos(".")
-    %s/\s\+$//ge
-    call setpos(".", cursor)
-    unlet cursor
-endfunction
-command! Rd :call s:remove_dust()
-" autocmd BufWritePre * call <SID>remove_dust()
-" 日時の自動入力
-inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
-inoremap <expr> ,dd strftime('%Y/%m/%d (%a)')
-inoremap <expr> ,dt strftime('%H:%M:%S')
-
-" <leader>j でJSONをformat
-map <Leader>j !python -m json.tool<CR>
-
-" quickfixウィンドウではq/ESCで閉じる
-autocmd FileType qf nnoremap <buffer> q :ccl<CR>
-autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
-
-" 何もせず終了
-nnoremap <Space>q :qa<CR>
-
-" Save
-nnoremap <Space>w :w<CR>
-
-" 区切り文字
-inoreabbrev dl ************************************************************
-inoreabbrev dk ============================================================
-inoreabbrev dj ------------------------------------------------------------
-
-nnoremap <C-n> :bn<CR>
-nnoremap <C-p> :bp<CR>
-nnoremap <C-d> :bd<CR>
-
-nnoremap <C-w><C-w> :wincmd =<CR>  " automatic window resize
-
-" file path yank
-nnoremap yr :let @*=expand("%")<CR>
-nnoremap yp :let @*=expand("%:p")<CR>
-
-
-"============================================================
-" INDENT
-"============================================================
-set autoindent   " 自動でインデント
-set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
-set cindent      " Cプログラムファイルの自動インデントを始める
-set tabstop=2 shiftwidth=2 softtabstop=0
-
-if has("autocmd")
-  filetype plugin on "ファイルタイプの検索を有効にする
-  filetype indent on "そのファイルタイプにあわせたインデントを利用する
-  autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
-endif
-
-
-"============================================================
-" MOVE
-"============================================================
-set virtualedit+=block " 矩形選択で自由に移動する
-
-"<space>系の移動
-nnoremap <Space>h ^
-nnoremap <Space>l $
-
-" 前回終了したカーソル行に移動
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-
-" 対応する括弧に移動
-nnoremap ( %
-nnoremap ) %
-
-"ビジュアルモード時vで行末まで選択
-vnoremap v $h
-
-" CTRL-hjklでウィンドウ移動
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-
-" delete window
-nnoremap <C-d> <C-w>q
-
-" format
-inoremap <C-l> <ESC>zza
-
-
-
-" enabled cursor key
-nnoremap OA gi<Up>
-nnoremap OB gi<Down>
-nnoremap OC gi<Right>
-nnoremap OD gi<Left>
-
-" open active directory path
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-
-"============================================================
-" ENCODING
-"============================================================
-set ffs=unix,dos,mac  " 改行文字
-set encoding=utf-8    " デフォルトエンコーディング
-
-" エンコーディングをUTF8に指定
-autocmd FileType js    :set fileencoding=utf-8
-autocmd FileType css   :set fileencoding=utf-8
-autocmd FileType html  :set fileencoding=utf-8
-autocmd FileType xml   :set fileencoding=utf-8
-autocmd FileType java  :set fileencoding=utf-8
-autocmd FileType scala :set fileencoding=utf-8
-
-" ワイルドカードで表示するときに優先度を低くする拡張子
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-
-" 指定文字コードで強制的にファイルを開く
-command! Cp932 edit ++enc=cp932
-command! Eucjp edit ++enc=euc-jp
-command! Iso2022jp edit ++enc=iso-2022-jp
-command! Utf8 edit ++enc=utf-8
-command! Jis Iso2022jp
-command! Sjis Cp932
-
-autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-" autocmd FileType markdown hi! def link markdownItalic LineNr
-
-
-"============================================================
-" NEOBUNDLE PLUGINS
-"============================================================
-
-" "------------------------------------------------------------
-" " vim-markdown
-" "------------------------------------------------------------
-" let g:vim_markdown_folding_disabled=1
 
 "------------------------------------------------------------
 " NERD_commenter.vim
@@ -624,26 +517,6 @@ nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
 
-" "------------------------------------------------------------
-" " taglist.Vim
-" "------------------------------------------------------------
-" set tags=tags
-" set tags+=~/.tags
-" 
-" if OSTYPE == "Darwin\n"
-"   let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' " ctagsのパス
-" elseif OSTYPE == "Linux\n"
-"   let Tlist_Ctags_Cmd = '/usr/bin/ctags' " ctagsのパス
-" endif
-" 
-" let Tlist_Show_One_File      = 1   " 現在編集中のソースのタグしか表示しない
-" let Tlist_Exit_OnlyWindow    = 1   " taglistのウィンドーが最後のウィンドーならばVimを閉じる
-" let Tlist_Use_Right_Window   = 1   " 右側でtaglistのウィンドーを表示
-" let Tlist_Enable_Fold_Column = 1   " 折りたたみ
-" let Tlist_Auto_Update        = 1
-" let Tlist_WinWidth           = 30
-" nmap <F7> :Tlist<CR>
-
 "------------------------------------------------------------
 " smartword.vim
 "------------------------------------------------------------
@@ -661,6 +534,7 @@ map ge  <Plug>(smartword-ge)
 "------------------------------------------------------------
 " unite.vim
 "------------------------------------------------------------
+let s:bundle = neobundle#get('unite.vim')
 function! s:bundle.hooks.on_source(bundle)
   nnoremap    [unite]   <Nop>
   nmap     <Space>f [unite]
@@ -731,6 +605,7 @@ let g:quickrun_config.mkd = {
 "------------------------------------------------------------
 let g:syntastic_enable_signs = 1        " エラー行をsignで表示する
 let g:syntastic_enable_highlighting = 1 " 可能ならhighligt表示する
+let g:syntastic_auto_jump = 2
 
 "------------------------------------------------------------
 " NERD-Tree.vim
@@ -739,12 +614,6 @@ nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 " let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
-
-" "------------------------------------------------------------
-" " open-blowser.vim
-" "------------------------------------------------------------
-" nmap <Leader>fu <Plug>(openbrowser-open)
-" vmap <Leader>fu <Plug>(openbrowser-open)
 
 "------------------------------------------------------------
 " easyalign
@@ -769,25 +638,3 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 " wildfire
 "------------------------------------------------------------
 let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
-
-" "------------------------------------------------------------
-" " php-doc
-" "------------------------------------------------------------
-" inoremap <C-d> <Esc>:call PhpDocSingle()<CR>i
-" nnoremap <C-d> :call PhpDocSingle()<CR>
-" vnoremap <C-d> :call PhpDocRange()<CR>
-
-" "------------------------------------------------------------
-" " voom
-" "------------------------------------------------------------
-" let g:voom_tree_width = 40
-" nnoremap <silent> <Leader>o :Voom markdown<CR>
-
-
-" "------------------------------------------------------------
-" " vimshell
-" "------------------------------------------------------------
-" nnoremap <silent> <Leader>v :VimShell<CR>
-
-
-  " let g:golden_ratio_exclude_nonmodifiable = 1
