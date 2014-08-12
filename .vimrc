@@ -21,6 +21,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-niceblock'
 NeoBundle 'gcmt/wildfire.vim'
+NeoBundle 'twe4ked/vim-colorscheme-switcher'
 " NeoBundle       'kana/vim-textobj-indent'
 
 "------------------------------------------------------------
