@@ -538,6 +538,7 @@ function! s:bundle.hooks.on_source(bundle)
   let g:unite_enable_start_insert = 1
   let g:unite_source_file_mru_limit = 200
   let g:unite_split_rule = "belowright"
+  let g:neomru#file_mru_limit = 2000
 
   nnoremap [unite]U  :<C-u>Unite -no-split<Space>
   nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
