@@ -547,6 +547,7 @@ function! s:bundle.hooks.on_source(bundle)
   nnoremap <silent> [unite]h :<C-u>Unite file_mru<CR>
   nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
   nnoremap <silent> [unite]o :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
+  nnoremap <silent> m :<C-u>Unite file_mru<CR>
   autocmd FileType unite call s:unite_my_settings()
 endfunction
 
