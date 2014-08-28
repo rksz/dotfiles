@@ -24,49 +24,6 @@ LOCAL_FILES=(
 .tmux.conf.local
 )
 
-BREW_PLUGINS=(
-zsh
-vim
-tmux
-tig
-reattach-to-user-namespace
-autojump
-fuse4x
-sshfs
-htop
-ack
-ctags
-git-flow
-tree
-watch
-wget
-curl
-mosh
-nkf
-openssl
-lynx
-xz
-binutils
-coreutils
-findutils
-cocot
-go
-)
-
-YUM_PLUGINS=(
-tmux
-zsh
-tig
-tree
-fuse-sshfs
-htop
-ack
-dstat
-mosh
-gitflow
-)
-
-
 main() {
 
     #Definition
@@ -103,22 +60,14 @@ main() {
 
         # Mac(Unix)
         darwin*)
-            brew install ${BREW_PLUGINS[@]}
-            brew update
-
+            brew bundle
             #for sshfs
             sudo /bin/cp -rfX /usr/local/Cellar/fuse4x-kext/0.9.2/Library/Extensions/fuse4x.kext /Library/Extensions
             sudo chmod +s /Library/Extensions/fuse4x.kext/Support/load_fuse4x
-
-            echo "[setup notice] DOWNLOAD FOLLOWING APPLICATIONS MANUALLY"
-            echo "- MacVim: https://code.google.com/p/macvim-kaoriya/downloads/list"
-            echo "- Vagrant: http://downloads.vagrantup.com/"
-            echo "- VirtualBox: https://www.virtualbox.org/wiki/Downloads"
         ;;
         # Linux
         linux*)
             rpm -ivh http://ftp.riken.jp/Linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
-            yum -y install ${YUM_PLUGINS[@]}
         ;;
 
     esac

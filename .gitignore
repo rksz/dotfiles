@@ -19,3 +19,5 @@ samples
 .vim/bundle
 .vim/.netrwhist
 ref
+.cask
+Cask

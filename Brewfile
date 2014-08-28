@@ -6,21 +6,42 @@ tap homebrew/binary || true
 update || true
 # Brew Cask
 install brew-cask || true
+
 # Packages
 install --disable-etcdir zsh || true
-install vim || true
-install jq || true
-install curl || true
-install wget || true
 install dnsmasq || true
-install composer || true
+install zsh || true
+install vim || true
+install tmux || true
+install tig || true
+install reattach-to-user-namespace || true
+install autojump || true
+install fuse4x || true
+install sshfs || true
+install htop || true
+install ack || true
+install ctags || true
+install tree || true
+install watch || true
+install wget || true
+install curl || true
+install mosh || true
+install nkf || true
+install openssl || true
+install lynx || true
+install xz || true
+install binutils || true
+install coreutils || true
+install findutils || true
+install cocot || true
+install go || true
+
 # Cask Packages
 cask install iterm2 || true
 cask install alfred || true
 cask install dash || true
 cask install skitch || true
 cask install evernote || true
-cask install dropbox || true
 cask install skype || true
 cask install sourcetree || true
 cask install mysqlworkbench || true
@@ -32,9 +53,6 @@ cask install kobito || true
 cask install virtualbox || true
 cask install vagrant || true
 cask install sublime-text || true
-cask install phpstorm || true
-cask install eclipse-ide || true
-cask install unity3d || true
 cask install cyberduck || true
 cask install the-unarchiver || true
 cask install imageoptim || true
