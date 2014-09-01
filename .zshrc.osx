@@ -22,6 +22,10 @@ alias st='sourcetree .'
 
 # Ruby
 eval "$(rbenv init - zsh)"
+
+# hub command
+eval "$(hub alias -s)"
+
 # GNU cp
 # required: brew install coreutils
 alias cp="nocorrect gcp -i"
