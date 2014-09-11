@@ -50,7 +50,7 @@ NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree"
 NeoBundle                        'inkpot'
 " NeoBundle       'nanotech/jellybeans.vim'
 " NeoBundle                'tomasr/molokai'
-" NeoBundle               'w0ng/vim-hybrid'
+NeoBundle               'w0ng/vim-hybrid'
 
 filetype plugin indent on     " Required!
 if neobundle#exists_not_installed_bundles()
@@ -142,8 +142,8 @@ match ZenkakuSpace /　/
 " COLOR
 "============================================================
 "colorscheme jellybeans
-colorscheme inkpot
-"colorscheme hybrid
+" colorscheme inkpot
+colorscheme hybrid
 "colorscheme molokai
 
 " ターミナルタイプによるカラー設定
