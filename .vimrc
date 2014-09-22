@@ -47,9 +47,9 @@ NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree"
 "------------------------------------------------------------
 " ColorScheme
 "------------------------------------------------------------
-NeoBundle                        'inkpot'
-" NeoBundle       'nanotech/jellybeans.vim'
-" NeoBundle                'tomasr/molokai'
+" NeoBundle                        'inkpot'
+NeoBundle       'nanotech/jellybeans.vim'
+NeoBundle                'tomasr/molokai'
 NeoBundle               'w0ng/vim-hybrid'
 
 filetype plugin indent on     " Required!
@@ -141,10 +141,10 @@ match ZenkakuSpace /　/
 "============================================================
 " COLOR
 "============================================================
-"colorscheme jellybeans
+colorscheme jellybeans
 " colorscheme inkpot
 colorscheme hybrid
-"colorscheme molokai
+" colorscheme molokai
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
