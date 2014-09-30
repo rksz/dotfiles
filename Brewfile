@@ -67,6 +67,7 @@ cask install spectacle             || true
 cask install the-unarchiver        || true
 cask install vagrant               || true
 cask install virtualbox            || true
+cask install smoothmouse           || true
 
 ## no cask support apps
 # cask install reeder2

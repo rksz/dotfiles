@@ -361,6 +361,8 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 "============================================================
 set ffs=unix,dos,mac
 set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+
 autocmd FileType js    :set fileencoding=utf-8
 autocmd FileType css   :set fileencoding=utf-8
 autocmd FileType html  :set fileencoding=utf-8
