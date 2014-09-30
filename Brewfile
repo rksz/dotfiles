@@ -37,6 +37,7 @@ install cocot                      || true
 install go                         || true
 install hub                        || true
 install rbenv                      || true
+install taskwarrior                || true
 
 # Cask Packages
 cask install alfred                || true
