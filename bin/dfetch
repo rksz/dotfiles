@@ -1,0 +1,5 @@
+#!/bin/sh
+download_dir=~/Downloads/
+file=$(ls -rt $download_dir | tail -1)
+mv -iv $download_dir/$file .
+
