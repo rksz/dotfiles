@@ -1,8 +1,5 @@
 [include]
   path = ~/.gitconfig.local
-[user]
-  name = Ricky
-  email = master@mistdev.com
 [color]
   # colorの設定(以下のコマンドは自動で色つける)
   status = auto

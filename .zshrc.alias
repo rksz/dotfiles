@@ -25,7 +25,8 @@ alias 'vimwhite'="vim -c 'colorscheme shine'"
 alias 'vimblue'="vim -c 'colorscheme blue'"
 alias 'vimdarkblue'="vim -c 'colorscheme darkblue'"
 alias 'vimpablo'="vim -c 'colorscheme pablo'"
-alias 'v'="vim -c NERDTreeToggle"
+alias 'vn'="vim -c NERDTreeToggle"
+alias 'v'="vim"
 alias 'md'='vim ./*.md'
 alias 'mmd'='mvim ./*.md'
 
@@ -55,6 +56,8 @@ alias up='cd ..; ll'
 alias upp='cd ../..; ll'
 alias uppp='cd ../../..; ll'
 alias sandbox='cd ~/sandbox'
+alias u='up'
+alias b='cd -'
 
 alias pon='predict-on'
 alias poff='predict-off'

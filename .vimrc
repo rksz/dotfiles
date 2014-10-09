@@ -30,7 +30,7 @@ NeoBundle 'twe4ked/vim-colorscheme-switcher'
 NeoBundle     'cecutil'
 NeoBundle     't9md/vim-quickhl'
 NeoBundle     'Shougo/neocomplcache'
-NeoBundle     'jceb/vim-hier'
+" NeoBundle     'jceb/vim-hier'
 NeoBundle     'rhysd/clever-f.vim'
 NeoBundle     'thinca/vim-quickrun'
 NeoBundle     'thinca/vim-ref'
@@ -361,7 +361,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 "============================================================
 set ffs=unix,dos,mac
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 
 autocmd FileType js    :set fileencoding=utf-8
 autocmd FileType css   :set fileencoding=utf-8
