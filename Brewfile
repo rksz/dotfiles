@@ -38,6 +38,7 @@ install go                         || true
 install hub                        || true
 install rbenv                      || true
 install taskwarrior                || true
+install vit                        || true
 
 # Cask Packages
 cask install alfred                || true
