@@ -1,0 +1,4 @@
+#!/bin/sh
+file=$(ls -rt ~ | tail -1)
+mv -iv ~/$file .
+
