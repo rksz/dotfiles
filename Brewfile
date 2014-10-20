@@ -1,3 +1,7 @@
+#
+# todo: setting up brewdler for deprecated brew bundle
+# https://github.com/andrew/brewdler
+#
 # Add Repository
 tap homebrew/versions              || true
 tap caskroom/homebrew-cask         || true
