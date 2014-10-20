@@ -40,7 +40,7 @@ NeoBundle     'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak', 'u
 NeoBundleLazy 'tpope/vim-fugitive' , { 'autoload' : { 'commands' : [ "Gdiff" ] } }
 NeoBundleLazy 'scrooloose/syntastic' , { 'autoload' : { 'filename_patterns' : [ '.*\.php' ] } }
 NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree", "NERDTreeToggle" ] } }
-" NeoBundle                   'taglist.vim' " shows tag & method list
+NeoBundle                   'taglist.vim' " shows tag & method list
 " NeoBundle 'banyan/recognize_charcode.vim'
 
 

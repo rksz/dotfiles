@@ -161,6 +161,7 @@ cl() {
 #};
 #export PROMPT_COMMAND=t;
 
+alias wk="cd ~/workspace"
 
 cleanup () {
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null

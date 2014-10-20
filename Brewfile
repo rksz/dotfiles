@@ -57,7 +57,7 @@ cask install hyperswitch           || true
 cask install iterm2                || true
 cask install karabiner             || true
 cask install licecap               || true
-cask install macvim                || true
+# cask install macvim                || true
 cask install mi                    || true
 cask install mou                   || true
 cask install mysqlworkbench        || true
