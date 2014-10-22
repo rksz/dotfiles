@@ -590,14 +590,14 @@ let g:quickrun_config.markdown = {
       \ 'outputter' : 'null',
       \ 'command'   : 'open',
       \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Marked',
+      \ 'args'      : 'Mou',
       \ 'exec'      : '%c %o %a %s',
       \ }
 let g:quickrun_config.mkd = {
       \ 'outputter' : 'null',
       \ 'command'   : 'open',
       \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Marked',
+      \ 'args'      : 'Mou',
       \ 'exec'      : '%c %o %a %s',
       \ }
 
