@@ -21,8 +21,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-niceblock'
 NeoBundle 'gcmt/wildfire.vim'
-NeoBundle 'twe4ked/vim-colorscheme-switcher'
-" NeoBundle       'kana/vim-textobj-indent'
+NeoBundle 'rksz/vim-colorscheme-switcher'
 
 "------------------------------------------------------------
 " Support
@@ -49,8 +48,9 @@ NeoBundle                   'taglist.vim' " shows tag & method list
 "------------------------------------------------------------
 " NeoBundle                        'inkpot'
 NeoBundle       'nanotech/jellybeans.vim'
-NeoBundle                'tomasr/molokai'
+" NeoBundle                'tomasr/molokai'
 NeoBundle               'w0ng/vim-hybrid'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 filetype plugin indent on     " Required!
 if neobundle#exists_not_installed_bundles()
@@ -141,10 +141,9 @@ match ZenkakuSpace /　/
 "============================================================
 " COLOR
 "============================================================
-colorscheme jellybeans
-" colorscheme inkpot
-colorscheme hybrid
-" colorscheme molokai
+" colorscheme jellybeans
+" colorscheme hybrid
+colorscheme Tomorrow-Night
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
@@ -590,16 +589,35 @@ let g:quickrun_config.markdown = {
       \ 'outputter' : 'null',
       \ 'command'   : 'open',
       \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Mou',
+      \ 'args'      : 'MacVim',
       \ 'exec'      : '%c %o %a %s',
       \ }
 let g:quickrun_config.mkd = {
       \ 'outputter' : 'null',
       \ 'command'   : 'open',
       \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Mou',
+      \ 'args'      : 'MacVim',
       \ 'exec'      : '%c %o %a %s',
       \ }
+
+let g:quickrun_config.php = {
+      \ 'outputter' : 'null',
+      \ 'command'   : 'open',
+      \ 'cmdopt'    : '-a',
+      \ 'args'      : 'MacVim',
+      \ 'exec'      : '%c %o %a %s',
+      \ }
+
+let g:quickrun_config.perl = {
+      \ 'outputter' : 'null',
+      \ 'command'   : 'open',
+      \ 'cmdopt'    : '-a',
+      \ 'args'      : 'MacVim',
+      \ 'exec'      : '%c %o %a %s',
+      \ }
+
+
+
 
 "------------------------------------------------------------
 " Syntastic
@@ -639,3 +657,10 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 " wildfire
 "------------------------------------------------------------
 let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
+
+
+"------------------------------------------------------------
+" color switcher
+"------------------------------------------------------------
+let g:mycolors = ['Tomorrow-Night', 'Tomorrow-Night-Bright', 'Tomorrow-Night-Blue']
+
