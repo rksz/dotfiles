@@ -143,7 +143,7 @@ match ZenkakuSpace /　/
 "============================================================
 " colorscheme jellybeans
 " colorscheme hybrid
-colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night-Bright
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
@@ -662,5 +662,5 @@ let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
 "------------------------------------------------------------
 " color switcher
 "------------------------------------------------------------
-let g:mycolors = ['Tomorrow-Night', 'Tomorrow-Night-Bright', 'Tomorrow-Night-Blue']
+let g:mycolors = ['Tomorrow-Night-Bright', 'Tomorrow-Night', 'Tomorrow-Night-Blue']
 
