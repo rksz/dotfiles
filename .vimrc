@@ -47,9 +47,9 @@ NeoBundle                   'taglist.vim' " shows tag & method list
 " ColorScheme
 "------------------------------------------------------------
 " NeoBundle                        'inkpot'
-NeoBundle       'nanotech/jellybeans.vim'
-" NeoBundle                'tomasr/molokai'
-NeoBundle               'w0ng/vim-hybrid'
+" NeoBundle       'nanotech/jellybeans.vim'
+" NeoBundle              'djjcast/mirodark'
+" NeoBundle               'w0ng/vim-hybrid'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 filetype plugin indent on     " Required!
@@ -589,14 +589,14 @@ let g:quickrun_config.markdown = {
       \ 'outputter' : 'null',
       \ 'command'   : 'open',
       \ 'cmdopt'    : '-a',
-      \ 'args'      : 'MacVim',
+      \ 'args'      : 'Mou',
       \ 'exec'      : '%c %o %a %s',
       \ }
 let g:quickrun_config.mkd = {
       \ 'outputter' : 'null',
       \ 'command'   : 'open',
       \ 'cmdopt'    : '-a',
-      \ 'args'      : 'MacVim',
+      \ 'args'      : 'Mou',
       \ 'exec'      : '%c %o %a %s',
       \ }
 

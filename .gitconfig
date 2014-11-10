@@ -14,6 +14,8 @@
 #  autocrlf = input                 # CRLFを自動変換
   quotepath = false
   editor = /usr/local/bin/vim
+	autocrlf = false
+  precomposeunicode = true
 [alias]
   st = status
   sh = show
