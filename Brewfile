@@ -43,6 +43,7 @@ install hub                        || true
 install rbenv                      || true
 install taskwarrior                || true
 install vit                        || true
+install android-sdk                || true
 
 # Cask Packages
 cask install alfred                || true
