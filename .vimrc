@@ -274,6 +274,16 @@ nnoremap yr :let @*=expand("%")<CR>
 nnoremap yp :let @*=expand("%:p")<CR>
 
 
+
+nnoremap <Space>t :tabnew<CR>
+nnoremap <Space>w :tabclose<CR>
+nnoremap <Space>n gt
+nnoremap <Space>p gT
+
+
+
+
+
 "============================================================
 " INDENT
 "============================================================
@@ -514,19 +524,6 @@ nnoremap <Space>ga :<C-u>Gwrite<Enter>
 nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
-
-"------------------------------------------------------------
-" smartword.vim
-"------------------------------------------------------------
-noremap ,w  w
-noremap ,b  b
-noremap ,e  e
-noremap ,ge  ge
-
-map W  <Plug>(smartword-w)
-map B  <Plug>(smartword-b)
-map E  <Plug>(smartword-e)
-map ge  <Plug>(smartword-ge)
 
 
 "------------------------------------------------------------
