@@ -89,8 +89,8 @@ alias dstat-disk='dstat -Tcldr'
 alias j='z'
 
 # ssh
-alias ssh='TERM=xterm ssh'
-alias ssheuc='TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
+alias ssh='env TERM=xterm ssh'
+alias ssheuc='env TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
 
 # taskwarrior
 alias t="\task"

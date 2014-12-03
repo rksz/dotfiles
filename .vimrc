@@ -276,7 +276,7 @@ nnoremap yp :let @*=expand("%:p")<CR>
 
 
 nnoremap <Space>t :tabnew<CR>
-nnoremap <Space>w :tabclose<CR>
+nnoremap <Space>q :q<CR>
 nnoremap <Space>n gt
 nnoremap <Space>p gT
 
