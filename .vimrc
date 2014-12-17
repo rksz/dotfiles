@@ -49,7 +49,7 @@ NeoBundle                   'taglist.vim' " shows tag & method list
 " NeoBundle                        'inkpot'
 " NeoBundle       'nanotech/jellybeans.vim'
 " NeoBundle              'djjcast/mirodark'
-" NeoBundle               'w0ng/vim-hybrid'
+NeoBundle               'w0ng/vim-hybrid'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 filetype plugin indent on     " Required!
@@ -112,7 +112,7 @@ nnoremap <silent> <Space>e :e!<CR>
 nnoremap <silent> <Space>r :Rd<CR>
 
 let $TODAY=strftime('%Y%m%d')
-
+set undodir=/tmp
 
 
 "============================================================
@@ -142,8 +142,8 @@ match ZenkakuSpace /　/
 " COLOR
 "============================================================
 " colorscheme jellybeans
-" colorscheme hybrid
-colorscheme Tomorrow-Night-Bright
+colorscheme hybrid
+" colorscheme Tomorrow-Night
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"

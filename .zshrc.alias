@@ -96,6 +96,9 @@ alias ssheuc='env TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
 alias t="\task"
 alias tt="\timetrap"
 
+# bundler
+alias be='bundle exec'
+
 
 #auto directory jumper
 jj () {
