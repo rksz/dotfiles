@@ -230,6 +230,8 @@ vnoremap <C-j> <Esc>
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 nnoremap <Space>s :%s!
 
+nnoremap Y y$
+
 " :Ptでインデントモード切替
 command! Pt :set paste!
 
