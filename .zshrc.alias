@@ -99,7 +99,6 @@ alias tt="\timetrap"
 # bundler
 alias be='bundle exec'
 
-
 #auto directory jumper
 jj () {
   if [ $1 ]; then
@@ -120,17 +119,6 @@ jjv () {
       fi
   fi
 }
-
-
-#init master.md
-tset() {
-    tmux split-window -h -p 70
-    tmux send-keys -t :.0 "vim *.md" C-m
-    tmux split-window -v
-    tmux send-keys -t :.1 "cd docs" C-m
-    tmux rename-window "BASE"
-}
-
 
 # mkdir with timestamp
 mkdirt() {
