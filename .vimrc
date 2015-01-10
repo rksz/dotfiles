@@ -631,7 +631,7 @@ let g:syntastic_auto_jump = 2
 nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 " let NERDTreeShowBookmarks=1
-let NERDTreeShowHidden=1
+" let NERDTreeShowHidden=1
 
 "------------------------------------------------------------
 " easyalign
