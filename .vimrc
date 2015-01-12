@@ -21,7 +21,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-niceblock'
 NeoBundle 'gcmt/wildfire.vim'
-NeoBundle 'rksz/vim-colorscheme-switcher'
+" NeoBundle 'rksz/vim-colorscheme-switcher'
 
 "------------------------------------------------------------
 " Support
@@ -41,7 +41,7 @@ NeoBundleLazy 'scrooloose/syntastic' , { 'autoload' : { 'filename_patterns' : [ 
 NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree", "NERDTreeToggle" ] } }
 NeoBundle                   'taglist.vim' " shows tag & method list
 " NeoBundle 'banyan/recognize_charcode.vim'
-
+NeoBundle     'tyru/open-browser.vim'
 
 "------------------------------------------------------------
 " ColorScheme
@@ -661,5 +661,12 @@ let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
 "------------------------------------------------------------
 " color switcher
 "------------------------------------------------------------
-let g:mycolors = ['Tomorrow-Night-Bright', 'Tomorrow-Night', 'Tomorrow-Night-Blue']
+" let g:mycolors = ['Tomorrow-Night-Bright', 'Tomorrow-Night', 'Tomorrow-Night-Blue']
 
+
+"------------------------------------------------------------
+" Open browser
+"------------------------------------------------------------
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap <Leader>f <Plug>(openbrowser-smart-search)
+vmap <Leader>f <Plug>(openbrowser-smart-search)
