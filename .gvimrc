@@ -1,4 +1,5 @@
-colorscheme Tomorrow-Night-Blue
+" colorscheme Tomorrow-Night-Blue
+colorscheme jellybeans
 set guifont=Ricty:h16
 "set guifont=Anonymous\ Pro:h16
 "set transparency=4

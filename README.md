@@ -1,13 +1,19 @@
-## Requirements
-
-  Requirements for the lib to work are:
-  * vim >= 7.2 (7.3.762 is better)
-
 ## Installation
 
-  Just run following commands:
+  To install basic dotfiles.
 
   ```sh
-  cd $HOME && git clone https://github.com/rksz/dotfiles.git && cd dotfiles && ./setup.sh
+  $ cd $HOME
+  $ git clone https://github.com/rksz/dotfiles.git
+  $ cd dotfiles
+  $ ./bootstrap-all.sh
   ```
+
+  For mac users, run an additional boostrap.
+
+  ```sh
+  $ ./bootstrap-mac.sh
+  ```
+
+  Homebrew packages will be automatically installed.
 

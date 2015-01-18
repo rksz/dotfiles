@@ -36,7 +36,8 @@ NeoBundle     'thinca/vim-ref'
 NeoBundle     'Shougo/unite.vim' , { 'autoload' : { 'commands' : [ 'Unite' ] } }
 NeoBundle     'Shougo/neomru.vim'
 NeoBundle     'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak', 'unix' : 'make -f make_unix.mak', }, }
-NeoBundleLazy 'tpope/vim-fugitive' , { 'autoload' : { 'commands' : [ "Gdiff" ] } }
+" NeoBundleLazy 'tpope/vim-fugitive' , { 'autoload' : { 'commands' : [ "Gdiff" ] } }
+NeoBundle 'tpope/vim-fugitive'
 NeoBundleLazy 'scrooloose/syntastic' , { 'autoload' : { 'filename_patterns' : [ '.*\.php' ] } }
 NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree", "NERDTreeToggle" ] } }
 NeoBundle                   'taglist.vim' " shows tag & method list
@@ -47,10 +48,10 @@ NeoBundle     'tyru/open-browser.vim'
 " ColorScheme
 "------------------------------------------------------------
 " NeoBundle                        'inkpot'
-" NeoBundle       'nanotech/jellybeans.vim'
+NeoBundle       'nanotech/jellybeans.vim'
 " NeoBundle              'djjcast/mirodark'
 NeoBundle               'w0ng/vim-hybrid'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
+" NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 filetype plugin indent on     " Required!
 if neobundle#exists_not_installed_bundles()
@@ -141,8 +142,8 @@ match ZenkakuSpace /　/
 "============================================================
 " COLOR
 "============================================================
-" colorscheme jellybeans
-colorscheme hybrid
+colorscheme jellybeans
+" colorscheme hybrid
 " colorscheme Tomorrow-Night
 
 " ターミナルタイプによるカラー設定

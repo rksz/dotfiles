@@ -32,7 +32,7 @@ alias 'mmd'='mvim ./*.md'
 
 # vimalias
 alias 'evv'='vi ~/dotfiles/.vimrc*'
-alias 'evs'='vim ~/.ssh/config'
+alias 'evs'='vim ~/.ssh/config.orig'
 alias 'eva'='vim ~/.zshrc.alias.local'
 alias 'evz'='vi ~/.zshrc*'
 
