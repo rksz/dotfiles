@@ -76,3 +76,7 @@
   log  = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true

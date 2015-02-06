@@ -162,7 +162,7 @@ cleanup () {
 alias -g O="| xargs open"
 alias -g L="| less"
 alias -g H="| head"
-alias -g T="| tail"
+alias -g Z="| tar -cvzf files_$(date +%Y%m%d%H%M%S).tgz --files-from=-"
 alias -g G="| grep"
 alias -g S="| sed"
 alias -g R="| rsync -av --files-from=- . /tmp/"
