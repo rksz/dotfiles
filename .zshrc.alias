@@ -144,13 +144,6 @@ cl() {
     ls -al
 }
 
-#t(){
-#    if [ "$PWD" != "$LPWD" ];then
-#        LPWD="$PWD"
-#        tmux rename-window ${PWD//*\//}
-#    fi
-#};
-#export PROMPT_COMMAND=t;
 
 alias wk="cd ~/workspace"
 
