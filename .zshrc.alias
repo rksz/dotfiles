@@ -6,7 +6,6 @@ alias ll="ls -l"
 alias lg="ls | grep "
 
 # process
-alias 'ps?'='pgrep -l -f'
 alias pk='pkill -f'
 alias allnice="ionice -c2 -n7 nice -n19"
 
@@ -31,10 +30,7 @@ alias 'md'='vim ./*.md'
 alias 'mmd'='mvim ./*.md'
 
 # vimalias
-alias 'evv'='vi ~/dotfiles/.vimrc*'
 alias 'evs'='vim ~/.ssh/config.orig'
-alias 'eva'='vim ~/.zshrc.alias.local'
-alias 'evz'='vi ~/.zshrc*'
 
 # grep
 alias 'gr'='grep --color=auto -ERUIn'
@@ -94,7 +90,6 @@ alias ssheuc='env TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
 
 # taskwarrior
 alias t="\task"
-alias tt="\timetrap"
 
 # bundler
 alias be='bundle exec'
@@ -105,45 +100,11 @@ jj () {
       JUMPDIR=$(find . -type d -maxdepth 1 | grep $1 | tail -1)
       if [[ -d $JUMPDIR && -n $JUMPDIR ]]; then
           cd $JUMPDIR
-      else 
+      else
           echo "directory not found"
       fi
   fi
 }
-
-jjv () {
-  if [ $1 ]; then
-      JUMPDIR=$(ls | grep $1 | tail -1)
-      if [ $JUMPDIR ]; then
-          echo $JUMPDIR
-      fi
-  fi
-}
-
-# mkdir with timestamp
-mkdirt() {
-    filename=$(date "+%Y%m%d")_${1:?}
-    mkdir $filename && echo $filename && cd $filename
-}
-
-mkdirtt() {
-    taskname=${1:?}
-    headnum=$(ls -F | grep / | grep -o "[0-9][0-9]_" | sed -e 's/_//' | sort -ur | head -1)
-    nextnum=$(( $headnum + 1 ))
-
-    if [ $nextnum -lt 10 ]; then
-        nextnum="0"$nextnum
-    fi
-
-    taskdir=${nextnum}_${taskname}
-    mkdir $taskdir && cd $taskdir && pwd
-}
-
-cl() {
-    cd ${1}
-    ls -al
-}
-
 
 alias wk="cd ~/workspace"
 

@@ -21,7 +21,8 @@ alias st='sourcetree .'
 # eval "$(rbenv init - zsh)"
 
 # hub command
-eval "$(hub alias -s)"
+# eval "$(hub alias -s)"
+alias git=hub
 
 # GNU cp
 # required: brew install coreutils
@@ -42,29 +43,29 @@ alias renamew='tmux rename-window'
 alias tailf='tail -f'
 alias p='pbcopy'
 
-function todo() {
-    if [[ $1 == "add" && -n $2 ]] then
-        task $@ +todo
-        exit 0
-    else
-        task list +todo
-    fi
-}
-
-function pro() {
-    if [ $1 ]; then
-        project=$1
-        shift
-        if [[ $1 == "add" ]]; then
-            shift
-            task add $@ project:$project
-        else
-            task wait project:$project $@
-        fi
-    else
-        task project
-    fi
-}
+# function todo() {
+#     if [[ $1 == "add" && -n $2 ]] then
+#         task $@ +todo
+#         exit 0
+#     else
+#         task list +todo
+#     fi
+# }
+#
+# function pro() {
+#     if [ $1 ]; then
+#         project=$1
+#         shift
+#         if [[ $1 == "add" ]]; then
+#             shift
+#             task add $@ project:$project
+#         else
+#             task wait project:$project $@
+#         fi
+#     else
+#         task project
+#     fi
+# }
 
 
 function pwdcopy() {
@@ -92,8 +93,6 @@ function cdf() {
     echo 'No Finder window found' >&2
   fi
 }
-
-# [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 function memo() {
     today=$(date "+%Y%m%d")

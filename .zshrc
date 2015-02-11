@@ -59,9 +59,6 @@ compinit -C
 # Custom Aliases
 #============================================================ 
 [ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
-
-
-
 [ -f ~/.zshrc.alias.local ] && source ~/.zshrc.alias.local
 case "${OSTYPE}" in
 darwin*)
@@ -72,7 +69,6 @@ linux*)
     ;;
 esac
 
-
 #============================================================ 
 # PATH Settings
 #============================================================ 
@@ -80,8 +76,3 @@ export PATH=${HOME}/dotfiles/bin:$PATH
 
 # import z
 . ${HOME}/dotfiles/bin/z.sh
-
-#
-#if (which zprof > /dev/null) ;then
-#  zprof | less
-#fi
