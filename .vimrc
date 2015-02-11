@@ -43,7 +43,7 @@ NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree"
 NeoBundle                   'taglist.vim' " shows tag & method list
 " NeoBundle 'banyan/recognize_charcode.vim'
 NeoBundle     'tyru/open-browser.vim'
-
+NeoBundle 'christoomey/vim-tmux-navigator'
 "------------------------------------------------------------
 " ColorScheme
 "------------------------------------------------------------
