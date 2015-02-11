@@ -1,9 +1,5 @@
 export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
 
-## Terminal Colorの設定
-#export CLICOLOR=1
-#export LSCOLORS=ExFxCxDxBxegedabagacad
-
 ## vim
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -11,7 +7,7 @@ alias vimdiff='/Applications/MacVim.app/Contents/MacOS/vimdiff'
 # alias view='/Applications/MacVim.app/Contents/MacOS/view'
 export PATH=~/Applications/Vagrant/bin/:$PATH
 export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # ctags
 alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
