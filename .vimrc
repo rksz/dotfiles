@@ -43,7 +43,7 @@ NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree"
 NeoBundle                   'taglist.vim' " shows tag & method list
 " NeoBundle 'banyan/recognize_charcode.vim'
 NeoBundle     'tyru/open-browser.vim'
-NeoBundle 'christoomey/vim-tmux-navigator'
+" NeoBundle 'christoomey/vim-tmux-navigator'
 "------------------------------------------------------------
 " ColorScheme
 "------------------------------------------------------------
@@ -600,25 +600,6 @@ let g:quickrun_config.mkd = {
       \ 'exec'      : '%c %o %a %s',
       \ }
 
-let g:quickrun_config.php = {
-      \ 'outputter' : 'null',
-      \ 'command'   : 'open',
-      \ 'cmdopt'    : '-a',
-      \ 'args'      : 'MacVim',
-      \ 'exec'      : '%c %o %a %s',
-      \ }
-
-let g:quickrun_config.perl = {
-      \ 'outputter' : 'null',
-      \ 'command'   : 'open',
-      \ 'cmdopt'    : '-a',
-      \ 'args'      : 'MacVim',
-      \ 'exec'      : '%c %o %a %s',
-      \ }
-
-
-
-
 "------------------------------------------------------------
 " Syntastic
 "------------------------------------------------------------
@@ -657,13 +638,6 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 " wildfire
 "------------------------------------------------------------
 let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
-
-
-"------------------------------------------------------------
-" color switcher
-"------------------------------------------------------------
-" let g:mycolors = ['Tomorrow-Night-Bright', 'Tomorrow-Night', 'Tomorrow-Night-Blue']
-
 
 "------------------------------------------------------------
 " Open browser
