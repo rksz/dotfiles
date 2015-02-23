@@ -43,36 +43,6 @@ alias renamew='tmux rename-window'
 alias tailf='tail -f'
 alias p='pbcopy'
 
-# function todo() {
-#     if [[ $1 == "add" && -n $2 ]] then
-#         task $@ +todo
-#         exit 0
-#     else
-#         task list +todo
-#     fi
-# }
-#
-# function pro() {
-#     if [ $1 ]; then
-#         project=$1
-#         shift
-#         if [[ $1 == "add" ]]; then
-#             shift
-#             task add $@ project:$project
-#         else
-#             task wait project:$project $@
-#         fi
-#     else
-#         task project
-#     fi
-# }
-
-
-function pwdcopy() {
-    echo -n $(pwd) | pbcopy
-}
-
-
 function here() {
     tmux rename-window $(basename `pwd`)
 }

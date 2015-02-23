@@ -1,4 +1,0 @@
-[diff]
-  external=git_diff_mvim
-[pager]
-  diff =
