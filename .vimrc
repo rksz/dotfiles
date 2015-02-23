@@ -26,7 +26,7 @@ NeoBundle 'gcmt/wildfire.vim'
 "------------------------------------------------------------
 " Support
 "------------------------------------------------------------
-NeoBundle     'cecutil'
+" NeoBundle     'cecutil'
 NeoBundle     't9md/vim-quickhl'
 NeoBundle     'Shougo/neocomplcache'
 " NeoBundle     'jceb/vim-hier'
@@ -614,7 +614,7 @@ nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 " let NERDTreeShowBookmarks=1
 " let NERDTreeShowHidden=1
-
+let g:NERDTreeWinPos = "right"
 "------------------------------------------------------------
 " easyalign
 "------------------------------------------------------------
@@ -645,3 +645,4 @@ let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap <Leader>f <Plug>(openbrowser-smart-search)
 vmap <Leader>f <Plug>(openbrowser-smart-search)
+
