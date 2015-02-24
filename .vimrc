@@ -229,7 +229,8 @@ inoremap jj <Esc>
 inoremap <C-j> <Esc>
 vnoremap <C-j> <Esc>
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
-nnoremap <Space>s :%s!
+nnoremap <Space>S :%s!
+nnoremap <Space>s /
 
 nnoremap Y y$
 
