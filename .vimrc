@@ -30,7 +30,7 @@ NeoBundle 'gcmt/wildfire.vim'
 NeoBundle     't9md/vim-quickhl'
 NeoBundle     'Shougo/neocomplcache'
 " NeoBundle     'jceb/vim-hier'
-NeoBundle     'rhysd/clever-f.vim'
+" NeoBundle     'rhysd/clever-f.vim'
 NeoBundle     'thinca/vim-quickrun'
 NeoBundle     'thinca/vim-ref'
 NeoBundle     'Shougo/unite.vim' , { 'autoload' : { 'commands' : [ 'Unite' ] } }
@@ -197,6 +197,7 @@ set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
+
 "============================================================
 " TAGS
 "============================================================
@@ -231,6 +232,7 @@ vnoremap <C-j> <Esc>
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 nnoremap <Space>S :%s!
 nnoremap <Space>s /
+nnoremap s /
 
 nnoremap Y y$
 
@@ -613,6 +615,7 @@ let g:syntastic_auto_jump = 2
 "------------------------------------------------------------
 nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <C-e>     :NERDTreeToggle<CR>
 " let NERDTreeShowBookmarks=1
 " let NERDTreeShowHidden=1
 let g:NERDTreeWinPos = "right"
@@ -647,3 +650,5 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap <Leader>f <Plug>(openbrowser-smart-search)
 vmap <Leader>f <Plug>(openbrowser-smart-search)
 
+
+nnoremap f /

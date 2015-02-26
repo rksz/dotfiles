@@ -46,6 +46,8 @@ brew install watch                      || true
 brew install wget                       || true
 brew install xz                         || true
 brew install zsh                        || true
+brew install ag                         || true
+brew install pec                        || true
 echo export "PATH=\$(brew --prefix php55)/bin:\$PATH" >> ~/.profile
 
 # tools via npm

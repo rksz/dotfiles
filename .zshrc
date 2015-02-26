@@ -1,189 +1,197 @@
-# LANG {{{
-    export LANG=ja_JP.UTF-8
-    export LEuSCHARSET=utf-8
-# }}}
-# Prompt Settings {{{
-    autoload colors
-    colors
+# ------------------------------------------------------------
+# LANG
+# ------------------------------------------------------------
+export LANG=ja_JP.UTF-8
+export LEuSCHARSET=utf-8
 
-    DEFAULT=$'%{\e[1;0m%}'
-    RESET="%{${reset_color}%}"
-    GREEN="%{${fg[green]}%}"
-    BLUE="%{${fg[blue]}%}"
-    RED="%{${fg[red]}%}"
-    CYAN="%{${fg[cyan]}%}"
-    WHITE="%{${fg[white]}%}"
+# ------------------------------------------------------------
+# Prompt Settings
+# ------------------------------------------------------------
+autoload colors
+colors
 
-    setopt prompt_subst
-    PROMPT="${RESET}${BLUE}[%D{%T}][%C]${RESET}${WHITE}$ ${RESET}"
+DEFAULT=$'%{\e[1;0m%}'
+RESET="%{${reset_color}%}"
+GREEN="%{${fg[green]}%}"
+BLUE="%{${fg[blue]}%}"
+RED="%{${fg[red]}%}"
+CYAN="%{${fg[cyan]}%}"
+WHITE="%{${fg[white]}%}"
 
-    ## Command history configuration
-    HISTFILE=~/.zsh_history
-    HISTSIZE=10000
-    SAVEHIST=10000
-# }}}
-# Zshrc setopt {{{
-    # setopt auto_cd              # 指定したコマンド名がなく、ディレクトリ名と一致した場合 cd する
-    setopt auto_pushd           # cd でTabを押すとdir list を表示
-    setopt pushd_ignore_dups    # ディレクトリスタックに同じディレクトリを追加しないようになる
-    setopt hist_ignore_dups
-    # setopt correct              # コマンドのスペルチェックをする
-    # setopt correct_all          # コマンドライン全てのスペルチェックをする
-    #setopt no_clobber           # 上書きリダイレクトの禁止
-    setopt list_packed          # 補完候補リストを詰めて表示
-    setopt list_types           # auto_list の補完候補一覧で、ls -F のようにファイルの種別をマーク表示
-    setopt auto_list            # 補完候補が複数ある時に、一覧表示する
-    setopt magic_equal_subst    # コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
-    setopt auto_param_keys      # カッコの対応などを自動的に補完する
-    setopt auto_param_slash     # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
-    setopt brace_ccl            # {a-c} を a b c に展開する機能を使えるようにする
-    setopt auto_menu            # 補完キー（Tab,  Ctrl+I) を連打するだけで順に補完候補を自動で補完する
-    setopt noautoremoveslash    # 最後がディレクトリ名で終わっている場合末尾の / を自動的に取り除かない
-    setopt hist_ignore_all_dups # 登録済コマンド行は古い方を削除
-    setopt share_history        # historyの共有
-    setopt hist_reduce_blanks   # 余分な空白は詰める
-    autoload -U compinit        # 自動保管
-    # bindkey "^W" forward-word   # ctrl-w, ctrl-bキーで単語移動
-    # bindkey "^B" backward-word  # ctrl-w, ctrl-bキーで単語移動
-    bindkey "^?" backward-delete-char
-    compinit -C
-# }}}
-# Common Aliases {{{
-    # ls
-    alias -g ls="ls --color"
-    alias la="ls -a"
-    alias lf="ls -F"
-    alias ll="ls -l"
-    alias lg="ls | grep "
+setopt prompt_subst
+PROMPT="${RESET}${BLUE}[%D{%T}][%C]${RESET}${WHITE}$ ${RESET}"
 
-    # process
-    alias pk='pkill -f'
-    alias allnice="ionice -c2 -n7 nice -n19"
+## Command history configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
-    # du/df
-    alias du="du -h"
-    alias df="df -h"
-    alias duh="du -h ./ --max-depth=1"
+# ------------------------------------------------------------
+# Zshrc setopt
+# ------------------------------------------------------------
+# setopt auto_cd              # 指定したコマンド名がなく、ディレクトリ名と一致した場合 cd する
+setopt auto_pushd           # cd でTabを押すとdir list を表示
+setopt pushd_ignore_dups    # ディレクトリスタックに同じディレクトリを追加しないようになる
+setopt hist_ignore_dups
+# setopt correct              # コマンドのスペルチェックをする
+# setopt correct_all          # コマンドライン全てのスペルチェックをする
+#setopt no_clobber           # 上書きリダイレクトの禁止
+setopt list_packed          # 補完候補リストを詰めて表示
+setopt list_types           # auto_list の補完候補一覧で、ls -F のようにファイルの種別をマーク表示
+setopt auto_list            # 補完候補が複数ある時に、一覧表示する
+setopt magic_equal_subst    # コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
+setopt auto_param_keys      # カッコの対応などを自動的に補完する
+setopt auto_param_slash     # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
+setopt brace_ccl            # {a-c} を a b c に展開する機能を使えるようにする
+setopt auto_menu            # 補完キー（Tab,  Ctrl+I) を連打するだけで順に補完候補を自動で補完する
+setopt noautoremoveslash    # 最後がディレクトリ名で終わっている場合末尾の / を自動的に取り除かない
+setopt hist_ignore_all_dups # 登録済コマンド行は古い方を削除
+setopt share_history        # historyの共有
+setopt hist_reduce_blanks   # 余分な空白は詰める
+autoload -U compinit        # 自動保管
+# bindkey "^W" forward-word   # ctrl-w, ctrl-bキーで単語移動
+# bindkey "^B" backward-word  # ctrl-w, ctrl-bキーで単語移動
+bindkey "^?" backward-delete-char
+compinit -C
 
-    # su
-    alias su="su -l"
+# ------------------------------------------------------------
+# Common Aliases
+# ------------------------------------------------------------
+# ls
+alias -g ls="ls --color"
+alias la="ls -a"
+alias lf="ls -F"
+alias ll="ls -l"
+alias lg="ls | grep "
 
-    # vim
-    alias 'src'='exec zsh'
-    alias -g V="| vim -"
-    alias 'vimwhite'="vim -c 'colorscheme shine'"
-    alias 'vimblue'="vim -c 'colorscheme blue'"
-    alias 'vimdarkblue'="vim -c 'colorscheme darkblue'"
-    alias 'vimpablo'="vim -c 'colorscheme pablo'"
-    alias 'n'="vim -c NERDTreeToggle"
-    alias 'v'="vim"
-    alias 'md'='vim ./*.md'
-    alias 'mmd'='mvim ./*.md'
+# process
+alias pk='pkill -f'
+alias allnice="ionice -c2 -n7 nice -n19"
 
-    # vimalias
-    alias 'evs'='vim ~/.ssh/config.orig'
+# du/df
+alias du="du -h"
+alias df="df -h"
+alias duh="du -h ./ --max-depth=1"
 
-    # grep
-    alias 'gr'='grep --color=auto -ERUIn'
+# su
+alias su="su -l"
 
-    #make
-    alias 'm'='make'
-    alias 'mn'='make native-code'
-    alias 'mc'='make clean'
+# vim
+alias 'src'='exec zsh'
+alias 'n'="vim -c NERDTreeToggle"
+alias 'v'="vim"
+alias 'md'='vim ./*.md'
+alias 'mmd'='mvim ./*.md'
 
-    # tmux
-    alias tm='tmux'
-    alias tma='tmux attach'
-    alias tml='tmux list-window'
-    alias lst='tmux ls'
-    alias tls='tmux ls'
+# vimalias
+alias 'evs'='vim ~/.ssh/config.orig'
 
-    # dirjump
-    alias up='cd ..; ll'
-    alias upp='cd ../..; ll'
-    alias uppp='cd ../../..; ll'
-    alias sandbox='cd ~/sandbox'
-    alias u='up'
-    alias b='cd -'
+# grep
+alias 'gr'='grep --color=auto -ERUIn'
 
-    alias pon='predict-on'
-    alias poff='predict-off'
-    alias p='ping -c 4'
+#make
+alias 'm'='make'
+alias 'mn'='make native-code'
+alias 'mc'='make clean'
 
-    #alias ls='ls -al'
-    alias cp='nocorrect cp -irp'
-    alias refe='nocorrect refe'
+# tmux
+alias tm='tmux'
+alias tma='tmux attach'
 
-    # git
-    #alias g='git'
-    alias gs='git status -sb'
-    alias gc='git commit'
-    alias ga='git add .'
-    alias gp='git push'
-    alias gl='git pull'
-    alias gd='git diff'
-    alias gf='git fetch'
-    alias gb='git branch -avv'
+# dirjump
+alias up='cd ..; ll'
+alias upp='cd ../..; ll'
+alias u='up'
+alias b='cd -'
 
-    # dstat
-    alias dstat-full='dstat -Tclmdrn'
-    alias dstat-mem='dstat -Tclm'
-    alias dstat-cpu='dstat -Tclr'
-    alias dstat-net='dstat -Tclnd'
-    alias dstat-disk='dstat -Tcldr'
+#alias ls='ls -al'
+alias cp='nocorrect cp -irp'
+alias refe='nocorrect refe'
 
-    # autojump
-    alias j='z'
+# git
+#alias g='git'
+alias gs='git status -sb'
+alias gss='git status --porcelain | sed s/^...//'
+alias gsp='git status --porcelain | sed s/^...// | peco | ruby -pe "chomp" | pbcopy'
+alias gc='git commit'
+alias ga='git add .'
+alias gp='git push'
+alias gl='git pull'
+alias gd='git diff'
+alias gf='git fetch'
+alias gb='git branch -avv'
 
-    # ssh
-    alias ssh='env TERM=xterm ssh'
-    alias ssheuc='env TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
+# dstat
+alias dstat-full='dstat -Tclmdrn'
+alias dstat-mem='dstat -Tclm'
+alias dstat-cpu='dstat -Tclr'
+alias dstat-net='dstat -Tclnd'
+alias dstat-disk='dstat -Tcldr'
 
-    # taskwarrior
-    alias t="\task"
+# autojump
+alias j='z'
 
-    # bundler
-    alias be='bundle exec'
+# ssh
+alias ssh='env TERM=xterm ssh'
+alias ssheuc='env TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
 
-    #auto directory jumper
-    jj () {
-      if [ $1 ]; then
-          JUMPDIR=$(find . -type d -maxdepth 1 | grep $1 | tail -1)
-          if [[ -d $JUMPDIR && -n $JUMPDIR ]]; then
-              cd $JUMPDIR
-          else
-              echo "directory not found"
-          fi
+# taskwarrior
+alias t="\task"
+
+# bundler
+alias be='bundle exec'
+
+#auto directory jumper
+jj () {
+  if [ $1 ]; then
+      JUMPDIR=$(find . -type d -maxdepth 1 | grep $1 | tail -1)
+      if [[ -d $JUMPDIR && -n $JUMPDIR ]]; then
+          cd $JUMPDIR
+      else
+          echo "directory not found"
       fi
-    }
+  fi
+}
 
-    alias wk="cd ~/workspace"
+alias wk="cd ~/workspace"
 
-    cleanup () {
-        find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
-        find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
-    }
+cleanup () {
+    find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
+    find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
+}
 
-    alias -g O="| xargs open"
-    alias -g L="| less"
-    alias -g H="| head"
-    alias -g Z="| tar -cvzf files_$(date +%Y%m%d%H%M%S).tgz --files-from=-"
-    alias -g G="| grep"
-    alias -g S="| sed"
-    alias -g R="| rsync -av --files-from=- . /tmp/"
-# }}}
-# Custom Aliases {{{
+
+alias -g V="| vim -"
+alias -g O="| xargs open"
+alias -g L="| less"
+alias -g H="| head"
+alias -g Z="| tar -cvzf files_$(date +%Y%m%d%H%M%S).tgz --files-from=-"
+alias -g G="| grep"
+alias -g S="| sed"
+alias -g R="| rsync -av --files-from=- . /tmp/"
+alias -g P="| peco | ruby -pe 'chomp' | pbcopy"
+
+agvim () {
+  vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
+
+# ------------------------------------------------------------
+# Custom Aliases
+# ------------------------------------------------------------
 case "${OSTYPE}" in
 darwin*)
-    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
-    ;;
+[ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+;;
 linux*)
-    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
-    ;;
+[ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
+;;
 esac
-# }}}
+
 [ -f ~/.zshrc.alias.local ] && source ~/.zshrc.alias.local
-# Custom App {{{
-    export PATH=${HOME}/dotfiles/bin:$PATH
-    . ${HOME}/dotfiles/bin/z.sh
-# }}}
+
+
+# ------------------------------------------------------------
+# Custom App
+# ------------------------------------------------------------
+export PATH=${HOME}/dotfiles/bin:$PATH
+. ${HOME}/dotfiles/bin/z.sh
