@@ -84,7 +84,8 @@ alias 'md'='vim ./*.md'
 alias 'mmd'='mvim ./*.md'
 
 # vimalias
-alias 'evs'='vim ~/.ssh/config.orig'
+alias 'evs'='vim ~/.ssh/config'
+alias 'evss'='vim ~/.ssh/config.orig'
 
 # grep
 alias 'gr'='grep --color=auto -ERUIn'
@@ -112,7 +113,6 @@ alias refe='nocorrect refe'
 #alias g='git'
 alias gs='git status -sb'
 alias gss='git status --porcelain | sed s/^...//'
-alias gsp='git status --porcelain | sed s/^...// | peco | ruby -pe "chomp" | pbcopy'
 alias gc='git commit'
 alias ga='git add .'
 alias gp='git push'
@@ -129,7 +129,7 @@ alias dstat-net='dstat -Tclnd'
 alias dstat-disk='dstat -Tcldr'
 
 # autojump
-alias j='z'
+# alias j='z'
 
 # ssh
 alias ssh='env TERM=xterm ssh'
@@ -154,6 +154,13 @@ jj () {
 }
 
 alias wk="cd ~/workspace"
+
+
+# Peco related
+alias gsp='git status --porcelain | sed s/^...// | peco | ruby -pe "chomp" | pbcopy'
+alias s='ssh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \$2}")'
+alias j='cd $(z | peco | awk "{print \$2}")'
+alias c='cd $(ls -F --color=never| grep / | peco)'
 
 cleanup () {
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
