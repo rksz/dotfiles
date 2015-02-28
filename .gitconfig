@@ -8,7 +8,8 @@
   interactive = auto
   grep = auto
 [push]
-  default = tracking       # defaultのpush先はtrackingしているリポジトリ
+  default = current
+  ; default = tracking
 [core]
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
 #  autocrlf = input                 # CRLFを自動変換

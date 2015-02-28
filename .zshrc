@@ -159,7 +159,8 @@ alias wk="cd ~/workspace"
 # Peco related
 alias gsp='git status --porcelain | sed s/^...// | peco | ruby -pe "chomp" | pbcopy'
 alias s='ssh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \$2}")'
-alias j='cd $(z | peco | awk "{print \$2}")'
+alias j='z'
+alias jp='cd $(z | peco | awk "{print \$2}")'
 alias c='cd $(ls -F --color=never| grep / | peco)'
 
 cleanup () {
