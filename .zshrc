@@ -162,6 +162,7 @@ alias s='ssh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \
 alias j='z'
 alias jp='cd $(z | peco | awk "{print \$2}")'
 alias c='cd $(ls -F --color=never| grep / | peco)'
+alias sshconfig='vagrant ssh-config >>~/.ssh/config'
 
 cleanup () {
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
