@@ -57,60 +57,39 @@ compinit -C
 # ------------------------------------------------------------
 # Common Aliases
 # ------------------------------------------------------------
-# ls
-alias -g ls="ls --color"
 alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -l"
 alias lg="ls | grep "
-
 # process
 alias pk='pkill -f'
 alias allnice="ionice -c2 -n7 nice -n19"
-
 # du/df
 alias du="du -h"
 alias df="df -h"
 alias duh="du -h ./ --max-depth=1"
-
 # su
 alias su="su -l"
-
 # vim
-alias 'src'='exec zsh'
-alias 'n'="vim -c NERDTreeToggle"
-alias 'v'="vim"
-alias 'md'='vim ./*.md'
-alias 'mmd'='mvim ./*.md'
-
-# vimalias
-alias 'evs'='vim ~/.ssh/config'
-alias 'evss'='vim ~/.ssh/config.orig'
-
+alias n="vim -c NERDTreeToggle"
+alias v="vim"
+alias md='vim ./*.md'
+alias mmd='mvim ./*.md'
+alias evs='vim ~/.ssh/config'
 # grep
-alias 'gr'='grep --color=auto -ERUIn'
-
-#make
-alias 'm'='make'
-alias 'mn'='make native-code'
-alias 'mc'='make clean'
-
+alias gr='grep --color=auto -ERUIn'
 # tmux
 alias tm='tmux'
 alias tma='tmux attach'
-
 # dirjump
 alias up='cd ..; ll'
 alias upp='cd ../..; ll'
 alias u='up'
 alias b='cd -'
-
 #alias ls='ls -al'
 alias cp='nocorrect cp -irp'
 alias refe='nocorrect refe'
-
-# git
-#alias g='git'
+alias g='git'
 alias gs='git status -sb'
 alias gss='git status --porcelain | sed s/^...//'
 alias gc='git commit'
@@ -120,56 +99,25 @@ alias gl='git pull'
 alias gd='git diff'
 alias gf='git fetch'
 alias gb='git branch -avv'
-
 # dstat
 alias dstat-full='dstat -Tclmdrn'
 alias dstat-mem='dstat -Tclm'
 alias dstat-cpu='dstat -Tclr'
 alias dstat-net='dstat -Tclnd'
 alias dstat-disk='dstat -Tcldr'
-
 # autojump
 # alias j='z'
-
-# ssh
 alias ssh='env TERM=xterm ssh'
 alias ssheuc='env TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
-
-# taskwarrior
-alias t="\task"
-
-# bundler
-alias be='bundle exec'
-
-#auto directory jumper
-jj () {
-  if [ $1 ]; then
-      JUMPDIR=$(find . -type d -maxdepth 1 | grep $1 | tail -1)
-      if [[ -d $JUMPDIR && -n $JUMPDIR ]]; then
-          cd $JUMPDIR
-      else
-          echo "directory not found"
-      fi
-  fi
-}
-
+alias t="\task" # taskwarrior
+alias be='bundle exec' # bundler
 alias wk="cd ~/workspace"
-
-
-# Peco related
 alias gsp='git status --porcelain | sed s/^...// | peco | ruby -pe "chomp" | pbcopy'
 alias s='ssh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \$2}")'
 alias j='z'
 alias jp='cd $(z | peco | awk "{print \$2}")'
 alias c='cd $(ls -F --color=never| grep / | peco)'
 alias sshconfig='vagrant ssh-config >>~/.ssh/config'
-
-cleanup () {
-    find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
-    find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
-}
-
-
 alias -g V="| vim -"
 alias -g O="| xargs open"
 alias -g L="| less"
@@ -179,7 +127,11 @@ alias -g G="| grep"
 alias -g S="| sed"
 alias -g R="| rsync -av --files-from=- . /tmp/"
 alias -g P="| peco | ruby -pe 'chomp' | pbcopy"
-
+alias -g ls="ls --color"
+cleanup () {
+    find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
+    find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
+}
 agvim () {
   vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
@@ -189,15 +141,79 @@ agvim () {
 # ------------------------------------------------------------
 case "${OSTYPE}" in
 darwin*)
-[ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+    export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
+    export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+    export PATH=~/Applications/Vagrant/bin/:$PATH
+    export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    export GOPATH="$HOME/.go/"
+    export PATH=$GOPATH/bin:$PATH
+    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+    alias vimdiff='/Applications/MacVim.app/Contents/MacOS/vimdiff'
+    alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+    alias mi="open $1 -a ~/Applications/mi.app/Contents/MacOS/mi"
+    alias sourcetree='open -a SourceTree'
+    alias st='sourcetree .'
+    alias git=hub # hub command - eval "$(hub alias -s)"
+    # eval "$(rbenv init - zsh)" Ruby
+    alias cp="nocorrect gcp -i" # required: brew install coreutils
+    alias tmux="env TERM=screen-256color-bce tmux" #keep vim colorscheme in tmux mode
+    alias tma='env TERM=screen-256color-bce tmux attach'
+    alias lst='tmux ls'
+    alias tls='tmux ls'
+    alias ssh256='env TERM=xterm-256color /usr/bin/ssh'
+    alias rename='tmux rename-session'
+    alias renamew='tmux rename-window'
+    alias tailf='tail -f'
+    alias p='pbcopy'
+    alias f='open .'
+    alias -g C="| tr -d '\n' | pbcopy"
+    function here() {
+        tmux rename-window $(basename `pwd`)
+    }
+    function dic() {
+        w3m "http://ejje.weblio.jp/content/$1" | grep "用例"
+    }
+    function cdf() {
+      target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+      if [ "$target" != "" ]; then
+        cd "$target"; pwd
+      else
+        echo 'No Finder window found' >&2
+      fi
+    }
+    function memo() {
+        today=$(date "+%Y%m%d")
+        memofile=memo-${today}.md
+        memofile_past=$(find * -type f -maxdepth 1| grep "memo-" | grep ".md" | sort | tail -1)
+        if [[ -f $memofile_past && $memofile != $memofile_past ]]; then
+            # vim $memofile_past $memofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
+            vim $memofile_past $memofile -c "vs" -c "bn" -c "wincmd ="
+        else
+            vim $memofile
+        fi
+    }
+    function lnw() {
+        project_path=~/workspace/${1:?}
+        if [ -d $project_path ]; then
+            ln -s $project_path .
+        else
+            echo "[Error] Project not found." 1>&2
+            echo "------------------------"
+            ls ~/workspace/
+        fi
+    }
 ;;
 linux*)
-[ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
+    export CLICOLOR=1
+    export LSCOLORS=ExFxCxDxBxegedabagacad
+    alias ls='ls -alh --color'
+    alias vi='/usr/bin/vim'
+    alias vim='/usr/bin/vim'
 ;;
 esac
 
-[ -f ~/.zshrc.alias.local ] && source ~/.zshrc.alias.local
-
+# [ -f ~/.zshrc.alias.local ] && source ~/.zshrc.alias.local
 
 # ------------------------------------------------------------
 # Custom App
