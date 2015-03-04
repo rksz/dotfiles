@@ -117,6 +117,7 @@ alias s='ssh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \
 alias j='z'
 alias jp='cd $(z | peco | awk "{print \$2}")'
 alias c='cd $(ls -F --color=never| grep / | peco)'
+alias h='vim /etc/hosts'
 alias sshconfig='vagrant ssh-config >>~/.ssh/config'
 alias -g V="| vim -"
 alias -g O="| xargs open"
