@@ -15,6 +15,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 "------------------------------------------------------------
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-textobj-user'

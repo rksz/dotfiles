@@ -128,6 +128,7 @@ alias -g G="| grep"
 alias -g S="| sed"
 alias -g R="| rsync -av --files-from=- . /tmp/"
 alias -g P="| peco | ruby -pe 'chomp' | pbcopy"
+alias -g C="| tr -d '\n' | pbcopy"
 alias -g ls="ls --color"
 cleanup () {
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
@@ -142,13 +143,15 @@ agvim () {
 # ------------------------------------------------------------
 case "${OSTYPE}" in
 darwin*)
-    export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
-    export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-    export PATH=~/Applications/Vagrant/bin/:$PATH
-    export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
-    export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     export GOPATH="$HOME/.go/"
-    export PATH=$GOPATH/bin:$PATH
+    export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+    ## one liner for faster loading
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:/Applications/MacVim.app/Contents/MacOS:~/Applications/Vagrant/bin/:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
+    #export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
+    #export PATH=~/Applications/Vagrant/bin/:$PATH
+    #export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
+    #export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    #export PATH=$GOPATH/bin:$PATH
     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
     alias vimdiff='/Applications/MacVim.app/Contents/MacOS/vimdiff'
     alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
@@ -168,7 +171,6 @@ darwin*)
     alias tailf='tail -f'
     alias p='pbcopy'
     alias f='open .'
-    alias -g C="| tr -d '\n' | pbcopy"
     function here() {
         tmux rename-window $(basename `pwd`)
     }
