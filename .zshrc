@@ -134,6 +134,17 @@ cleanup () {
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
 }
+memo() {
+    today=$(date "+%Y%m%d")
+    memofile=memo-${today}.md
+    memofile_past=$(find * -type f -maxdepth 1| grep "memo-" | grep ".md" | sort | tail -1)
+    if [[ -f $memofile_past && $memofile != $memofile_past ]]; then
+        # vim $memofile_past $memofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
+        vim $memofile_past $memofile -c "vs" -c "bn" -c "wincmd ="
+    else
+        vim $memofile
+    fi
+}
 agvim () {
   vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
@@ -184,17 +195,6 @@ darwin*)
       else
         echo 'No Finder window found' >&2
       fi
-    }
-    function memo() {
-        today=$(date "+%Y%m%d")
-        memofile=memo-${today}.md
-        memofile_past=$(find * -type f -maxdepth 1| grep "memo-" | grep ".md" | sort | tail -1)
-        if [[ -f $memofile_past && $memofile != $memofile_past ]]; then
-            # vim $memofile_past $memofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
-            vim $memofile_past $memofile -c "vs" -c "bn" -c "wincmd ="
-        else
-            vim $memofile
-        fi
     }
     function lnw() {
         project_path=~/workspace/${1:?}
