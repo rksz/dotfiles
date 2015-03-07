@@ -651,5 +651,9 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap <Leader>f <Plug>(openbrowser-smart-search)
 vmap <Leader>f <Plug>(openbrowser-smart-search)
 
+"------------------------------------------------------------
+" alignta
+"------------------------------------------------------------
+vmap a :Alignta 
 
 nnoremap f /
