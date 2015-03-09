@@ -49,10 +49,11 @@ NeoBundle     'tyru/open-browser.vim'
 " ColorScheme
 "------------------------------------------------------------
 " NeoBundle                        'inkpot'
-NeoBundle       'nanotech/jellybeans.vim'
+" NeoBundle       'nanotech/jellybeans.vim'
 " NeoBundle              'djjcast/mirodark'
-NeoBundle               'w0ng/vim-hybrid'
-" NeoBundle 'chriskempson/vim-tomorrow-theme'
+" NeoBundle               'w0ng/vim-hybrid'
+" NeoBundle               'molokai'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 filetype plugin indent on     " Required!
 if neobundle#exists_not_installed_bundles()
@@ -143,9 +144,10 @@ match ZenkakuSpace /　/
 "============================================================
 " COLOR
 "============================================================
-colorscheme jellybeans
+" colorscheme jellybeans
+" colorscheme mirodark
 " colorscheme hybrid
-" colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
@@ -264,9 +266,8 @@ nnoremap <Space>q :qa<CR>
 nnoremap <Space>w :w<CR>
 
 " 区切り文字
-inoreabbrev dl ************************************************************
 inoreabbrev dk ============================================================
-inoreabbrev dj ------------------------------------------------------------
+inoreabbrev dj ----------------------------------------
 
 " buffer control
 nnoremap <C-n> :bn<CR>
