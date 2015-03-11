@@ -49,9 +49,9 @@ NeoBundle     'tyru/open-browser.vim'
 " ColorScheme
 "------------------------------------------------------------
 " NeoBundle                        'inkpot'
-" NeoBundle       'nanotech/jellybeans.vim'
+NeoBundle       'nanotech/jellybeans.vim'
 " NeoBundle              'djjcast/mirodark'
-" NeoBundle               'w0ng/vim-hybrid'
+NeoBundle               'w0ng/vim-hybrid'
 " NeoBundle               'molokai'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
@@ -144,10 +144,10 @@ match ZenkakuSpace /　/
 "============================================================
 " COLOR
 "============================================================
-" colorscheme jellybeans
+colorscheme jellybeans
 " colorscheme mirodark
 " colorscheme hybrid
-colorscheme Tomorrow-Night
+" colorscheme Tomorrow-Night
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
@@ -611,6 +611,7 @@ let g:quickrun_config.mkd = {
 let g:syntastic_enable_signs = 1        " エラー行をsignで表示する
 let g:syntastic_enable_highlighting = 1 " 可能ならhighligt表示する
 let g:syntastic_auto_jump = 2
+let g:syntastic_php_checkers = ['php']
 
 "------------------------------------------------------------
 " NERD-Tree.vim

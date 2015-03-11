@@ -130,6 +130,9 @@ alias -g R="| rsync -av --files-from=- . /tmp/"
 alias -g P="| peco | ruby -pe 'chomp' | pbcopy"
 alias -g C="| tr -d '\n' | pbcopy"
 alias -g ls="ls --color"
+vp() {
+    vim $(find . -iname "*${1}*" | grep -v "/\." | peco)
+}
 cleanup () {
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
