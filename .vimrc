@@ -144,9 +144,9 @@ match ZenkakuSpace /　/
 "============================================================
 " COLOR
 "============================================================
-colorscheme jellybeans
+" colorscheme jellybeans
 " colorscheme mirodark
-" colorscheme hybrid
+colorscheme hybrid
 " colorscheme Tomorrow-Night
 
 " ターミナルタイプによるカラー設定
