@@ -266,8 +266,8 @@ nnoremap <Space>q :qa<CR>
 nnoremap <Space>w :w<CR>
 
 " 区切り文字
-inoreabbrev dk ============================================================
-inoreabbrev dj ----------------------------------------
+inoreabbrev dk ========================================
+inoreabbrev dj ------------------------------
 
 " buffer control
 nnoremap <C-n> :bn<CR>
@@ -656,6 +656,6 @@ vmap <Leader>f <Plug>(openbrowser-smart-search)
 "------------------------------------------------------------
 " alignta
 "------------------------------------------------------------
-vmap a :Alignta 
+vmap a :Alignta
 
 nnoremap f /
