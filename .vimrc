@@ -509,7 +509,8 @@ nnoremap <Space>gb :<C-u>Gblame<Enter>
 " unite.vim
 "------------------------------
 nnoremap    [unite]   <Nop>
-nmap     <Space>f [unite]
+" nmap     <Space>f [unite]
+nmap     f [unite]
 let g:unite_enable_start_insert = 1
 let g:unite_source_file_mru_limit = 200
 let g:unite_split_rule = "belowright"
@@ -517,7 +518,8 @@ let g:neomru#file_mru_limit = 2000
 
 nnoremap [unite]U                 :<C-u>Unite -no-split<Space>
 nnoremap <silent> [unite]a        :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]f        :<C-u>Unite -buffer-name=files file<CR>
+" nnoremap <silent> [unite]f        :<C-u>Unite -buffer-name=files file<CR>
+nnoremap <silent> [unite]f        :<C-u>Unite file_rec<CR>
 nnoremap <silent> [unite]b        :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]u        :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> [unite]h        :<C-u>Unite file_mru<CR>
@@ -525,15 +527,18 @@ nnoremap <silent> [unite]d        :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> [unite]o        :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
 nnoremap <silent> m               :<C-u>Unite file_mru<CR>
 
-nmap     <buffer> <ESC>           <Plug>(unite_exit)
-nmap     <buffer> <ESC><ESC>      <Plug>(unite_exit)
-imap     <buffer> jj              <Plug>(unite_insert_leave)
-nnoremap <silent><buffer>         <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
-imap     <buffer> <C-w>           <Plug>(unite_delete_backward_path)
-nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
-inoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
-nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  nmap     <buffer> <ESC>          <Plug>(unite_exit)
+  nmap     <buffer> <C-j>          <Plug>(unite_exit)
+  imap     <buffer> jj             <Plug>(unite_insert_leave)
+  nnoremap <silent> <buffer>       <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
+  imap     <buffer> <C-w>          <Plug>(unite_delete_backward_path)
+  nnoremap <silent> <buffer><expr> <C-l> unite#do_action('split')
+  inoremap <silent> <buffer><expr> <C-l> unite#do_action('split')
+  nnoremap <silent> <buffer><expr> <C-v> unite#do_action('vsplit')
+  inoremap <silent> <buffer><expr> <C-v> unite#do_action('vsplit')
+endfunction
 
 "------------------------------
 " vim-ref
