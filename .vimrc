@@ -1,18 +1,20 @@
-"============================================================
+"========================================
 " NeoBundle
-"============================================================
-set nocompatible
-filetype off
-
+"========================================
+if !1 | finish | endif
 if has('vim_starting')
+ if &compatible
+   set nocompatible
+ endif
  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
+filetype plugin indent on
+NeoBundleCheck
 
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-"------------------------------------------------------------
-" Edit
-"------------------------------------------------------------
+" Edit ------------------------------
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'h1mesuke/vim-alignta'
@@ -22,14 +24,10 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-niceblock'
 NeoBundle 'gcmt/wildfire.vim'
-" NeoBundle 'rksz/vim-colorscheme-switcher'
-
-"------------------------------------------------------------
-" Support
-"------------------------------------------------------------
-" NeoBundle     'cecutil'
+" Support ---------------------------
 NeoBundle     't9md/vim-quickhl'
 NeoBundle     'Shougo/neocomplcache'
+" NeoBundle     'cecutil'
 " NeoBundle     'jceb/vim-hier'
 " NeoBundle     'rhysd/clever-f.vim'
 NeoBundle     'thinca/vim-quickrun'
@@ -44,28 +42,17 @@ NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree"
 NeoBundle                   'taglist.vim' " shows tag & method list
 " NeoBundle 'banyan/recognize_charcode.vim'
 NeoBundle     'tyru/open-browser.vim'
-" NeoBundle 'christoomey/vim-tmux-navigator'
-"------------------------------------------------------------
-" ColorScheme
-"------------------------------------------------------------
-" NeoBundle                        'inkpot'
+" ColorScheme ----------------------
 NeoBundle       'nanotech/jellybeans.vim'
 " NeoBundle              'djjcast/mirodark'
 NeoBundle               'w0ng/vim-hybrid'
 " NeoBundle               'molokai'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
-filetype plugin indent on     " Required!
-if neobundle#exists_not_installed_bundles()
- echomsg 'Not installed bundles : ' .
-       \ string(neobundle#get_not_installed_bundle_names())
- echomsg 'Please execute ":NeoBundleInstall" command.'
-endif
 
-
-"============================================================
+"========================================
 " BASE
-"============================================================
+"========================================
 let mapleader = ","                 " キーマップリーダー
 set scrolloff=5                     " スクロール時の余白確保
 set textwidth=0                     " 一行に長い文章を書いていても自動折り返しをしない
@@ -106,7 +93,7 @@ function! s:ChangeCurrentDir(directory, bang)
 endfunction
 
 " Change current directory.
-nnoremap <silent> <Space>cd :<C-u>CD<CR>
+nnoremap <silent> <Space>cd :CD<CR>
 
 " Reload file buffer
 nnoremap <silent> <Space>e :e!<CR>
@@ -118,9 +105,9 @@ let $TODAY=strftime('%Y%m%d')
 set undodir=/tmp
 
 
-"============================================================
+"========================================
 " VIEW
-"============================================================
+"========================================
 set showmatch         " 括弧の対応をハイライト
 set number            " 行番号表示
 set list              " 不可視文字表示
@@ -141,9 +128,9 @@ set statusline=%F%m%r%h%w
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
-"============================================================
+"========================================
 " COLOR
-"============================================================
+"========================================
 " colorscheme jellybeans
 " colorscheme mirodark
 colorscheme hybrid
@@ -169,9 +156,9 @@ syntax enable
 hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
 
 
-"============================================================
+"========================================
 " COMPLETION
-"============================================================
+"========================================
 set wildmenu               " コマンド補完を強化
 set wildchar=<tab>         " コマンド補完を開始するキー
 set wildmode=list:full     " リスト表示，最長マッチ
@@ -182,17 +169,18 @@ cnoremap <C-p> <Up>
 cnoremap <Up>  <C-p>
 cnoremap <C-n> <Down>
 cnoremap <Down> <C-n>
-"------------------------------------------------------------
+
+"========================================
 " Skeleton
-"------------------------------------------------------------
+"========================================
 autocmd BufNewFile *.sh  0r ~/.vim/skeleton/skeleton.sh
 autocmd BufNewFile *.pl  0r ~/.vim/skeleton/skeleton.perl
 autocmd BufNewFile *.php 0r ~/.vim/skeleton/skeleton.php
 
 
-"============================================================
+"========================================
 " SEARCH
-"============================================================
+"========================================
 set wrapscan   " 最後まで検索したら先頭へ戻る
 set ignorecase " 大文字小文字無視
 set smartcase  " 検索文字列に大文字が含まれている場合は区別して検索する
@@ -201,9 +189,9 @@ set hlsearch   " 検索文字をハイライト
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
 
-"============================================================
+"========================================
 " TAGS
-"============================================================
+"========================================
 if has("autochdir")
   " 編集しているファイルのディレクトリに自動で移動
   set autochdir
@@ -220,9 +208,9 @@ nnoremap tk  ;<C-u>pop<CR>
 nnoremap tl  ;<C-u>tags<CR>
 
 
-"============================================================
+"========================================
 " EDIT
-"============================================================
+"========================================
 set expandtab              " Tabキーを空白に変換
 set noimdisable            " insertモードを抜けるとIMEオフ
 set iminsert=0 imsearch=0
@@ -281,20 +269,15 @@ nnoremap <C-w><C-w> :wincmd =<CR>  " automatic window resize
 nnoremap yr :let @*=expand("%")<CR>
 nnoremap yp :let @*=expand("%:p")<CR>
 
-
-
 nnoremap <Space>t :tabnew<CR>
 nnoremap <Space>q :q<CR>
 nnoremap <Space>n gt
 nnoremap <Space>p gT
 
 
-
-
-
-"============================================================
+"========================================
 " INDENT
-"============================================================
+"========================================
 set autoindent   " 自動でインデント
 set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
 set cindent      " Cプログラムファイルの自動インデントを始める
@@ -332,9 +315,9 @@ if has("autocmd")
 endif
 
 
-"============================================================
+"========================================
 " Move
-"============================================================
+"========================================
 set virtualedit+=block " 矩形選択で自由に移動する
 
 "<space>系の移動
@@ -373,9 +356,9 @@ nnoremap OD gi<Left>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 
-"============================================================
+"========================================
 " Encodings
-"============================================================
+"========================================
 set ffs=unix,dos,mac
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
@@ -396,35 +379,23 @@ command! Sjis Cp932
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 
-"============================================================
+"========================================
 " NeoBundle Plugins
-"============================================================
+"========================================
 
-"------------------------------------------------------------
+"------------------------------
 " neocomplecache.vim
-"------------------------------------------------------------
-
-" AutoComplPopを無効にする
+"------------------------------
 let g:acp_enableAtStartup = 0
-" NeoComplCacheを有効にする
 let g:neocomplcache_enable_at_startup = 1
-" 補完が自動で開始される文字数
 let g:neocomplcache_auto_completion_start_length = 3
-" smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
 let g:neocomplcache_enable_smart_case = 1
-" camle caseを有効化。大文字を区切りとしたワイルドカードのように振る舞う
 let g:neocomplcache_enable_camel_case_completion = 1
-" _(アンダーバー)区切りの補完を有効化
 let g:neocomplcache_enable_underbar_completion = 1
-" シンタックスをキャッシュするときの最小文字長を3に
 let g:neocomplcache_min_syntax_length = 3
-" neocomplcacheを自動的にロックするバッファ名のパターン
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-" -入力による候補番号の表示
 let g:neocomplcache_enable_quick_match = 1
-" 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
 let g:neocomplcache_enable_auto_select = 1
-"ポップアップメニューで表示される候補の数。初期値は100
 let g:neocomplcache_max_list = 20
 
 " Define dictionary.
@@ -515,16 +486,16 @@ let g:neocomplcache_include_suffixes = {
   \ 'haskell' : '.hs'
   \ }
 
-"------------------------------------------------------------
+"------------------------------
 " NERD_commenter.vim
-"------------------------------------------------------------
+"------------------------------
 let NERDSpaceDelims = 1
 let NERDShutUp=1
 map <Leader>x ,c<space>
 
-"------------------------------------------------------------
+"------------------------------
 " Fugitive.vim
-"------------------------------------------------------------
+"------------------------------
 nnoremap <Space>gd :<C-u>Gdiff<Enter>
 nnoremap <Space>gs :<C-u>Gstatus<Enter>
 nnoremap <Space>gl :<C-u>Glog<Enter>
@@ -534,61 +505,53 @@ nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
 
 
-"------------------------------------------------------------
+"------------------------------
 " unite.vim
-"------------------------------------------------------------
-let s:bundle = neobundle#get('unite.vim')
-function! s:bundle.hooks.on_source(bundle)
-  nnoremap    [unite]   <Nop>
-  nmap     <Space>f [unite]
-  let g:unite_enable_start_insert = 1
-  let g:unite_source_file_mru_limit = 200
-  let g:unite_split_rule = "belowright"
-  let g:neomru#file_mru_limit = 2000
+"------------------------------
+nnoremap    [unite]   <Nop>
+nmap     <Space>f [unite]
+let g:unite_enable_start_insert = 1
+let g:unite_source_file_mru_limit = 200
+let g:unite_split_rule = "belowright"
+let g:neomru#file_mru_limit = 2000
 
-  nnoremap [unite]U  :<C-u>Unite -no-split<Space>
-  nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-  nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file<CR>
-  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-  nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru<CR>
-  nnoremap <silent> [unite]h :<C-u>Unite file_mru<CR>
-  nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
-  nnoremap <silent> [unite]o :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
-  nnoremap <silent> m :<C-u>Unite file_mru<CR>
-  autocmd FileType unite call s:unite_my_settings()
-endfunction
+nnoremap [unite]U                 :<C-u>Unite -no-split<Space>
+nnoremap <silent> [unite]a        :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]f        :<C-u>Unite -buffer-name=files file<CR>
+nnoremap <silent> [unite]b        :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]u        :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> [unite]h        :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]d        :<C-u>UniteWithBufferDir file<CR>
+nnoremap <silent> [unite]o        :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
+nnoremap <silent> m               :<C-u>Unite file_mru<CR>
 
-function! s:unite_my_settings()
-  nmap <buffer> <ESC>      <Plug>(unite_exit)
-  nmap <buffer> <ESC><ESC> <Plug>(unite_exit)
-  imap <buffer> jj      <Plug>(unite_insert_leave)
-  nnoremap <silent><buffer> <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
-  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+nmap     <buffer> <ESC>           <Plug>(unite_exit)
+nmap     <buffer> <ESC><ESC>      <Plug>(unite_exit)
+imap     <buffer> jj              <Plug>(unite_insert_leave)
+nnoremap <silent><buffer>         <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
+imap     <buffer> <C-w>           <Plug>(unite_delete_backward_path)
+nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
+inoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
+nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
 
-  nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
-  inoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
-
-  nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-  inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-endfunction
-
-"------------------------------------------------------------
+"------------------------------
 " vim-ref
-"------------------------------------------------------------
+"------------------------------
 let g:ref_phpmanual_path = $HOME . '/dotfiles/ref/php-chunked-xhtml'
 let g:ref_refe_path = $HOME . '/dotfiles/ref/ruby-refm-1.9.3-dynamic-20120829'
 
 nnoremap <silent> [unite]p  :<C-u>Unite -no-split ref/phpmanual<CR>
 nnoremap <silent> [unite]R  :<C-u>Unite -no-split ref/refe<CR>
 
-"------------------------------------------------------------
+"------------------------------
 " quickrun.vim
-"------------------------------------------------------------
+"------------------------------
 let g:quickrun_config = {}
 
-"------------------------------------------------------------
+"------------------------------
 " Pydiction
-"------------------------------------------------------------
+"------------------------------
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 let g:quickrun_config.markdown = {
       \ 'outputter' : 'null',
@@ -605,57 +568,56 @@ let g:quickrun_config.mkd = {
       \ 'exec'      : '%c %o %a %s',
       \ }
 
-"------------------------------------------------------------
+"------------------------------
 " Syntastic
-"------------------------------------------------------------
+"------------------------------
 let g:syntastic_enable_signs = 1        " エラー行をsignで表示する
 let g:syntastic_enable_highlighting = 1 " 可能ならhighligt表示する
 let g:syntastic_auto_jump = 2
 let g:syntastic_php_checkers = ['php']
 
-"------------------------------------------------------------
+"------------------------------
 " NERD-Tree.vim
-"------------------------------------------------------------
+"------------------------------
 nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <C-e>     :NERDTreeToggle<CR>
 " let NERDTreeShowBookmarks=1
 " let NERDTreeShowHidden=1
 let g:NERDTreeWinPos = "right"
-"------------------------------------------------------------
+
+"------------------------------
 " easyalign
-"------------------------------------------------------------
+"------------------------------
 vmap E <Plug>(EasyAlign)
 vmap <Space> <Plug>(EasyAlign)
 
-"------------------------------------------------------------
+"------------------------------
 " operator replace
-"------------------------------------------------------------
+"------------------------------
 map R <Plug>(operator-replace)
 
-"------------------------------------------------------------
+"------------------------------
 " quickhl
-"------------------------------------------------------------
+"------------------------------
 nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
 
-"------------------------------------------------------------
+"------------------------------
 " wildfire
-"------------------------------------------------------------
+"------------------------------
 let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
 
-"------------------------------------------------------------
+"------------------------------
 " Open browser
-"------------------------------------------------------------
+"------------------------------
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap <Leader>f <Plug>(openbrowser-smart-search)
 vmap <Leader>f <Plug>(openbrowser-smart-search)
 
-"------------------------------------------------------------
+"------------------------------
 " alignta
-"------------------------------------------------------------
-vmap a :Alignta
-
-nnoremap f /
+"------------------------------
+vmap a :Alignta 
