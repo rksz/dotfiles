@@ -6,19 +6,20 @@ cd $BASEPATH
 #------------------------------------------------------------
 # Basic Installation
 #------------------------------------------------------------
-ls -s $HOME/dotfiles/.zsh               $HOME/
-ls -s $HOME/dotfiles/.zshrc             $HOME/
-ls -s $HOME/dotfiles/.zshrc.alias       $HOME/
-ls -s $HOME/dotfiles/.ctags             $HOME/
-ls -s $HOME/dotfiles/.gitignore         $HOME/
-ls -s $HOME/dotfiles/.vimrc             $HOME/
-ls -s $HOME/dotfiles/.tmux.conf         $HOME/
-ls -s $HOME/dotfiles/.dir_colors        $HOME/
-ls -s $HOME/dotfiles/.vim               $HOME/
-ls -s $HOME/dotfiles/.gvimrc            $HOME/
-ls -s $HOME/dotfiles/.taskrc            $HOME/
-ls -s $HOME/dotfiles/.zshrc.alias.local $HOME/
-ls -s $HOME/dotfiles/.tmux.conf.local   $HOME/
+ln -s $HOME/dotfiles/.peco              $HOME/
+ln -s $HOME/dotfiles/.zsh               $HOME/
+ln -s $HOME/dotfiles/.zshrc             $HOME/
+ln -s $HOME/dotfiles/.zshrc.alias       $HOME/
+ln -s $HOME/dotfiles/.ctags             $HOME/
+ln -s $HOME/dotfiles/.gitignore         $HOME/
+ln -s $HOME/dotfiles/.vimrc             $HOME/
+ln -s $HOME/dotfiles/.tmux.conf         $HOME/
+ln -s $HOME/dotfiles/.dir_colors        $HOME/
+ln -s $HOME/dotfiles/.vim               $HOME/
+ln -s $HOME/dotfiles/.gvimrc            $HOME/
+ln -s $HOME/dotfiles/.taskrc            $HOME/
+ln -s $HOME/dotfiles/.zshrc.alias.local $HOME/
+ln -s $HOME/dotfiles/.tmux.conf.local   $HOME/
 git submodule update --init
 git submodule foreach git checkout master
 vim -N -u $HOME/.vimrc -c "try | NeoBundleUpdate $* | finally | qall! | endtry" -U NONE -i NONE -V1 -e -s

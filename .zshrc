@@ -151,7 +151,7 @@ memo() {
 agvim () {
   vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
-alias m='memo'
+alias m='vim $(find * -type f -maxdepth 1| grep "memo-" | grep ".md" | sort | tail -1)'
 
 # ------------------------------------------------------------
 # Custom Aliases

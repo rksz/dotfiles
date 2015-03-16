@@ -2,7 +2,7 @@
 target_dir=${1:?}
 current_dir=$(pwd)
 cd $target_dir; cd ../
-for dir in $(find ${target_dir} -type d -maxdepth 1 -mindepth 1 | grep -v /_)
+for dir in $(find ${target_dir} -type d -maxdepth 1 -mindepth 1 | grep -v /_) $(find ${target_dir} -type l -maxdepth 1 -mindepth 1)
 do
   cd $dir
   # tmux new-session -d -s "${dir%*/}"
