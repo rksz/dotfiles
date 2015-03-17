@@ -113,7 +113,15 @@ alias t="\task" # taskwarrior
 alias be='bundle exec' # bundler
 alias wk="cd ~/workspace"
 alias gsp='git status --porcelain | sed s/^...// | peco | ruby -pe "chomp" | pbcopy'
-alias s='ssh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \$2}")'
+alias s='sshpeco'
+sshpeco () {
+    peco_query=$1
+    target=$(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco --query=$peco_query|awk "{print \$2}")
+    if [ ! -z $target ]; then
+        ssh $target
+    fi
+}
+
 alias j='z'
 alias jp='cd $(z | peco | awk "{print \$2}")'
 alias c='cd $(ls -F --color=never| grep / | peco)'
