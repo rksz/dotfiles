@@ -115,8 +115,8 @@ alias wk="cd ~/workspace"
 alias gsp='git status --porcelain | sed s/^...// | peco | ruby -pe "chomp" | pbcopy'
 alias s='sshpeco'
 sshpeco () {
-    peco_query=$1
-    target=$(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco --query=$peco_query|awk "{print \$2}")
+    peco_query=$@
+    target=$(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco --query="$peco_query"|awk "{print \$2}")
     if [ ! -z $target ]; then
         ssh $target
     fi
@@ -124,7 +124,11 @@ sshpeco () {
 
 alias j='z'
 alias jp='cd $(z | peco | awk "{print \$2}")'
-alias c='cd $(ls -F --color=never| grep / | peco)'
+alias c='changedir_with_peco'
+changedir_with_peco() {
+    peco_query=$@
+    cd $(ls -F --color=never| grep / | peco --query="$peco_query")
+}
 alias h='vim /etc/hosts'
 alias sshconfig='vagrant ssh-config >>~/.ssh/config'
 alias -g V="| vim -"
@@ -160,7 +164,21 @@ agvim () {
   vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 alias m='vim $(find * -type f -maxdepth 1| grep "memo-" | grep ".md" | sort | tail -1)'
-
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
 # ------------------------------------------------------------
 # Custom Aliases
 # ------------------------------------------------------------
