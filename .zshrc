@@ -99,6 +99,7 @@ alias gl='git pull'
 alias gd='git diff'
 alias gf='git fetch'
 alias gb='git branch -avv'
+alias gu='git add -u && git commit -am "update" && git push'
 # dstat
 alias dstat-full='dstat -Tclmdrn'
 alias dstat-mem='dstat -Tclm'
