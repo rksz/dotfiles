@@ -562,14 +562,14 @@ let g:quickrun_config.markdown = {
       \ 'outputter' : 'null',
       \ 'command'   : 'open',
       \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Mou',
+      \ 'args'      : 'MacVim',
       \ 'exec'      : '%c %o %a %s',
       \ }
 let g:quickrun_config.mkd = {
       \ 'outputter' : 'null',
       \ 'command'   : 'open',
       \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Mou',
+      \ 'args'      : 'MacVim',
       \ 'exec'      : '%c %o %a %s',
       \ }
 
