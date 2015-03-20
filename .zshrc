@@ -180,6 +180,12 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+repo () {
+    peco_query=$@
+    cd $(ghq list -p | peco --query=$peco_query)
+}
+alias r='repo'
 # ------------------------------------------------------------
 # Custom Aliases
 # ------------------------------------------------------------
@@ -188,7 +194,7 @@ darwin*)
     export GOPATH="$HOME/.go/"
     export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
     ## one liner for faster loading
-    export PATH=/usr/local/opt/coreutils/libexec/gnubin:/Applications/MacVim.app/Contents/MacOS:~/Applications/Vagrant/bin/:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:/Applications/MacVim.app/Contents/MacOS:~/Applications/Vagrant/bin/:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin/:$PATH
     #export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
     #export PATH=~/Applications/Vagrant/bin/:$PATH
     #export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
