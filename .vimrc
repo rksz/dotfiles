@@ -44,7 +44,7 @@ NeoBundle                   'taglist.vim' " shows tag & method list
 NeoBundle     'tyru/open-browser.vim'
 " ColorScheme ----------------------
 NeoBundle       'nanotech/jellybeans.vim'
-" NeoBundle              'djjcast/mirodark'
+NeoBundle              'djjcast/mirodark'
 NeoBundle               'w0ng/vim-hybrid'
 " NeoBundle               'molokai'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
@@ -131,9 +131,9 @@ match ZenkakuSpace /　/
 "========================================
 " COLOR
 "========================================
-colorscheme jellybeans
+" colorscheme jellybeans
 " colorscheme mirodark
-" colorscheme hybrid
+colorscheme hybrid
 " colorscheme Tomorrow-Night
 
 " ターミナルタイプによるカラー設定
