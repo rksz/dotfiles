@@ -46,8 +46,18 @@ NeoBundle     'tyru/open-browser.vim'
 NeoBundle       'nanotech/jellybeans.vim'
 NeoBundle              'djjcast/mirodark'
 NeoBundle               'w0ng/vim-hybrid'
-" NeoBundle               'molokai'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
+"NeoBundle               'molokai'
+"NeoBundle 'nanotech/jellybeans.vim'
+"NeoBundle 'w0ng/vim-hybrid'
+"NeoBundle 'vim-scripts/twilight'
+"NeoBundle 'jonathanfilip/vim-lucius'
+"NeoBundle 'jpo/vim-railscasts-theme'
+"NeoBundle 'altercation/vim-colors-solarized'
+"NeoBundle 'vim-scripts/Wombat'
+"NeoBundle 'tomasr/molokai'
+"NeoBundle 'vim-scripts/rdark'
+"NeoBundle 'chriskempson/vim-tomorrow-theme'
+NeoBundle 'sjl/badwolf'
 
 
 "========================================
@@ -133,7 +143,8 @@ match ZenkakuSpace /　/
 "========================================
 " colorscheme jellybeans
 " colorscheme mirodark
-colorscheme hybrid
+" colorscheme hybrid
+colorscheme badwolf
 " colorscheme Tomorrow-Night
 
 " ターミナルタイプによるカラー設定
