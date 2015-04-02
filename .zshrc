@@ -140,7 +140,10 @@ peco-select-history() {
 }
 repo () {
     peco_query=$@
-    cd $(ghq list -p | peco --query="$peco_query")
+    dir=$(ghq list -p | peco --query="$peco_query")
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+    fi
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
