@@ -1,0 +1,6 @@
+#!/bin/sh
+for dir in $(find ~/work -type d -maxdepth 2 -mindepth 2)
+do
+  tmux new-session -c $dir -d -s "$(basename `dirname $dir` | sed 's/\./-/g')/$(basename $dir)"
+done
+tmux attach

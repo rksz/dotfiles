@@ -98,6 +98,7 @@ alias tma='tmux attach'
 alias u='up'
 alias up='cd ..; ll'
 alias v="vim"
+alias w="work"
 
 sshpeco () {
     peco_query=$@
@@ -141,6 +142,13 @@ peco-select-history() {
 repo () {
     peco_query=$@
     dir=$(ghq list -p | peco --query="$peco_query")
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+    fi
+}
+work () {
+    peco_query=$@
+    dir=$(find ~/work -type d -maxdepth 2 -mindepth 2| peco --query="$peco_query")
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
     fi

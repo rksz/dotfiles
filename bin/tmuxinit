@@ -1,3 +1,0 @@
-name=$(basename `pwd`)
-parent=$(cd ../; basename `pwd`)
-tmux new -s $parent/$name
