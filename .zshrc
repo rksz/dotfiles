@@ -102,7 +102,7 @@ alias w="work"
 
 sshpeco () {
     peco_query=$@
-    target=$(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco --query="$peco_query"|awk "{print \$2}")
+    target=$(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|grep -v "*"|peco --query="$peco_query"|awk "{print \$2}")
     if [ ! -z $target ]; then
         ssh $target
     fi
@@ -148,7 +148,14 @@ repo () {
 }
 work () {
     peco_query=$@
-    dir=$(find ~/work -type d -maxdepth 2 -mindepth 2| peco --query="$peco_query")
+    dir=$(find ~/work -type d -maxdepth 2 -mindepth 2 | peco --query="$peco_query")
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+    fi
+}
+wip () {
+    peco_query=$@
+    dir=$(find _wip -type d -maxdepth 1 -mindepth 1 | peco --query="$peco_query")
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
     fi

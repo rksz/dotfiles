@@ -43,9 +43,9 @@ NeoBundle                   'taglist.vim' " shows tag & method list
 " NeoBundle 'banyan/recognize_charcode.vim'
 NeoBundle     'tyru/open-browser.vim'
 " ColorScheme ----------------------
-NeoBundle       'nanotech/jellybeans.vim'
-NeoBundle              'djjcast/mirodark'
-NeoBundle               'w0ng/vim-hybrid'
+" NeoBundle       'nanotech/jellybeans.vim'
+" NeoBundle              'djjcast/mirodark'
+" NeoBundle               'w0ng/vim-hybrid'
 "NeoBundle               'molokai'
 "NeoBundle 'nanotech/jellybeans.vim'
 "NeoBundle 'w0ng/vim-hybrid'
@@ -57,7 +57,8 @@ NeoBundle               'w0ng/vim-hybrid'
 "NeoBundle 'tomasr/molokai'
 "NeoBundle 'vim-scripts/rdark'
 "NeoBundle 'chriskempson/vim-tomorrow-theme'
-NeoBundle 'sjl/badwolf'
+" NeoBundle 'sjl/badwolf'
+NeoBundle 'pasela/edark.vim'
 
 
 "========================================
@@ -144,8 +145,15 @@ match ZenkakuSpace /　/
 " colorscheme jellybeans
 " colorscheme mirodark
 " colorscheme hybrid
-colorscheme badwolf
+" colorscheme badwolf
+colorscheme edark
 " colorscheme Tomorrow-Night
+
+let edark_current_line=1
+let edark_ime_cursor=1
+let edark_insert_status_line=1
+
+
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
