@@ -59,7 +59,7 @@ NeoBundle     'tyru/open-browser.vim'
 "NeoBundle 'chriskempson/vim-tomorrow-theme'
 " NeoBundle 'sjl/badwolf'
 NeoBundle 'pasela/edark.vim'
-
+NeoBundle 'fatih/vim-go'
 
 "========================================
 " BASE
@@ -221,10 +221,10 @@ endif
 
 set notagbsearch
 nnoremap t  <Nop>
-nnoremap tt  <C-]>
-nnoremap tj  ;<C-u>tag<CR>
-nnoremap tk  ;<C-u>pop<CR>
-nnoremap tl  ;<C-u>tags<CR>
+nnoremap T  <C-]>
+nnoremap tt  :<C-u>pop<CR>
+nnoremap tj  :<C-u>tag<CR>
+nnoremap tl  :<C-u>tags<CR>
 
 
 "========================================
@@ -646,3 +646,13 @@ vmap <Leader>f <Plug>(openbrowser-smart-search)
 " alignta
 "------------------------------
 vmap a :Alignta 
+
+
+"------------------------------
+" Go
+"------------------------------
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
