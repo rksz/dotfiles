@@ -53,7 +53,7 @@ alias -g R="| rsync -av --files-from=- . /tmp/"
 alias -g S="| sed"
 alias -g V="| vim -"
 alias -g Z="| tar -cvzf files_$(date +%Y%m%d%H%M%S).tgz --files-from=-"
-alias -g ls="ls --color"
+alias ls="ls --color"
 alias allnice="ionice -c2 -n7 nice -n19"
 alias be='bundle exec' # bundler
 alias c='changedir_with_peco'
