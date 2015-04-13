@@ -88,7 +88,7 @@ alias m='vim $(find * -type f -maxdepth 1| grep "memo-" | grep ".md" | sort | ta
 alias md='vim ./*.md'
 alias n="vim -c NERDTreeToggle"
 alias pk='pkill -f'
-alias r='repo'
+alias w='repo'
 alias s='sshpeco'
 alias ssh='env TERM=xterm ssh'
 alias sshconfig='vagrant ssh-config >>~/.ssh/config'
@@ -98,7 +98,7 @@ alias tma='tmux attach'
 alias u='up'
 alias up='cd ..; ll'
 alias v="vim"
-alias w="work"
+alias k="work"
 
 sshpeco () {
     peco_query=$@
