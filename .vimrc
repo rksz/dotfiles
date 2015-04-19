@@ -121,7 +121,7 @@ set undodir=/tmp
 "========================================
 set showmatch         " 括弧の対応をハイライト
 set number            " 行番号表示
-set list              " 不可視文字表示
+" set list              " 不可視文字表示
 set display=uhex      " 印字不可能文字を16進数で表示
 set foldmethod=marker " folding
 set lazyredraw        " コマンド実行中は再描画しない
@@ -266,9 +266,6 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 autocmd FileType qf nnoremap <buffer> q :ccl<CR>
 autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
 
-" 何もせず終了
-nnoremap <Space>q :qa<CR>
-
 " Save
 nnoremap <Space>w :w<CR>
 
@@ -279,7 +276,7 @@ inoreabbrev dj ------------------------------
 " buffer control
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
-nnoremap <C-d> :bd<CR>
+" nnoremap <C-d> :bd<CR>
 
 " window
 nnoremap <C-w><C-w> :wincmd =<CR>  " automatic window resize
@@ -290,7 +287,7 @@ nnoremap yp :let @*=expand("%:p")<CR>
 nnoremap M :! open %:p -a MacVim<CR>
 
 nnoremap <Space>t :tabnew<CR>
-nnoremap <Space>q :q<CR>
+nnoremap <Space>q :q!<CR>
 nnoremap <Space>n gt
 nnoremap <Space>p gT
 
@@ -320,6 +317,7 @@ if has("autocmd")
   autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType go         setlocal sw=4 sts=4 ts=4 et
   autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
@@ -361,19 +359,13 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
 " delete window
-nnoremap <C-d> <C-w>q
-
-" format
-inoremap <C-l> <ESC>zza
+" nnoremap <C-d> <C-w>q
 
 " enabled cursor key
 nnoremap OA gi<Up>
 nnoremap OB gi<Down>
 nnoremap OC gi<Right>
 nnoremap OD gi<Left>
-
-" open active directory path
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 
 "========================================
@@ -547,6 +539,16 @@ nnoremap <silent> [unite]d        :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> [unite]o        :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
 nnoremap <silent> m               :<C-u>Unite file_mru<CR>
 
+nnoremap <silent> <Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> <Leader>s  :<C-u>Unite line<CR>
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
   nmap     <buffer> <ESC>          <Plug>(unite_exit)
@@ -606,7 +608,10 @@ let g:syntastic_php_checkers = ['php']
 "------------------------------
 nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
-nnoremap <silent> <C-e>     :NERDTreeToggle<CR>
+nnoremap <silent> <C-e> :NERDTreeToggle<CR>
+
+
+
 " let NERDTreeShowBookmarks=1
 " let NERDTreeShowHidden=1
 let g:NERDTreeWinPos = "right"
@@ -638,14 +643,14 @@ let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
 "------------------------------
 " Open browser
 "------------------------------
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap <Leader>f <Plug>(openbrowser-smart-search)
-vmap <Leader>f <Plug>(openbrowser-smart-search)
+" let g:netrw_nogx = 1 " disable netrw's gx mapping.
+" nmap <Leader>f <Plug>(openbrowser-smart-search)
+" vmap <Leader>f <Plug>(openbrowser-smart-search)
 
 "------------------------------
 " alignta
 "------------------------------
-vmap a :Alignta 
+vmap a :Alignta
 
 
 "------------------------------

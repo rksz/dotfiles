@@ -67,7 +67,7 @@ alias dstat-net='dstat -Tclnd'
 alias du="du -h"
 alias duh="du -h ./ --max-depth=1"
 alias evs='vim ~/.ssh/config'
-alias g='git'
+# alias g='git'
 alias ga='git add .'
 alias gb='git branch -avv'
 alias gc='git commit'
@@ -163,6 +163,10 @@ wip () {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+function man() {
+  c=$1
+  /usr/bin/man ${c} | col -bx | vim -R -
+}
 
 
 # ------------------------------------------------------------
@@ -186,7 +190,6 @@ darwin*)
     alias f='open .'
     alias git=hub # hub command - eval "$(hub alias -s)"
     alias mi="open $1 -a ~/Applications/mi.app/Contents/MacOS/mi"
-    alias p='pbcopy'
     alias rename='tmux rename-session'
     alias sourcetree='open -a SourceTree'
     alias st='sourcetree .'
@@ -213,7 +216,7 @@ darwin*)
 ;;
 esac
 
-# [ -f ~/.zshrc.alias.local ] && source ~/.zshrc.alias.local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # ------------------------------------------------------------
 # Custom App
