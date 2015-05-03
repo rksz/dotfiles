@@ -24,7 +24,6 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-niceblock'
 NeoBundle 'gcmt/wildfire.vim'
-" NeoBundle 'ervandew/supertab'
 " Support ---------------------------
 NeoBundle     't9md/vim-quickhl'
 NeoBundle     'Shougo/neocomplete'
@@ -117,7 +116,6 @@ nnoremap <silent> <Space>r :Rd<CR>
 let $TODAY=strftime('%Y%m%d')
 set undodir=/tmp
 
-
 "========================================
 " VIEW
 "========================================
@@ -155,27 +153,8 @@ let edark_current_line=1
 let edark_ime_cursor=1
 let edark_insert_status_line=1
 
-
-
-" ターミナルタイプによるカラー設定
-if &term =~ "xterm-256color" || "screen-256color"
-  " 256色
-  set t_Co=256
-  set t_Sf=[3%dm
-  set t_Sb=[4%dm
-elseif &term =~ "xterm-debian" || &term =~ "xterm-xfree86"
-  set t_Co=16
-  set t_Sf=[3%dm
-  set t_Sb=[4%dm
-elseif &term =~ "xterm-color"
-  set t_Co=8
-  set t_Sf=[3%dm
-  set t_Sb=[4%dm
-endif
-
 syntax enable
-hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
-
+highlight PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
 
 "========================================
 " COMPLETION
@@ -209,12 +188,10 @@ set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
-
 "========================================
 " TAGS
 "========================================
 if has("autochdir")
-  " 編集しているファイルのディレクトリに自動で移動
   set autochdir
   set tags=tags;
 else
@@ -360,9 +337,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
-" delete window
-" nnoremap <C-d> <C-w>q
-
 " enabled cursor key
 nnoremap OA gi<Up>
 nnoremap OB gi<Down>
@@ -456,7 +430,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 "let g:neocomplete#enable_insert_char_pre = 1
 
 " AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
+" let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
@@ -561,7 +535,7 @@ endfunction
 "------------------------------
 " quickrun.vim
 "------------------------------
-let g:quickrun_config = {}
+" let g:quickrun_config = {}
 
 "------------------------------
 " Pydiction
@@ -596,12 +570,9 @@ let g:syntastic_php_checkers = ['php']
 nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <C-e> :NERDTreeToggle<CR>
-
-
-
+let g:NERDTreeWinPos = "right"
 " let NERDTreeShowBookmarks=1
 " let NERDTreeShowHidden=1
-let g:NERDTreeWinPos = "right"
 
 "------------------------------
 " easyalign
@@ -638,7 +609,6 @@ let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
 " alignta
 "------------------------------
 vmap a :Alignta
-
 
 "------------------------------
 " Go
