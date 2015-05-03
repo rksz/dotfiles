@@ -535,7 +535,7 @@ endfunction
 "------------------------------
 " quickrun.vim
 "------------------------------
-" let g:quickrun_config = {}
+let g:quickrun_config = {}
 
 "------------------------------
 " Pydiction
