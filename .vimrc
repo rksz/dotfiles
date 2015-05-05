@@ -33,6 +33,7 @@ NeoBundle     'Shougo/neocomplete'
 NeoBundle     'thinca/vim-quickrun'
 NeoBundle     'thinca/vim-ref'
 NeoBundle     'Shougo/unite.vim' , { 'autoload' : { 'commands' : [ 'Unite' ] } }
+NeoBundle     'ujihisa/unite-colorscheme'
 NeoBundle     'Shougo/neomru.vim'
 NeoBundle     'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak', 'unix' : 'make -f make_unix.mak', }, }
 " NeoBundleLazy 'tpope/vim-fugitive' , { 'autoload' : { 'commands' : [ "Gdiff" ] } }
@@ -46,21 +47,20 @@ NeoBundle                   'taglist.vim' " shows tag & method list
 " NeoBundle       'nanotech/jellybeans.vim'
 " NeoBundle              'djjcast/mirodark'
 " NeoBundle               'w0ng/vim-hybrid'
-"NeoBundle               'molokai'
-"NeoBundle 'nanotech/jellybeans.vim'
-"NeoBundle 'w0ng/vim-hybrid'
-"NeoBundle 'vim-scripts/twilight'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'vim-scripts/twilight'
 "NeoBundle 'jonathanfilip/vim-lucius'
 "NeoBundle 'jpo/vim-railscasts-theme'
 "NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'vim-scripts/Wombat'
-"NeoBundle 'tomasr/molokai'
+NeoBundle 'tomasr/molokai'
 "NeoBundle 'vim-scripts/rdark'
-"NeoBundle 'chriskempson/vim-tomorrow-theme'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 " NeoBundle 'sjl/badwolf'
 NeoBundle 'pasela/edark.vim'
 NeoBundle 'fatih/vim-go'
-
+NeoBundle 'majutsushi/tagbar'
 
 "========================================
 " BASE
@@ -186,7 +186,8 @@ set ignorecase " 大文字小文字無視
 set smartcase  " 検索文字列に大文字が含まれている場合は区別して検索する
 set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
-nmap <ESC><ESC> :nohlsearch<CR><ESC>
+" nmap <ESC><ESC> :nohlsearch<CR><ESC>
+nnoremap <ESC> :nohlsearch<CR><ESC>
 
 "========================================
 " TAGS
@@ -498,6 +499,7 @@ nnoremap <silent> [unite]f        :<C-u>Unite file_rec<CR>
 nnoremap <silent> [unite]b        :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]u        :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> [unite]h        :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]c        :<C-u>Unite colorscheme<CR>
 nnoremap <silent> [unite]d        :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> [unite]o        :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
 nnoremap <silent> m               :<C-u>Unite file_mru<CR>
@@ -597,13 +599,6 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 " wildfire
 "------------------------------
 let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'it', 'ii', 'ip', 'i>']
-
-"------------------------------
-" Open browser
-"------------------------------
-" let g:netrw_nogx = 1 " disable netrw's gx mapping.
-" nmap <Leader>f <Plug>(openbrowser-smart-search)
-" vmap <Leader>f <Plug>(openbrowser-smart-search)
 
 "------------------------------
 " alignta
