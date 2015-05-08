@@ -60,7 +60,9 @@ NeoBundle 'chriskempson/vim-tomorrow-theme'
 " NeoBundle 'sjl/badwolf'
 NeoBundle 'pasela/edark.vim'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'majutsushi/tagbar'
+" NeoBundle 'majutsushi/tagbar'
+" NeoBundle 'nathanaelkane/vim-indent-guides'
+" NeoBundle 'myusuf3/numbers.vim'
 
 "========================================
 " BASE
@@ -613,3 +615,4 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
