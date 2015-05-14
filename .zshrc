@@ -43,7 +43,7 @@ compinit -C
 # ------------------------------------------------------------
 # Common Aliases
 # ------------------------------------------------------------
-alias -g C="| tr -d '\n' | pbcopy"
+# alias -g C="| tr -d '\n' | pbcopy"
 alias -g G="| grep"
 alias -g H="| head"
 alias -g L="| less"
@@ -56,6 +56,7 @@ alias -g Z="| tar -cvzf files_$(date +%Y%m%d%H%M%S).tgz --files-from=-"
 alias ls="ls --color"
 alias allnice="ionice -c2 -n7 nice -n19"
 alias be='bundle exec' # bundler
+alias C='digdir_with_peco'
 alias c='changedir_with_peco'
 alias cp='nocorrect cp -irp'
 alias df="df -h"
@@ -109,7 +110,17 @@ sshpeco () {
 }
 changedir_with_peco() {
     peco_query=$@
-    cd $(ls -F --color=never| grep / | peco --query="$peco_query")
+    dir=$(ls -F --color=never| grep / | peco --query="$peco_query")
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+    fi
+}
+digdir_with_peco() {
+    peco_query=$@
+    dir=$(find . -type d -maxdepth 4 | peco --query="$peco_query")
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+    fi
 }
 cleanup () {
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
