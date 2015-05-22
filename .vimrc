@@ -124,7 +124,7 @@ set undodir=/tmp
 "========================================
 set showmatch         " 括弧の対応をハイライト
 set number            " 行番号表示
-" set list              " 不可視文字表示
+set list              " 不可視文字表示
 set display=uhex      " 印字不可能文字を16進数で表示
 set foldmethod=marker " folding
 set lazyredraw        " コマンド実行中は再描画しない
