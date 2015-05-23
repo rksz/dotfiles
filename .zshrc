@@ -165,9 +165,8 @@ bindkey '^r' peco-select-history
 
 function man() {
   c=$1
-  /usr/bin/man ${c} | col -bx | vim -R -
+  /usr/bin/man ${c} | col -bx | env EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim $EDITOR -R -
 }
-
 
 # ------------------------------------------------------------
 # Custom Aliases
