@@ -57,7 +57,7 @@ alias ls="ls --color"
 alias allnice="ionice -c2 -n7 nice -n19"
 alias be='bundle exec' # bundler
 alias C='digdir_with_peco'
-alias c='changedir_with_peco'
+alias c='digdir_with_peco_shallow'
 alias cp='nocorrect cp -irp'
 alias df="df -h"
 alias dstat-cpu='dstat -Tclr'
@@ -108,16 +108,16 @@ sshpeco () {
         ssh $target
     fi
 }
-changedir_with_peco() {
+digdir_with_peco_shallow() {
     peco_query=$@
-    dir=$(ls -F --color=never| grep / | peco --query="$peco_query")
+    dir=$(find . -type d -maxdepth 4 | peco --query="$peco_query")
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
     fi
 }
 digdir_with_peco() {
     peco_query=$@
-    dir=$(find . -type d -maxdepth 4 | peco --query="$peco_query")
+    dir=$(find . -type d | peco --query="$peco_query")
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
     fi
