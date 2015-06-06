@@ -1,0 +1,33 @@
+#!/bin/sh
+set -ue -o pipefail
+export LC_ALL=C
+
+main() {
+    randomstr=$(date +%s | sha256sum | base64 | head -c 32 ; echo)
+
+    private_ip=$(ifconfig | grep "inet" | awk -F: '{print $1}' | awk '{print $2}' | grep 192.168.)
+    # private_ip=$(ifconfig | grep "inet" | awk -F: '{print $1}' | awk '{print $2}' | grep 10.11.252)
+
+    tmpphp=${randomstr}.php
+
+    cat <<-"EOS" >${tmpphp}
+<?php
+$dir = substr(dirname($_SERVER['PHP_SELF']),strlen($_SERVER['DOCUMENT_ROOT']));
+echo "<h2>Index of ".$dir.":</h2>";
+$g = glob("*");
+usort($g,function($a,$b) {
+    if(is_dir($a) == is_dir($b))
+        return strnatcasecmp($a,$b);
+    else
+        return is_dir($a) ? -1 : 1;
+});
+echo implode("<br>",array_map(function($a) {return '<a href="'.$a.'">'.$a.'</a>';},$g));
+EOS
+    trap 'rm -v ${tmpphp}' 1 2 3 15
+
+    hostaddress=${private_ip}:9999
+    open "http://$hostaddress/$tmpphp"
+    php -S $hostaddress
+
+}
+main "$@"

@@ -42,7 +42,8 @@ NeoBundleLazy 'scrooloose/syntastic' , { 'autoload' : { 'filename_patterns' : [ 
 NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree", "NERDTreeToggle" ] } }
 NeoBundle                   'taglist.vim' " shows tag & method list
 " NeoBundle 'banyan/recognize_charcode.vim'
-" NeoBundle     'tyru/open-browser.vim'
+NeoBundle     'tyru/open-browser.vim'
+NeoBundle   'tyru/open-browser-github.vim'
 " ColorScheme ----------------------
 " NeoBundle       'nanotech/jellybeans.vim'
 " NeoBundle              'djjcast/mirodark'
@@ -88,6 +89,7 @@ set nrformats=alpha                 " 数値を全て10進数としてインク�
 set clipboard+=unnamed              " OSのクリップボードを使用する
 set clipboard=unnamed               "ヤンクした文字は、システムのクリップボードに入れる"
 set shortmess+=I
+
 command! Ev edit $MYVIMRC           " Ev/Rvでvimrcの編集と反映
 command! Rv source $MYVIMRC         " Ev/Rvでvimrcの編集と反映
 set helpfile=$VIMRUNTIME/doc/help.txt " Japanese help files
@@ -616,3 +618,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+nnoremap <Leader>g :OpenGithubFile<CR>
+vmap     <Leader>g <Plug>:OpenGithubFile<CR>

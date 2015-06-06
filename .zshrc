@@ -103,21 +103,21 @@ alias k="work"
 
 sshpeco () {
     peco_query=$@
-    target=$(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|grep -v "*"|peco --query="$peco_query"|awk "{print \$2}")
+    target=$(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|grep -v "*"|awk "{print \$2}" | peco --query="$peco_query")
     if [ ! -z $target ]; then
         ssh $target
     fi
 }
 digdir_with_peco_shallow() {
     peco_query=$@
-    dir=$(find . -type d -maxdepth 4 | peco --query="$peco_query")
+    dir=$(find -L . -type d -maxdepth 3 -not -path '*/\.*' | peco --query="$peco_query")
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
     fi
 }
 digdir_with_peco() {
     peco_query=$@
-    dir=$(find . -type d | peco --query="$peco_query")
+    dir=$(find  -L . -type d -not -path '*/\.*'| peco --query="$peco_query")
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
     fi
@@ -159,6 +159,9 @@ wip () {
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
     fi
+}
+findf() {
+    find . -type f | grep $1
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
