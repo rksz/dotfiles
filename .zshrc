@@ -40,6 +40,34 @@ SAVEHIST=10000
 compinit -C
 
 
+## @todo: improve the source code
+zle -N autojump_with_peco
+bindkey "^j" autojump_with_peco
+autojump_with_peco () {
+    dir=$(z | sort -nr | grep "$1" | peco | awk "{print \$2}")
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+        echo "ll"
+        ls -al --color
+    fi
+    zle reset-prompt
+}
+zle -N autojump_with_peco_pwd
+bindkey "^h" autojump_with_peco_pwd
+autojump_with_peco_pwd () {
+    dir=$(z | sort -nr | grep $(pwd) | peco | awk "{print \$2}")
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+        echo "ll"
+        ls -al --color
+    fi
+    zle reset-prompt
+}
+
+zle -N sshpeco
+bindkey "^o" sshpeco
+
+
 # ------------------------------------------------------------
 # Common Aliases
 # ------------------------------------------------------------
@@ -82,7 +110,6 @@ alias gss='git status --porcelain | sed s/^...//'
 alias gu='git add -u && git commit -am "update" && git push'
 alias h='vim /etc/hosts'
 alias j='z'
-alias jp='cd $(z | peco | awk "{print \$2}")'
 alias la="ls -a"
 alias ll="ls -l"
 alias m='vim $(find * -type f -maxdepth 1| grep "memo-" | grep ".md" | sort | tail -1)'
