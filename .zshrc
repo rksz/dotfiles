@@ -52,16 +52,12 @@ autojump_with_peco () {
     fi
     zle reset-prompt
 }
-zle -N autojump_with_peco_pwd
-bindkey "^h" autojump_with_peco_pwd
-autojump_with_peco_pwd () {
-    dir=$(z | sort -nr | grep $(pwd) | peco | awk "{print \$2}")
-    if [[ -d $dir && -n $dir ]]; then
-        cd $dir
-        echo "ll"
-        ls -al --color
-    fi
-    zle reset-prompt
+zle -N tmux_switch_session
+bindkey "^h" tmux_switch_session
+tmux_switch_session () {
+    # tmux split-window -c '#{pane_current_path}' -v "tmux ls | cut -d: -f1 | peco | xargs tmux switch-client -t"
+    tmux ls | cut -d: -f1 | peco | xargs tmux switch-client -t
+    # zle reset-prompt
 }
 
 zle -N sshpeco
@@ -85,7 +81,13 @@ alias ls="ls --color"
 alias allnice="ionice -c2 -n7 nice -n19"
 alias be='bundle exec' # bundler
 alias C='digdir_with_peco'
-alias c='digdir_with_peco_shallow'
+alias c='findf'
+findf() {
+    target=$(find . -type f -name "*$1*" | grep -v '.git' | peco)
+    if [ ! -z $target ]; then
+        open $target
+    fi
+}
 alias cp='nocorrect cp -irp'
 alias df="df -h"
 alias dstat-cpu='dstat -Tclr'
@@ -135,18 +137,13 @@ sshpeco () {
         ssh $target
     fi
 }
-digdir_with_peco_shallow() {
-    peco_query=$@
-    dir=$(find -L . -type d -maxdepth 3 -not -path '*/\.*' | peco --query="$peco_query")
-    if [[ -d $dir && -n $dir ]]; then
-        cd $dir
-    fi
-}
 digdir_with_peco() {
     peco_query=$@
     dir=$(find  -L . -type d -not -path '*/\.*'| peco --query="$peco_query")
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
+        echo ll
+        ll
     fi
 }
 cleanup () {
@@ -186,9 +183,6 @@ wip () {
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
     fi
-}
-findf() {
-    find . -type f | grep $1
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
