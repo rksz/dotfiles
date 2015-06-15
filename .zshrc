@@ -81,11 +81,12 @@ alias ls="ls --color"
 alias allnice="ionice -c2 -n7 nice -n19"
 alias be='bundle exec' # bundler
 alias C='digdir_with_peco'
-alias c='findf'
+alias f='findf'
 findf() {
-    target=$(find . -type f -name "*$1*" | grep -v '.git' | peco)
+    target=$(find . -type f -name "*$1*" | egrep -v '.git|vendors|.bundle|.DS_Store|.vagrant|.chef' | peco)
     if [ ! -z $target ]; then
-        open $target
+        cd $(dirname $target)
+        ls -al
     fi
 }
 alias cp='nocorrect cp -irp'
@@ -127,7 +128,7 @@ alias t="\task" # taskwarrior
 alias tma='tmux attach'
 alias u='up'
 alias up='cd ..; ll'
-alias v="vim"
+alias v="vim -c 'Unite file_mru'"
 alias k="work"
 
 sshpeco () {
@@ -210,7 +211,7 @@ darwin*)
     # eval "$(rbenv init - zsh)" Ruby
     alias cp="nocorrect gcp -i" # required: brew install coreutils
     alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
-    alias f='open .'
+    alias F='open .'
     alias git=hub # hub command - eval "$(hub alias -s)"
     alias mi="open $1 -a ~/Applications/mi.app/Contents/MacOS/mi"
     alias rename='tmux rename-session'
