@@ -222,6 +222,9 @@ darwin*)
     alias tmux="env TERM=screen-256color-bce tmux" #keep vim colorscheme in tmux mode
     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
     alias vimdiff='/Applications/MacVim.app/Contents/MacOS/vimdiff'
+    alias home='homestead'
+    alias ho='homestead'
+    alias hoe='vim ~/.homestead/Homestead.yaml'
 
     here() {
         tmux rename-window $(basename `pwd`)
