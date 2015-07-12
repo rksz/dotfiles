@@ -3,6 +3,7 @@
 # ------------------------------------------------------------
 export LANG=ja_JP.UTF-8
 export LEuSCHARSET=utf-8
+typeset -U name_of_the_variable
 
 #setopt no_clobber           # 上書きリダイレクトの禁止
 bindkey "^?" backward-delete-char

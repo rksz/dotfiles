@@ -121,28 +121,6 @@ nnoremap <silent> <Space>r :Rd<CR>
 let $TODAY=strftime('%Y%m%d')
 set undodir=/tmp
 
-"========================================
-" VIEW
-"========================================
-set showmatch         " 括弧の対応をハイライト
-set number            " 行番号表示
-set list              " 不可視文字表示
-set display=uhex      " 印字不可能文字を16進数で表示
-set foldmethod=marker " folding
-set lazyredraw        " コマンド実行中は再描画しない
-set ttyfast           " 高速ターミナル接続を行う
-set cursorline        " カーソル行をハイライト
-set colorcolumn=80
-" set cursorcolumn
-set listchars=tab:>.,trail:_,extends:>,precedes:< " 不可視文字の表示形式
-set laststatus=2      " 常にステータスラインを表示
-set ruler             " カーソルが何行目の何列目に置かれているかを表示する
-" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-set statusline=%F%m%r%h%w
-" %{fugitive#statusline()}
-
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-match ZenkakuSpace /　/
 
 "========================================
 " COLOR
@@ -211,6 +189,25 @@ nnoremap tt  :<C-u>pop<CR>
 nnoremap tj  :<C-u>tag<CR>
 nnoremap tl  :<C-u>tags<CR>
 
+"========================================
+" VIEW
+"========================================
+set showmatch         " 括弧の対応をハイライト
+set number            " 行番号表示
+set list              " 不可視文字表示
+set display=uhex      " 印字不可能文字を16進数で表示
+set foldmethod=marker " folding
+set lazyredraw        " コマンド実行中は再描画しない
+set ttyfast           " 高速ターミナル接続を行う
+set cursorline        " カーソル行をハイライト
+set colorcolumn=80
+set listchars=tab:>.,trail:_,extends:>,precedes:< " 不可視文字の表示形式
+set laststatus=2      " 常にステータスラインを表示
+set ruler             " カーソルが何行目の何列目に置かれているかを表示する
+set statusline=%F%m%r%h%w
+
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+match ZenkakuSpace /　/
 
 "========================================
 " EDIT
@@ -219,6 +216,14 @@ set expandtab              " Tabキーを空白に変換
 set noimdisable            " insertモードを抜けるとIMEオフ
 set iminsert=0 imsearch=0
 set noimcmdline
+
+" if expand("%:t") =~ ".*\.go"
+"   set rtp+=$GOROOT/misc/vim 
+"   exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+"   set noexpandtab tabstop=4 shiftwidth=4 nolist
+" endif
+au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 nolist
+
 
 " escape mapping
 inoremap jj <Esc>
@@ -577,7 +582,7 @@ let g:syntastic_php_checkers = ['php']
 nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <C-e> :NERDTreeToggle<CR>
-let g:NERDTreeWinPos = "right"
+" let g:NERDTreeWinPos = "right"
 " let NERDTreeShowBookmarks=1
 " let NERDTreeShowHidden=1
 
@@ -618,6 +623,16 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
 nnoremap <Leader>g :OpenGithubFile<CR>
 vmap     <Leader>g <Plug>:OpenGithubFile<CR>
+
+
