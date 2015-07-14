@@ -23,6 +23,7 @@ ln -s $HOME/dotfiles/.gvimrc            $HOME/
 ln -s $HOME/dotfiles/.taskrc            $HOME/
 ln -s $HOME/dotfiles/.zshrc.alias.local $HOME/
 ln -s $HOME/dotfiles/.tmux.conf.local   $HOME/
+ln -s $HOME/dotfiles/Vagrantfile        $HOME/
 git submodule update --init
 git submodule foreach git checkout master
 vim -N -u $HOME/.vimrc -c "try | NeoBundleUpdate $* | finally | qall! | endtry" -U NONE -i NONE -V1 -e -s
