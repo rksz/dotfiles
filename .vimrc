@@ -74,7 +74,7 @@ set textwidth=0                     " 一行に長い文章を書いていても
 set nobackup                        " バックアップ取らない
 set autoread                        " 他で書き換えられたら自動で読み直す
 set noswapfile                      " スワップファイル作らない
-set nowrap
+" set nowrap
 set hidden                          " 編集中でも他のファイルを開けるようにする
 set backspace=indent,eol,start      " バックスペースでなんでも消せるように
 set formatoptions=lmoq              " テキスト整形オプション，マルチバイト系を追加

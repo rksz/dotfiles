@@ -3,4 +3,6 @@ for dir in $(find ~/work -type d -maxdepth 2 -mindepth 2)
 do
   tmux new-session -c $dir -d -s "$(basename `dirname $dir` | sed 's/\./-/g')/$(basename $dir | sed 's/\./-/g')"
 done
+
+tmux new-session -c $HOME/work -d -s "00-Top"
 tmux attach

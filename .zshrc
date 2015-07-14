@@ -76,13 +76,15 @@ alias -g O="| xargs open"
 alias -g P="| peco | ruby -pe 'chomp' | pbcopy"
 alias -g R="| rsync -av --files-from=- . /tmp/"
 alias -g S="| sed"
-alias -g V="| col -bx | vim -R -"
+# alias -g V="| col -bx | vim -R -"
+alias -g V="vim ~/dotfiles/Vagrantfile"
 alias -g Z="| tar -cvzf files_$(date +%Y%m%d%H%M%S).tgz --files-from=-"
 alias ls="ls --color"
 alias allnice="ionice -c2 -n7 nice -n19"
 alias be='bundle exec' # bundler
 alias C='digdir_with_peco'
 alias f='findf'
+alias vm='vagrant ssh || echo "start running vm..." && vagrant up'
 findf() {
     target=$(find . -type f -name "*$1*" | egrep -v '.git|vendors|.bundle|.DS_Store|.vagrant|.chef' | peco)
     if [ ! -z $target ]; then
@@ -129,7 +131,7 @@ alias t="\task" # taskwarrior
 alias tma='tmux attach'
 alias u='up'
 alias up='cd ..; ll'
-alias v="vim -c 'Unite file_mru'"
+alias v="vim"
 alias k="work"
 
 sshpeco () {
