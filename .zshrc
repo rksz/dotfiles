@@ -82,8 +82,8 @@ alias -g Z="| tar -cvzf files_$(date +%Y%m%d%H%M%S).tgz --files-from=-"
 alias ls="ls --color"
 alias allnice="ionice -c2 -n7 nice -n19"
 alias be='bundle exec' # bundler
-alias C='digdir_with_peco'
-alias f='findf'
+alias c='digdir_with_peco_shallow'
+# alias f='findf'
 alias vm='vagrant ssh || echo "start running vm..." && vagrant up'
 findf() {
     target=$(find . -type f -name "*$1*" | egrep -v '.git|vendors|.bundle|.DS_Store|.vagrant|.chef' | peco)
@@ -150,6 +150,15 @@ digdir_with_peco() {
         ll
     fi
 }
+digdir_with_peco_shallow() {
+    peco_query=$@
+    dir=$(find  -L . -type d -maxdepth 1 -not -path '*/\.*'| peco --query="$peco_query")
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+        echo ll
+        ll
+    fi
+}
 cleanup () {
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
     find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
@@ -177,13 +186,6 @@ repo () {
 work () {
     peco_query=$@
     dir=$(find ~/work -type d -maxdepth 2 -mindepth 2 | peco --query="$peco_query")
-    if [[ -d $dir && -n $dir ]]; then
-        cd $dir
-    fi
-}
-wip () {
-    peco_query=$@
-    dir=$(find _wip -type d -maxdepth 1 -mindepth 1 | peco --query="$peco_query")
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
     fi
@@ -227,7 +229,7 @@ darwin*)
     # eval "$(rbenv init - zsh)" Ruby
     alias cp="nocorrect gcp -i" # required: brew install coreutils
     alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
-    alias F='open .'
+    alias f='open .'
     alias git=hub # hub command - eval "$(hub alias -s)"
     alias mi="open $1 -a ~/Applications/mi.app/Contents/MacOS/mi"
     alias rename='tmux rename-session'
@@ -260,8 +262,8 @@ darwin*)
 esac
 memo() {
     today=$(date "+%Y%m%d")
-    memofile=memo-${today}.md
-    memofile_past=$(find * -type f -maxdepth 1| grep "memo-" | grep ".md" | sort | tail -1)
+    memofile=${today}_memo.md
+    memofile_past=$(find * -type f -maxdepth 0 | grep "_memo" | grep ".md" | sort | tail -1)
     if [[ -f $memofile_past && $memofile != $memofile_past ]]; then
         # vim $memofile_past $memofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
         vim $memofile_past $memofile -c "vs" -c "bn" -c "wincmd ="

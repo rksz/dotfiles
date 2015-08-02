@@ -1,8 +1,9 @@
 #!/bin/sh
-for dir in $(find ~/work -type d -maxdepth 2 -mindepth 2)
-do
-  tmux new-session -c $dir -d -s "$(basename `dirname $dir` | sed 's/\./-/g')/$(basename $dir | sed 's/\./-/g')"
-done
+#for dir in $(find ~/work -type d -maxdepth 2 -mindepth 2 -not -path '*/\.*')
+#do
+#  tmux new-session -c $dir -d -s "$(basename `dirname $dir` | sed 's/\./-/g')/$(basename $dir | sed 's/\./-/g')" vim -c NERDTreeToggle
+#done
 
-tmux new-session -c $HOME/work -d -s "00-Top"
+tmux new-session -c $HOME/work -d -s "work"
+tmux new-session -c $HOME/static  -d -s "static"
 tmux attach

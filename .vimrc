@@ -129,7 +129,8 @@ set undodir=/tmp
 " colorscheme mirodark
 " colorscheme hybrid
 " colorscheme badwolf
-colorscheme edark
+" colorscheme edark
+colorscheme molokai
 " colorscheme Tomorrow-Night
 
 let edark_current_line=1
@@ -169,8 +170,7 @@ set ignorecase " 大文字小文字無視
 set smartcase  " 検索文字列に大文字が含まれている場合は区別して検索する
 set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
-" nmap <ESC><ESC> :nohlsearch<CR><ESC>
-nnoremap <ESC> :nohlsearch<CR><ESC>
+nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
 "========================================
 " TAGS
@@ -513,6 +513,8 @@ nnoremap <silent> [unite]c        :<C-u>Unite colorscheme<CR>
 nnoremap <silent> [unite]d        :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> [unite]o        :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
 nnoremap <silent> m               :<C-u>Unite file_mru<CR>
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 
 nnoremap <silent> <Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> <Leader>s  :<C-u>Unite line<CR>
@@ -523,6 +525,8 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
+
+" カーソル位置の単語をgrep検索
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
@@ -632,7 +636,7 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
-nnoremap <Leader>g :OpenGithubFile<CR>
-vmap     <Leader>g <Plug>:OpenGithubFile<CR>
+" nnoremap <Leader>g :OpenGithubFile<CR>
+" vmap     <Leader>g <Plug>:OpenGithubFile<CR>
 
 

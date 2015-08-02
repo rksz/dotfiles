@@ -78,7 +78,7 @@ darwin*)
     brew install xz                         || true
     brew install zsh                        || true
     brew install ag                         || true
-    brew install pec                        || true
+    brew install peco                       || true
     echo export "PATH=\$(brew --prefix php55)/bin:\$PATH" >> ~/.profile
 
     # tools via npm
@@ -117,10 +117,7 @@ darwin*)
     brew cask install karabiner             || true
     brew cask install licecap               || true
     brew cask install marked
-    brew cask install mi                    || true
-    brew cask install mou                   || true
     brew cask install mysqlworkbench        || true
-    brew cask install pandoc
     brew cask install quartzclocks          || true
     brew cask install querious
     brew cask install skype                 || true
@@ -128,9 +125,9 @@ darwin*)
     brew cask install spectacle             || true
     brew cask install the-unarchiver        || true
     brew cask install vagrant               || true
-    brew cask install vagrant-manager
     brew cask install virtualbox            || true
     brew cask install vlc
+    brew cask install asepsis
 
     # fonts via caskroom-fonts
     brew cask install font-fontawesome
