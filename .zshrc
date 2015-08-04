@@ -233,8 +233,6 @@ darwin*)
     alias git=hub # hub command - eval "$(hub alias -s)"
     alias mi="open $1 -a ~/Applications/mi.app/Contents/MacOS/mi"
     alias rename='tmux rename-session'
-    alias sourcetree='open -a SourceTree'
-    alias st='sourcetree .'
     alias tailf='tail -f'
     alias tma='env TERM=screen-256color-bce tmux attach'
     alias tmux="env TERM=screen-256color-bce tmux" #keep vim colorscheme in tmux mode

@@ -2,7 +2,8 @@
 " colorscheme Tomorrow-Night
 set guifont=Ricty:h20
 " colorscheme badwolf
-colorscheme edark
+" colorscheme edark
+colorscheme molokai
 " set guifont=Anonymous\ Pro:h20
 " set transparency=4
 " set lines=999 columns=999
