@@ -1,0 +1,16 @@
+#!/bin/sh
+set -ue -o pipefail
+export LC_ALL=C
+
+main() {
+    yyyymmdd=$(date +%Y%m%d)
+    cd ~/Desktop
+
+    for file in $(find * -maxdepth 0 | grep -v "[0-9]\{8\}_" | egrep -v "work|work-personal|$(basename $0)")
+    do
+        echo "sure?" "$file --> ${yyyymmdd}_${file}"
+        read
+        mv $file ${yyyymmdd}_${file}
+    done
+}
+main "$@"
