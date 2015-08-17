@@ -639,4 +639,4 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 " nnoremap <Leader>g :OpenGithubFile<CR>
 " vmap     <Leader>g <Plug>:OpenGithubFile<CR>
 
-
+set t_Co=256

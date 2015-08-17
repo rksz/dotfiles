@@ -40,8 +40,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 compinit -C
 
-
-## @todo: improve the source code
 zle -N autojump_with_peco
 bindkey "^j" autojump_with_peco
 autojump_with_peco () {
@@ -56,9 +54,7 @@ autojump_with_peco () {
 zle -N tmux_switch_session
 bindkey "^h" tmux_switch_session
 tmux_switch_session () {
-    # tmux split-window -c '#{pane_current_path}' -v "tmux ls | cut -d: -f1 | peco | xargs tmux switch-client -t"
     tmux ls | cut -d: -f1 | peco | xargs tmux switch-client -t
-    # zle reset-prompt
 }
 
 zle -N sshpeco
@@ -118,7 +114,7 @@ alias w='repo'
 alias s='sshpeco'
 alias ssh='env TERM=xterm ssh'
 alias ssheuc='env TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
-alias t="mux"
+alias t="tmux attach || tmux"
 alias x='mux'
 alias tm='tmux'
 alias tma='tmux attach'
@@ -276,7 +272,7 @@ memo() {
 
 
 # ------------------------------------------------------------
-# Z
+# Z https://github.com/rupa/z
 # ------------------------------------------------------------
 # . ~/dotfiles/bin/z.sh #Loading Z
 [ -d "${_Z_DATA:-$HOME/.z}" ] && {
