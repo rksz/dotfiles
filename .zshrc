@@ -116,8 +116,6 @@ alias ssh='env TERM=xterm ssh'
 alias ssheuc='env TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
 alias t="tmux attach || tmux"
 alias x='mux'
-alias tm='tmux'
-alias tma='tmux attach'
 alias u='up'
 alias up='cd ..; ll'
 alias v="vim"
