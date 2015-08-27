@@ -123,8 +123,7 @@ alias ve="vim -c 'color Tomorrow-Night-Eighties'"
 alias vem="vim -c 'color Tomorrow-Night-Eighties' -c 'Unite file_mru'"
 alias k="work"
 alias X="tmux kill-server"
-alias M="mvim ~/Desktop/$(date +%Y%m%d)_memo.md"
-alias MM="mvim ~/Desktop/$(date +%Y%m%d)_tmp$(date +%Y%m%d%H%M%S).md"
+alias M="mvim ~/Desktop/$(date +%Y%m%d)_tmp.md"
 
 findf() {
     target=$(find . -type f -name "*$1*" | egrep -v '.git|vendors|.bundle|.DS_Store|.vagrant|.chef' | peco)
