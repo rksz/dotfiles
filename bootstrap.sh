@@ -127,7 +127,7 @@ darwin*)
     brew cask install vagrant               || true
     brew cask install virtualbox            || true
     brew cask install vlc
-    brew cask install asepsis
+    brew cask install showyedge
 
     # fonts via caskroom-fonts
     brew cask install font-fontawesome

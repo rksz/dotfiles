@@ -127,10 +127,10 @@ set undodir=/tmp
 "========================================
 " colorscheme jellybeans
 " colorscheme mirodark
-" colorscheme hybrid
+colorscheme hybrid
 " colorscheme badwolf
 " colorscheme edark
-colorscheme molokai
+" colorscheme molokai
 " colorscheme Tomorrow-Night
 
 let edark_current_line=1
@@ -232,7 +232,7 @@ vnoremap <C-j> <Esc>
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 nnoremap <Space>S :%s!
 nnoremap <Space>s /
-nnoremap s /
+nnoremap f /
 
 nnoremap Y y$
 
@@ -278,6 +278,7 @@ nnoremap M :! open %:p -a MacVim<CR>
 
 nnoremap <Space>t :tabnew<CR>
 nnoremap <Space>q :q!<CR>
+nnoremap ` :qa!<CR>
 nnoremap <Space>n gt
 nnoremap <Space>p gT
 
