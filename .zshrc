@@ -40,10 +40,11 @@ HISTSIZE=10000
 SAVEHIST=10000
 compinit -C
 
-zle -N autojump_with_peco
-bindkey "^j" autojump_with_peco
-autojump_with_peco () {
-    dir=$(z | sort -nr | grep "$1" | peco | awk "{print \$2}")
+zle -N limited_autojump_with_peco
+bindkey "^h" limited_autojump_with_peco
+limited_autojump_with_peco () {
+    query=$(pwd)
+    dir=$(z | sort -nr | grep "$query" | awk "{print \$2}" | peco)
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
         echo "ll"
@@ -51,14 +52,25 @@ autojump_with_peco () {
     fi
     zle reset-prompt
 }
-zle -N tmux_switch_session
-bindkey "^h" tmux_switch_session
-tmux_switch_session () {
-    tmux ls | cut -d: -f1 | peco | xargs tmux switch-client -t
+zle -N autojump_with_peco
+bindkey "^j" autojump_with_peco
+autojump_with_peco () {
+    dir=$(z | sort -nr | awk "{print \$2}" | peco)
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+        echo "ll"
+        ls -al --color
+    fi
+    zle reset-prompt
 }
 
-zle -N sshpeco
-bindkey "^o" sshpeco
+zle -N chrome_history
+bindkey "^o" chrome_history
+chrome_history() {
+  cat ~/Library/Application\ Support/Google/Chrome/Default/History >/tmp/h
+  sqlite3 /tmp/h "select url from urls order by last_visit_time desc"  | egrep "github.com|redmine|lmine" | peco | xargs open
+}
+
 
 
 # ------------------------------------------------------------
@@ -490,9 +502,4 @@ elif complete >/dev/null 2>&1; then
         }
     }
 fi
-
-
-
-
-
 
