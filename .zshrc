@@ -34,24 +34,25 @@ BLUE="%{${fg[blue]}%}"
 # RED="%{${fg[red]}%}"
 # CYAN="%{${fg[cyan]}%}"
 WHITE="%{${fg[white]}%}"
-PROMPT="${RESET}${BLUE}[%D{%T}][%C]${RESET}${WHITE}$ ${RESET}"
+# PROMPT="${RESET}${BLUE}[%D{%T}][%C]${RESET}${WHITE}$ ${RESET}"
+PROMPT="${RESET}${BLUE}[%C]${RESET}${WHITE}$ ${RESET}"
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 compinit -C
 
-zle -N limited_autojump_with_peco
-bindkey "^h" limited_autojump_with_peco
-limited_autojump_with_peco () {
-    query=$(pwd)
-    dir=$(z | sort -nr | grep "$query" | awk "{print \$2}" | peco)
-    if [[ -d $dir && -n $dir ]]; then
-        cd $dir
-        echo "ll"
-        ls -al --color
-    fi
-    zle reset-prompt
-}
+#zle -N limited_autojump_with_peco
+## bindkey "^h" limited_autojump_with_peco
+#limited_autojump_with_peco () {
+#    query=$(pwd)
+#    dir=$(z | sort -nr | grep "$query" | awk "{print \$2}" | peco)
+#    if [[ -d $dir && -n $dir ]]; then
+#        cd $dir
+#        echo "ll"
+#        ls -al --color
+#    fi
+#    zle reset-prompt
+#}
 zle -N autojump_with_peco
 bindkey "^j" autojump_with_peco
 autojump_with_peco () {
@@ -67,9 +68,19 @@ autojump_with_peco () {
 zle -N chrome_history
 bindkey "^o" chrome_history
 chrome_history() {
+  filter=$(cat ~/.chrome_history_filter)
   cat ~/Library/Application\ Support/Google/Chrome/Default/History >/tmp/h
-  sqlite3 /tmp/h "select url from urls order by last_visit_time desc"  | egrep "github.com|redmine|lmine" | peco | xargs open
+  sqlite3 /tmp/h "select url from urls order by last_visit_time desc"  | egrep $filter | peco | xargs open
 }
+
+
+zle -N chrome_bookmarks
+bindkey "^h" chrome_bookmarks
+chrome_bookmarks() {
+  cat ~/.bookmarks.txt | grep -v "^#" | peco | awk '{ print $2 }' | xargs open
+}
+alias b='vim ~/.bookmarks.txt'
+
 
 
 
@@ -120,7 +131,7 @@ alias la="ls -a"
 alias ll="ls -l"
 alias m='vim -c "Unite file_mru"'
 alias md='vim ./*.md'
-alias n="vim -c NERDTreeToggle"
+alias n="vim -c NERDTreeToggle -c 'normal O'"
 alias pk='pkill -f'
 alias w='repo'
 alias s='sshpeco'
@@ -247,6 +258,8 @@ darwin*)
     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
     alias vimdiff='/Applications/MacVim.app/Contents/MacOS/vimdiff'
     alias desk='open ~/Desktop'
+    alias sourcetree='open -a SourceTree'
+    alias mvim="/Applications/MacVim.app/Contents/MacOS/mvim -c NERDTreeToggle -c 'normal O'"
 
     here() {
         tmux rename-window $(basename `pwd`)

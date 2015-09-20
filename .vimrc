@@ -45,25 +45,12 @@ NeoBundle                   'taglist.vim' " shows tag & method list
 NeoBundle     'tyru/open-browser.vim'
 NeoBundle   'tyru/open-browser-github.vim'
 " ColorScheme ----------------------
-" NeoBundle       'nanotech/jellybeans.vim'
-" NeoBundle              'djjcast/mirodark'
-" NeoBundle               'w0ng/vim-hybrid'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'vim-scripts/twilight'
-"NeoBundle 'jonathanfilip/vim-lucius'
-"NeoBundle 'jpo/vim-railscasts-theme'
-"NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle 'vim-scripts/Wombat'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/rdark'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
-" NeoBundle 'sjl/badwolf'
-NeoBundle 'pasela/edark.vim'
+NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'fatih/vim-go'
 " NeoBundle 'majutsushi/tagbar'
 " NeoBundle 'nathanaelkane/vim-indent-guides'
 " NeoBundle 'myusuf3/numbers.vim'
+NeoBundle 'othree/html5.vim'
 
 "========================================
 " BASE
@@ -127,11 +114,12 @@ set undodir=/tmp
 "========================================
 " colorscheme jellybeans
 " colorscheme mirodark
-colorscheme hybrid
+" colorscheme hybrid
 " colorscheme badwolf
 " colorscheme edark
 " colorscheme molokai
 " colorscheme Tomorrow-Night
+colorscheme Monokai
 
 let edark_current_line=1
 let edark_ime_cursor=1
@@ -171,6 +159,7 @@ set smartcase  " 検索文字列に大文字が含まれている場合は区別
 set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
+nnoremap <C-j> :nohlsearch<CR><ESC>
 
 "========================================
 " TAGS
@@ -281,7 +270,7 @@ nnoremap <Space>q :q!<CR>
 nnoremap ` :qa!<CR>
 nnoremap <Space>n gt
 nnoremap <Space>p gT
-
+" nnoremap <C-j> :q<CR>
 
 "========================================
 " INDENT
@@ -344,7 +333,7 @@ nnoremap ) %
 vnoremap v $h
 
 " CTRL-hjklでウィンドウ移動
-nnoremap <C-j> <C-w>j
+" nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
@@ -536,10 +525,12 @@ function! s:unite_my_settings()
   imap     <buffer> jj             <Plug>(unite_insert_leave)
   nnoremap <silent> <buffer>       <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
   imap     <buffer> <C-w>          <Plug>(unite_delete_backward_path)
-  nnoremap <silent> <buffer><expr> <C-l> unite#do_action('split')
-  inoremap <silent> <buffer><expr> <C-l> unite#do_action('split')
-  nnoremap <silent> <buffer><expr> <C-v> unite#do_action('vsplit')
-  inoremap <silent> <buffer><expr> <C-v> unite#do_action('vsplit')
+  " nnoremap <silent> <buffer><expr> <C-l> unite#do_action('split')
+  " inoremap <silent> <buffer><expr> <C-l> unite#do_action('split')
+  " nnoremap <silent> <buffer><expr> <C-v> unite#do_action('vsplit')
+  " inoremap <silent> <buffer><expr> <C-v> unite#do_action('vsplit')
+  nnoremap <silent> <buffer><expr> <C-l> unite#do_action('vsplit')
+  inoremap <silent> <buffer><expr> <C-l> unite#do_action('vsplit')
 endfunction
 
 "------------------------------
@@ -641,3 +632,14 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 " vmap     <Leader>g <Plug>:OpenGithubFile<CR>
 
 set t_Co=256
+:let g:html_indent_inctags = "html,body,head,tbody"
+
+map <leader>h :set ft=html<CR> 
+map <leader>p :set ft=php<CR>
+
+
+
+"------------------------------
+" Nerdtree
+"------------------------------
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

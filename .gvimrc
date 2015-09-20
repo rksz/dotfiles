@@ -3,7 +3,7 @@
 set guifont=Ricty:h14
 " colorscheme badwolf
 " colorscheme edark
-colorscheme molokai
+colorscheme chance-of-storm
 " set guifont=Anonymous\ Pro:h20
 " set transparency=4
 " set lines=999 columns=999
