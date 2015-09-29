@@ -77,7 +77,7 @@ chrome_history() {
 zle -N chrome_bookmarks
 bindkey "^h" chrome_bookmarks
 chrome_bookmarks() {
-  cat ~/.bookmarks.txt | grep -v "^#" | peco | awk '{ print $2 }' | xargs open
+  cat ~/.bookmarks.txt | grep -v "^#" | peco | cut -f 2 -d "|" | xargs open
 }
 alias b='vim ~/.bookmarks.txt'
 

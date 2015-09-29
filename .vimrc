@@ -47,10 +47,8 @@ NeoBundle   'tyru/open-browser-github.vim'
 " ColorScheme ----------------------
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'fatih/vim-go'
-" NeoBundle 'majutsushi/tagbar'
-" NeoBundle 'nathanaelkane/vim-indent-guides'
-" NeoBundle 'myusuf3/numbers.vim'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'joonty/vdebug'
 
 "========================================
 " BASE
@@ -224,6 +222,7 @@ nnoremap <Space>s /
 nnoremap f /
 
 nnoremap Y y$
+" nnoremap V v$h
 
 " :Ptでインデントモード切替
 command! Pt :set paste!
@@ -643,3 +642,7 @@ map <leader>p :set ft=php<CR>
 " Nerdtree
 "------------------------------
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
+nmap <Space>' ciW'<c-r>"'<esc>
+vmap <space>' c'<c-r>"'<esc>
