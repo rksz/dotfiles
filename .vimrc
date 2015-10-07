@@ -1,6 +1,4 @@
-"========================================
 " NeoBundle
-"========================================
 if !1 | finish | endif
 if has('vim_starting')
  if &compatible
@@ -9,46 +7,36 @@ if has('vim_starting')
  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  " NeoBundle 'rhysd/clever-f.vim'
+  " NeoBundle 'taglist.vim' " shows tag & method list
+  NeoBundle 'Shougo/neocomplete'
+  NeoBundle 'Shougo/neomru.vim'
+  NeoBundle 'Shougo/unite.vim' , { 'autoload' : { 'commands' : [ 'Unite' ] } }
+  NeoBundle 'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak', 'unix' : 'make -f make_unix.mak', }, }
+  NeoBundle 'fatih/vim-go'
+  NeoBundle 'flazz/vim-colorschemes'
+  NeoBundle 'gcmt/wildfire.vim'
+  NeoBundle 'h1mesuke/vim-alignta'
+  NeoBundle 'joonty/vdebug'
+  NeoBundle 'junegunn/vim-easy-align'
+  NeoBundle 'kana/vim-niceblock'
+  NeoBundle 'kana/vim-operator-replace'
+  NeoBundle 'kana/vim-operator-user'
+  NeoBundle 'kana/vim-textobj-user'
+  NeoBundle 'othree/html5.vim'
+  NeoBundle 'scrooloose/nerdcommenter'
+  NeoBundle 't9md/vim-quickhl'
+  NeoBundle 'thinca/vim-quickrun'
+  NeoBundle 'thinca/vim-ref'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'tpope/vim-surround'
+  NeoBundle 'ujihisa/unite-colorscheme'
+  NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree", "NERDTreeToggle" ] } }
+  NeoBundleLazy 'scrooloose/syntastic' , { 'autoload' : { 'filename_patterns' : [ '.*\.php' ] } }
+  NeoBundleCheck
 call neobundle#end()
 filetype plugin indent on
-NeoBundleCheck
-
-" Edit ------------------------------
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-operator-replace'
-NeoBundle 'kana/vim-niceblock'
-NeoBundle 'gcmt/wildfire.vim'
-" Support ---------------------------
-NeoBundle     't9md/vim-quickhl'
-NeoBundle     'Shougo/neocomplete'
-" NeoBundle     'cecutil'
-" NeoBundle     'jceb/vim-hier'
-" NeoBundle     'rhysd/clever-f.vim'
-NeoBundle     'thinca/vim-quickrun'
-NeoBundle     'thinca/vim-ref'
-NeoBundle     'Shougo/unite.vim' , { 'autoload' : { 'commands' : [ 'Unite' ] } }
-NeoBundle     'ujihisa/unite-colorscheme'
-NeoBundle     'Shougo/neomru.vim'
-NeoBundle     'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak', 'unix' : 'make -f make_unix.mak', }, }
-" NeoBundleLazy 'tpope/vim-fugitive' , { 'autoload' : { 'commands' : [ "Gdiff" ] } }
-NeoBundle 'tpope/vim-fugitive'
-NeoBundleLazy 'scrooloose/syntastic' , { 'autoload' : { 'filename_patterns' : [ '.*\.php' ] } }
-NeoBundleLazy 'scrooloose/nerdtree' , { 'autoload' : { 'commands' : [ "NERDTree", "NERDTreeToggle" ] } }
-NeoBundle                   'taglist.vim' " shows tag & method list
-" NeoBundle 'banyan/recognize_charcode.vim'
-NeoBundle     'tyru/open-browser.vim'
-NeoBundle   'tyru/open-browser-github.vim'
-" ColorScheme ----------------------
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'joonty/vdebug'
 
 "========================================
 " BASE
@@ -110,15 +98,7 @@ set undodir=/tmp
 "========================================
 " COLOR
 "========================================
-" colorscheme jellybeans
-" colorscheme mirodark
-" colorscheme hybrid
-" colorscheme badwolf
-" colorscheme edark
-" colorscheme molokai
-" colorscheme Tomorrow-Night
-colorscheme Monokai
-
+colorscheme jellybeans
 let edark_current_line=1
 let edark_ime_cursor=1
 let edark_insert_status_line=1
@@ -205,7 +185,7 @@ set iminsert=0 imsearch=0
 set noimcmdline
 
 " if expand("%:t") =~ ".*\.go"
-"   set rtp+=$GOROOT/misc/vim 
+"   set rtp+=$GOROOT/misc/vim
 "   exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 "   set noexpandtab tabstop=4 shiftwidth=4 nolist
 " endif
@@ -627,22 +607,17 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
-" nnoremap <Leader>g :OpenGithubFile<CR>
-" vmap     <Leader>g <Plug>:OpenGithubFile<CR>
-
 set t_Co=256
 :let g:html_indent_inctags = "html,body,head,tbody"
 
-map <leader>h :set ft=html<CR> 
+map <leader>h :set ft=html<CR>
 map <leader>p :set ft=php<CR>
-
 
 
 "------------------------------
 " Nerdtree
 "------------------------------
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 
 nmap <Space>' ciW'<c-r>"'<esc>
 vmap <space>' c'<c-r>"'<esc>
