@@ -137,7 +137,8 @@ alias w='repo'
 alias s='sshpeco'
 alias ssh='env TERM=xterm ssh'
 alias ssheuc='env TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
-alias t="tmux attach || tmux"
+alias t="tmux attach || tmuxnew"
+alias tn="tmuxnew"
 alias x='mux'
 alias u='up'
 alias up='cd ..; ll'
@@ -147,6 +148,11 @@ alias vem="vim -c 'color Tomorrow-Night-Eighties' -c 'Unite file_mru'"
 alias k="work"
 alias X="tmux kill-server"
 alias M="mvim ~/Desktop/$(date +%Y%m%d)_tmp.md"
+
+tmuxnew() {
+    name=$(basename `pwd`)
+    tmux new -s $name
+}
 
 findf() {
     target=$(find . -type f -name "*$1*" | egrep -v '.git|vendors|.bundle|.DS_Store|.vagrant|.chef' | peco)
@@ -237,11 +243,11 @@ bindkey '^Z' fancy-ctrl-z
 # ------------------------------------------------------------
 case "${OSTYPE}" in
 darwin*)
-    export GOPATH="$HOME/.go/"
+    export GOPATH="$HOME/.go"
     export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-    export PATH=~/.composer/vendor/bin:~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:/Applications/MacVim.app/Contents/MacOS:~/Applications/Vagrant/bin/:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin/:$PATH
+    export PATH=~/.composer/vendor/bin:~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:/Applications/MacVim.app/Contents/MacOS:~/Applications/Vagrant/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin:$PATH
     #export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
-    #export PATH=~/Applications/Vagrant/bin/:$PATH
+    #export PATH=~/Applications/Vagrant/bin:$PATH
     #export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
     #export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     #export PATH=$GOPATH/bin:$PATH

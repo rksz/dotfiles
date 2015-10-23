@@ -98,7 +98,8 @@ set undodir=/tmp
 "========================================
 " COLOR
 "========================================
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme monokai
 let edark_current_line=1
 let edark_ime_cursor=1
 let edark_insert_status_line=1
