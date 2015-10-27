@@ -81,9 +81,6 @@ chrome_bookmarks() {
 }
 alias b='vim ~/.bookmarks.txt'
 
-
-
-
 # ------------------------------------------------------------
 # Common Aliases
 # ------------------------------------------------------------
@@ -96,13 +93,13 @@ alias -g P="| peco | ruby -pe 'chomp' | pbcopy"
 alias -g R="| rsync -av --files-from=- . /tmp/"
 alias -g S="| sed"
 # alias -g V="| col -bx | vim -R -"
-alias -g V="vim ~/dotfiles/Vagrantfile"
 alias -g Z="| tar -cvzf files_$(date +%Y%m%d%H%M%S).tgz --files-from=-"
 alias ls="ls --color"
 alias allnice="ionice -c2 -n7 nice -n19"
 alias be='bundle exec' # bundler
 alias c='digdir_with_peco_shallow'
-alias vm='vagrant ssh || echo "start running vm..." && vagrant up'
+# alias vm='vagrant ssh || echo "start running vm..." && vagrant up'
+alias vm='vagrant ssh'
 alias cp='nocorrect cp -irp'
 alias df="df -h"
 alias dstat-cpu='dstat -Tclr'
