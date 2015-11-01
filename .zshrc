@@ -98,6 +98,7 @@ alias ls="ls --color"
 alias allnice="ionice -c2 -n7 nice -n19"
 alias be='bundle exec' # bundler
 alias c='digdir_with_peco_shallow'
+alias C='cd -'
 # alias vm='vagrant ssh || echo "start running vm..." && vagrant up'
 alias vm='vagrant ssh'
 alias cp='nocorrect cp -irp'
@@ -176,7 +177,7 @@ digdir_with_peco() {
 }
 digdir_with_peco_shallow() {
     peco_query=$@
-    dir=$(find  -L . -type d -maxdepth 1 -not -path '*/\.*'| peco --query="$peco_query")
+    dir=$(find  -L . -type d -maxdepth 3 -not -path '*/\.*'| peco --query="$peco_query")
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
         echo ll
