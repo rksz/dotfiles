@@ -264,6 +264,7 @@ darwin*)
     alias desk='open ~/Desktop'
     alias sourcetree='open -a SourceTree'
     alias mvim="/Applications/MacVim.app/Contents/MacOS/mvim -c NERDTreeToggle -c 'normal O'"
+    alias agg='ag -g'
 
     here() {
         tmux rename-window $(basename `pwd`)
