@@ -521,3 +521,7 @@ elif complete >/dev/null 2>&1; then
     }
 fi
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/shimma/.sdkman"
+[[ -s "/Users/shimma/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/shimma/.sdkman/bin/sdkman-init.sh"

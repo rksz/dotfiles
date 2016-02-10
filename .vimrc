@@ -243,7 +243,7 @@ nnoremap <C-w><C-w> :wincmd =<CR>  " automatic window resize
 " file path yank
 nnoremap yr :let @*=expand("%")<CR>
 nnoremap yp :let @*=expand("%:p")<CR>
-nnoremap M :! open %:p -a MacVim<CR>
+nnoremap M :! open %:p -a Atom<CR>
 
 nnoremap <Space>t :tabnew<CR>
 nnoremap <Space>q :q!<CR>

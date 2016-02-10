@@ -128,6 +128,7 @@ darwin*)
     brew cask install virtualbox            || true
     brew cask install vlc
     brew cask install showyedge
+    brew cask install xmind
 
     # fonts via caskroom-fonts
     brew cask install font-fontawesome
@@ -146,7 +147,11 @@ darwin*)
     vagrant plugin install sahara
     vagrant plugin install vagrant-vbox-snapshot
     vagrant plugin install vagrant-omnibus
+
+    ##SDKMAN
+    curl -s api.sdkman.io | bash
 ;;
+
 linux*)
     echo "nothing"
 ;;
