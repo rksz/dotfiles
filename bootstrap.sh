@@ -129,6 +129,7 @@ darwin*)
     brew cask install vlc
     brew cask install showyedge
     brew cask install xmind
+    brew cask install amethyst
 
     # fonts via caskroom-fonts
     brew cask install font-fontawesome
