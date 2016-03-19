@@ -9,6 +9,7 @@ exit
 #------------------------------------------------------------
 # Basic Installation
 #------------------------------------------------------------
+ln -s $HOME/dotfiles/.config            $HOME/
 ln -s $HOME/dotfiles/.peco              $HOME/
 ln -s $HOME/dotfiles/.zsh               $HOME/
 ln -s $HOME/dotfiles/.zshrc             $HOME/
