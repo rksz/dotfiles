@@ -110,9 +110,9 @@ cnoremap <Down> <C-n>
 "========================================
 " Skeleton
 "========================================
-autocmd BufNewFile *.sh  0r ~/.vim/skeleton/skeleton.sh
-autocmd BufNewFile *.pl  0r ~/.vim/skeleton/skeleton.perl
-autocmd BufNewFile *.php 0r ~/.vim/skeleton/skeleton.php
+autocmd BufNewFile *.sh  0r ~/.config/nvim/skeleton/skeleton.sh
+autocmd BufNewFile *.pl  0r ~/.config/nvim/skeleton/skeleton.perl
+autocmd BufNewFile *.php 0r ~/.config/nvim/skeleton/skeleton.php
 
 
 "========================================
@@ -459,7 +459,7 @@ let g:unite_split_rule = "belowright"
 let g:neomru#file_mru_limit = 2000
 
 nnoremap [unite]U                 :<C-u>Unite -no-split<Space>
-nnoremap <silent> [unite]a        :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+" nnoremap <silent> [unite]a        :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 " nnoremap <silent> [unite]f        :<C-u>Unite -buffer-name=files file<CR>
 nnoremap <silent> [unite]f        :<C-u>Unite file_rec<CR>
 nnoremap <silent> [unite]b        :<C-u>Unite buffer<CR>
@@ -469,6 +469,7 @@ nnoremap <silent> [unite]c        :<C-u>Unite colorscheme<CR>
 nnoremap <silent> [unite]d        :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> [unite]o        :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
 nnoremap <silent> m               :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]a        :<C-u>Unite file_rec/async:!<CR>
 nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 

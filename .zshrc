@@ -41,18 +41,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 compinit -C
 
-#zle -N limited_autojump_with_peco
-## bindkey "^h" limited_autojump_with_peco
-#limited_autojump_with_peco () {
-#    query=$(pwd)
-#    dir=$(z | sort -nr | grep "$query" | awk "{print \$2}" | peco)
-#    if [[ -d $dir && -n $dir ]]; then
-#        cd $dir
-#        echo "ll"
-#        ls -al --color
-#    fi
-#    zle reset-prompt
-#}
 zle -N autojump_with_peco
 bindkey "^j" autojump_with_peco
 autojump_with_peco () {
@@ -243,7 +231,7 @@ case "${OSTYPE}" in
 darwin*)
     export GOPATH="$HOME/.go"
     export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-    export PATH=~/.composer/vendor/bin:~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:/Applications/MacVim.app/Contents/MacOS:~/Applications/Vagrant/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin:$PATH
+    export PATH=~/.composer/vendor/bin:~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:~/Applications/Vagrant/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin:$PATH
     #export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
     #export PATH=~/Applications/Vagrant/bin:$PATH
     #export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
@@ -259,7 +247,8 @@ darwin*)
     alias tailf='tail -f'
     alias tma='env TERM=screen-256color-bce tmux attach'
     alias tmux="env TERM=screen-256color-bce tmux" #keep vim colorscheme in tmux mode
-    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+    # alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+    alias vim='nvim'
     alias vimdiff='/Applications/MacVim.app/Contents/MacOS/vimdiff'
     alias desk='open ~/Desktop'
     alias sourcetree='open -a SourceTree'
@@ -282,21 +271,6 @@ darwin*)
     }
 ;;
 esac
-memo() {
-    today=$(date "+%Y%m%d")
-    memofile=${today}_memo.md
-    memofile_past=$(find * -type f -maxdepth 0 | grep "_memo" | grep ".md" | sort | tail -1)
-    if [[ -f $memofile_past && $memofile != $memofile_past ]]; then
-        # vim $memofile_past $memofile -c "vs" -c "bn" -c "NERDTreeToggle" -c "wincmd ="
-        vim $memofile_past $memofile -c "vs" -c "bn" -c "wincmd ="
-    else
-        vim $memofile
-    fi
-}
-
-# disabled this temporary for hispeed loading
-# [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
 
 # ------------------------------------------------------------
 # Z https://github.com/rupa/z
@@ -520,8 +494,3 @@ elif complete >/dev/null 2>&1; then
         }
     }
 fi
-
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/shimma/.sdkman"
-[[ -s "/Users/shimma/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/shimma/.sdkman/bin/sdkman-init.sh"
