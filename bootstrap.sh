@@ -9,25 +9,25 @@ exit
 #------------------------------------------------------------
 # Basic Installation
 #------------------------------------------------------------
+# ln -s $HOME/dotfiles/.dir_colors        $HOME/
+# ln -s $HOME/dotfiles/.taskrc            $HOME/
+# ln -s $HOME/dotfiles/.tmux.conf.local   $HOME/
+# ln -s $HOME/dotfiles/.vimrc             $HOME/
+# ln -s $HOME/dotfiles/.zshrc.alias       $HOME/
+# ln -s $HOME/dotfiles/.zshrc.alias.local $HOME/
+# ln -s $HOME/dotfiles/.vim               $HOME/
+# vim -N -u $HOME/.vimrc -c "try | NeoBundleUpdate $* | finally | qall! | endtry" -U NONE -i NONE -V1 -e -s
+git submodule foreach git checkout master
+git submodule update --init
 ln -s $HOME/dotfiles/.config            $HOME/
-ln -s $HOME/dotfiles/.peco              $HOME/
-ln -s $HOME/dotfiles/.zsh               $HOME/
-ln -s $HOME/dotfiles/.zshrc             $HOME/
-ln -s $HOME/dotfiles/.zshrc.alias       $HOME/
 ln -s $HOME/dotfiles/.ctags             $HOME/
 ln -s $HOME/dotfiles/.gitignore         $HOME/
-ln -s $HOME/dotfiles/.vimrc             $HOME/
-ln -s $HOME/dotfiles/.tmux.conf         $HOME/
-ln -s $HOME/dotfiles/.dir_colors        $HOME/
-ln -s $HOME/dotfiles/.vim               $HOME/
 ln -s $HOME/dotfiles/.gvimrc            $HOME/
-ln -s $HOME/dotfiles/.taskrc            $HOME/
-ln -s $HOME/dotfiles/.zshrc.alias.local $HOME/
-ln -s $HOME/dotfiles/.tmux.conf.local   $HOME/
+ln -s $HOME/dotfiles/.peco              $HOME/
+ln -s $HOME/dotfiles/.tmux.conf         $HOME/
+ln -s $HOME/dotfiles/.zsh               $HOME/
+ln -s $HOME/dotfiles/.zshrc             $HOME/
 ln -s $HOME/dotfiles/Vagrantfile        $HOME/
-git submodule update --init
-git submodule foreach git checkout master
-vim -N -u $HOME/.vimrc -c "try | NeoBundleUpdate $* | finally | qall! | endtry" -U NONE -i NONE -V1 -e -s
 
 
 #------------------------------------------------------------
@@ -80,6 +80,7 @@ darwin*)
     brew install zsh                        || true
     brew install ag                         || true
     brew install peco                       || true
+    brew install neovim                     || true
     echo export "PATH=\$(brew --prefix php55)/bin:\$PATH" >> ~/.profile
 
     # tools via npm
@@ -127,7 +128,7 @@ darwin*)
     brew cask install the-unarchiver        || true
     brew cask install vagrant               || true
     brew cask install virtualbox            || true
-    brew cask install vlc
+    # brew cask install vlc
     brew cask install showyedge
     brew cask install xmind
     brew cask install amethyst
@@ -144,7 +145,6 @@ darwin*)
     # vagrant
     vagrant plugin install vagrant-login
     vagrant plugin install vagrant-global-status
-    vagrant plugin install vagrant-hostmanager
     vagrant plugin install vagrant-cachier
     vagrant plugin install sahara
     vagrant plugin install vagrant-vbox-snapshot
@@ -158,3 +158,22 @@ linux*)
     echo "nothing"
 ;;
 esac
+
+# pip3 install neovim
+#
+# brew cask list
+# alfred               brackets             evernote             github-desktop       hoster               licecap              mysqlworkbench       showyedge            sourcetree           vagrant-manager
+# amethyst             colors               filezilla            google-chrome        hosts                onyx                 skitch               spectacle
+# android-studio       dash                 firefox              google-drive         iterm2               menubarfilter        pencil               skype                sublime-text         virtualbox
+# atom                 dockertoolbox        flashlight           google-japanese-ime  java                 poedit               slack                the-unarchiver       xmind
+# bitcoin-core         eclipse-java         fluid                hipchat              karabiner            prepros              vagrant
+#
+
+
+# brew list
+# ack       bdw-gc       brew-file  curl            fig          gettext          hub       libpng    mobile-shell  node       php-code-sniffer  rbenv                       task                   unixodbc  xz
+# ansible   binutils     cmake      dnsmasq         findutils    gmp              hugo      libtasn1  mysql         oniguruma  php56             readline                    the_silver_searcher    vim       zlib
+# ant       bison        cocot      docker          freetype     gnutls           icu4c     libtool   neovim        openssl    phpmd             reattach-to-user-namespace  tig                    vit       zsh
+# autoconf  boost        composer   docker-compose  fuse4x       go               jpeg      libxml2   nettle        parallel   pkg-config        sl                          tmux                   w3m
+# autojump  boot2docker  coreutils  docker-machine  fuse4x-kext  heroku-toolbelt  jq        libyaml   nkf           pcre       protobuf          sqlite                      tmuxinator-completion  watch
+# automake  brew-cask    ctags      euler-py        gdbm         htop-osx         libevent  lynx      nmap          peco       python3           subversion                  tree                   wget

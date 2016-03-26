@@ -53,21 +53,46 @@ autojump_with_peco () {
     zle reset-prompt
 }
 
+zle -N vim_file_mru
+bindkey "^o" vim_file_mru
+vim_file_mru () {
+    sh -c 'nvim -c "Unite file_mru" </dev/tty'
+    zle reset-prompt
+}
+
 zle -N chrome_history
-bindkey "^o" chrome_history
+bindkey "^h" chrome_history
 chrome_history() {
   filter=$(cat ~/.chrome_history_filter)
   cat ~/Library/Application\ Support/Google/Chrome/Default/History >/tmp/h
   sqlite3 /tmp/h "select url from urls order by last_visit_time desc"  | egrep $filter | peco | xargs open
 }
 
-
-zle -N chrome_bookmarks
-bindkey "^h" chrome_bookmarks
-chrome_bookmarks() {
-  cat ~/.bookmarks.txt | grep -v "^#" | peco | cut -f 2 -d "|" | xargs open
+zle -N clear-screen-and-ls
+bindkey '^L' clear-screen-and-ls
+function clear-screen-and-ls() {
+    clear
+    ls -l --color
+    zle reset-prompt
 }
-alias b='vim ~/.bookmarks.txt'
+
+zle -N digdir_with_peco_shallow
+bindkey '^n' digdir_with_peco_shallow
+function digdir_with_peco_shallow() {
+    peco_query=$@
+    dir=$(find  -L . -type d -maxdepth 3 -not -path '*/\.*'| peco --query="$peco_query")
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+    fi
+    zle reset-prompt
+}
+
+# zle -N chrome_bookmarks
+# bindkey "^h" chrome_bookmarks
+# chrome_bookmarks() {
+#   cat ~/.bookmarks.txt | grep -v "^#" | peco | cut -f 2 -d "|" | xargs open
+# }
+# alias b='vim ~/.bookmarks.txt'
 
 # ------------------------------------------------------------
 # Common Aliases
@@ -77,7 +102,7 @@ alias -g G="| grep"
 alias -g H="| head"
 alias -g L="| less"
 alias -g O="| xargs open"
-alias -g P="| peco | ruby -pe 'chomp' | pbcopy"
+# alias -g P="| peco | ruby -pe 'chomp' | pbcopy"
 alias -g R="| rsync -av --files-from=- . /tmp/"
 alias -g S="| sed"
 # alias -g V="| col -bx | vim -R -"
@@ -85,11 +110,14 @@ alias -g Z="| tar -cvzf files_$(date +%Y%m%d%H%M%S).tgz --files-from=-"
 alias ls="ls --color"
 alias allnice="ionice -c2 -n7 nice -n19"
 alias be='bundle exec' # bundler
-alias c='digdir_with_peco_shallow'
+# alias c='digdir_with_peco_shallow'
 alias C='cd -'
 # alias vm='vagrant ssh || echo "start running vm..." && vagrant up'
 alias vm='vagrant ssh'
 alias cp='nocorrect cp -irp'
+function p () {
+    echo $@ | pbcopy
+}
 alias df="df -h"
 alias dstat-cpu='dstat -Tclr'
 alias dstat-disk='dstat -Tcldr'
@@ -117,7 +145,8 @@ alias la="ls -a"
 alias ll="ls -l"
 alias m='vim -c "Unite file_mru"'
 alias md='vim ./*.md'
-alias n="vim -c NERDTreeToggle -c 'normal O'"
+# alias n="vim -c NERDTreeToggle -c 'normal O'"
+alias n="vim -c NERDTreeToggle"
 alias pk='pkill -f'
 alias w='repo'
 alias s='sshpeco'
@@ -157,15 +186,6 @@ sshpeco () {
 digdir_with_peco() {
     peco_query=$@
     dir=$(find  -L . -type d -not -path '*/\.*'| peco --query="$peco_query")
-    if [[ -d $dir && -n $dir ]]; then
-        cd $dir
-        echo ll
-        ll
-    fi
-}
-digdir_with_peco_shallow() {
-    peco_query=$@
-    dir=$(find  -L . -type d -maxdepth 3 -not -path '*/\.*'| peco --query="$peco_query")
     if [[ -d $dir && -n $dir ]]; then
         cd $dir
         echo ll
@@ -253,7 +273,7 @@ darwin*)
     alias desk='open ~/Desktop'
     alias sourcetree='open -a SourceTree'
     alias mvim="/Applications/MacVim.app/Contents/MacOS/mvim -c NERDTreeToggle -c 'normal O'"
-    alias agg='ag -g'
+    alias agg='ag -ig'
 
     here() {
         tmux rename-window $(basename `pwd`)

@@ -61,3 +61,7 @@ repo = 'Shougo/vimproc.vim'
   mac     = 'make -f make_mac.mak'
   linux   = 'make'
   unix    = 'gmake'
+
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
