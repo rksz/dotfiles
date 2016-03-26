@@ -1,24 +1,28 @@
-" export XDG_CONFIG_HOME=~/.config
-let s:dein_dir = expand('~/.cache/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-endif
-call dein#begin(s:dein_dir)
-let s:toml      = '~/.config/nvim/dein.toml'
-let s:lazy_toml = '~/.config/nvim/dein_lazy.toml'
-if dein#load_cache([expand('<sfile>'), s:toml, s:lazy_toml])
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-  call dein#save_cache()
-endif
-call dein#end()
-if dein#check_install()
-  call dein#install()
-endif
+call plug#begin('~/.cache/vim-plug')
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'flazz/vim-colorschemes'
+Plug 'gcmt/wildfire.vim'
+Plug 'h1mesuke/vim-alignta'
+Plug 'junegunn/vim-easy-align'
+Plug 'kana/vim-niceblock'
+Plug 'kana/vim-operator-replace'
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-textobj-user'
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'scrooloose/nerdcommenter'
+Plug 't9md/vim-quickhl'
+Plug 'thinca/vim-quickrun'
+Plug 'thinca/vim-ref'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'ujihisa/unite-colorscheme'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree' ]}
+Plug 'scrooloose/syntastic'
+call plug#end()
 
 " nvim configure https://github.com/neovim/neovim/issues/2048
 nmap <BS> <C-W>h
