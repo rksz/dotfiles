@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'ujihisa/unite-colorscheme'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
@@ -26,7 +27,7 @@ call plug#end()
 
 " nvim configure https://github.com/neovim/neovim/issues/2048
 nmap <BS> <C-W>h
-
+" autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 "========================================
 " BASE
 "========================================
@@ -177,11 +178,6 @@ set noimdisable            " insertモードを抜けるとIMEオフ
 set iminsert=0 imsearch=0
 set noimcmdline
 
-" if expand("%:t") =~ ".*\.go"
-"   set rtp+=$GOROOT/misc/vim
-"   exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
-"   set noexpandtab tabstop=4 shiftwidth=4 nolist
-" endif
 au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 nolist
 
 
@@ -197,10 +193,9 @@ nnoremap f /
 nnoremap Y y$
 " nnoremap V v$h
 
-" :Ptでインデントモード切替
 command! Pt :set paste!
 
-" 保存時に行末の空白を除去する
+
 function! s:remove_dust()
     let cursor = getpos(".")
     %s/\s\+$//ge
@@ -213,14 +208,11 @@ inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
 inoremap <expr> ,dd strftime('%Y/%m/%d (%a)')
 inoremap <expr> ,dt strftime('%H:%M:%S')
 
-" quickfixウィンドウではq/ESCで閉じる
 autocmd FileType qf nnoremap <buffer> q :ccl<CR>
 autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
 
-" Save
 nnoremap <Space>w :w<CR>
 
-" 区切り文字
 inoreabbrev dk ========================================
 inoreabbrev dj ------------------------------
 
@@ -242,46 +234,45 @@ nnoremap <Space>q :q!<CR>
 nnoremap ` :qa!<CR>
 nnoremap <Space>n gt
 nnoremap <Space>p gT
-" nnoremap <C-j> :q<CR>
 
 "========================================
 " INDENT
 "========================================
-set autoindent   " 自動でインデント
-set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
-set cindent      " Cプログラムファイルの自動インデントを始める
+set autoindent
+set smartindent
+set cindent
 set tabstop=2 shiftwidth=2 softtabstop=0
 
 if has("autocmd")
-  filetype plugin on "ファイルタイプの検索を有効にする
-  filetype indent on "そのファイルタイプにあわせたインデントを利用する
-  autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType go         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+filetype plugin on "ファイルタイプの検索を有効にする
+filetype indent on "そのファイルタイプにあわせたインデントを利用する
+autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
+autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
+autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
+autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
+autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+autocmd FileType go         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 endif
 
 
@@ -301,7 +292,6 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 nnoremap ( %
 nnoremap ) %
 
-"ビジュアルモード時vで行末まで選択
 vnoremap v $h
 
 " CTRL-hjklでウィンドウ移動
@@ -396,21 +386,19 @@ nnoremap <silent> [unite]d        :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> [unite]o        :<C-u>Unite -vertical -no-quit -winwidth=40 outline<CR>
 nnoremap <silent> m               :<C-u>Unite file_mru<CR>
 nnoremap <silent> <C-o>           :<C-u>Unite file_mru<CR>
+nnoremap <silent> <C-i>           :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]a        :<C-u>Unite file_rec/async:!<CR>
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ,a              :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,ca             :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 
 nnoremap <silent> <Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> <Leader>s  :<C-u>Unite line<CR>
 
-" unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
-
-" カーソル位置の単語をgrep検索
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
@@ -426,13 +414,6 @@ function! s:unite_my_settings()
   nnoremap <silent> <buffer><expr> <C-l> unite#do_action('vsplit')
   inoremap <silent> <buffer><expr> <C-l> unite#do_action('vsplit')
 endfunction
-
-"------------------------------
-" vim-ref
-"------------------------------
-" let g:ref_phpmanual_path = $HOME . '/dotfiles/ref/php-chunked-xhtml'
-" let g:ref_refe_path = $HOME . '/dotfiles/ref/ruby-refm-1.9.3-dynamic-20120829'
-" nnoremap <silent> [unite]p  :<C-u>Unite -no-split ref/phpmanual<CR>
 
 "------------------------------
 " quickrun.vim
