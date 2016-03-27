@@ -1,28 +1,29 @@
 call plug#begin('~/.cache/vim-plug')
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'flazz/vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
+Plug 'itchyny/landscape.vim'
 Plug 'gcmt/wildfire.vim'
-Plug 'h1mesuke/vim-alignta'
-Plug 'junegunn/vim-easy-align'
+Plug 'h1mesuke/vim-alignta', { 'on': 'Alignta' }
+Plug 'junegunn/vim-easy-align', { 'on': '<Plug>(EasyAlign)' }
 Plug 'kana/vim-niceblock'
-Plug 'kana/vim-operator-replace'
+Plug 'kana/vim-operator-replace', { 'on': '<Plug>(operator-replace)' }
 Plug 'kana/vim-operator-user'
-Plug 'kana/vim-textobj-user'
+" Plug 'kana/vim-textobj-user'
 Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'scrooloose/nerdcommenter'
-Plug 't9md/vim-quickhl'
-Plug 'thinca/vim-quickrun'
-Plug 'thinca/vim-ref'
-Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter', { 'for': [ 'vim', 'go', 'php'] }
+Plug 't9md/vim-quickhl', { 'on': '<Plug>(quickhl-manual-this)' }
+" Plug 'thinca/vim-quickrun'
+" Plug 'thinca/vim-ref'
+" Plug 'tpope/vim-fugitive', { 'on': ['Gdiff', 'Glog' ] }
+" Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'ujihisa/unite-colorscheme'
+" Plug 'ujihisa/unite-colorscheme'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree' ]}
-Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic', { 'for': [ 'go', 'php'] }
 call plug#end()
 
 " nvim configure https://github.com/neovim/neovim/issues/2048
@@ -72,14 +73,9 @@ function! s:ChangeCurrentDir(directory, bang)
     endif
 endfunction
 
-" Change current directory.
-nnoremap <silent> <Space>cd :CD<CR>
-
-" Reload file buffer
-nnoremap <silent> <Space>e :e!<CR>
-
-" Remove dust
-nnoremap <silent> <Space>r :Rd<CR>
+nnoremap <silent> <Space>cd :CD<CR> " Change current directory.
+nnoremap <silent> <Space>e :e!<CR>  " Reload file buffer
+nnoremap <silent> <Space>r :Rd<CR>  " Remove dust
 
 let $TODAY=strftime('%Y%m%d')
 set undodir=/tmp
@@ -96,7 +92,6 @@ colorscheme landscape
 let edark_current_line=1
 let edark_ime_cursor=1
 let edark_insert_status_line=1
-
 syntax enable
 highlight PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
 
@@ -108,7 +103,6 @@ set wildchar=<tab>         " コマンド補完を開始するキー
 set wildmode=list:full     " リスト表示，最長マッチ
 set history=1000           " コマンド・検索パターンの履歴数
 set complete+=k            " 補完に辞書ファイル追加
-
 cnoremap <C-p> <Up>
 cnoremap <Up>  <C-p>
 cnoremap <C-n> <Down>
@@ -177,9 +171,7 @@ set expandtab              " Tabキーを空白に変換
 set noimdisable            " insertモードを抜けるとIMEオフ
 set iminsert=0 imsearch=0
 set noimcmdline
-
 au BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 nolist
-
 
 " escape mapping
 inoremap jj <Esc>
@@ -192,9 +184,7 @@ nnoremap f /
 
 nnoremap Y y$
 " nnoremap V v$h
-
 command! Pt :set paste!
-
 
 function! s:remove_dust()
     let cursor = getpos(".")
@@ -244,35 +234,35 @@ set cindent
 set tabstop=2 shiftwidth=2 softtabstop=0
 
 if has("autocmd")
-filetype plugin on "ファイルタイプの検索を有効にする
-filetype indent on "そのファイルタイプにあわせたインデントを利用する
-autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
-autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
-autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
-autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType go         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
-autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+  filetype plugin on "ファイルタイプの検索を有効にする
+  filetype indent on "そのファイルタイプにあわせたインデントを利用する
+  autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType go         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 endif
 
 
@@ -280,26 +270,16 @@ endif
 " Move
 "========================================
 set virtualedit+=block " 矩形選択で自由に移動する
-
-"<space>系の移動
 nnoremap <Space>h ^
 nnoremap <Space>l $
-
-" 前回終了したカーソル行に移動
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-
-" 対応する括弧に移動
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif " 前回終了したカーソル行に移動
 nnoremap ( %
 nnoremap ) %
-
 vnoremap v $h
-
-" CTRL-hjklでウィンドウ移動
 " nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
-
 " enabled cursor key
 nnoremap OA gi<Up>
 nnoremap OB gi<Down>
@@ -313,7 +293,6 @@ nnoremap OD gi<Left>
 set ffs=unix,dos,mac
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
-
 autocmd FileType js    :set fileencoding=utf-8
 autocmd FileType css   :set fileencoding=utf-8
 autocmd FileType html  :set fileencoding=utf-8
@@ -331,7 +310,7 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 
 "========================================
-" NeoBundle Plugins
+" Vim-Plugins
 "========================================
 let g:deoplete#enable_at_startup = 1
 
@@ -415,29 +394,29 @@ function! s:unite_my_settings()
   inoremap <silent> <buffer><expr> <C-l> unite#do_action('vsplit')
 endfunction
 
-"------------------------------
-" quickrun.vim
-"------------------------------
-let g:quickrun_config = {}
-
-"------------------------------
-" Pydiction
-"------------------------------
-let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-let g:quickrun_config.markdown = {
-      \ 'outputter' : 'null',
-      \ 'command'   : 'open',
-      \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Marked\ 2',
-      \ 'exec'      : '%c %o %a %s',
-      \ }
-let g:quickrun_config.mkd = {
-      \ 'outputter' : 'null',
-      \ 'command'   : 'open',
-      \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Marked\ 2',
-      \ 'exec'      : '%c %o %a %s',
-      \ }
+" "------------------------------
+" " quickrun.vim
+" "------------------------------
+" let g:quickrun_config = {}
+"
+" "------------------------------
+" " Pydiction
+" "------------------------------
+" let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+" let g:quickrun_config.markdown = {
+"       \ 'outputter' : 'null',
+"       \ 'command'   : 'open',
+"       \ 'cmdopt'    : '-a',
+"       \ 'args'      : 'Marked\ 2',
+"       \ 'exec'      : '%c %o %a %s',
+"       \ }
+" let g:quickrun_config.mkd = {
+"       \ 'outputter' : 'null',
+"       \ 'command'   : 'open',
+"       \ 'cmdopt'    : '-a',
+"       \ 'args'      : 'Marked\ 2',
+"       \ 'exec'      : '%c %o %a %s',
+"       \ }
 
 "------------------------------
 " Syntastic
@@ -508,7 +487,6 @@ set t_Co=256
 
 map <leader>h :set ft=html<CR>
 map <leader>p :set ft=php<CR>
-
 
 "------------------------------
 " Nerdtree
