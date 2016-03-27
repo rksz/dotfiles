@@ -386,10 +386,6 @@ function! s:unite_my_settings()
   imap     <buffer> jj             <Plug>(unite_insert_leave)
   nnoremap <silent> <buffer>       <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
   imap     <buffer> <C-w>          <Plug>(unite_delete_backward_path)
-  " nnoremap <silent> <buffer><expr> <C-l> unite#do_action('split')
-  " inoremap <silent> <buffer><expr> <C-l> unite#do_action('split')
-  " nnoremap <silent> <buffer><expr> <C-v> unite#do_action('vsplit')
-  " inoremap <silent> <buffer><expr> <C-v> unite#do_action('vsplit')
   nnoremap <silent> <buffer><expr> <C-l> unite#do_action('vsplit')
   inoremap <silent> <buffer><expr> <C-l> unite#do_action('vsplit')
 endfunction
