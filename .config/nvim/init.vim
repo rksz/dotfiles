@@ -10,7 +10,7 @@ Plug 'kana/vim-operator-replace', { 'on': '<Plug>(operator-replace)' }
 Plug 'kana/vim-operator-user'
 " Plug 'kana/vim-textobj-user'
 Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'scrooloose/nerdcommenter', { 'for': [ 'vim', 'go', 'php'] }
+Plug 'scrooloose/nerdcommenter', { 'for': [ 'vim', 'go', 'php', 'sh'] }
 Plug 't9md/vim-quickhl', { 'on': '<Plug>(quickhl-manual-this)' }
 " Plug 'thinca/vim-quickrun'
 " Plug 'thinca/vim-ref'

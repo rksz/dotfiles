@@ -60,24 +60,35 @@ vim_file_mru () {
     zle reset-prompt
 }
 
-zle -N chrome_history
-bindkey "^h" chrome_history
-chrome_history() {
-  filter=$(cat ~/.chrome_history_filter)
-  cat ~/Library/Application\ Support/Google/Chrome/Default/History >/tmp/h
-  sqlite3 /tmp/h "select url from urls order by last_visit_time desc"  | egrep $filter | peco | xargs open
-}
-
-zle -N clear-screen-and-ls
-bindkey '^L' clear-screen-and-ls
-function clear-screen-and-ls() {
-    clear
-    ls -l --color
+zle -N jump_repo
+bindkey "^h" jump_repo
+function jump_repo() {
+    peco_query=$@
+    dir=$(ghq list -p | peco --query="$peco_query")
+    if [[ -d $dir && -n $dir ]]; then
+        cd $dir
+    fi
     zle reset-prompt
 }
 
+#zle -N chrome_history
+##bindkey "^h" chrome_history
+#chrome_history() {
+#  filter=$(cat ~/.chrome_history_filter)
+#  cat ~/Library/Application\ Support/Google/Chrome/Default/History >/tmp/h
+#  sqlite3 /tmp/h "select url from urls order by last_visit_time desc"  | egrep $filter | peco | xargs open
+#}
+#
+# zle -N clear-screen-and-ls
+# bindkey '^L' clear-screen-and-ls
+# function clear-screen-and-ls() {
+#     clear
+#     ls -l --color
+#     zle reset-prompt
+# }
+
 zle -N digdir_with_peco_shallow
-bindkey '^n' digdir_with_peco_shallow
+bindkey '^u' digdir_with_peco_shallow
 function digdir_with_peco_shallow() {
     peco_query=$@
     dir=$(find  -L . -type d -maxdepth 3 -not -path '*/\.*'| peco --query="$peco_query")
@@ -252,6 +263,7 @@ darwin*)
     export GOPATH="$HOME/.go"
     export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
     export PATH=~/.composer/vendor/bin:~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:~/Applications/Vagrant/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin:$PATH
+    export PATH=/usr/local/php5/bin:$PATH
     #export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
     #export PATH=~/Applications/Vagrant/bin:$PATH
     #export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
