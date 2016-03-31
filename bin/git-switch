@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cd ~
+TARGET=~/.gitconfig.local.${1:?}
+if [ -f $TARGET ]; then
+  cp -vf $TARGET ~/.gitconfig.local
+fi
+
