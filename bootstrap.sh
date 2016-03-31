@@ -118,7 +118,7 @@ darwin*)
 ;;
 
 linux*)
-    echo "nothing"
+    echo "nothingtest"
 ;;
 esac
 
