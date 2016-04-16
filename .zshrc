@@ -239,7 +239,8 @@ bindkey '^r' peco-select-history
 
 function man() {
   c=$1
-  /usr/bin/man ${c} | col -bx | env EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim $EDITOR -R -
+  #/usr/bin/man ${c} | col -bx | env EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim $EDITOR -R -
+  /usr/bin/man ${c} | col -bx | /usr/local/bin/nvim -
 }
 
 
@@ -262,8 +263,8 @@ case "${OSTYPE}" in
 darwin*)
     export GOPATH="$HOME/.go"
     export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-    export PATH=~/.composer/vendor/bin:~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:~/Applications/Vagrant/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin:$PATH
-    export PATH=/usr/local/php5/bin:$PATH
+    export PATH=~/.composer/vendor/bin:~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:~/Applications/Vagrant/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin:~/.cache/gem/bin:/usr/local/php5/bin:$PATH
+    export GEM_HOME=$HOME/.cache/gem
     #export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
     #export PATH=~/Applications/Vagrant/bin:$PATH
     #export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
@@ -275,7 +276,6 @@ darwin*)
     alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
     alias f='open .'
     alias git=hub # hub command - eval "$(hub alias -s)"
-    alias mi="open $1 -a ~/Applications/mi.app/Contents/MacOS/mi"
     alias tailf='tail -f'
     alias tma='env TERM=screen-256color-bce tmux attach'
     alias tmux="env TERM=screen-256color-bce tmux" #keep vim colorscheme in tmux mode
@@ -286,7 +286,7 @@ darwin*)
     alias sourcetree='open -a SourceTree'
     alias mvim="/Applications/MacVim.app/Contents/MacOS/mvim -c NERDTreeToggle -c 'normal O'"
     alias agg='ag -ig'
-
+    alias get='ghq get -p'
     here() {
         tmux rename-window $(basename `pwd`)
     }
