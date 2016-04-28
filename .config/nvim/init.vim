@@ -181,6 +181,7 @@ inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 nnoremap <Space>S :%s!
 nnoremap <Space>s /
 nnoremap f /
+nnoremap ; :
 
 nnoremap Y y$
 " nnoremap V v$h
@@ -390,30 +391,6 @@ function! s:unite_my_settings()
   inoremap <silent> <buffer><expr> <C-l> unite#do_action('vsplit')
 endfunction
 
-" "------------------------------
-" " quickrun.vim
-" "------------------------------
-" let g:quickrun_config = {}
-"
-" "------------------------------
-" " Pydiction
-" "------------------------------
-" let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-" let g:quickrun_config.markdown = {
-"       \ 'outputter' : 'null',
-"       \ 'command'   : 'open',
-"       \ 'cmdopt'    : '-a',
-"       \ 'args'      : 'Marked\ 2',
-"       \ 'exec'      : '%c %o %a %s',
-"       \ }
-" let g:quickrun_config.mkd = {
-"       \ 'outputter' : 'null',
-"       \ 'command'   : 'open',
-"       \ 'cmdopt'    : '-a',
-"       \ 'args'      : 'Marked\ 2',
-"       \ 'exec'      : '%c %o %a %s',
-"       \ }
-
 "------------------------------
 " Syntastic
 "------------------------------
@@ -428,7 +405,6 @@ let g:syntastic_php_checkers = ['php']
 nnoremap <silent> <Leader>N :CD<CR>:NERDTree<CR>
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <C-e> :NERDTreeToggle<CR>
-" let g:NERDTreeWinPos = "right"
 " let NERDTreeShowBookmarks=1
 " let NERDTreeShowHidden=1
 

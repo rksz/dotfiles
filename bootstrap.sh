@@ -13,6 +13,7 @@ echo $BASEPATH
 ln -s $HOME/dotfiles/.config            $HOME/
 ln -s $HOME/dotfiles/.ctags             $HOME/
 ln -s $HOME/dotfiles/.gitignore         $HOME/
+ln -s $HOME/dotfiles/.gitconfig         $HOME/
 ln -s $HOME/dotfiles/.gvimrc            $HOME/
 ln -s $HOME/dotfiles/.peco              $HOME/
 ln -s $HOME/dotfiles/.tmux.conf         $HOME/
@@ -90,6 +91,7 @@ darwin*)
     brew cask install font-noto-sans-japanese || true
     brew cask install font-anonymous-pro      || true
     brew cask install font-ricty-diminished   || true
+    brew cask install atom   || true
 
     # cleanup
     brew update                             || true
@@ -111,7 +113,7 @@ darwin*)
     # npm install -g david
     # npm install -g node-inspector
     # npm install -g superstatic
-
+    go get github.com/motemen/ghq
 
     ##SDKMAN
     ## curl -s api.sdkman.io | bash
