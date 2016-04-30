@@ -62,8 +62,6 @@ darwin*)
     brew cask install 1password
     brew cask install alfred                || true
     brew cask install dropbox
-    #brew cask install eclipse-ide           || true
-    #brew cask install evernote              || true
     brew cask install github
     brew cask install google-chrome         || true
     brew cask install google-drive          || true
@@ -96,6 +94,18 @@ darwin*)
     brew update                             || true
     brew cleanup
 
+    # MacApp
+    # macapp install Evernote
+    # macapp install Reeder3
+    # macapp install Pixelmeter
+    # macapp install Pomodoro Time
+    # macapp install Kindle
+    # macapp install ScanSnap Manager
+    # macapp install ScanSnap Cloud
+    # macapp install GooglePlayMusic
+    # macapp install Franz
+    # macapp install Symantec Endpoint Protection
+
     # nodebrew
     curl -L git.io/nodebrew | perl - setup
     echo export PATH=\$HOME/.nodebrew/current/bin:\$PATH >> ~/.profile
@@ -105,8 +115,7 @@ darwin*)
     nodebrew use latest
     # # tools via npm
     # npm install -g bower
-    # #npm install -g coffee-script
-    # npm install -g gulp
+    npm install -g gulp
     # npm install -g gulp-straw
     # npm install -g istanbul
     # npm install -g david
