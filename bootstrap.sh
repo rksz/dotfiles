@@ -64,8 +64,6 @@ darwin*)
     brew cask install dropbox
     #brew cask install eclipse-ide           || true
     #brew cask install evernote              || true
-    #brew cask install filezilla             || true
-    #brew cask install firefox               || true
     brew cask install github
     brew cask install google-chrome         || true
     brew cask install google-drive          || true
@@ -91,7 +89,8 @@ darwin*)
     brew cask install font-noto-sans-japanese || true
     brew cask install font-anonymous-pro      || true
     brew cask install font-ricty-diminished   || true
-    brew cask install atom   || true
+    brew cask install atom                    || true
+    brew cask install dockertoolbox           || true
 
     # cleanup
     brew update                             || true
