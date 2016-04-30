@@ -262,9 +262,10 @@ bindkey '^Z' fancy-ctrl-z
 case "${OSTYPE}" in
 darwin*)
     export GOPATH="$HOME/.go"
-    export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+    export EDITOR=/usr/local/bin/nvim
     export PATH=~/.composer/vendor/bin:~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:~/Applications/Vagrant/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin:~/.cache/gem/bin:/usr/local/php5/bin:~/.nodebrew/current/bin:$PATH
     export GEM_HOME=$HOME/.cache/gem
+    export HOMEBREW_CASK_OPTS="--appdir=/Applications"
     #export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH
     #export PATH=~/Applications/Vagrant/bin:$PATH
     #export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
