@@ -34,6 +34,7 @@ brew install curl                         || true
 brew install findutils                    || true
 brew install git                          || true
 brew install go                           || true
+brew install hugo                         || true
 brew install htop                         || true
 brew install hub                          || true
 brew install mcrypt                       || true
