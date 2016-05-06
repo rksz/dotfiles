@@ -1,10 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/shimma/dotfiles/.config'
-let g:netrw_dirhist_2='/Users/shimma/dotfiles/.config/htop'
-let g:netrw_dirhist_3='/Users/shimma/dotfiles/.config'
-let g:netrw_dirhist_4='/Users/shimma/dotfiles/.git'
-let g:netrw_dirhist_5='/Users/shimma/dotfiles/.peco'
-let g:netrw_dirhist_6='/Users/shimma/dotfiles/.vim'
-let g:netrw_dirhist_7='/Users/shimma/dotfiles/.zsh'
-let g:netrw_dirhist_8='/Users/shimma/dotfiles/.config/nvim/autoload'
+let g:netrw_dirhist_cnt =1

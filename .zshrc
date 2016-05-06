@@ -7,6 +7,11 @@ typeset -U name_of_the_variable
 
 #setopt no_clobber           # 上書きリダイレクトの禁止
 bindkey "^?" backward-delete-char
+bindkey -e
+#bindkey "^a" beginning-of-line
+#bindkey "^e" end-of-line
+#bindkey "^f" forward-char
+#bindkey "^b" backward-char
 setopt auto_list            # 補完候補が複数ある時に、一覧表示する
 setopt auto_menu            # 補完キー（Tab,  Ctrl+I) を連打するだけで順に補完候補を自動で補完する
 setopt auto_param_keys      # カッコの対応などを自動的に補完する
@@ -150,7 +155,7 @@ alias gs='git status -sb'
 alias gsp='git status --porcelain | sed s/^...// | peco | ruby -pe "chomp" | pbcopy'
 alias gss='git status --porcelain | sed s/^...//'
 alias gu='git add -u && git commit -am "update" && git push'
-alias h='vim /etc/hosts'
+alias h='sudo vim /etc/hosts'
 alias j='z'
 alias la="ls -a"
 alias ll="ls -l"
@@ -163,9 +168,10 @@ alias w='repo'
 alias s='sshpeco'
 alias ssh='env TERM=xterm ssh'
 alias ssheuc='env TERM=xterm cocot -t UTF-8 -p EUC-JP ssh '
-alias t="tmux attach || tmuxnew"
+#alias t="tmux attach || tmuxnew"
+alias t="tmuxnew"
 alias tn="tmuxnew"
-alias x='mux'
+alias x='tmuxinator'
 alias u='up'
 alias up='cd ..; ll'
 alias v="vim"
@@ -176,7 +182,7 @@ alias X="tmux kill-server"
 alias M="mvim ~/Desktop/$(date +%Y%m%d)_tmp.md"
 
 tmuxnew() {
-    name=$(basename `pwd`)
+    name=$(basename `pwd` | sed 's/\./-/g')
     tmux new -s $name
 }
 
@@ -263,7 +269,7 @@ case "${OSTYPE}" in
 darwin*)
     export GOPATH="$HOME/.go"
     export EDITOR=/usr/local/bin/nvim
-    export PATH=~/.composer/vendor/bin:~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:~/Applications/Vagrant/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin:~/.cache/gem/bin:/usr/local/php5/bin:~/.nodebrew/current/bin:$PATH
+    export PATH=/usr/local/php5/bin:~/.composer/vendor/bin:~/dotfiles/bin:/usr/local/opt/coreutils/libexec/gnubin:~/Applications/Vagrant/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$GOPATH/bin:~/.cache/gem/bin:~/.nodebrew/current/bin:$PATH
     export GEM_HOME=$HOME/.cache/gem
     export HOMEBREW_CASK_OPTS="--appdir=/Applications"
     #export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~/bin:$PATH

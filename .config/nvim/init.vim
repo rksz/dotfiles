@@ -15,7 +15,7 @@ Plug 't9md/vim-quickhl', { 'on': '<Plug>(quickhl-manual-this)' }
 " Plug 'thinca/vim-quickrun'
 " Plug 'thinca/vim-ref'
 " Plug 'tpope/vim-fugitive', { 'on': ['Gdiff', 'Glog' ] }
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 " Plug 'ujihisa/unite-colorscheme'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -24,6 +24,7 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree' ]}
 Plug 'scrooloose/syntastic', { 'for': [ 'go', 'php'] }
+
 call plug#end()
 
 " nvim configure https://github.com/neovim/neovim/issues/2048
@@ -94,6 +95,7 @@ let edark_ime_cursor=1
 let edark_insert_status_line=1
 syntax enable
 highlight PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
+autocmd BufNewFile,BufRead *.twig   set syntax=html
 
 "========================================
 " COMPLETION
@@ -130,12 +132,12 @@ nnoremap <C-j> :nohlsearch<CR><ESC>
 "========================================
 " TAGS
 "========================================
-if has("autochdir")
-  set autochdir
-  set tags=tags;
-else
+" if has("autochdir")
+  " set autochdir
+  " set tags=tags;
+" else
   set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
-endif
+" endif
 
 set notagbsearch
 nnoremap t  <Nop>
