@@ -386,6 +386,7 @@ autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
   nmap     <buffer> <ESC>          <Plug>(unite_exit)
   nmap     <buffer> <C-j>          <Plug>(unite_exit)
+  imap     <buffer> <Space>q       <Plug>(unite_exit)
   imap     <buffer> jj             <Plug>(unite_insert_leave)
   nnoremap <silent> <buffer>       <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
   imap     <buffer> <C-w>          <Plug>(unite_delete_backward_path)
