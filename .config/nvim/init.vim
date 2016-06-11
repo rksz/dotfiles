@@ -22,7 +22,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
-Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree' ]}
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree' ], 'do' : 'cp ~/dotfiles/.config/nvim/nerdtree_plugin/* ~/.cache/vim-plug/nerdtree/nerdtree_plugin/'}
 Plug 'scrooloose/syntastic', { 'for': [ 'go', 'php'] }
 
 call plug#end()
