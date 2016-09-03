@@ -24,6 +24,7 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree' ], 'do' : 'cp ~/dotfiles/.config/nvim/nerdtree_plugin/* ~/.cache/vim-plug/nerdtree/nerdtree_plugin/'}
 Plug 'scrooloose/syntastic', { 'for': [ 'go', 'php'] }
+" Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -470,3 +471,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 nmap <Space>' ciW'<c-r>"'<esc>
 vmap <space>' c'<c-r>"'<esc>
+
+
+" nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
